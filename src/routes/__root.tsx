@@ -11,6 +11,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import introVideo from "../assets/intro/final-intro.mp4";
+import mobileIntroVideo from "../assets/intro/mobile-intro-9x16.mp4";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LanguageProvider } from "@/lib/language";
 
@@ -192,7 +193,6 @@ function IntroOverlay() {
       <video
         ref={videoRef}
         className="intro-overlay__video"
-        src={introVideo}
         autoPlay
         muted
         playsInline
@@ -200,7 +200,10 @@ function IntroOverlay() {
         onEnded={dismiss}
         onError={dismiss}
         aria-hidden="true"
-      />
+      >
+        <source src={mobileIntroVideo} media="(max-width: 767px)" type="video/mp4" />
+        <source src={introVideo} type="video/mp4" />
+      </video>
     </div>
   );
 }
