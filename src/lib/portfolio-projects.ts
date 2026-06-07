@@ -1,0 +1,111 @@
+import hudaHero from "@/assets/projects/huda/01-hero.jpg";
+import tartaHero from "@/assets/projects/tarta-de-amor/01-hero.png";
+import mihnHero from "@/assets/projects/mihn/01-hero-home.png";
+import lillyHero from "@/assets/projects/lilly-breeze/01-home-hero.png";
+import sipHero from "@/assets/projects/sip/01-hero.png";
+import jorofHero from "@/assets/projects/jorof/01-hero.png";
+import noorixHero from "@/assets/projects/noorix/06-origin-hero.png";
+import pokemonHero from "@/assets/projects/pokemon-sa/01-hero-home.png";
+import pakmanHero from "@/assets/projects/pakman/01-hero.png";
+
+export const portfolioProjects = [
+  {
+    n: "01",
+    t: "Huda Bamarouf",
+    slug: "huda-bamarouf",
+    cat: "Luxury Fashion Maison",
+    img: hudaHero,
+    year: "2026",
+    disciplines: "Identity, Direction, E-Commerce",
+    span: "full",
+    ratio: "aspect-[21/9]",
+  },
+  {
+    n: "02",
+    t: "Tarta De Amor",
+    slug: "tarta-de-amor",
+    cat: "Luxury Dessert Brand / Premium E-Commerce Experience",
+    img: tartaHero,
+    year: "2026",
+    disciplines: "Brand Direction, E-Commerce, UX",
+    span: "wide",
+    ratio: "aspect-[16/10]",
+  },
+  {
+    n: "03",
+    t: "Mihn",
+    slug: "mahn-platform",
+    cat: "Digital Platform",
+    img: mihnHero,
+    year: "2026",
+    disciplines: "Identity, User Experience, Platform",
+    span: "wide",
+    ratio: "aspect-[4/3]",
+  },
+  {
+    n: "04",
+    t: "NOORIX",
+    slug: "norx-paints",
+    cat: "Brand Identity and Digital Experience",
+    img: noorixHero,
+    year: "2026",
+    disciplines: "Naming, Identity, Website",
+    span: "tall",
+    ratio: "aspect-[3/4]",
+  },
+  {
+    n: "05",
+    t: "Pokémon SA",
+    slug: "pikmon-store",
+    cat: "Collectibles Commerce Platform",
+    img: pokemonHero,
+    year: "2026",
+    disciplines: "Identity, Commerce, User Experience",
+    span: "wide",
+    ratio: "aspect-[16/10]",
+  },
+  {
+    n: "06",
+    t: "Lilly Breeze",
+    slug: "lily-home-spa",
+    cat: "Luxury Wellness Experience",
+    img: lillyHero,
+    year: "2026",
+    disciplines: "Brand, Website",
+    span: "small",
+    ratio: "aspect-[4/3]",
+  },
+  {
+    n: "07",
+    t: "SIP",
+    slug: "sip",
+    cat: "Saudi Beverage Brand",
+    img: sipHero,
+    year: "2026",
+    disciplines: "Naming, Identity, Website",
+    span: "wide",
+    ratio: "aspect-[16/10]",
+  },
+  {
+    n: "08",
+    t: "JOROF",
+    slug: "jorof",
+    cat: "Brand Identity, Creative Direction, User Experience, Website Design and Development",
+    img: jorofHero,
+    year: "2026",
+    disciplines: "Identity, User Experience, Website",
+    span: "wide",
+    ratio: "aspect-[16/10]",
+  },
+  {
+    n: "09",
+    t: "Pakman",
+    slug: "pakman",
+    cat: "Brand Identity, Website Design, Art Direction",
+    img: pakmanHero,
+    year: "2026",
+    disciplines: "Identity, Packaging, Website",
+    span: "wide",
+    ratio: "aspect-[16/10]",
+  },
+] as const;

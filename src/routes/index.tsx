@@ -1,0 +1,465 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, Compass, LayoutTemplate, PenTool, Rocket } from "lucide-react";
+import { useEffect } from "react";
+import cinematicHero from "@/assets/cinematic-hero.png";
+import processDesign from "@/assets/process/design.png";
+import processDevelopment from "@/assets/process/development.png";
+import processDiscovery from "@/assets/process/discovery.png";
+import processStrategy from "@/assets/process/strategy.png";
+import aboutImg from "@/assets/about.png";
+import finalCtaWall from "@/assets/final-cta-wall.png";
+import { SiteLayout } from "@/components/site/Layout";
+import { CONTACT_EMAIL, emailHref, whatsappHref } from "@/lib/contact";
+import { projectDisplay, siteCopy, useLanguage } from "@/lib/language";
+import { portfolioProjects } from "@/lib/portfolio-projects";
+import serviceBrandWebsites from "@/assets/services/brand-websites.png";
+import serviceBusinessWebsites from "@/assets/services/business-websites.png";
+import serviceDesignDevelopment from "@/assets/services/design-development.png";
+import serviceEcommerceStores from "@/assets/services/ecommerce-stores.png";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Tarik Bamarouf | Digital Experiences for Ambitious Brands" },
+      {
+        name: "description",
+        content:
+          "Tarik Bamarouf designs and builds premium websites, e-commerce stores, and digital experiences for modern brands.",
+      },
+      {
+        property: "og:title",
+        content: "Tarik Bamarouf | Digital Experiences for Ambitious Brands",
+      },
+      {
+        property: "og:description",
+        content:
+          "Premium websites, e-commerce stores, and digital experiences crafted for modern brands.",
+      },
+    ],
+  }),
+  component: Index,
+});
+
+const projects = portfolioProjects;
+const selectedWorkProjects = portfolioProjects;
+
+const steps = [
+  {
+    n: "01",
+    icon: Compass,
+    image: processDiscovery,
+  },
+  {
+    n: "02",
+    icon: LayoutTemplate,
+    image: processStrategy,
+  },
+  {
+    n: "03",
+    icon: PenTool,
+    image: processDesign,
+  },
+  {
+    n: "04",
+    icon: Rocket,
+    image: processDevelopment,
+  },
+] as const;
+
+const serviceVisuals = [
+  { image: serviceBrandWebsites, position: "52% 44%" },
+  { image: serviceBusinessWebsites, position: "50% 48%" },
+  { image: serviceEcommerceStores, position: "50% 44%" },
+  { image: serviceDesignDevelopment, position: "center" },
+] as const;
+
+function Index() {
+  const { language } = useLanguage();
+  const t = siteCopy[language];
+  const localizedServices = t.services;
+  const localizedSteps = t.steps;
+
+  useEffect(() => {
+    const items = document.querySelectorAll<HTMLElement>("[data-scroll-reveal]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.18 },
+    );
+
+    items.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <SiteLayout>
+      <section className="home-hero relative min-h-[100svh] overflow-hidden bg-ink">
+        <img
+          src={cinematicHero}
+          alt="Tarik Bamarouf cinematic hero"
+          className="home-hero__image absolute inset-0 h-full w-full object-contain object-center"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,oklch(0.035_0.006_65/.78)_0%,oklch(0.035_0.006_65/.50)_28%,oklch(0.035_0.006_65/.08)_58%,oklch(0.035_0.006_65/.34)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,transparent_0%,oklch(0.035_0.006_65/.04)_36%,oklch(0.035_0.006_65/.52)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background via-background/45 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-6 top-24 bottom-10 border border-bronze/10 md:inset-x-10 lg:inset-x-14" />
+
+        <div className="home-hero__content relative z-10 flex min-h-[100svh] w-full flex-col px-6 pb-10 pt-32 md:px-10 lg:px-14 lg:pt-36">
+          <div className="home-hero__copy mt-auto max-w-[480px] pb-14 md:pb-18">
+            <p className="reveal text-[10px] uppercase tracking-luxury text-bronze">
+              {t.home.heroLabel}
+            </p>
+            <h1 className="reveal reveal-delay-1 mt-5 font-serif text-[clamp(3rem,14vw,4.6rem)] font-light leading-[0.96] text-foreground md:text-7xl lg:text-8xl">
+              {t.home.heroLine1}
+              <br />
+              {t.home.heroLine2}
+              <br />
+              {t.home.heroLine3}{" "}
+              <span className="italic text-bronze-soft">{t.home.heroEmphasis}</span>
+              {t.home.heroLine4 && (
+                <>
+                  <br />
+                  {t.home.heroLine4}
+                </>
+              )}
+            </h1>
+            <p className="reveal reveal-delay-2 mt-8 max-w-sm text-sm font-light leading-7 text-foreground/76 md:text-base">
+              {t.home.heroBody}
+            </p>
+            <div className="reveal reveal-delay-3 mt-9 flex flex-wrap items-center gap-4">
+              <Link
+                to="/work"
+                className="inline-flex items-center gap-3 bg-bronze px-7 py-4 text-[11px] uppercase tracking-editorial text-ink shadow-[0_18px_60px_oklch(0.72_0.09_70/.20)] transition-colors duration-500 hover:bg-bronze-soft"
+              >
+                {t.home.viewWork}
+                <ArrowRight className="lang-arrow h-3.5 w-3.5" aria-hidden="true" />
+              </Link>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 px-3 py-4 text-[11px] uppercase tracking-editorial text-foreground/88 transition-colors duration-500 hover:text-bronze"
+              >
+                {t.home.startProject}
+                <ArrowRight
+                  className="lang-arrow h-3.5 w-3.5 transition-transform duration-500 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="home-hero__meta grid grid-cols-2 border-t border-bronze/20 pt-5 text-[10px] uppercase tracking-luxury text-foreground/50 md:grid-cols-3">
+            <span>Tarik Bamarouf</span>
+            <span className="hidden text-center md:block">{t.home.portfolioLabel}</span>
+            <span className="text-right text-bronze">{t.common.scroll}</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="selected-work relative overflow-hidden border-y border-border/25 bg-background py-18 md:py-24">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,oklch(0.72_0.09_70/.08),transparent_30%)]" />
+        <div className="w-full px-6 md:px-10 lg:px-14">
+          <div className="relative z-10 mb-9 flex items-end justify-between gap-8">
+            <div>
+              <p className="text-[10px] uppercase tracking-luxury text-bronze">
+                {t.home.selectedWork}
+              </p>
+              <h2 className="mt-5 font-serif text-4xl font-light leading-none md:text-6xl lg:text-7xl">
+                {t.home.selectedTitle}
+              </h2>
+            </div>
+            <Link
+              to="/work"
+              className="group hidden items-center gap-3 text-[11px] uppercase tracking-editorial text-bronze transition-colors duration-500 hover:text-bronze-soft md:inline-flex"
+            >
+              {t.common.viewAllProjects}
+              <ArrowRight
+                className="lang-arrow h-3.5 w-3.5 transition-transform duration-500 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </Link>
+          </div>
+
+          <div className="relative z-10 border border-border/35 bg-ink/35 shadow-[0_40px_120px_oklch(0_0_0/.28)]">
+            {selectedWorkProjects.map((p, i) => {
+              const display = projectDisplay(p.slug, language);
+              return (
+                <Link
+                  key={p.slug}
+                  to="/work/$slug"
+                  params={{ slug: p.slug }}
+                  className="selected-work__row group relative block min-h-[220px] overflow-hidden border-b border-border/35 last:border-b-0 md:min-h-[228px]"
+                >
+                  <img
+                    src={p.img}
+                    alt={p.t}
+                    loading={i < 2 ? "eager" : "lazy"}
+                    className="selected-work__image absolute inset-y-0 right-0 h-full w-full object-cover opacity-78 transition-all duration-[1400ms] ease-out group-hover:scale-[1.03] group-hover:opacity-95 md:w-[68%]"
+                  />
+                  <div className="selected-work__veil selected-work__veil--primary absolute inset-0 bg-[linear-gradient(90deg,oklch(0.035_0.006_65/.99)_0%,oklch(0.035_0.006_65/.94)_33%,oklch(0.035_0.006_65/.50)_58%,oklch(0.035_0.006_65/.10)_100%)]" />
+                  <div className="selected-work__veil selected-work__veil--secondary absolute inset-0 bg-[linear-gradient(0deg,oklch(0.035_0.006_65/.52),transparent_58%,oklch(0.035_0.006_65/.24))]" />
+                  <div className="absolute inset-0 opacity-0 ring-1 ring-inset ring-bronze/25 transition-opacity duration-500 group-hover:opacity-100" />
+
+                  <div className="selected-work__content relative z-10 grid min-h-[220px] grid-cols-1 gap-6 p-7 md:min-h-[228px] md:grid-cols-[minmax(280px,0.40fr)_1fr_auto] md:items-center md:p-9 lg:p-10">
+                    <div>
+                      <p className="font-serif text-lg italic text-bronze">
+                        {String(i + 1).padStart(2, "0")}
+                      </p>
+                      <p className="mt-5 max-w-sm text-[10px] uppercase tracking-luxury text-bronze/90">
+                        {display.category ?? p.cat}
+                      </p>
+                      <h3 className="mt-3 font-serif text-4xl font-light leading-none text-foreground transition-colors duration-500 group-hover:text-bronze-soft md:text-5xl">
+                        {p.t}
+                      </h3>
+                    </div>
+
+                    <p className="max-w-sm self-end text-sm font-light leading-7 text-foreground/74 md:self-center">
+                      {display.disciplines ?? p.disciplines}
+                    </p>
+
+                    <span className="inline-flex w-fit items-center gap-3 self-end border border-bronze/35 bg-ink/25 px-5 py-3 text-[10px] uppercase tracking-editorial text-bronze transition-all duration-500 group-hover:border-bronze group-hover:bg-bronze group-hover:text-ink md:self-center">
+                      {t.common.viewProject}
+                      <ArrowRight
+                        className="lang-arrow h-3.5 w-3.5 transition-transform duration-500 group-hover:translate-x-1"
+                        aria-hidden="true"
+                      />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+
+          <Link
+            to="/work"
+            className="mt-8 inline-flex items-center gap-3 text-[11px] uppercase tracking-editorial text-bronze md:hidden"
+          >
+            {t.common.viewAllProjects}
+            <ArrowRight className="lang-arrow h-3.5 w-3.5" aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+
+      <section
+        id="about"
+        className="home-about relative overflow-hidden bg-ink py-24 md:min-h-[640px] md:py-34"
+      >
+        <div className="absolute inset-0">
+            <img
+              src={aboutImg}
+              alt=""
+              loading="lazy"
+              className="home-about__image cinematic-drift h-full w-full object-cover object-[24%_center] opacity-72 saturate-75 contrast-110"
+            />
+          <div className="home-about__shade absolute inset-0 bg-[linear-gradient(90deg,oklch(0.035_0.006_65/.90)_0%,oklch(0.035_0.006_65/.68)_40%,oklch(0.035_0.006_65/.22)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_48%,oklch(0.72_0.09_70/.20),transparent_33%),radial-gradient(circle_at_74%_34%,oklch(0.82_0.07_78/.12),transparent_28%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background via-background/70 to-transparent" />
+        </div>
+        <div className="pointer-events-none absolute left-6 top-24 h-80 w-[42rem] max-w-[88vw] bg-[radial-gradient(ellipse_at_center,oklch(0.72_0.09_70/.18),transparent_68%)] blur-2xl md:left-10 lg:left-14" />
+        <div className="home-about__content relative z-10 grid min-h-[430px] w-full grid-cols-12 items-center gap-8 px-6 md:px-10 lg:px-14">
+          <div className="home-about__heading col-span-12 lg:col-span-5">
+            <p
+              className="scroll-reveal text-[10px] uppercase tracking-luxury text-bronze"
+              data-scroll-reveal
+            >
+              {t.home.aboutLabel}
+            </p>
+            <h2
+              className="scroll-reveal mt-6 font-serif text-5xl font-light leading-[0.98] text-foreground drop-shadow-[0_20px_60px_oklch(0_0_0/.55)] md:text-7xl lg:text-8xl"
+              data-scroll-reveal
+              style={{ transitionDelay: "120ms" }}
+            >
+              {t.home.aboutTitle.split("\n").map((line, index, lines) => (
+                <span key={line}>
+                  {line}
+                  {index < lines.length - 1 && <br />}
+                </span>
+              ))}
+            </h2>
+          </div>
+          <div className="home-about__body col-span-12 flex flex-col items-start justify-start lg:col-span-4 lg:col-start-6 lg:justify-center xl:col-start-6">
+            <p
+              className="scroll-reveal max-w-md text-base font-light leading-8 text-foreground/82"
+              data-scroll-reveal
+              style={{ transitionDelay: "220ms" }}
+            >
+              {t.home.aboutBody}
+            </p>
+            <Link
+              to="/about"
+              className="scroll-reveal group mt-9 inline-flex w-fit items-center gap-3 text-[11px] uppercase tracking-editorial text-bronze transition-colors duration-500 hover:text-bronze-soft"
+              data-scroll-reveal
+              style={{ transitionDelay: "320ms" }}
+            >
+              {t.home.aboutCta}
+              <ArrowRight
+                className="lang-arrow h-3.5 w-3.5 transition-transform duration-500 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="services"
+        className="home-services relative overflow-hidden border-y border-border/25 bg-background py-18 md:py-24"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,oklch(0.72_0.09_70/.10),transparent_32%)]" />
+        <div className="relative z-10 w-full px-6 md:px-10 lg:px-14">
+          <p
+            className="scroll-reveal text-[10px] uppercase tracking-luxury text-bronze"
+            data-scroll-reveal
+          >
+            {t.home.servicesLabel}
+          </p>
+          <div className="mt-9 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {localizedServices.map((service, i) => {
+              const visual = serviceVisuals[i % serviceVisuals.length];
+
+              return (
+                <article
+                  key={service.t}
+                  className="service-card group relative min-h-[390px] overflow-hidden border border-bronze/18 bg-ink/68 p-7 shadow-[0_24px_80px_oklch(0_0_0/.22)] transition-all duration-700 hover:-translate-y-2 hover:border-bronze/42 hover:bg-ink/82 hover:shadow-[0_34px_110px_oklch(0_0_0/.38)] lg:p-8"
+                >
+                  <img
+                    src={visual.image}
+                    alt=""
+                    loading="lazy"
+                    className="service-card__image absolute inset-0 h-full w-full object-cover opacity-[0.94] transition-all duration-[1400ms] group-hover:scale-[1.045] group-hover:opacity-100"
+                    style={{ objectPosition: visual.position }}
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.035_0.006_65/.00)_0%,oklch(0.035_0.006_65/.08)_38%,oklch(0.035_0.006_65/.62)_100%)]" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,oklch(0.78_0.10_72/.14),transparent_30%),radial-gradient(circle_at_82%_18%,oklch(0.72_0.09_70/.10),transparent_28%)] opacity-80 transition-opacity duration-700 group-hover:opacity-100" />
+                  <div className="absolute inset-x-7 top-7 h-px bg-gradient-to-r from-bronze/70 via-bronze/20 to-transparent" />
+                  <div className="service-card__content relative z-10 flex h-full min-h-[310px] flex-col justify-between">
+                    <span className="font-serif text-2xl italic text-bronze drop-shadow-[0_8px_24px_oklch(0_0_0/.45)]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="font-serif text-3xl font-light leading-tight text-foreground transition-colors duration-500 group-hover:text-bronze-soft">
+                        {service.t}
+                      </h3>
+                      <p className="mt-4 text-sm font-light leading-7 text-foreground/74">
+                        {service.d}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="process" className="relative overflow-hidden bg-ink py-20 md:py-26">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,oklch(0.72_0.09_70/.14),transparent_32%),linear-gradient(180deg,oklch(0.035_0.006_65),oklch(0.045_0.006_65))]" />
+        <div className="relative z-10 w-full px-6 md:px-10 lg:px-14">
+          <div className="mb-10 flex items-center gap-6">
+            <p className="text-[10px] uppercase tracking-luxury text-foreground/70">
+              {t.home.processLabel}
+            </p>
+            <span className="h-px w-14 bg-bronze/65" />
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {steps.map((step, i) => {
+              const Icon = step.icon;
+              return (
+                <article
+                  key={step.n}
+                  className="process-card group relative overflow-hidden border border-bronze/22 bg-[linear-gradient(180deg,oklch(0.075_0.006_65),oklch(0.035_0.004_65))] shadow-[0_30px_90px_oklch(0_0_0/.32)] transition-colors duration-500 hover:border-bronze/45"
+                >
+                  <div className="process-card__media relative h-56 overflow-hidden border-b border-bronze/16 md:h-64 lg:h-72">
+                    <img
+                      src={step.image}
+                      alt=""
+                      loading="lazy"
+                      className="h-full w-full object-cover opacity-95 transition-all duration-[1400ms] group-hover:scale-[1.035] group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.035_0.006_65/.08)_0%,oklch(0.035_0.006_65/.04)_45%,oklch(0.035_0.006_65/.54)_100%)]" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,transparent_0%,oklch(0.035_0.006_65/.18)_100%)]" />
+                    <div className="absolute bottom-6 left-6 flex items-center gap-4">
+                      <span className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-bronze/45 bg-ink/58 text-bronze shadow-[0_16px_40px_oklch(0_0_0/.35)] backdrop-blur-sm">
+                        <Icon className="h-6 w-6" aria-hidden="true" />
+                      </span>
+                    </div>
+                    {i < steps.length - 1 && (
+                      <ArrowRight
+                        className="absolute bottom-10 right-6 hidden h-5 w-5 text-bronze md:block"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </div>
+
+                  <div className="process-card__body relative min-h-[260px] p-8">
+                    <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-bronze/50 via-bronze/15 to-transparent" />
+                    <span className="font-serif text-7xl font-light leading-none text-bronze lg:text-8xl">
+                      {step.n}
+                    </span>
+                    <span className="mt-4 block h-px w-12 bg-bronze/55" />
+                    <div className="mt-5">
+                      <h3 className="text-sm font-medium uppercase tracking-editorial text-foreground/95">
+                        {localizedSteps[i].t}
+                      </h3>
+                      <p className="mt-5 max-w-xs text-sm font-light leading-7 text-foreground/72">
+                        {localizedSteps[i].d}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="final-cta relative overflow-hidden border-t border-bronze/10 bg-ink">
+        <div className="final-cta__ambient" aria-hidden="true" />
+        <div className="final-cta__grain" aria-hidden="true" />
+        <div className="final-cta__beam" aria-hidden="true" />
+        <div className="final-cta__scene" aria-hidden="true">
+          <div className="final-cta__artwork">
+            <img src={finalCtaWall} alt="" className="final-cta__artwork-image" loading="lazy" />
+          </div>
+        </div>
+
+        <div className="final-cta__inner relative z-10 flex w-full items-center px-6 py-20 md:px-10 lg:px-14 lg:py-0">
+          <div className="final-cta__copy scroll-reveal" data-scroll-reveal>
+            <p className="text-[10px] uppercase tracking-luxury text-bronze">{t.home.ctaLabel}</p>
+            <h2 className="mt-6 max-w-4xl font-serif text-[clamp(2.8rem,6vw,7.6rem)] font-light leading-[0.96]">
+              {t.home.ctaTitle}
+            </h2>
+            <p className="mt-7 max-w-md text-sm font-light leading-7 text-foreground/70">
+              {t.home.ctaBody}
+            </p>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="final-cta__button final-cta__button--primary inline-flex items-center gap-3 bg-bronze px-7 py-4 text-[11px] uppercase tracking-editorial text-ink transition-colors duration-500 hover:bg-bronze-soft"
+              >
+                {t.home.ctaButton}
+                <ArrowRight className="lang-arrow h-3.5 w-3.5" aria-hidden="true" />
+              </a>
+              <a
+                href={emailHref}
+                className="final-cta__button final-cta__button--secondary inline-flex items-center gap-3 border border-bronze/30 px-7 py-4 text-[11px] uppercase tracking-editorial text-bronze transition-colors duration-500 hover:border-bronze hover:text-bronze-soft"
+              >
+                {CONTACT_EMAIL}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </SiteLayout>
+  );
+}
