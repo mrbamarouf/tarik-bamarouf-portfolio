@@ -167,7 +167,7 @@ function IntroOverlay() {
     const video = videoRef.current;
     if (!video) return undefined;
 
-    video.currentTime = 0;
+    video.currentTime = 1;
     fallbackTimerRef.current = window.setTimeout(dismiss, 14000);
 
     const playPromise = video.play();
