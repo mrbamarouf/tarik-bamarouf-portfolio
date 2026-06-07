@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import signature from "@/assets/signature.png";
+import signature from "@/assets/signature.webp";
 import { whatsappHref, emailHref, CONTACT_EMAIL } from "@/lib/contact";
 import { siteCopy, useLanguage } from "@/lib/language";
 
@@ -16,6 +16,8 @@ export function Footer() {
               <img
                 src={signature}
                 alt="Tarik Bamarouf"
+                loading="lazy"
+                decoding="async"
                 className="h-auto w-[250px] drop-shadow-[0_14px_38px_oklch(0.72_0.09_70/.16)] md:w-[330px]"
               />
             </Link>

@@ -1,21 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Compass, LayoutTemplate, PenTool, Rocket } from "lucide-react";
 import { useEffect } from "react";
-import cinematicHero from "@/assets/cinematic-hero.png";
-import processDesign from "@/assets/process/design.png";
-import processDevelopment from "@/assets/process/development.png";
-import processDiscovery from "@/assets/process/discovery.png";
-import processStrategy from "@/assets/process/strategy.png";
-import aboutImg from "@/assets/about.png";
-import finalCtaWall from "@/assets/final-cta-wall.png";
+import cinematicHero from "@/assets/cinematic-hero.webp";
+import processDesign from "@/assets/process/design.webp";
+import processDevelopment from "@/assets/process/development.webp";
+import processDiscovery from "@/assets/process/discovery.webp";
+import processStrategy from "@/assets/process/strategy.webp";
+import aboutImg from "@/assets/about.webp";
+import finalCtaWall from "@/assets/final-cta-wall.webp";
 import { SiteLayout } from "@/components/site/Layout";
 import { CONTACT_EMAIL, emailHref, whatsappHref } from "@/lib/contact";
 import { projectDisplay, siteCopy, useLanguage } from "@/lib/language";
 import { portfolioProjects } from "@/lib/portfolio-projects";
-import serviceBrandWebsites from "@/assets/services/brand-websites.png";
-import serviceBusinessWebsites from "@/assets/services/business-websites.png";
-import serviceDesignDevelopment from "@/assets/services/design-development.png";
-import serviceEcommerceStores from "@/assets/services/ecommerce-stores.png";
+import serviceBrandWebsites from "@/assets/services/brand-websites.webp";
+import serviceBusinessWebsites from "@/assets/services/business-websites.webp";
+import serviceDesignDevelopment from "@/assets/services/design-development.webp";
+import serviceEcommerceStores from "@/assets/services/ecommerce-stores.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -103,6 +103,9 @@ function Index() {
         <img
           src={cinematicHero}
           alt="Tarik Bamarouf cinematic hero"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="home-hero__image absolute inset-0 h-full w-full object-contain object-center"
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,oklch(0.035_0.006_65/.78)_0%,oklch(0.035_0.006_65/.50)_28%,oklch(0.035_0.006_65/.08)_58%,oklch(0.035_0.006_65/.34)_100%)]" />
@@ -200,7 +203,8 @@ function Index() {
                   <img
                     src={p.img}
                     alt={p.t}
-                    loading={i < 2 ? "eager" : "lazy"}
+                    loading="lazy"
+                    decoding="async"
                     className="selected-work__image absolute inset-y-0 right-0 h-full w-full object-cover opacity-78 transition-all duration-[1400ms] ease-out group-hover:scale-[1.03] group-hover:opacity-95 md:w-[68%]"
                   />
                   <div className="selected-work__veil selected-work__veil--primary absolute inset-0 bg-[linear-gradient(90deg,oklch(0.035_0.006_65/.99)_0%,oklch(0.035_0.006_65/.94)_33%,oklch(0.035_0.006_65/.50)_58%,oklch(0.035_0.006_65/.10)_100%)]" />
@@ -256,6 +260,7 @@ function Index() {
               src={aboutImg}
               alt=""
               loading="lazy"
+              decoding="async"
               className="home-about__image cinematic-drift h-full w-full object-cover object-[24%_center] opacity-72 saturate-75 contrast-110"
             />
           <div className="home-about__shade absolute inset-0 bg-[linear-gradient(90deg,oklch(0.035_0.006_65/.90)_0%,oklch(0.035_0.006_65/.68)_40%,oklch(0.035_0.006_65/.22)_100%)]" />
@@ -333,6 +338,7 @@ function Index() {
                     src={visual.image}
                     alt=""
                     loading="lazy"
+                    decoding="async"
                     className="service-card__image absolute inset-0 h-full w-full object-cover opacity-[0.94] transition-all duration-[1400ms] group-hover:scale-[1.045] group-hover:opacity-100"
                     style={{ objectPosition: visual.position }}
                   />
@@ -382,6 +388,7 @@ function Index() {
                       src={step.image}
                       alt=""
                       loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-cover opacity-95 transition-all duration-[1400ms] group-hover:scale-[1.035] group-hover:opacity-100"
                     />
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.035_0.006_65/.08)_0%,oklch(0.035_0.006_65/.04)_45%,oklch(0.035_0.006_65/.54)_100%)]" />
@@ -427,7 +434,13 @@ function Index() {
         <div className="final-cta__beam" aria-hidden="true" />
         <div className="final-cta__scene" aria-hidden="true">
           <div className="final-cta__artwork">
-            <img src={finalCtaWall} alt="" className="final-cta__artwork-image" loading="lazy" />
+            <img
+              src={finalCtaWall}
+              alt=""
+              className="final-cta__artwork-image"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
 

@@ -75,6 +75,7 @@ function WorkPage() {
                         src={p.img}
                         alt={p.t}
                         loading="lazy"
+                        decoding="async"
                         className="work-archive__image"
                       />
                     </div>

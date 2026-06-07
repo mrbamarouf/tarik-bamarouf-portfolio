@@ -2,85 +2,85 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
 import { localizeProject, siteCopy, useLanguage } from "@/lib/language";
-import hudaImg from "@/assets/projects/huda.jpg";
-import mahnImg from "@/assets/projects/mahn.jpg";
-import lilyImg from "@/assets/projects/lily.jpg";
+import hudaImg from "@/assets/projects/huda.webp";
+import mahnImg from "@/assets/projects/mahn.webp";
+import lilyImg from "@/assets/projects/lily.webp";
 
-import hudaHero from "@/assets/projects/huda/01-hero.jpg";
-import tartaHero from "@/assets/projects/tarta-de-amor/01-hero.png";
-import tartaOrderExperience from "@/assets/projects/tarta-de-amor/02-order-experience.png";
-import tartaChocolateSauce from "@/assets/projects/tarta-de-amor/03-chocolate-sauce.png";
-import tartaPackaging from "@/assets/projects/tarta-de-amor/04-packaging-presentation.png";
-import tartaMoments from "@/assets/projects/tarta-de-amor/05-made-for-moments.png";
-import tartaPresented from "@/assets/projects/tarta-de-amor/06-presented-before-opened.png";
-import tartaContact from "@/assets/projects/tarta-de-amor/07-contact-final.png";
-import hudaCouture from "@/assets/projects/huda/02-couture.jpg";
-import hudaRtw from "@/assets/projects/huda/03-rtw.jpg";
-import hudaBridal from "@/assets/projects/huda/04-bridal.jpg";
-import hudaBridalDetails from "@/assets/projects/huda/05-bridal-details.jpg";
-import hudaJournal from "@/assets/projects/huda/06-journal.jpg";
-import hudaPress from "@/assets/projects/huda/07-press.jpg";
-import hudaMaison from "@/assets/projects/huda/08-maison-presence.jpg";
-import hudaWornBy from "@/assets/projects/huda/09-worn-by.jpg";
-import hudaEvents from "@/assets/projects/huda/10-events.jpg";
-import lillyHero from "@/assets/projects/lilly-breeze/01-home-hero.png";
-import lillyArrival from "@/assets/projects/lilly-breeze/02-house-arrival.png";
-import lillyPhilosophy from "@/assets/projects/lilly-breeze/03-philosophy.png";
-import lillyRituals from "@/assets/projects/lilly-breeze/04-rituals.png";
-import lillyFragments from "@/assets/projects/lilly-breeze/05-fragments-note.png";
-import lillyGallery from "@/assets/projects/lilly-breeze/06-visual-gallery.png";
-import lillyPromise from "@/assets/projects/lilly-breeze/07-promise.png";
-import lillyInvitation from "@/assets/projects/lilly-breeze/08-invitation.png";
-import sipHero from "@/assets/projects/sip/01-hero.png";
-import sipProductLineup from "@/assets/projects/sip/02-product-lineup.png";
-import sipZeroRange from "@/assets/projects/sip/03-zero-range.png";
-import sipBrandStory from "@/assets/projects/sip/04-brand-story.png";
-import sipProductCards from "@/assets/projects/sip/05-product-cards.png";
-import mihnHero from "@/assets/projects/mihn/01-hero-home.png";
-import mihnIntro from "@/assets/projects/mihn/02-introduction.png";
-import mihnDashOne from "@/assets/projects/mihn/03-dashboard-overview.png";
-import mihnDashTwo from "@/assets/projects/mihn/04-management-interface.png";
-import mihnDashThree from "@/assets/projects/mihn/05-platform-operations.png";
-import mihnSignIn from "@/assets/projects/mihn/06-authentication-experience.png";
-import noorixHero from "@/assets/projects/noorix/01-website-hero.png";
-import noorixPositioning from "@/assets/projects/noorix/02-brand-positioning.png";
-import noorixSpaces from "@/assets/projects/noorix/03-premium-spaces.png";
-import noorixColorSystem from "@/assets/projects/noorix/04-color-system.png";
-import noorixTransformation from "@/assets/projects/noorix/05-transformation.png";
-import noorixOrigin from "@/assets/projects/noorix/06-origin-hero.png";
-import noorixApplication from "@/assets/projects/noorix/07-brand-application.png";
-import noorixProductSpectrum from "@/assets/projects/noorix/08-product-spectrum.png";
-import noorixPaletteCollection from "@/assets/projects/noorix/09-palette-collection.png";
-import noorixTrendReport from "@/assets/projects/noorix/10-color-trend-report.png";
-import pokemonHero from "@/assets/projects/pokemon-sa/01-hero-home.png";
-import pokemonBrandExperience from "@/assets/projects/pokemon-sa/02-brand-experience.png";
-import pokemonTradingCards from "@/assets/projects/pokemon-sa/03-trading-cards.png";
-import pokemonSealedProducts from "@/assets/projects/pokemon-sa/04-sealed-products.png";
-import pokemonCollectibles from "@/assets/projects/pokemon-sa/05-collectibles.png";
-import pokemonMerchandise from "@/assets/projects/pokemon-sa/06-merchandise.png";
-import pokemonApparel from "@/assets/projects/pokemon-sa/07-apparel.png";
-import pokemonHoodies from "@/assets/projects/pokemon-sa/08-hoodies.png";
-import pokemonCustomBuilder from "@/assets/projects/pokemon-sa/09-custom-builder.png";
-import pokemonCommunityGamification from "@/assets/projects/pokemon-sa/10-community-gamification.png";
-import pokemonRareMarketplace from "@/assets/projects/pokemon-sa/11-rare-marketplace.png";
-import jorofHero from "@/assets/projects/jorof/01-hero.png";
-import jorofIntro from "@/assets/projects/jorof/02-intro.png";
-import jorofBrandStory from "@/assets/projects/jorof/03-brand-story.png";
-import jorofProductRange from "@/assets/projects/jorof/04-product-range.png";
-import jorofManufacturing from "@/assets/projects/jorof/05-manufacturing.png";
-import jorofQuality from "@/assets/projects/jorof/06-quality-assurance.png";
-import jorofCustomerJourney from "@/assets/projects/jorof/07-customer-journey.png";
-import jorofContact from "@/assets/projects/jorof/08-contact-acquisition.png";
-import pakmanHero from "@/assets/projects/pakman/01-hero.png";
-import pakmanProductCategories from "@/assets/projects/pakman/02-product-categories.png";
-import pakmanAbout from "@/assets/projects/pakman/03-about-pakman.png";
-import pakmanPackagingGallery from "@/assets/projects/pakman/04-packaging-gallery.png";
-import pakmanClients from "@/assets/projects/pakman/05-clients.png";
-import pakmanHeadquarters from "@/assets/projects/pakman/06-headquarters.png";
-import pakmanQuoteForm from "@/assets/projects/pakman/07-quote-form.png";
-import pakmanFooter from "@/assets/projects/pakman/08-footer-final.png";
-import pakmanFoodBusinesses from "@/assets/projects/pakman/09-food-businesses.png";
-import pakmanWhy from "@/assets/projects/pakman/10-why-pakman.png";
+import hudaHero from "@/assets/projects/huda/01-hero.webp";
+import tartaHero from "@/assets/projects/tarta-de-amor/01-hero.webp";
+import tartaOrderExperience from "@/assets/projects/tarta-de-amor/02-order-experience.webp";
+import tartaChocolateSauce from "@/assets/projects/tarta-de-amor/03-chocolate-sauce.webp";
+import tartaPackaging from "@/assets/projects/tarta-de-amor/04-packaging-presentation.webp";
+import tartaMoments from "@/assets/projects/tarta-de-amor/05-made-for-moments.webp";
+import tartaPresented from "@/assets/projects/tarta-de-amor/06-presented-before-opened.webp";
+import tartaContact from "@/assets/projects/tarta-de-amor/07-contact-final.webp";
+import hudaCouture from "@/assets/projects/huda/02-couture.webp";
+import hudaRtw from "@/assets/projects/huda/03-rtw.webp";
+import hudaBridal from "@/assets/projects/huda/04-bridal.webp";
+import hudaBridalDetails from "@/assets/projects/huda/05-bridal-details.webp";
+import hudaJournal from "@/assets/projects/huda/06-journal.webp";
+import hudaPress from "@/assets/projects/huda/07-press.webp";
+import hudaMaison from "@/assets/projects/huda/08-maison-presence.webp";
+import hudaWornBy from "@/assets/projects/huda/09-worn-by.webp";
+import hudaEvents from "@/assets/projects/huda/10-events.webp";
+import lillyHero from "@/assets/projects/lilly-breeze/01-home-hero.webp";
+import lillyArrival from "@/assets/projects/lilly-breeze/02-house-arrival.webp";
+import lillyPhilosophy from "@/assets/projects/lilly-breeze/03-philosophy.webp";
+import lillyRituals from "@/assets/projects/lilly-breeze/04-rituals.webp";
+import lillyFragments from "@/assets/projects/lilly-breeze/05-fragments-note.webp";
+import lillyGallery from "@/assets/projects/lilly-breeze/06-visual-gallery.webp";
+import lillyPromise from "@/assets/projects/lilly-breeze/07-promise.webp";
+import lillyInvitation from "@/assets/projects/lilly-breeze/08-invitation.webp";
+import sipHero from "@/assets/projects/sip/01-hero.webp";
+import sipProductLineup from "@/assets/projects/sip/02-product-lineup.webp";
+import sipZeroRange from "@/assets/projects/sip/03-zero-range.webp";
+import sipBrandStory from "@/assets/projects/sip/04-brand-story.webp";
+import sipProductCards from "@/assets/projects/sip/05-product-cards.webp";
+import mihnHero from "@/assets/projects/mihn/01-hero-home.webp";
+import mihnIntro from "@/assets/projects/mihn/02-introduction.webp";
+import mihnDashOne from "@/assets/projects/mihn/03-dashboard-overview.webp";
+import mihnDashTwo from "@/assets/projects/mihn/04-management-interface.webp";
+import mihnDashThree from "@/assets/projects/mihn/05-platform-operations.webp";
+import mihnSignIn from "@/assets/projects/mihn/06-authentication-experience.webp";
+import noorixHero from "@/assets/projects/noorix/01-website-hero.webp";
+import noorixPositioning from "@/assets/projects/noorix/02-brand-positioning.webp";
+import noorixSpaces from "@/assets/projects/noorix/03-premium-spaces.webp";
+import noorixColorSystem from "@/assets/projects/noorix/04-color-system.webp";
+import noorixTransformation from "@/assets/projects/noorix/05-transformation.webp";
+import noorixOrigin from "@/assets/projects/noorix/06-origin-hero.webp";
+import noorixApplication from "@/assets/projects/noorix/07-brand-application.webp";
+import noorixProductSpectrum from "@/assets/projects/noorix/08-product-spectrum.webp";
+import noorixPaletteCollection from "@/assets/projects/noorix/09-palette-collection.webp";
+import noorixTrendReport from "@/assets/projects/noorix/10-color-trend-report.webp";
+import pokemonHero from "@/assets/projects/pokemon-sa/01-hero-home.webp";
+import pokemonBrandExperience from "@/assets/projects/pokemon-sa/02-brand-experience.webp";
+import pokemonTradingCards from "@/assets/projects/pokemon-sa/03-trading-cards.webp";
+import pokemonSealedProducts from "@/assets/projects/pokemon-sa/04-sealed-products.webp";
+import pokemonCollectibles from "@/assets/projects/pokemon-sa/05-collectibles.webp";
+import pokemonMerchandise from "@/assets/projects/pokemon-sa/06-merchandise.webp";
+import pokemonApparel from "@/assets/projects/pokemon-sa/07-apparel.webp";
+import pokemonHoodies from "@/assets/projects/pokemon-sa/08-hoodies.webp";
+import pokemonCustomBuilder from "@/assets/projects/pokemon-sa/09-custom-builder.webp";
+import pokemonCommunityGamification from "@/assets/projects/pokemon-sa/10-community-gamification.webp";
+import pokemonRareMarketplace from "@/assets/projects/pokemon-sa/11-rare-marketplace.webp";
+import jorofHero from "@/assets/projects/jorof/01-hero.webp";
+import jorofIntro from "@/assets/projects/jorof/02-intro.webp";
+import jorofBrandStory from "@/assets/projects/jorof/03-brand-story.webp";
+import jorofProductRange from "@/assets/projects/jorof/04-product-range.webp";
+import jorofManufacturing from "@/assets/projects/jorof/05-manufacturing.webp";
+import jorofQuality from "@/assets/projects/jorof/06-quality-assurance.webp";
+import jorofCustomerJourney from "@/assets/projects/jorof/07-customer-journey.webp";
+import jorofContact from "@/assets/projects/jorof/08-contact-acquisition.webp";
+import pakmanHero from "@/assets/projects/pakman/01-hero.webp";
+import pakmanProductCategories from "@/assets/projects/pakman/02-product-categories.webp";
+import pakmanAbout from "@/assets/projects/pakman/03-about-pakman.webp";
+import pakmanPackagingGallery from "@/assets/projects/pakman/04-packaging-gallery.webp";
+import pakmanClients from "@/assets/projects/pakman/05-clients.webp";
+import pakmanHeadquarters from "@/assets/projects/pakman/06-headquarters.webp";
+import pakmanQuoteForm from "@/assets/projects/pakman/07-quote-form.webp";
+import pakmanFooter from "@/assets/projects/pakman/08-footer-final.webp";
+import pakmanFoodBusinesses from "@/assets/projects/pakman/09-food-businesses.webp";
+import pakmanWhy from "@/assets/projects/pakman/10-why-pakman.webp";
 
 type GalleryItem = { image: string; title: string; caption: string };
 
@@ -1027,6 +1027,9 @@ function ProjectDetail() {
         <img
           src={project.image}
           alt={project.name}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background" />
@@ -1108,7 +1111,8 @@ function ProjectDetail() {
                       src={g.image}
                       alt={g.title}
                       className="absolute inset-0 w-full h-full object-cover"
-                      loading={i === 0 ? "eager" : "lazy"}
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <figcaption className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
@@ -1133,6 +1137,8 @@ function ProjectDetail() {
                 <img
                   src={project.image}
                   alt={`${project.name} ${labels.desktopExperience}`}
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <span className="absolute bottom-4 left-4 text-[10px] tracking-luxury uppercase text-foreground/80 bg-background/40 backdrop-blur-sm px-3 py-1">
@@ -1192,6 +1198,8 @@ function ProjectDetail() {
               <img
                 src={next.image}
                 alt={next.name}
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
               />
             </div>

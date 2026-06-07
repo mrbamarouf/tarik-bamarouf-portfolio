@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { MouseEvent } from "react";
 import { useEffect, useRef, useState } from "react";
-import signature from "@/assets/signature.png";
+import signature from "@/assets/signature.webp";
 import { siteCopy, useLanguage } from "@/lib/language";
 
 const nav = [
@@ -108,6 +108,7 @@ export function Header() {
           <img
             src={signature}
             alt="Tarik Bamarouf"
+            decoding="async"
             className={`h-auto drop-shadow-[0_8px_24px_oklch(0.72_0.09_70/.14)] transition-all duration-700 ease-out group-hover:opacity-100 group-hover:brightness-125 ${
               chromeVisible ? "w-[142px] opacity-100 md:w-[178px]" : "w-[132px] opacity-0 md:w-[162px]"
             }`}

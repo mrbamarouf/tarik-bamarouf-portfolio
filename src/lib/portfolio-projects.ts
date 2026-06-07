@@ -1,12 +1,12 @@
-import hudaHero from "@/assets/projects/huda/01-hero.jpg";
-import tartaHero from "@/assets/projects/tarta-de-amor/01-hero.png";
-import mihnHero from "@/assets/projects/mihn/01-hero-home.png";
-import lillyHero from "@/assets/projects/lilly-breeze/01-home-hero.png";
-import sipHero from "@/assets/projects/sip/01-hero.png";
-import jorofHero from "@/assets/projects/jorof/01-hero.png";
-import noorixHero from "@/assets/projects/noorix/06-origin-hero.png";
-import pokemonHero from "@/assets/projects/pokemon-sa/01-hero-home.png";
-import pakmanHero from "@/assets/projects/pakman/01-hero.png";
+import hudaHero from "@/assets/projects/huda/01-hero.webp";
+import tartaHero from "@/assets/projects/tarta-de-amor/01-hero.webp";
+import mihnHero from "@/assets/projects/mihn/01-hero-home.webp";
+import lillyHero from "@/assets/projects/lilly-breeze/01-home-hero.webp";
+import sipHero from "@/assets/projects/sip/01-hero.webp";
+import jorofHero from "@/assets/projects/jorof/01-hero.webp";
+import noorixHero from "@/assets/projects/noorix/06-origin-hero.webp";
+import pokemonHero from "@/assets/projects/pokemon-sa/01-hero-home.webp";
+import pakmanHero from "@/assets/projects/pakman/01-hero.webp";
 
 export const portfolioProjects = [
   {

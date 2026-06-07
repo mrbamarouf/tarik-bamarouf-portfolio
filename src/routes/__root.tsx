@@ -140,11 +140,16 @@ function RootComponent() {
 function IntroOverlay() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const removeTimerRef = useRef<number | null>(null);
+  const fallbackTimerRef = useRef<number | null>(null);
   const [state, setState] = useState<"visible" | "fading" | "hidden">("visible");
 
   const dismiss = () => {
     setState((current) => {
       if (current !== "visible") return current;
+
+      if (fallbackTimerRef.current !== null) {
+        window.clearTimeout(fallbackTimerRef.current);
+      }
 
       if (removeTimerRef.current !== null) {
         window.clearTimeout(removeTimerRef.current);
@@ -163,6 +168,8 @@ function IntroOverlay() {
     if (!video) return undefined;
 
     video.currentTime = 0;
+    fallbackTimerRef.current = window.setTimeout(dismiss, 14000);
+
     const playPromise = video.play();
     playPromise?.catch(() => {
       dismiss();
@@ -171,6 +178,9 @@ function IntroOverlay() {
     return () => {
       if (removeTimerRef.current !== null) {
         window.clearTimeout(removeTimerRef.current);
+      }
+      if (fallbackTimerRef.current !== null) {
+        window.clearTimeout(fallbackTimerRef.current);
       }
     };
   }, []);
@@ -186,7 +196,7 @@ function IntroOverlay() {
         autoPlay
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
         onEnded={dismiss}
         onError={dismiss}
         aria-hidden="true"

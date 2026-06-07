@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
-import aboutImg from "@/assets/about.png";
+import aboutImg from "@/assets/about.webp";
 import { siteCopy, useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/about")({
@@ -48,6 +48,8 @@ function AboutPage() {
               <img
                 src={aboutImg}
                 alt={t.about.portraitAlt}
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 h-full w-full object-cover object-[24%_center]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
