@@ -2502,6 +2502,11 @@ body[data-lang="ar"] .home-about__body a {
       background: transparent;
       box-shadow: none;
       padding: 0.92rem 0.55rem 0.92rem 0.95rem;
+      cursor: pointer;
+      transition:
+        border-color 320ms ease,
+        background-color 320ms ease,
+        padding 320ms ease;
     }
 
     .process-card:last-child {
@@ -2523,7 +2528,12 @@ body[data-lang="ar"] .home-about__body a {
       opacity: 1;
       mix-blend-mode: normal;
       transform: translateY(-60%) rotate(45deg);
+      transition: transform 320ms ease, opacity 320ms ease;
       pointer-events: none;
+    }
+
+    .process-card.is-open::before {
+      transform: translateY(-35%) rotate(225deg);
     }
 
     .process-card::after {
@@ -2600,10 +2610,26 @@ body[data-lang="ar"] .home-about__body a {
 
     .process-card p {
       max-width: min(30ch, 100%);
-      margin-top: 0.48rem;
+      max-height: 0;
+      margin-top: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(-0.25rem);
       font-size: 0.76rem;
       line-height: 1.5;
       color: oklch(0.94 0.014 74 / 0.70);
+      transition:
+        max-height 360ms ease,
+        margin-top 360ms ease,
+        opacity 260ms ease,
+        transform 360ms ease;
+    }
+
+    .process-card.is-open p {
+      max-height: 7rem;
+      margin-top: 0.48rem;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .process-card > .process-card__media + .process-card__body {

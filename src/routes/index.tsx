@@ -80,6 +80,7 @@ function Index() {
   const localizedSteps = t.steps;
   const serviceCarouselRef = useRef<HTMLDivElement | null>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
+  const [activeProcessIndex, setActiveProcessIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const items = document.querySelectorAll<HTMLElement>("[data-scroll-reveal]");
@@ -450,10 +451,17 @@ function Index() {
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
             {steps.map((step, i) => {
               const Icon = step.icon;
+              const isOpen = activeProcessIndex === i;
               return (
                 <article
                   key={step.n}
-                  className="process-card group relative overflow-hidden border border-bronze/22 bg-[linear-gradient(180deg,oklch(0.075_0.006_65),oklch(0.035_0.004_65))] shadow-[0_30px_90px_oklch(0_0_0/.32)] transition-colors duration-500 hover:border-bronze/45"
+                  aria-controls={`process-step-${step.n}`}
+                  aria-expanded={isOpen}
+                  className={`process-card group relative overflow-hidden border border-bronze/22 bg-[linear-gradient(180deg,oklch(0.075_0.006_65),oklch(0.035_0.004_65))] shadow-[0_30px_90px_oklch(0_0_0/.32)] transition-colors duration-500 hover:border-bronze/45 ${isOpen ? "is-open" : ""}`}
+                  onClick={() => {
+                    if (!window.matchMedia("(max-width: 767px)").matches) return;
+                    setActiveProcessIndex((current) => (current === i ? null : i));
+                  }}
                 >
                   <div className="process-card__media relative h-56 overflow-hidden border-b border-bronze/16 md:h-64 lg:h-72">
                     <img
@@ -488,7 +496,10 @@ function Index() {
                       <h3 className="text-sm font-medium uppercase tracking-editorial text-foreground/95">
                         {localizedSteps[i].t}
                       </h3>
-                      <p className="mt-5 max-w-xs text-sm font-light leading-7 text-foreground/72">
+                      <p
+                        id={`process-step-${step.n}`}
+                        className="mt-5 max-w-xs text-sm font-light leading-7 text-foreground/72"
+                      >
                         {localizedSteps[i].d}
                       </p>
                     </div>
