@@ -15,7 +15,9 @@ import mobileIntroVideo from "../assets/intro/mobile-intro-9x16.mp4";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LanguageProvider } from "@/lib/language";
 
-const MOBILE_INTRO_CACHE_VERSION = "2026-06-09-grok-final";
+const MOBILE_INTRO_MEDIA_QUERY = "(max-width: 767px)";
+const MOBILE_INTRO_CACHE_VERSION = "2026-06-09-mobile-intro-v2";
+const MOBILE_INTRO_VERSION_KEY = "tarik-mobile-intro-version";
 const mobileIntroVideoSrc = `${mobileIntroVideo}?v=${MOBILE_INTRO_CACHE_VERSION}`;
 
 function NotFoundComponent() {
@@ -107,6 +109,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
+      {
+        rel: "icon",
+        type: "image/svg+xml",
+        href: "/favicon.svg",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -171,7 +178,32 @@ function IntroOverlay() {
     const video = videoRef.current;
     if (!video) return undefined;
 
-    video.currentTime = 1;
+    const isMobileIntro = window.matchMedia(MOBILE_INTRO_MEDIA_QUERY).matches;
+    const setIntroStartTime = () => {
+      try {
+        video.currentTime = 1;
+      } catch {
+        // Some mobile browsers allow seeking only after metadata is ready.
+      }
+    };
+
+    if (isMobileIntro) {
+      video.src = mobileIntroVideoSrc;
+
+      try {
+        window.localStorage.setItem(MOBILE_INTRO_VERSION_KEY, MOBILE_INTRO_CACHE_VERSION);
+        window.sessionStorage.setItem(MOBILE_INTRO_VERSION_KEY, MOBILE_INTRO_CACHE_VERSION);
+      } catch {
+        // Storage can be unavailable in private browsing; the versioned URL still busts cache.
+      }
+    } else {
+      video.removeAttribute("src");
+    }
+
+    video.load();
+    setIntroStartTime();
+    video.addEventListener("loadedmetadata", setIntroStartTime, { once: true });
+
     fallbackTimerRef.current = window.setTimeout(dismiss, 14000);
 
     const playPromise = video.play();
@@ -186,6 +218,7 @@ function IntroOverlay() {
       if (fallbackTimerRef.current !== null) {
         window.clearTimeout(fallbackTimerRef.current);
       }
+      video.removeEventListener("loadedmetadata", setIntroStartTime);
     };
   }, []);
 
@@ -204,8 +237,18 @@ function IntroOverlay() {
         onError={dismiss}
         aria-hidden="true"
       >
-        <source src={mobileIntroVideoSrc} media="(max-width: 767px)" type="video/mp4" />
-        <source src={introVideo} type="video/mp4" />
+        <source
+          src={mobileIntroVideoSrc}
+          media={MOBILE_INTRO_MEDIA_QUERY}
+          type="video/mp4"
+          data-intro-source="mobile"
+        />
+        <source
+          src={introVideo}
+          media="(min-width: 768px)"
+          type="video/mp4"
+          data-intro-source="desktop"
+        />
       </video>
     </div>
   );

@@ -362,6 +362,16 @@ function Index() {
               );
             })}
           </div>
+          <div className="service-carousel-dots md:hidden" aria-hidden="true">
+            {localizedServices.map((service, i) => (
+              <span
+                key={service.t}
+                className={
+                  i === 0 ? "service-carousel-dots__dot is-active" : "service-carousel-dots__dot"
+                }
+              />
+            ))}
+          </div>
         </div>
       </section>
 
