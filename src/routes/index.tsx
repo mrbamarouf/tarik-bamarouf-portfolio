@@ -78,6 +78,22 @@ function Index() {
   const t = siteCopy[language];
   const localizedServices = t.services;
   const localizedSteps = t.steps;
+  const mobileSelectedWorkIntro =
+    language === "ar"
+      ? {
+          lang: "ar",
+          dir: "rtl",
+          label: "أعمال مختارة",
+          title: "مجموعة من التجارب الرقمية",
+          subtitle: "المصممة لعلامات طموحة.",
+        }
+      : {
+          lang: "en",
+          dir: "ltr",
+          label: "Selected Work",
+          title: "A collection of digital experiences",
+          subtitle: "designed for ambitious brands.",
+        };
   const serviceCarouselRef = useRef<HTMLDivElement | null>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const [activeProcessIndex, setActiveProcessIndex] = useState<number | null>(null);
@@ -228,13 +244,23 @@ function Index() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,oklch(0.72_0.09_70/.08),transparent_30%)]" />
         <div className="w-full px-6 md:px-10 lg:px-14">
           <div className="relative z-10 mb-9 flex items-end justify-between gap-8">
-            <div>
+            <div className="selected-work__desktop-intro hidden md:block">
               <p className="text-[10px] uppercase tracking-luxury text-bronze">
                 {t.home.selectedWork}
               </p>
               <h2 className="mt-5 font-serif text-4xl font-light leading-none md:text-6xl lg:text-7xl">
                 {t.home.selectedTitle}
               </h2>
+            </div>
+            <div
+              className="selected-work__mobile-chapter md:hidden"
+              lang={mobileSelectedWorkIntro.lang}
+              dir={mobileSelectedWorkIntro.dir}
+            >
+              <p className="selected-work__mobile-kicker">{mobileSelectedWorkIntro.label}</p>
+              <span className="selected-work__mobile-rule" aria-hidden="true" />
+              <h2 className="selected-work__mobile-title">{mobileSelectedWorkIntro.title}</h2>
+              <p className="selected-work__mobile-subtitle">{mobileSelectedWorkIntro.subtitle}</p>
             </div>
             <Link
               to="/work"
