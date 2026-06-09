@@ -15,6 +15,9 @@ import mobileIntroVideo from "../assets/intro/mobile-intro-9x16.mp4";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LanguageProvider } from "@/lib/language";
 
+const MOBILE_INTRO_CACHE_VERSION = "2026-06-09-grok-final";
+const mobileIntroVideoSrc = `${mobileIntroVideo}?v=${MOBILE_INTRO_CACHE_VERSION}`;
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -201,7 +204,7 @@ function IntroOverlay() {
         onError={dismiss}
         aria-hidden="true"
       >
-        <source src={mobileIntroVideo} media="(max-width: 767px)" type="video/mp4" />
+        <source src={mobileIntroVideoSrc} media="(max-width: 767px)" type="video/mp4" />
         <source src={introVideo} type="video/mp4" />
       </video>
     </div>
