@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Compass, LayoutTemplate, PenTool, Rocket } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import cinematicHero from "@/assets/cinematic-hero.webp";
 import processDesign from "@/assets/process/design.webp";
 import processDevelopment from "@/assets/process/development.webp";
@@ -78,6 +78,8 @@ function Index() {
   const t = siteCopy[language];
   const localizedServices = t.services;
   const localizedSteps = t.steps;
+  const serviceCarouselRef = useRef<HTMLDivElement | null>(null);
+  const [activeServiceIndex, setActiveServiceIndex] = useState(0);
 
   useEffect(() => {
     const items = document.querySelectorAll<HTMLElement>("[data-scroll-reveal]");
@@ -96,6 +98,61 @@ function Index() {
     items.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    const carousel = serviceCarouselRef.current;
+    if (!carousel) return undefined;
+
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+    let frame = 0;
+
+    const updateActiveService = () => {
+      if (!mobileQuery.matches) {
+        setActiveServiceIndex(0);
+        return;
+      }
+
+      const cards = Array.from(carousel.querySelectorAll<HTMLElement>(".service-card"));
+      if (!cards.length) return;
+
+      const carouselRect = carousel.getBoundingClientRect();
+      const carouselCenter = carouselRect.left + carouselRect.width / 2;
+
+      const closestIndex = cards.reduce(
+        (closest, card, index) => {
+          const rect = card.getBoundingClientRect();
+          const cardCenter = rect.left + rect.width / 2;
+          const distance = Math.abs(cardCenter - carouselCenter);
+          return distance < closest.distance ? { index, distance } : closest;
+        },
+        { index: 0, distance: Number.POSITIVE_INFINITY },
+      ).index;
+
+      setActiveServiceIndex((current) => (current === closestIndex ? current : closestIndex));
+    };
+
+    const scheduleUpdate = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        updateActiveService();
+      });
+    };
+
+    const handleMediaChange = () => scheduleUpdate();
+
+    carousel.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    mobileQuery.addEventListener("change", handleMediaChange);
+    scheduleUpdate();
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      carousel.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      mobileQuery.removeEventListener("change", handleMediaChange);
+    };
+  }, [localizedServices.length]);
 
   return (
     <SiteLayout>
@@ -325,7 +382,10 @@ function Index() {
           >
             {t.home.servicesLabel}
           </p>
-          <div className="mt-9 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div
+            ref={serviceCarouselRef}
+            className="mt-9 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4"
+          >
             {localizedServices.map((service, i) => {
               const visual = serviceVisuals[i % serviceVisuals.length];
 
@@ -367,7 +427,9 @@ function Index() {
               <span
                 key={service.t}
                 className={
-                  i === 0 ? "service-carousel-dots__dot is-active" : "service-carousel-dots__dot"
+                  i === activeServiceIndex
+                    ? "service-carousel-dots__dot is-active"
+                    : "service-carousel-dots__dot"
                 }
               />
             ))}
