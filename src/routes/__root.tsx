@@ -16,9 +16,13 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LanguageProvider } from "@/lib/language";
 
 const MOBILE_INTRO_MEDIA_QUERY = "(max-width: 767px)";
-const MOBILE_INTRO_CACHE_VERSION = "2026-06-09-mobile-intro-v2";
-const MOBILE_INTRO_VERSION_KEY = "tarik-mobile-intro-version";
+const DESKTOP_INTRO_MEDIA_QUERY = "(min-width: 768px)";
+const MOBILE_INTRO_CACHE_VERSION = "intro-mobile-v3";
+const DESKTOP_INTRO_CACHE_VERSION = "intro-desktop-v3";
+const MOBILE_INTRO_VERSION_KEY = "tarik-intro-mobile-v3";
+const DESKTOP_INTRO_VERSION_KEY = "tarik-intro-desktop-v3";
 const mobileIntroVideoSrc = `${mobileIntroVideo}?v=${MOBILE_INTRO_CACHE_VERSION}`;
+const desktopIntroVideoSrc = `${introVideo}?v=${DESKTOP_INTRO_CACHE_VERSION}`;
 
 function NotFoundComponent() {
   return (
@@ -175,10 +179,31 @@ function IntroOverlay() {
   };
 
   useEffect(() => {
+    if (state === "hidden") {
+      document.documentElement.classList.remove("intro-scroll-lock");
+      document.body.classList.remove("intro-scroll-lock");
+      return undefined;
+    }
+
+    window.scrollTo(0, 0);
+    document.documentElement.classList.add("intro-scroll-lock");
+    document.body.classList.add("intro-scroll-lock");
+
+    return () => {
+      document.documentElement.classList.remove("intro-scroll-lock");
+      document.body.classList.remove("intro-scroll-lock");
+    };
+  }, [state]);
+
+  useEffect(() => {
     const video = videoRef.current;
     if (!video) return undefined;
 
     const isMobileIntro = window.matchMedia(MOBILE_INTRO_MEDIA_QUERY).matches;
+    const introSrc = isMobileIntro ? mobileIntroVideoSrc : desktopIntroVideoSrc;
+    const introVersionKey = isMobileIntro ? MOBILE_INTRO_VERSION_KEY : DESKTOP_INTRO_VERSION_KEY;
+    const introVersion = isMobileIntro ? MOBILE_INTRO_CACHE_VERSION : DESKTOP_INTRO_CACHE_VERSION;
+
     const setIntroStartTime = () => {
       try {
         video.currentTime = 1;
@@ -187,17 +212,14 @@ function IntroOverlay() {
       }
     };
 
-    if (isMobileIntro) {
-      video.src = mobileIntroVideoSrc;
+    video.src = introSrc;
+    video.dataset.introMode = isMobileIntro ? "mobile" : "desktop";
 
-      try {
-        window.localStorage.setItem(MOBILE_INTRO_VERSION_KEY, MOBILE_INTRO_CACHE_VERSION);
-        window.sessionStorage.setItem(MOBILE_INTRO_VERSION_KEY, MOBILE_INTRO_CACHE_VERSION);
-      } catch {
-        // Storage can be unavailable in private browsing; the versioned URL still busts cache.
-      }
-    } else {
-      video.removeAttribute("src");
+    try {
+      window.localStorage.setItem(introVersionKey, introVersion);
+      window.sessionStorage.setItem(introVersionKey, introVersion);
+    } catch {
+      // Storage can be unavailable in private browsing; the versioned URL still busts cache.
     }
 
     video.load();
@@ -244,8 +266,8 @@ function IntroOverlay() {
           data-intro-source="mobile"
         />
         <source
-          src={introVideo}
-          media="(min-width: 768px)"
+          src={desktopIntroVideoSrc}
+          media={DESKTOP_INTRO_MEDIA_QUERY}
           type="video/mp4"
           data-intro-source="desktop"
         />
