@@ -170,6 +170,38 @@
     unicode-bidi: plaintext;
   }
 
+  .about-page__intro,
+  .about-page__editorial,
+  .about-page__grid,
+  .about-page__media {
+    direction: ltr;
+  }
+
+  body[data-lang="ar"] .about-page__intro,
+  body[data-lang="ar"] .about-page__editorial,
+  body[data-lang="ar"] .about-page__grid,
+  body[data-lang="ar"] .about-page__media {
+    direction: ltr;
+  }
+
+  body[data-lang="ar"] .about-page__headline,
+  body[data-lang="ar"] .about-page__caption,
+  body[data-lang="ar"] .about-page__content,
+  body[data-lang="ar"] .about-page__content p,
+  body[data-lang="ar"] .about-page__content li,
+  body[data-lang="ar"] .about-page__content a {
+    direction: rtl;
+    text-align: right;
+    unicode-bidi: plaintext;
+  }
+
+  body[data-lang="ar"] .about-page__headline {
+    overflow: visible;
+    word-break: normal;
+    overflow-wrap: normal;
+    line-height: 1.16;
+  }
+
   ::selection {
     background: var(--bronze);
     color: var(--ink);
@@ -3219,8 +3251,8 @@ body[data-lang="ar"] .work-archive__content {
     }
 
     body[data-lang="ar"] main.flex-1:has(> section:first-of-type h1 .gradient-bronze-text) > section:nth-of-type(2) > div > div:first-child > p {
-      right: 0;
-      left: auto;
+      right: auto;
+      left: 0;
     }
   }
 

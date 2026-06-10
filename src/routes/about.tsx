@@ -30,10 +30,10 @@ function AboutPage() {
 
   return (
     <SiteLayout>
-      <section className="pt-40 md:pt-56 pb-24">
-        <div className="w-full px-6 md:px-12">
+      <section className="about-page__intro pt-40 md:pt-56 pb-24">
+        <div className="about-page__intro-inner w-full px-6 md:px-12">
           <SectionLabel index="I" title={t.about.label} />
-          <h1 className="mt-10 font-serif text-2xl md:text-4xl lg:text-[3rem] leading-[1.12] max-w-3xl font-light">
+          <h1 className="about-page__headline mt-10 font-serif text-2xl md:text-4xl lg:text-[3rem] leading-[1.12] max-w-3xl font-light">
             <span className="italic font-light">{t.about.titleA}</span>
             <span className="gradient-bronze-text">{t.about.titleB}</span>
             <span className="block text-foreground/70 italic font-light">{t.about.titleC}</span>
@@ -41,9 +41,9 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="pb-32 md:pb-48">
-        <div className="grid w-full grid-cols-1 gap-12 px-6 md:grid-cols-12 md:px-12 lg:gap-20">
-          <div className="md:col-span-6">
+      <section className="about-page__editorial pb-32 md:pb-48">
+        <div className="about-page__grid grid w-full grid-cols-1 gap-12 px-6 md:grid-cols-12 md:px-12 lg:gap-20">
+          <div className="about-page__media md:col-span-6">
             <div className="relative aspect-[3/4] overflow-hidden">
               <img
                 src={aboutImg}
@@ -54,12 +54,12 @@ function AboutPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
             </div>
-            <p className="mt-4 text-[10px] tracking-luxury uppercase text-muted-foreground">
+            <p className="about-page__caption mt-4 text-[10px] tracking-luxury uppercase text-muted-foreground">
               {t.about.portraitLabel}
             </p>
           </div>
 
-          <div className="md:col-span-6 md:pt-12 space-y-16">
+          <div className="about-page__content md:col-span-6 md:pt-12 space-y-16">
             <div>
               <SectionLabel index="II" title={t.about.biography} />
               <p className="mt-8 font-serif text-xl md:text-2xl italic font-light leading-snug text-foreground/85">
