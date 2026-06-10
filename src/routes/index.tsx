@@ -78,22 +78,9 @@ function Index() {
   const t = siteCopy[language];
   const localizedServices = t.services;
   const localizedSteps = t.steps;
-  const mobileSelectedWorkIntro =
-    language === "ar"
-      ? {
-          lang: "ar",
-          dir: "rtl",
-          label: "أعمال مختارة",
-          title: "مجموعة من التجارب الرقمية",
-          subtitle: "المصممة لعلامات طموحة.",
-        }
-      : {
-          lang: "en",
-          dir: "ltr",
-          label: "Selected Work",
-          title: "A collection of digital experiences",
-          subtitle: "designed for ambitious brands.",
-        };
+  const selectedWorkCount = selectedWorkProjects.length;
+  const selectedWorkCountLabel =
+    selectedWorkCount < 10 ? String(selectedWorkCount).padStart(2, "0") : String(selectedWorkCount);
   const serviceCarouselRef = useRef<HTMLDivElement | null>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const [activeProcessIndex, setActiveProcessIndex] = useState<number | null>(null);
@@ -243,35 +230,18 @@ function Index() {
       <section className="selected-work relative overflow-hidden border-y border-border/25 bg-background py-18 md:py-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,oklch(0.72_0.09_70/.08),transparent_30%)]" />
         <div className="w-full px-6 md:px-10 lg:px-14">
-          <div className="relative z-10 mb-9 flex items-end justify-between gap-8">
-            <div className="selected-work__desktop-intro hidden md:block">
-              <p className="text-[10px] uppercase tracking-luxury text-bronze">
-                {t.home.selectedWork}
-              </p>
-              <h2 className="mt-5 font-serif text-4xl font-light leading-none md:text-6xl lg:text-7xl">
-                {t.home.selectedTitle}
-              </h2>
-            </div>
-            <div
-              className="selected-work__mobile-chapter md:hidden"
-              lang={mobileSelectedWorkIntro.lang}
-              dir={mobileSelectedWorkIntro.dir}
+          <div className="selected-work__chapter" aria-label={`${selectedWorkCount} selected projects`}>
+            <p className="selected-work__chapter-kicker">PORTFOLIO 2026</p>
+            <strong className="selected-work__chapter-count">
+              {selectedWorkCountLabel}
+            </strong>
+            <p className="selected-work__chapter-label">SELECTED PROJECTS</p>
+            <span
+              className="selected-work__chapter-divider"
+              aria-hidden="true"
             >
-              <p className="selected-work__mobile-kicker">{mobileSelectedWorkIntro.label}</p>
-              <span className="selected-work__mobile-rule" aria-hidden="true" />
-              <h2 className="selected-work__mobile-title">{mobileSelectedWorkIntro.title}</h2>
-              <p className="selected-work__mobile-subtitle">{mobileSelectedWorkIntro.subtitle}</p>
-            </div>
-            <Link
-              to="/work"
-              className="group hidden items-center gap-3 text-[11px] uppercase tracking-editorial text-bronze transition-colors duration-500 hover:text-bronze-soft md:inline-flex"
-            >
-              {t.common.viewAllProjects}
-              <ArrowRight
-                className="lang-arrow h-3.5 w-3.5 transition-transform duration-500 group-hover:translate-x-1"
-                aria-hidden="true"
-              />
-            </Link>
+              <span />
+            </span>
           </div>
 
           <div className="relative z-10 border border-border/35 bg-ink/35 shadow-[0_40px_120px_oklch(0_0_0/.28)]">
