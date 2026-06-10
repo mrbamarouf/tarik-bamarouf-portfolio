@@ -42,6 +42,17 @@ export const Route = createFileRoute("/")({
 
 const projects = portfolioProjects;
 const selectedWorkProjects = portfolioProjects;
+const arabicDigits = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"] as const;
+
+function formatProjectCount(count: number, language: "en" | "ar") {
+  const countLabel = count < 10 ? String(count).padStart(2, "0") : String(count);
+
+  if (language !== "ar") {
+    return countLabel;
+  }
+
+  return countLabel.replace(/\d/g, (digit) => arabicDigits[Number(digit)]);
+}
 
 const steps = [
   {
@@ -79,8 +90,7 @@ function Index() {
   const localizedServices = t.services;
   const localizedSteps = t.steps;
   const selectedWorkCount = selectedWorkProjects.length;
-  const selectedWorkCountLabel =
-    selectedWorkCount < 10 ? String(selectedWorkCount).padStart(2, "0") : String(selectedWorkCount);
+  const selectedWorkCountLabel = formatProjectCount(selectedWorkCount, language);
   const serviceCarouselRef = useRef<HTMLDivElement | null>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const [activeProcessIndex, setActiveProcessIndex] = useState<number | null>(null);
@@ -230,12 +240,12 @@ function Index() {
       <section className="selected-work relative overflow-hidden border-y border-border/25 bg-background py-18 md:py-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,oklch(0.72_0.09_70/.08),transparent_30%)]" />
         <div className="w-full px-6 md:px-10 lg:px-14">
-          <div className="selected-work__chapter" aria-label={`${selectedWorkCount} selected projects`}>
-            <p className="selected-work__chapter-kicker">PORTFOLIO 2026</p>
+          <div className="selected-work__chapter" aria-label={`${selectedWorkCountLabel} ${t.home.selectedProjectsLabel}`}>
+            <p className="selected-work__chapter-kicker">{t.home.selectedPortfolioLabel}</p>
             <strong className="selected-work__chapter-count">
               {selectedWorkCountLabel}
             </strong>
-            <p className="selected-work__chapter-label">SELECTED PROJECTS</p>
+            <p className="selected-work__chapter-label">{t.home.selectedProjectsLabel}</p>
             <span
               className="selected-work__chapter-divider"
               aria-hidden="true"
