@@ -12,6 +12,39 @@ type LanguageContextValue = {
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 const LANGUAGE_STORAGE_KEY = "tarik-bamarouf-language";
+const ARABIC_DIGITS = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"] as const;
+const SECTION_INDEXES: Record<string, string> = {
+  I: "01",
+  II: "02",
+  III: "03",
+  IV: "04",
+  V: "05",
+};
+
+export function formatLocalizedNumber(
+  value: number | string,
+  language: Language,
+  options: { minimumIntegerDigits?: number } = {},
+) {
+  const normalized =
+    typeof value === "number"
+      ? String(value).padStart(options.minimumIntegerDigits ?? 0, "0")
+      : value;
+
+  if (language !== "ar") {
+    return normalized;
+  }
+
+  return normalized.replace(/\d/g, (digit) => ARABIC_DIGITS[Number(digit)]);
+}
+
+export function formatSectionIndex(index: string, language: Language) {
+  if (language !== "ar") {
+    return index;
+  }
+
+  return formatLocalizedNumber(SECTION_INDEXES[index] ?? index, language);
+}
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>("en");
@@ -63,6 +96,7 @@ export function useLanguage() {
 export const siteCopy = {
   en: {
     nav: {
+      home: "Home",
       work: "Work",
       about: "About",
       services: "Services",
@@ -235,10 +269,12 @@ export const siteCopy = {
       brandAssets: "Brand Assets",
       uiDetails: "Interface Details",
       additionalViews: "Additional Views",
+      comingSoon: "Coming soon",
     },
   },
   ar: {
     nav: {
+      home: "الرئيسية",
       work: "الأعمال",
       about: "عنّي",
       services: "الخدمات",
@@ -268,10 +304,10 @@ export const siteCopy = {
       heroBody: "مواقع راقية، متاجر إلكترونية، ومنتجات رقمية تُصاغ بعناية للعلامات الحديثة.",
       viewWork: "عرض الأعمال",
       startProject: "ابدأ مشروعك",
-      portfolioLabel: "محفظة 2026",
+      portfolioLabel: "محفظة ٢٠٢٦",
       selectedWork: "أعمال مختارة",
       selectedTitle: "أعمال مختارة",
-      selectedPortfolioLabel: "ملف الأعمال 2026",
+      selectedPortfolioLabel: "ملف الأعمال ٢٠٢٦",
       selectedProjectsLabel: "المشاريع المختارة",
       aboutLabel: "عنّي",
       aboutTitle: "تصميم.\nاستراتيجية.\nتطوير.",
@@ -326,7 +362,7 @@ export const siteCopy = {
         "مجموعة مختارة من مشاريع طارق بامعروف في مواقع العلامات الفاخرة والمتاجر الإلكترونية والتجارب الرقمية.",
       archive: "الأرشيف",
       title: "أعمال مختارة.",
-      volume: "محفظة 2026",
+      volume: "محفظة ٢٠٢٦",
       projectLabel: "مشروع",
       end: "اكتمل الأرشيف",
       note: "فصول جديدة قيد التحضير",
@@ -379,7 +415,7 @@ export const siteCopy = {
       email: "البريد",
       navigate: "التنقل",
       direct: "مباشر",
-      rights: "© 2026 طارق بامعروف. جميع الحقوق محفوظة.",
+      rights: "© ٢٠٢٦ طارق بامعروف. جميع الحقوق محفوظة.",
       location: "تجارب رقمية. حضور عالمي.",
     },
     project: {
@@ -407,6 +443,7 @@ export const siteCopy = {
       brandAssets: "أصول الهوية",
       uiDetails: "تفاصيل الواجهة",
       additionalViews: "مشاهد إضافية",
+      comingSoon: "قريبًا",
     },
   },
 } as const;
@@ -848,7 +885,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "تقرير اتجاهات اللون",
-          caption: "عرض تحريري يربط لوحة NOORIX بالمساحات والعمارة والاتجاه البصري لعام 2026.",
+          caption: "عرض تحريري يربط لوحة NOORIX بالمساحات والعمارة والاتجاه البصري لعام ٢٠٢٦.",
         },
         { title: "قصة التحول", caption: "عرض التحول يبرز الأثر العملي للطلاء والاتجاه البصري." },
         {

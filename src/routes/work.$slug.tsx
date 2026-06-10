@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
-import { localizeProject, siteCopy, useLanguage } from "@/lib/language";
+import { formatLocalizedNumber, localizeProject, siteCopy, useLanguage } from "@/lib/language";
 import hudaImg from "@/assets/projects/huda.webp";
 import mahnImg from "@/assets/projects/mahn.webp";
 import lilyImg from "@/assets/projects/lily.webp";
@@ -1016,7 +1016,7 @@ function ProjectDetail() {
     { key: labels.client, value: project.details.client },
     { key: labels.industry, value: project.details.industry },
     { key: labels.service, value: project.details.services, wide: true },
-    { key: labels.year, value: project.details.year },
+    { key: labels.year, value: formatLocalizedNumber(project.details.year, language) },
     { key: labels.type, value: project.details.platform },
   ];
 
@@ -1118,7 +1118,8 @@ function ProjectDetail() {
                   <figcaption className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
                     <div className="md:col-span-4">
                       <p className="text-[10px] tracking-luxury uppercase text-bronze">
-                        {labels.section} {String(i + 1).padStart(2, "0")}
+                        {labels.section}{" "}
+                        {formatLocalizedNumber(i + 1, language, { minimumIntegerDigits: 2 })}
                       </p>
                       <h3 className="mt-2 font-serif text-2xl md:text-3xl italic font-light">
                         {g.title}
@@ -1148,17 +1149,17 @@ function ProjectDetail() {
               <GalleryPlaceholder
                 className="md:col-span-4 aspect-[4/5]"
                 label={labels.mobileExperience}
-                comingSoonLabel={language === "ar" ? "قريبًا" : "Coming soon"}
+                comingSoonLabel={labels.comingSoon}
               />
               <GalleryPlaceholder
                 className="md:col-span-6 aspect-[4/3]"
                 label={labels.brandAssets}
-                comingSoonLabel={language === "ar" ? "قريبًا" : "Coming soon"}
+                comingSoonLabel={labels.comingSoon}
               />
               <GalleryPlaceholder
                 className="md:col-span-6 aspect-[4/3]"
                 label={labels.uiDetails}
-                comingSoonLabel={language === "ar" ? "قريبًا" : "Coming soon"}
+                comingSoonLabel={labels.comingSoon}
               />
             </div>
           )}

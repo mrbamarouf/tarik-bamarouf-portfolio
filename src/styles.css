@@ -134,6 +134,8 @@
     text-align: right;
     overflow-wrap: break-word;
     word-break: normal;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
   }
 
   body[data-lang="ar"] h1,
@@ -147,14 +149,33 @@
     font-weight: 400;
     line-height: 1.28;
     letter-spacing: 0;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    text-wrap: balance;
   }
 
   body[data-lang="ar"] .italic {
     font-style: normal;
   }
 
-  body[data-lang="ar"] .uppercase {
+  body[data-lang="ar"] .uppercase,
+  body[data-lang="ar"] .tracking-luxury,
+  body[data-lang="ar"] .tracking-editorial {
+    letter-spacing: 0;
     text-transform: none;
+  }
+
+  body[data-lang="ar"] p,
+  body[data-lang="ar"] li,
+  body[data-lang="ar"] dd,
+  body[data-lang="ar"] dt,
+  body[data-lang="ar"] figcaption,
+  body[data-lang="ar"] button,
+  body[data-lang="ar"] a {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+    line-height: 1.75;
+    text-transform: none;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
   }
 
   ::selection {
@@ -289,6 +310,16 @@ body[data-lang="ar"] .contact-card {
 
 body[data-lang="ar"] .contact-card h2 {
   line-height: 1.35;
+}
+
+body[data-lang="ar"] .section-label {
+  direction: rtl;
+  justify-content: flex-start;
+  text-align: right;
+}
+
+body[data-lang="ar"] .section-label span:last-child {
+  line-height: 1.7;
 }
 
 .selected-work__chapter {

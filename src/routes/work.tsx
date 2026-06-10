@@ -1,7 +1,7 @@
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
-import { projectDisplay, siteCopy, useLanguage } from "@/lib/language";
+import { formatLocalizedNumber, projectDisplay, siteCopy, useLanguage } from "@/lib/language";
 import { portfolioProjects } from "@/lib/portfolio-projects";
 
 export const Route = createFileRoute("/work")({
@@ -81,14 +81,18 @@ function WorkPage() {
                     </div>
                     <div className="work-archive__content">
                       <div className="work-archive__number">
-                        <span>{String(i + 1).padStart(2, "0")}</span>
+                        <span>
+                          {formatLocalizedNumber(i + 1, language, {
+                            minimumIntegerDigits: 2,
+                          })}
+                        </span>
                         <span aria-hidden="true" />
                       </div>
                       <p className="work-archive__category">{display.category ?? p.cat}</p>
                       <h2 className="work-archive__title">{p.t}</h2>
                       <p className="work-archive__disciplines">
                         <span>{display.disciplines ?? p.disciplines}</span>
-                        <span>{p.year}</span>
+                        <span>{formatLocalizedNumber(p.year, language)}</span>
                       </p>
                       {display.intro && <p className="work-archive__intro">{display.intro}</p>}
                       <span className="work-archive__cta">

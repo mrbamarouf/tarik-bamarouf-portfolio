@@ -10,7 +10,7 @@ import aboutImg from "@/assets/about.webp";
 import finalCtaWall from "@/assets/final-cta-wall.webp";
 import { SiteLayout } from "@/components/site/Layout";
 import { CONTACT_EMAIL, emailHref, whatsappHref } from "@/lib/contact";
-import { projectDisplay, siteCopy, useLanguage } from "@/lib/language";
+import { formatLocalizedNumber, projectDisplay, siteCopy, useLanguage } from "@/lib/language";
 import { portfolioProjects } from "@/lib/portfolio-projects";
 import serviceBrandWebsites from "@/assets/services/brand-websites.webp";
 import serviceBusinessWebsites from "@/assets/services/business-websites.webp";
@@ -42,17 +42,6 @@ export const Route = createFileRoute("/")({
 
 const projects = portfolioProjects;
 const selectedWorkProjects = portfolioProjects;
-const arabicDigits = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"] as const;
-
-function formatProjectCount(count: number, language: "en" | "ar") {
-  const countLabel = count < 10 ? String(count).padStart(2, "0") : String(count);
-
-  if (language !== "ar") {
-    return countLabel;
-  }
-
-  return countLabel.replace(/\d/g, (digit) => arabicDigits[Number(digit)]);
-}
 
 const steps = [
   {
@@ -90,7 +79,9 @@ function Index() {
   const localizedServices = t.services;
   const localizedSteps = t.steps;
   const selectedWorkCount = selectedWorkProjects.length;
-  const selectedWorkCountLabel = formatProjectCount(selectedWorkCount, language);
+  const selectedWorkCountLabel = formatLocalizedNumber(selectedWorkCount, language, {
+    minimumIntegerDigits: 2,
+  });
   const serviceCarouselRef = useRef<HTMLDivElement | null>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const [activeProcessIndex, setActiveProcessIndex] = useState<number | null>(null);
@@ -278,7 +269,7 @@ function Index() {
                   <div className="selected-work__content relative z-10 grid min-h-[220px] grid-cols-1 gap-6 p-7 md:min-h-[228px] md:grid-cols-[minmax(280px,0.40fr)_1fr_auto] md:items-center md:p-9 lg:p-10">
                     <div>
                       <p className="font-serif text-lg italic text-bronze">
-                        {String(i + 1).padStart(2, "0")}
+                        {formatLocalizedNumber(i + 1, language, { minimumIntegerDigits: 2 })}
                       </p>
                       <p className="mt-5 max-w-sm text-[10px] uppercase tracking-luxury text-bronze/90">
                         {display.category ?? p.cat}
@@ -414,7 +405,7 @@ function Index() {
                   <div className="absolute inset-x-7 top-7 h-px bg-gradient-to-r from-bronze/70 via-bronze/20 to-transparent" />
                   <div className="service-card__content relative z-10 flex h-full min-h-[310px] flex-col justify-between">
                     <span className="font-serif text-2xl italic text-bronze drop-shadow-[0_8px_24px_oklch(0_0_0/.45)]">
-                      {String(i + 1).padStart(2, "0")}
+                      {formatLocalizedNumber(i + 1, language, { minimumIntegerDigits: 2 })}
                     </span>
                     <div>
                       <h3 className="font-serif text-3xl font-light leading-tight text-foreground transition-colors duration-500 group-hover:text-bronze-soft">
@@ -495,7 +486,7 @@ function Index() {
                   <div className="process-card__body relative min-h-[260px] p-8">
                     <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-bronze/50 via-bronze/15 to-transparent" />
                     <span className="font-serif text-7xl font-light leading-none text-bronze lg:text-8xl">
-                      {step.n}
+                      {formatLocalizedNumber(step.n, language)}
                     </span>
                     <span className="mt-4 block h-px w-12 bg-bronze/55" />
                     <div className="mt-5">

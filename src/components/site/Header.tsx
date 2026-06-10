@@ -103,7 +103,7 @@ export function Header() {
           to="/"
           onClick={handleLogoClick}
           className="site-header__logo group pointer-events-auto flex translate-y-0 items-center transition-transform duration-700 ease-out"
-          aria-label="Tarik Bamarouf Home"
+          aria-label={`Tarik Bamarouf ${t.nav.home}`}
         >
           <img
             src={signature}
@@ -166,7 +166,7 @@ export function Header() {
               : "pointer-events-none -translate-y-3 opacity-0 blur-[2px]"
           }`}
           onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
+          aria-label={open ? t.nav.close : t.nav.menu}
         >
           {open ? t.nav.close : t.nav.menu}
         </button>

@@ -12,7 +12,7 @@ export function Footer() {
       <div className="w-full px-6 py-16 md:px-10 md:py-20 lg:px-14">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
-            <Link to="/" className="inline-flex" aria-label="Tarik Bamarouf Home">
+            <Link to="/" className="inline-flex" aria-label={`Tarik Bamarouf ${t.nav.home}`}>
               <img
                 src={signature}
                 alt="Tarik Bamarouf"
@@ -50,7 +50,7 @@ export function Footer() {
             <ul className="space-y-3 font-serif text-xl font-light">
               <li>
                 <Link to="/" className="link-underline">
-                  {language === "ar" ? "الرئيسية" : "Home"}
+                  {t.nav.home}
                 </Link>
               </li>
               <li>
