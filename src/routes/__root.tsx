@@ -13,7 +13,7 @@ import appCss from "../styles.css?url";
 import introVideo from "../assets/intro/final-intro.mp4";
 import mobileIntroVideo from "../assets/intro/mobile-intro-9x16.mp4";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { LanguageProvider } from "@/lib/language";
+import { LanguageProvider, siteCopy, useLanguage } from "@/lib/language";
 
 const MOBILE_INTRO_MEDIA_QUERY = "(max-width: 767px)";
 const DESKTOP_INTRO_MEDIA_QUERY = "(min-width: 768px)";
@@ -25,20 +25,23 @@ const mobileIntroVideoSrc = `${mobileIntroVideo}?v=${MOBILE_INTRO_CACHE_VERSION}
 const desktopIntroVideoSrc = `${introVideo}?v=${DESKTOP_INTRO_CACHE_VERSION}`;
 
 function NotFoundComponent() {
+  const { language } = useLanguage();
+  const labels = siteCopy[language].common;
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">{labels.notFoundTitle}</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          The page you are looking for does not exist or has moved.
+          {labels.notFoundBody}
         </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Go home
+            {labels.goHome}
           </Link>
         </div>
       </div>
@@ -49,6 +52,9 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
+  const { language } = useLanguage();
+  const labels = siteCopy[language].common;
+
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
@@ -57,10 +63,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page did not load
+          {labels.errorTitle}
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+          {labels.errorBody}
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -70,13 +76,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Try again
+            {labels.tryAgain}
           </button>
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Go home
+            {labels.goHome}
           </a>
         </div>
       </div>

@@ -1023,7 +1023,7 @@ function ProjectDetail() {
   return (
     <SiteLayout>
       {/* HERO */}
-      <section className="relative h-[88svh] min-h-[560px] overflow-hidden">
+      <section className="project-detail__hero relative h-[88svh] min-h-[560px] overflow-hidden">
         <img
           src={project.image}
           alt={project.name}
@@ -1041,7 +1041,7 @@ function ProjectDetail() {
             <ArrowLeft className="lang-arrow h-3.5 w-3.5" aria-hidden="true" />
             {siteCopy[language].common.backToWork}
           </Link>
-          <div>
+          <div className="project-detail__copy">
             <p className="text-[10px] tracking-luxury uppercase text-bronze">{project.category}</p>
             <h1 className="mt-4 font-serif text-3xl md:text-5xl lg:text-[3.6rem] leading-[1.08] italic font-light">
               {project.name}
@@ -1052,12 +1052,12 @@ function ProjectDetail() {
       </section>
 
       {/* OVERVIEW */}
-      <section className="py-20 md:py-28">
+      <section className="project-detail__section py-20 md:py-28">
         <div className="grid w-full grid-cols-1 gap-10 px-6 md:grid-cols-12 md:px-12">
           <div className="md:col-span-4">
             <SectionLabel index="I" title={labels.overview} />
           </div>
-          <div className="md:col-span-8 space-y-10">
+          <div className="project-detail__overview-list md:col-span-8 space-y-10">
             {[
               { h: labels.challenge, b: overview.challenge },
               { h: labels.approach, b: overview.approach },
@@ -1098,7 +1098,7 @@ function ProjectDetail() {
       </section>
 
       {/* GALLERY */}
-      <section className="py-20 md:py-28 bg-ink">
+      <section className="project-detail__gallery py-20 md:py-28 bg-ink">
         <div className="w-full px-6 md:px-12">
           <SectionLabel index="III" title={labels.gallery} />
 
@@ -1115,7 +1115,7 @@ function ProjectDetail() {
                       decoding="async"
                     />
                   </div>
-                  <figcaption className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
+                  <figcaption className="project-detail__figure-caption grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
                     <div className="md:col-span-4">
                       <p className="text-[10px] tracking-luxury uppercase text-bronze">
                         {labels.section}{" "}
@@ -1167,7 +1167,7 @@ function ProjectDetail() {
       </section>
 
       {/* RESULTS / REFLECTION */}
-      <section className="py-20 md:py-28">
+      <section className="project-detail__section py-20 md:py-28">
         <div className="grid w-full grid-cols-1 gap-10 px-6 md:grid-cols-12 md:px-12">
           <div className="md:col-span-4">
             <SectionLabel
@@ -1175,7 +1175,7 @@ function ProjectDetail() {
               title={project.reflection ? labels.reflection : labels.results}
             />
           </div>
-          <div className="md:col-span-8">
+          <div className="project-detail__reflection md:col-span-8">
             <p className="font-serif text-xl md:text-2xl leading-[1.35] font-light text-foreground/85">
               {project.reflection ??
                 (language === "ar"
@@ -1187,7 +1187,7 @@ function ProjectDetail() {
       </section>
 
       {/* NEXT PROJECT */}
-      <section className="py-16 md:py-20 bg-ink border-t border-border/30">
+      <section className="project-detail__next py-16 md:py-20 bg-ink border-t border-border/30">
         <div className="w-full px-6 md:px-12">
           <SectionLabel index="V" title={labels.next} />
           <Link
@@ -1204,7 +1204,7 @@ function ProjectDetail() {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.06]"
               />
             </div>
-            <div className="flex-1">
+            <div className="project-detail__next-copy flex-1">
               <h3 className="font-serif text-2xl md:text-4xl italic font-light leading-[1.1] transition-transform duration-500 group-hover:translate-x-2 gradient-bronze-text">
                 {next.name}
               </h3>
