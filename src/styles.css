@@ -284,7 +284,6 @@ body[data-lang="ar"] .group:hover .lang-arrow {
 }
 
 body[data-lang="ar"] .site-header__nav-link,
-body[data-lang="ar"] .font-serif,
 body[data-lang="ar"] .home-hero__copy,
 body[data-lang="ar"] .selected-work__content,
 body[data-lang="ar"] .service-card,
@@ -3129,6 +3128,58 @@ body[data-lang="ar"] .work-archive__content {
     body[data-lang="ar"] .contact-card h2 {
       overflow-wrap: normal;
     }
+  }
+
+  body[data-lang="ar"] .selected-work__content,
+  body[data-lang="ar"] .selected-work__content > div,
+  body[data-lang="ar"] .selected-work__content > p,
+  body[data-lang="ar"] .work-archive__masthead,
+  body[data-lang="ar"] .work-archive__content,
+  body[data-lang="ar"] .project-detail__copy,
+  body[data-lang="ar"] .project-detail__overview-list,
+  body[data-lang="ar"] .project-spec-card,
+  body[data-lang="ar"] .project-detail__figure-caption,
+  body[data-lang="ar"] .project-detail__reflection,
+  body[data-lang="ar"] .project-detail__next-copy {
+    direction: ltr;
+    text-align: left;
+  }
+
+  body[data-lang="ar"] .work-archive__content {
+    align-items: flex-start;
+  }
+
+  body[data-lang="ar"] .selected-work__content span,
+  body[data-lang="ar"] .selected-work__content span.inline-flex,
+  body[data-lang="ar"] .work-archive__number,
+  body[data-lang="ar"] .work-archive__disciplines,
+  body[data-lang="ar"] .work-archive__cta {
+    align-self: flex-start;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  body[data-lang="ar"] .selected-work__content :is(h3, p),
+  body[data-lang="ar"] .work-archive__content :is(h2, p, span),
+  body[data-lang="ar"] .project-detail__copy :is(h1, p),
+  body[data-lang="ar"] .project-detail__overview-list :is(h3, p),
+  body[data-lang="ar"] .project-spec-card :is(dt, dd),
+  body[data-lang="ar"] .project-detail__figure-caption :is(h3, p),
+  body[data-lang="ar"] .project-detail__reflection p,
+  body[data-lang="ar"] .project-detail__next-copy :is(h3, p) {
+    text-align: left;
+  }
+
+  body[data-lang="ar"] :is(.work-archive, .project-detail__section, .project-info-section, .project-detail__gallery, .project-detail__next) .section-label {
+    direction: ltr;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  body[data-lang="ar"] :is(.selected-work__content, .work-archive__content, .project-detail__hero, .project-detail__section, .project-info-section, .project-detail__gallery, .project-detail__next) .lang-arrow,
+  body[data-lang="ar"] .work-archive__row:hover .lang-arrow,
+  body[data-lang="ar"] .project-detail__next .group:hover .lang-arrow {
+    transform: none;
   }
 
   @media (min-width: 1200px) {
