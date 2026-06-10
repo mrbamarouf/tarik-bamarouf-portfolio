@@ -44,38 +44,38 @@
   --radius: 0;
 
   /* Luxury obsidian palette */
-  --background: oklch(0.065 0.004 60);
-  --foreground: oklch(0.955 0.012 72);
-  --ink: oklch(0.028 0.003 60);
+  --background: oklch(0.058 0.004 60);
+  --foreground: oklch(0.968 0.011 74);
+  --ink: oklch(0.024 0.003 60);
 
-  --card: oklch(0.085 0.005 60);
-  --card-foreground: oklch(0.955 0.012 72);
-  --popover: oklch(0.085 0.005 60);
-  --popover-foreground: oklch(0.955 0.012 72);
+  --card: oklch(0.078 0.005 62);
+  --card-foreground: oklch(0.968 0.011 74);
+  --popover: oklch(0.078 0.005 62);
+  --popover-foreground: oklch(0.968 0.011 74);
 
   /* Warm bronze */
-  --bronze: oklch(0.75 0.078 74);
-  --bronze-soft: oklch(0.84 0.058 82);
-  --bronze-deep: oklch(0.52 0.07 58);
+  --bronze: oklch(0.765 0.072 76);
+  --bronze-soft: oklch(0.865 0.052 84);
+  --bronze-deep: oklch(0.50 0.068 58);
 
-  --primary: oklch(0.75 0.078 74);
-  --primary-foreground: oklch(0.065 0.004 60);
+  --primary: var(--bronze);
+  --primary-foreground: var(--background);
 
-  --secondary: oklch(0.125 0.007 60);
-  --secondary-foreground: oklch(0.955 0.012 72);
+  --secondary: oklch(0.112 0.007 60);
+  --secondary-foreground: var(--foreground);
 
-  --muted: oklch(0.125 0.007 60);
-  --muted-foreground: oklch(0.70 0.014 72);
+  --muted: oklch(0.112 0.007 60);
+  --muted-foreground: oklch(0.745 0.014 74);
 
-  --accent: oklch(0.145 0.011 65);
-  --accent-foreground: oklch(0.84 0.058 82);
+  --accent: oklch(0.132 0.011 65);
+  --accent-foreground: var(--bronze-soft);
 
   --destructive: oklch(0.55 0.18 25);
   --destructive-foreground: oklch(0.98 0 0);
 
-  --border: oklch(0.28 0.014 68 / 66%);
-  --input: oklch(0.24 0.012 65);
-  --ring: oklch(0.75 0.078 74);
+  --border: oklch(0.31 0.014 70 / 72%);
+  --input: oklch(0.25 0.012 65);
+  --ring: var(--bronze);
 
   --chart-1: var(--bronze);
   --chart-2: var(--bronze-soft);
@@ -92,14 +92,14 @@
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
 
-  --gradient-bronze: linear-gradient(135deg, oklch(0.84 0.058 82), oklch(0.56 0.07 58));
-  --gradient-vignette: radial-gradient(ellipse at center, transparent 0%, oklch(0.025 0.003 60 / 0.86) 100%);
+  --gradient-bronze: linear-gradient(135deg, var(--bronze-soft), var(--bronze-deep));
+  --gradient-vignette: radial-gradient(ellipse at center, transparent 0%, oklch(0.018 0.003 60 / 0.88) 100%);
   --shadow-luxury: 0 30px 80px -20px oklch(0 0 0 / 0.68);
 }
 
 .dark {
-  --background: oklch(0.065 0.004 60);
-  --foreground: oklch(0.955 0.012 72);
+  --background: oklch(0.058 0.004 60);
+  --foreground: oklch(0.968 0.011 74);
 }
 
 @layer base {
@@ -180,28 +180,53 @@
 }
 
 @media (min-width: 1200px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body > .site-shell,
   .site-shell,
   .site-main {
-    inline-size: 100%;
+    width: 100vw;
+    min-width: 100vw;
+    max-width: none;
+    inline-size: 100vw;
     max-inline-size: none;
+    margin-inline: 0;
     overflow-x: clip;
   }
 
   .site-main > .home-hero {
+    position: relative;
+    left: 50%;
+    right: auto;
+    display: block;
+    width: 100vw;
+    min-width: 100vw;
     inline-size: 100vw;
     max-inline-size: none;
-    margin-inline: calc(50% - 50vw);
+    margin-left: -50vw;
+    margin-right: 0;
   }
 
   .site-main > .home-hero,
   .site-main > .home-hero .home-hero__content {
-    left: 0;
     right: 0;
+    max-width: none;
+    max-inline-size: none;
   }
 
   .site-main > .home-hero .home-hero__image {
+    left: 0;
+    right: 0;
+    width: 100vw;
+    min-width: 100vw;
     inline-size: 100vw;
     max-inline-size: none;
+    max-width: none;
   }
 }
 
@@ -239,7 +264,7 @@ body[data-lang="ar"] .contact-hero {
 
 body[data-lang="ar"] .contact-hero__rule {
   margin-inline-start: auto;
-  background: linear-gradient(270deg, var(--bronze), oklch(0.72 0.09 70 / 0.14), transparent);
+  background: linear-gradient(270deg, var(--bronze), oklch(0.765 0.072 76 / 0.18), transparent);
 }
 
 body[data-lang="ar"] .home-hero__copy .reveal-delay-3,
@@ -288,9 +313,9 @@ body[data-lang="ar"] .contact-card h2 {
   inset: 0;
   z-index: -2;
   background:
-    radial-gradient(ellipse at 50% 44%, oklch(0.72 0.09 70 / 0.16), transparent 42%),
-    radial-gradient(ellipse at 50% 102%, oklch(0.82 0.07 78 / 0.08), transparent 34%),
-    linear-gradient(180deg, transparent 0%, oklch(0.018 0.004 62 / 0.66) 52%, transparent 100%);
+    radial-gradient(ellipse at 50% 44%, oklch(0.765 0.072 76 / 0.18), transparent 42%),
+    radial-gradient(ellipse at 50% 102%, oklch(0.865 0.052 84 / 0.09), transparent 34%),
+    linear-gradient(180deg, transparent 0%, oklch(0.014 0.004 62 / 0.70) 52%, transparent 100%);
 }
 
 .selected-work__chapter::after {
@@ -300,7 +325,7 @@ body[data-lang="ar"] .contact-card h2 {
   bottom: 0;
   z-index: -1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, oklch(0.72 0.09 70 / 0.22), transparent);
+  background: linear-gradient(90deg, transparent, oklch(0.765 0.072 76 / 0.28), transparent);
 }
 
 .selected-work__chapter-kicker {
@@ -309,7 +334,7 @@ body[data-lang="ar"] .contact-card h2 {
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.58em;
-  color: oklch(0.78 0.08 76);
+  color: var(--bronze);
   text-transform: uppercase;
 }
 
@@ -320,10 +345,10 @@ body[data-lang="ar"] .contact-card h2 {
   font-size: clamp(8.5rem, 14vw, 17.5rem);
   font-weight: 300;
   line-height: 0.78;
-  color: oklch(0.8 0.055 80);
+  color: oklch(0.82 0.052 82);
   letter-spacing: -0.03em;
   text-shadow:
-    0 0 34px oklch(0.72 0.09 70 / 0.16),
+    0 0 34px oklch(0.765 0.072 76 / 0.20),
     0 24px 90px oklch(0 0 0 / 0.7);
 }
 
@@ -345,7 +370,7 @@ body[data-lang="ar"] .contact-card h2 {
   width: 1px;
   height: clamp(2.5rem, 4vw, 4.25rem);
   margin-top: clamp(1.55rem, 2.7vw, 2.35rem);
-  background: linear-gradient(180deg, oklch(0.72 0.09 70 / 0.05), oklch(0.72 0.09 70 / 0.48), oklch(0.72 0.09 70 / 0.05));
+  background: linear-gradient(180deg, oklch(0.765 0.072 76 / 0.06), oklch(0.765 0.072 76 / 0.58), oklch(0.765 0.072 76 / 0.06));
 }
 
 .selected-work__chapter-divider span {
@@ -355,37 +380,37 @@ body[data-lang="ar"] .contact-card h2 {
   width: 6px;
   height: 6px;
   border-radius: 999px;
-  background: oklch(0.78 0.08 76);
-  box-shadow: 0 0 22px oklch(0.72 0.09 70 / 0.58);
+  background: var(--bronze);
+  box-shadow: 0 0 22px oklch(0.765 0.072 76 / 0.64);
   transform: translate(-50%, -50%);
 }
 
 .selected-work {
-  border-color: oklch(0.75 0.078 74 / 0.18);
+  border-color: oklch(0.765 0.072 76 / 0.22);
   background:
-    radial-gradient(ellipse at 50% 0%, oklch(0.75 0.078 74 / 0.08), transparent 38%),
-    linear-gradient(180deg, oklch(0.018 0.003 62), oklch(0.032 0.004 62) 48%, oklch(0.012 0.003 62));
+    radial-gradient(ellipse at 50% 0%, oklch(0.765 0.072 76 / 0.10), transparent 38%),
+    linear-gradient(180deg, oklch(0.014 0.003 62), oklch(0.028 0.004 62) 48%, oklch(0.009 0.003 62));
 }
 
 .selected-work > .pointer-events-none {
   background:
-    radial-gradient(circle at 15% 0%, oklch(0.75 0.078 74 / 0.10), transparent 30%),
-    linear-gradient(180deg, oklch(0.01 0.002 62 / 0.24), transparent 34%, oklch(0.01 0.002 62 / 0.34));
+    radial-gradient(circle at 15% 0%, oklch(0.765 0.072 76 / 0.12), transparent 30%),
+    linear-gradient(180deg, oklch(0.008 0.002 62 / 0.28), transparent 34%, oklch(0.008 0.002 62 / 0.38));
 }
 
 .selected-work__image {
-  filter: saturate(1.12) contrast(1.12) brightness(0.92);
+  filter: saturate(1.1) contrast(1.15) brightness(0.96);
 }
 
 .selected-work .selected-work__veil--primary {
   background:
-    linear-gradient(90deg, oklch(0.02 0.003 62 / 0.98) 0%, oklch(0.02 0.003 62 / 0.90) 31%, oklch(0.02 0.003 62 / 0.42) 58%, oklch(0.02 0.003 62 / 0.06) 100%);
+    linear-gradient(90deg, oklch(0.014 0.003 62 / 0.98) 0%, oklch(0.014 0.003 62 / 0.87) 31%, oklch(0.014 0.003 62 / 0.34) 58%, oklch(0.014 0.003 62 / 0.035) 100%);
 }
 
 .selected-work .selected-work__veil--secondary {
   background:
-    radial-gradient(ellipse at 72% 44%, oklch(0.75 0.078 74 / 0.09), transparent 36%),
-    linear-gradient(0deg, oklch(0.02 0.003 62 / 0.44), transparent 58%, oklch(0.02 0.003 62 / 0.18));
+    radial-gradient(ellipse at 72% 44%, oklch(0.765 0.072 76 / 0.10), transparent 36%),
+    linear-gradient(0deg, oklch(0.014 0.003 62 / 0.34), transparent 58%, oklch(0.014 0.003 62 / 0.12));
 }
 
 .home-about__content {
@@ -399,6 +424,15 @@ body[data-lang="ar"] .contact-card h2 {
 
 .home-about__body p {
   text-shadow: 0 14px 42px oklch(0 0 0 / 0.62);
+}
+
+.home-about__image {
+  filter: saturate(0.86) contrast(1.16) brightness(1.03);
+  opacity: 0.78;
+}
+
+.home-about__shade {
+  background: linear-gradient(90deg, oklch(0.018 0.004 62 / 0.90) 0%, oklch(0.018 0.004 62 / 0.64) 40%, oklch(0.018 0.004 62 / 0.18) 100%);
 }
 
 body[data-lang="ar"] .home-about__heading,
@@ -550,12 +584,12 @@ body.intro-scroll-lock {
 
   .home-hero {
     background:
-      radial-gradient(circle at 50% 40%, oklch(0.17 0.018 66 / 0.50), transparent 42%),
-      linear-gradient(180deg, oklch(0.012 0.003 62), oklch(0.028 0.005 64) 50%, oklch(0.012 0.003 62));
+      radial-gradient(circle at 50% 40%, oklch(0.18 0.018 66 / 0.52), transparent 42%),
+      linear-gradient(180deg, oklch(0.008 0.003 62), oklch(0.024 0.005 64) 50%, oklch(0.008 0.003 62));
   }
 
   .home-hero__image {
-    filter: saturate(1.08) contrast(1.09) brightness(1.02);
+    filter: saturate(1.09) contrast(1.13) brightness(1.03);
     object-position: center center;
   }
 
@@ -588,9 +622,9 @@ body.intro-scroll-lock {
     position: relative;
     overflow: hidden;
     background:
-      radial-gradient(circle at 16% 28%, oklch(0.75 0.078 74 / 0.13), transparent 34%),
-      radial-gradient(circle at 82% 14%, oklch(0.56 0.07 58 / 0.09), transparent 30%),
-      linear-gradient(180deg, oklch(0.032 0.004 62), oklch(0.018 0.003 62));
+      radial-gradient(circle at 16% 28%, oklch(0.765 0.072 76 / 0.15), transparent 34%),
+      radial-gradient(circle at 82% 14%, oklch(0.50 0.068 58 / 0.10), transparent 30%),
+      linear-gradient(180deg, oklch(0.026 0.004 62), oklch(0.012 0.003 62));
   }
 
   .work-archive__masthead::after {
@@ -598,15 +632,15 @@ body.intro-scroll-lock {
     position: absolute;
     inset: auto 6vw 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, oklch(0.72 0.09 70 / 0.42), transparent);
+    background: linear-gradient(90deg, transparent, oklch(0.765 0.072 76 / 0.50), transparent);
     pointer-events: none;
   }
 
   .work-archive {
     background:
-      radial-gradient(circle at 12% 8%, oklch(0.75 0.078 74 / 0.09), transparent 32%),
-      radial-gradient(circle at 86% 56%, oklch(0.52 0.07 58 / 0.07), transparent 30%),
-      linear-gradient(180deg, oklch(0.018 0.003 62), oklch(0.043 0.005 64) 48%, oklch(0.016 0.003 62));
+      radial-gradient(circle at 12% 8%, oklch(0.765 0.072 76 / 0.10), transparent 32%),
+      radial-gradient(circle at 86% 56%, oklch(0.50 0.068 58 / 0.08), transparent 30%),
+      linear-gradient(180deg, oklch(0.012 0.003 62), oklch(0.036 0.005 64) 48%, oklch(0.010 0.003 62));
   }
 
   .work-archive__list {
@@ -621,10 +655,10 @@ body.intro-scroll-lock {
     grid-template-columns: minmax(300px, 0.38fr) minmax(0, 0.62fr);
     min-height: clamp(440px, 42vw, 690px);
     overflow: hidden;
-    border: 1px solid oklch(0.75 0.078 74 / 0.18);
+    border: 1px solid oklch(0.765 0.072 76 / 0.22);
     background:
-      radial-gradient(circle at 18% 22%, oklch(0.75 0.078 74 / 0.10), transparent 36%),
-      linear-gradient(135deg, oklch(0.038 0.005 62), oklch(0.014 0.002 62) 64%);
+      radial-gradient(circle at 18% 22%, oklch(0.765 0.072 76 / 0.12), transparent 36%),
+      linear-gradient(135deg, oklch(0.032 0.005 62), oklch(0.010 0.002 62) 64%);
     box-shadow: 0 42px 120px -72px oklch(0 0 0 / 0.95);
   }
 
@@ -646,7 +680,7 @@ body.intro-scroll-lock {
   .work-archive__row::after {
     inset: 1px;
     border: 1px solid oklch(0.92 0.02 78 / 0.035);
-    background: linear-gradient(90deg, transparent, oklch(0.72 0.09 70 / 0.035), transparent);
+    background: linear-gradient(90deg, transparent, oklch(0.765 0.072 76 / 0.045), transparent);
     opacity: 0.75;
     mix-blend-mode: screen;
   }
@@ -669,8 +703,8 @@ body.intro-scroll-lock {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(circle at 50% 42%, transparent 0%, transparent 38%, oklch(0.02 0.003 62 / 0.54) 100%),
-      linear-gradient(180deg, oklch(0.02 0.003 62 / 0.08), transparent 42%, oklch(0.02 0.003 62 / 0.30));
+      radial-gradient(circle at 50% 42%, transparent 0%, transparent 38%, oklch(0.014 0.003 62 / 0.50) 100%),
+      linear-gradient(180deg, oklch(0.014 0.003 62 / 0.06), transparent 42%, oklch(0.014 0.003 62 / 0.26));
     pointer-events: none;
   }
 
@@ -941,7 +975,7 @@ body.intro-scroll-lock {
   .service-card {
     isolation: isolate;
     background:
-      linear-gradient(180deg, oklch(0.092 0.01 65 / 0.92), oklch(0.024 0.003 62 / 0.98));
+      linear-gradient(180deg, oklch(0.078 0.009 65 / 0.94), oklch(0.016 0.003 62 / 0.99));
   }
 
   .service-card::before,
@@ -957,10 +991,10 @@ body.intro-scroll-lock {
     z-index: 1;
     background:
       linear-gradient(180deg, oklch(0.96 0.018 78 / 0.06), transparent 18%),
-      radial-gradient(circle at 18% 14%, oklch(0.84 0.058 82 / 0.18), transparent 34%),
-      linear-gradient(12deg, transparent 0 46%, oklch(0.84 0.058 82 / 0.045) 58%, transparent 72%);
+      radial-gradient(circle at 18% 14%, oklch(0.865 0.052 84 / 0.19), transparent 34%),
+      linear-gradient(12deg, transparent 0 46%, oklch(0.865 0.052 84 / 0.05) 58%, transparent 72%);
     mix-blend-mode: screen;
-    opacity: 0.78;
+    opacity: 0.72;
     transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -969,15 +1003,15 @@ body.intro-scroll-lock {
     z-index: 1;
     border: 1px solid oklch(0.90 0.03 78 / 0.05);
     background:
-      linear-gradient(90deg, transparent, oklch(0.72 0.09 70 / 0.055), transparent),
-      radial-gradient(circle at 50% 0%, oklch(0.90 0.04 78 / 0.08), transparent 34%),
-      linear-gradient(180deg, transparent 0%, oklch(0 0 0 / 0.38) 100%);
-    opacity: 0.52;
+      linear-gradient(90deg, transparent, oklch(0.765 0.072 76 / 0.07), transparent),
+      radial-gradient(circle at 50% 0%, oklch(0.90 0.04 78 / 0.09), transparent 34%),
+      linear-gradient(180deg, transparent 0%, oklch(0 0 0 / 0.34) 100%);
+    opacity: 0.58;
     mix-blend-mode: soft-light;
   }
 
   .service-card__image {
-    filter: saturate(1.16) contrast(1.15) brightness(1.06);
+    filter: saturate(1.14) contrast(1.17) brightness(1.07);
     transform-origin: center;
   }
 
@@ -994,18 +1028,18 @@ body.intro-scroll-lock {
   }
 
   .process-card::before {
-    inset: 1px;
-    z-index: 1;
-    border: 1px solid oklch(0.90 0.03 78 / 0.045);
-    background:
-      radial-gradient(circle at 24% 18%, oklch(0.75 0.078 74 / 0.10), transparent 34%),
+      inset: 1px;
+      z-index: 1;
+      border: 1px solid oklch(0.90 0.03 78 / 0.045);
+      background:
+      radial-gradient(circle at 24% 18%, oklch(0.765 0.072 76 / 0.12), transparent 34%),
       linear-gradient(180deg, oklch(0.92 0.02 80 / 0.035), transparent 24%);
-    opacity: 0.88;
+    opacity: 0.80;
     mix-blend-mode: screen;
   }
 
   .process-card__media img {
-    filter: saturate(1.12) contrast(1.18) brightness(1);
+    filter: saturate(1.10) contrast(1.20) brightness(1.02);
     transform-origin: center;
   }
 
@@ -1120,7 +1154,7 @@ body.intro-scroll-lock {
   .contact-hero__rule {
     height: 1px;
     width: min(520px, 100%);
-    background: linear-gradient(90deg, var(--bronze), oklch(0.72 0.09 70 / 0.14), transparent);
+    background: linear-gradient(90deg, var(--bronze), oklch(0.765 0.072 76 / 0.18), transparent);
     opacity: 0.78;
   }
 
@@ -1135,7 +1169,7 @@ body.intro-scroll-lock {
     right: 0;
     top: -42px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, oklch(0.72 0.09 70 / 0.54), transparent);
+    background: linear-gradient(90deg, transparent, oklch(0.765 0.072 76 / 0.60), transparent);
     opacity: 0.55;
   }
 
@@ -1145,7 +1179,7 @@ body.intro-scroll-lock {
     min-height: clamp(320px, 34vw, 500px);
     overflow: hidden;
     flex-direction: column;
-    border: 1px solid oklch(0.72 0.09 70 / 0.22);
+    border: 1px solid oklch(0.765 0.072 76 / 0.26);
     background:
       linear-gradient(145deg, oklch(0.11 0.008 62 / 0.78), oklch(0.035 0.005 62 / 0.88)),
       radial-gradient(circle at 24% 20%, oklch(0.82 0.07 78 / 0.12), transparent 34%);
@@ -1185,7 +1219,7 @@ body.intro-scroll-lock {
   .contact-card::after {
     inset: auto clamp(2rem, 4vw, 4.5rem) clamp(2rem, 4vw, 4.5rem);
     height: 1px;
-    background: linear-gradient(90deg, oklch(0.72 0.09 70 / 0.82), transparent);
+    background: linear-gradient(90deg, oklch(0.765 0.072 76 / 0.86), transparent);
     opacity: 0.44;
     transform-origin: left center;
     transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1211,13 +1245,13 @@ body.intro-scroll-lock {
 
   .contact-card--primary {
     min-height: clamp(380px, 40vw, 560px);
-    border-color: oklch(0.72 0.09 70 / 0.30);
+    border-color: oklch(0.765 0.072 76 / 0.34);
   }
 
   .contact-card--secondary {
     background:
       linear-gradient(145deg, oklch(0.08 0.006 62 / 0.80), oklch(0.025 0.004 62 / 0.92)),
-      radial-gradient(circle at 74% 18%, oklch(0.72 0.09 70 / 0.10), transparent 32%);
+      radial-gradient(circle at 74% 18%, oklch(0.765 0.072 76 / 0.11), transparent 32%);
   }
 
   .contact-card h2 {
@@ -1227,10 +1261,10 @@ body.intro-scroll-lock {
 
   .contact-card:hover {
     transform: translateY(-8px);
-    border-color: oklch(0.72 0.09 70 / 0.58);
+    border-color: oklch(0.765 0.072 76 / 0.62);
     box-shadow:
       0 36px 130px oklch(0 0 0 / 0.48),
-      0 0 70px oklch(0.72 0.09 70 / 0.11);
+      0 0 70px oklch(0.765 0.072 76 / 0.13);
   }
 
   .contact-card:hover::after {
@@ -1241,6 +1275,19 @@ body.intro-scroll-lock {
   .contact-card:hover .contact-card__glow {
     opacity: 0.92;
     transform: translate3d(2%, -2%, 0);
+  }
+
+  main > section.relative.h-\[88svh\] > img {
+    filter: saturate(1.08) contrast(1.13) brightness(0.99);
+  }
+
+  main > section.relative.h-\[88svh\] > .bg-gradient-to-b {
+    background: linear-gradient(
+      to bottom,
+      oklch(0.058 0.004 60 / 0.34),
+      oklch(0.058 0.004 60 / 0.14),
+      var(--background)
+    );
   }
 
   @keyframes contact-ambient {
@@ -1305,11 +1352,11 @@ body.intro-scroll-lock {
     isolation: isolate;
     overflow: hidden;
     padding-block: clamp(4rem, 7vw, 6.5rem);
-    border-block: 1px solid oklch(0.75 0.078 74 / 0.16);
+    border-block: 1px solid oklch(0.765 0.072 76 / 0.20);
     background:
-      radial-gradient(circle at 18% 22%, oklch(0.75 0.078 74 / 0.09), transparent 28%),
-      radial-gradient(circle at 82% 68%, oklch(0.52 0.07 62 / 0.08), transparent 30%),
-      linear-gradient(180deg, oklch(0.024 0.004 62), oklch(0.042 0.005 62) 48%, oklch(0.02 0.003 62));
+      radial-gradient(circle at 18% 22%, oklch(0.765 0.072 76 / 0.11), transparent 28%),
+      radial-gradient(circle at 82% 68%, oklch(0.50 0.068 62 / 0.09), transparent 30%),
+      linear-gradient(180deg, oklch(0.018 0.004 62), oklch(0.036 0.005 62) 48%, oklch(0.014 0.003 62));
   }
 
   .project-info-section::before,
@@ -1323,13 +1370,13 @@ body.intro-scroll-lock {
   .project-info-section::before {
     top: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, oklch(0.75 0.078 74 / 0.52), transparent);
+    background: linear-gradient(90deg, transparent, oklch(0.765 0.072 76 / 0.60), transparent);
   }
 
   .project-info-section::after {
     bottom: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, oklch(0.75 0.078 74 / 0.34), transparent);
+    background: linear-gradient(90deg, transparent, oklch(0.765 0.072 76 / 0.40), transparent);
   }
 
   .project-info-section__ambient {
@@ -1337,7 +1384,7 @@ body.intro-scroll-lock {
     inset: -24%;
     z-index: 0;
     background:
-      radial-gradient(circle at 30% 36%, oklch(0.84 0.058 82 / 0.09), transparent 20%),
+      radial-gradient(circle at 30% 36%, oklch(0.865 0.052 84 / 0.10), transparent 20%),
       radial-gradient(circle at 74% 56%, oklch(0.62 0.07 70 / 0.10), transparent 24%);
     filter: blur(38px);
     opacity: 0.78;
@@ -1353,8 +1400,8 @@ body.intro-scroll-lock {
     grid-template-columns: minmax(0, 1fr);
     gap: 1px;
     overflow: hidden;
-    border: 1px solid oklch(0.75 0.078 74 / 0.24);
-    background: oklch(0.75 0.078 74 / 0.13);
+    border: 1px solid oklch(0.765 0.072 76 / 0.30);
+    background: oklch(0.765 0.072 76 / 0.15);
     box-shadow:
       0 28px 90px oklch(0 0 0 / 0.30),
       inset 0 1px 0 oklch(0.92 0.02 80 / 0.06);
@@ -1366,7 +1413,7 @@ body.intro-scroll-lock {
     padding: clamp(1.35rem, 2.6vw, 2.35rem);
     background:
       linear-gradient(145deg, oklch(0.08 0.007 64 / 0.94), oklch(0.036 0.005 62 / 0.98)),
-      radial-gradient(circle at 18% 0%, oklch(0.75 0.078 74 / 0.11), transparent 36%);
+      radial-gradient(circle at 18% 0%, oklch(0.765 0.072 76 / 0.12), transparent 36%);
   }
 
   .project-spec-card::before {
@@ -1375,7 +1422,7 @@ body.intro-scroll-lock {
     inset-inline: clamp(1.35rem, 2.6vw, 2.35rem);
     top: 0;
     height: 2px;
-    background: linear-gradient(90deg, oklch(0.75 0.078 74 / 0.76), transparent);
+    background: linear-gradient(90deg, oklch(0.765 0.072 76 / 0.80), transparent);
     opacity: 0.62;
   }
 
@@ -1881,15 +1928,15 @@ body.intro-scroll-lock {
       opacity: 0.9;
     }
 
-    .selected-work__veil--primary {
+    .selected-work .selected-work__veil--primary {
       background:
-        linear-gradient(180deg, oklch(0.02 0.004 62 / 0.10) 0%, oklch(0.02 0.004 62 / 0.30) 40%, oklch(0.02 0.004 62 / 0.96) 76%, oklch(0.02 0.004 62 / 0.99) 100%);
+        linear-gradient(180deg, oklch(0.014 0.004 62 / 0.08) 0%, oklch(0.014 0.004 62 / 0.24) 40%, oklch(0.014 0.004 62 / 0.92) 76%, oklch(0.014 0.004 62 / 0.99) 100%);
     }
 
-    .selected-work__veil--secondary {
+    .selected-work .selected-work__veil--secondary {
       background:
-        radial-gradient(circle at 18% 26%, oklch(0.72 0.09 70 / 0.16), transparent 34%),
-        linear-gradient(0deg, oklch(0.01 0.002 62 / 0.70), transparent 58%);
+        radial-gradient(circle at 18% 26%, oklch(0.765 0.072 76 / 0.17), transparent 34%),
+        linear-gradient(0deg, oklch(0.008 0.002 62 / 0.64), transparent 58%);
     }
 
     .selected-work__content {
@@ -2384,7 +2431,7 @@ body.intro-scroll-lock {
 
     .selected-work__row {
       min-height: clamp(186px, 49vw, 220px);
-      border-block: 1px solid oklch(0.72 0.09 70 / 0.18);
+      border-block: 1px solid oklch(0.765 0.072 76 / 0.22);
       border-inline: 0;
       background: oklch(0.026 0.004 62);
       box-shadow: none;
@@ -2399,7 +2446,7 @@ body.intro-scroll-lock {
       object-position: 60% center;
       opacity: 0.92;
       transform: none;
-      filter: saturate(1.1) contrast(1.1) brightness(0.82);
+      filter: saturate(1.08) contrast(1.14) brightness(0.88);
     }
 
     .selected-work__row:nth-child(1) .selected-work__image { object-position: 58% center; }
@@ -2414,16 +2461,16 @@ body.intro-scroll-lock {
       transform: none;
     }
 
-    .selected-work__veil--primary {
+    .selected-work .selected-work__veil--primary {
       background:
-        linear-gradient(90deg, oklch(0.01 0.002 62 / 0.86) 0%, oklch(0.01 0.002 62 / 0.58) 48%, oklch(0.01 0.002 62 / 0.18) 100%),
-        linear-gradient(180deg, oklch(0.012 0.002 62 / 0.08) 0%, oklch(0.012 0.002 62 / 0.24) 52%, oklch(0.01 0.002 62 / 0.78) 100%);
+        linear-gradient(90deg, oklch(0.008 0.002 62 / 0.84) 0%, oklch(0.008 0.002 62 / 0.52) 48%, oklch(0.008 0.002 62 / 0.12) 100%),
+        linear-gradient(180deg, oklch(0.008 0.002 62 / 0.06) 0%, oklch(0.008 0.002 62 / 0.20) 52%, oklch(0.008 0.002 62 / 0.72) 100%);
     }
 
-    .selected-work__veil--secondary {
+    .selected-work .selected-work__veil--secondary {
       background:
-        radial-gradient(circle at 16% 30%, oklch(0.82 0.07 78 / 0.12), transparent 34%),
-        linear-gradient(0deg, oklch(0.01 0.002 62 / 0.56), transparent 64%);
+        radial-gradient(circle at 16% 30%, oklch(0.865 0.052 84 / 0.13), transparent 34%),
+        linear-gradient(0deg, oklch(0.008 0.002 62 / 0.50), transparent 64%);
     }
 
     .selected-work__content {
@@ -2598,7 +2645,7 @@ body.intro-scroll-lock {
       width: 0.48rem;
       height: 0.48rem;
       border-radius: 999px;
-      background: oklch(0.82 0.07 78 / 0.28);
+      background: oklch(0.865 0.052 84 / 0.30);
       transform: translateZ(0);
       transition:
         width 260ms ease,
@@ -2612,7 +2659,7 @@ body.intro-scroll-lock {
       width: 1.32rem;
       height: 0.22rem;
       border-radius: 999px;
-      background: linear-gradient(90deg, oklch(0.82 0.07 78), oklch(0.72 0.09 70));
+      background: linear-gradient(90deg, oklch(0.865 0.052 84), var(--bronze));
       transform: translateZ(0) scaleX(1.02);
     }
 
@@ -2623,7 +2670,7 @@ body.intro-scroll-lock {
       scroll-snap-stop: always;
       padding: 1rem;
       border-radius: 8px;
-      border-color: oklch(0.72 0.09 70 / 0.30);
+      border-color: oklch(0.765 0.072 76 / 0.34);
       background: oklch(0.013 0.003 62);
       box-shadow: 0 22px 70px oklch(0 0 0 / 0.30);
     }
@@ -2636,7 +2683,7 @@ body.intro-scroll-lock {
     .service-card__image {
       opacity: 0.92;
       object-position: center;
-      filter: saturate(1.10) contrast(1.13) brightness(0.83);
+      filter: saturate(1.08) contrast(1.17) brightness(0.90);
     }
 
     .service-card__content {
@@ -2677,7 +2724,7 @@ body.intro-scroll-lock {
     main:has(.home-hero) #process {
       padding-block: 3.55rem 4.2rem;
       background:
-        radial-gradient(ellipse at 20% 0%, oklch(0.72 0.09 70 / 0.12), transparent 34%),
+        radial-gradient(ellipse at 20% 0%, oklch(0.765 0.072 76 / 0.13), transparent 34%),
         linear-gradient(180deg, oklch(0.007 0.002 62), oklch(0.024 0.004 62) 52%, oklch(0.009 0.002 62));
     }
 
@@ -2701,9 +2748,9 @@ body.intro-scroll-lock {
       display: block;
       gap: 0;
       overflow: visible;
-      border: 1px solid oklch(0.72 0.09 70 / 0.16);
+      border: 1px solid oklch(0.765 0.072 76 / 0.20);
       background:
-        radial-gradient(ellipse at 26% 0%, oklch(0.72 0.09 70 / 0.10), transparent 42%),
+        radial-gradient(ellipse at 26% 0%, oklch(0.765 0.072 76 / 0.12), transparent 42%),
         linear-gradient(180deg, oklch(0.031 0.005 64 / 0.82), oklch(0.012 0.003 62 / 0.94));
       padding-left: 1.15rem;
     }
@@ -2715,7 +2762,7 @@ body.intro-scroll-lock {
       top: 1.1rem;
       bottom: 1.1rem;
       width: 1px;
-      background: linear-gradient(180deg, transparent, oklch(0.72 0.09 70 / 0.62) 12%, oklch(0.72 0.09 70 / 0.42) 88%, transparent);
+      background: linear-gradient(180deg, transparent, oklch(0.765 0.072 76 / 0.68) 12%, oklch(0.765 0.072 76 / 0.48) 88%, transparent);
       pointer-events: none;
     }
 
@@ -2727,7 +2774,7 @@ body.intro-scroll-lock {
       align-items: center;
       overflow: visible;
       border: 0;
-      border-bottom: 1px solid oklch(0.72 0.09 70 / 0.12);
+      border-bottom: 1px solid oklch(0.765 0.072 76 / 0.16);
       background: transparent;
       box-shadow: none;
       padding: 0.92rem 0.55rem 0.92rem 0.95rem;
@@ -2751,8 +2798,8 @@ body.intro-scroll-lock {
       display: block;
       width: 0.46rem;
       height: 0.46rem;
-      border-right: 1px solid oklch(0.82 0.07 78 / 0.86);
-      border-bottom: 1px solid oklch(0.82 0.07 78 / 0.86);
+      border-right: 1px solid oklch(0.865 0.052 84 / 0.88);
+      border-bottom: 1px solid oklch(0.865 0.052 84 / 0.88);
       background: none;
       opacity: 1;
       mix-blend-mode: normal;
@@ -2773,10 +2820,10 @@ body.intro-scroll-lock {
       z-index: 3;
       width: 1.08rem;
       height: 1.08rem;
-      border: 1px solid oklch(0.82 0.07 78 / 0.9);
+      border: 1px solid oklch(0.865 0.052 84 / 0.92);
       border-radius: 999px;
       background: oklch(0.012 0.003 62);
-      box-shadow: 0 0 0 3px oklch(0.01 0.002 62), 0 0 26px oklch(0.72 0.09 70 / 0.18);
+      box-shadow: 0 0 0 3px oklch(0.008 0.002 62), 0 0 26px oklch(0.765 0.072 76 / 0.22);
       transform: translateY(-50%);
       pointer-events: none;
     }
@@ -2786,7 +2833,7 @@ body.intro-scroll-lock {
       width: 100%;
       height: clamp(4.55rem, 19vw, 5.05rem);
       overflow: hidden;
-      border: 1px solid oklch(0.72 0.09 70 / 0.18);
+      border: 1px solid oklch(0.765 0.072 76 / 0.22);
       border-radius: 8px;
     }
 
@@ -2794,7 +2841,7 @@ body.intro-scroll-lock {
       height: 100%;
       width: 100%;
       object-fit: cover;
-      filter: saturate(1.08) contrast(1.12) brightness(0.82);
+      filter: saturate(1.06) contrast(1.16) brightness(0.90);
     }
 
     .process-card__media .absolute.bottom-6,
