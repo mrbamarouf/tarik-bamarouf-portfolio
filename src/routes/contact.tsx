@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
 import { whatsappHref, emailHref, CONTACT_EMAIL } from "@/lib/contact";
-import { siteCopy, useLanguage } from "@/lib/language";
+import { EnglishLayoutSlot, siteCopy, useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -63,7 +63,9 @@ function ContactPage() {
             </h1>
             <div className="contact-hero__rule mt-10" />
             <p className="mt-10 max-w-md text-base font-light leading-relaxed text-foreground/68 md:text-lg">
-              {t.contact.body}
+              <EnglishLayoutSlot master={siteCopy.en.contact.body}>
+                {t.contact.body}
+              </EnglishLayoutSlot>
             </p>
           </div>
 

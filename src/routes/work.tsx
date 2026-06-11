@@ -1,7 +1,13 @@
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
-import { formatLocalizedNumber, projectDisplay, siteCopy, useLanguage } from "@/lib/language";
+import {
+  EnglishLayoutSlot,
+  formatLocalizedNumber,
+  projectDisplay,
+  siteCopy,
+  useLanguage,
+} from "@/lib/language";
 import { portfolioProjects } from "@/lib/portfolio-projects";
 
 export const Route = createFileRoute("/work")({
@@ -62,6 +68,7 @@ function WorkPage() {
           <ul className="work-archive__list">
             {projects.map((p, i) => {
               const display = projectDisplay(p.slug, language);
+              const masterDisplay = projectDisplay(p.slug, "en");
               const isReversed = i % 2 === 1;
               return (
                 <li key={p.slug} className="work-archive__item">
@@ -88,13 +95,27 @@ function WorkPage() {
                         </span>
                         <span aria-hidden="true" />
                       </div>
-                      <p className="work-archive__category">{display.category ?? p.cat}</p>
+                      <p className="work-archive__category">
+                        <EnglishLayoutSlot master={masterDisplay.category ?? p.cat}>
+                          {display.category ?? p.cat}
+                        </EnglishLayoutSlot>
+                      </p>
                       <h2 className="work-archive__title">{p.t}</h2>
                       <p className="work-archive__disciplines">
-                        <span>{display.disciplines ?? p.disciplines}</span>
+                        <span>
+                          <EnglishLayoutSlot master={masterDisplay.disciplines ?? p.disciplines}>
+                            {display.disciplines ?? p.disciplines}
+                          </EnglishLayoutSlot>
+                        </span>
                         <span>{formatLocalizedNumber(p.year, language)}</span>
                       </p>
-                      {display.intro && <p className="work-archive__intro">{display.intro}</p>}
+                      {display.intro && (
+                        <p className="work-archive__intro">
+                          <EnglishLayoutSlot master={masterDisplay.intro ?? display.intro}>
+                            {display.intro}
+                          </EnglishLayoutSlot>
+                        </p>
+                      )}
                       <span className="work-archive__cta">
                         {t.common.viewProject}
                         <ArrowRight className="lang-arrow h-3.5 w-3.5" aria-hidden="true" />

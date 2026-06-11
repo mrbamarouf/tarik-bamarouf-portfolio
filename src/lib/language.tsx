@@ -57,12 +57,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    const direction = language === "ar" ? "rtl" : "ltr";
-
     document.documentElement.lang = language;
-    document.documentElement.dir = direction;
+    document.documentElement.dir = "ltr";
     document.body.dataset.lang = language;
-    document.body.dir = direction;
+    document.body.dir = "ltr";
   }, [language]);
 
   useEffect(() => {
@@ -91,6 +89,23 @@ export function useLanguage() {
     throw new Error("useLanguage must be used inside LanguageProvider");
   }
   return context;
+}
+
+export function EnglishLayoutSlot({
+  master,
+  children,
+}: {
+  master: ReactNode;
+  children: ReactNode;
+}) {
+  return (
+    <span className="english-layout-slot">
+      <span className="english-layout-slot__master" aria-hidden="true">
+        {master}
+      </span>
+      <span className="english-layout-slot__local">{children}</span>
+    </span>
+  );
 }
 
 export const siteCopy = {

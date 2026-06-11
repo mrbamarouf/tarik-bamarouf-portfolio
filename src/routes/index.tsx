@@ -10,7 +10,13 @@ import aboutImg from "@/assets/about.webp";
 import finalCtaWall from "@/assets/final-cta-wall.webp";
 import { SiteLayout } from "@/components/site/Layout";
 import { CONTACT_EMAIL, emailHref, whatsappHref } from "@/lib/contact";
-import { formatLocalizedNumber, projectDisplay, siteCopy, useLanguage } from "@/lib/language";
+import {
+  EnglishLayoutSlot,
+  formatLocalizedNumber,
+  projectDisplay,
+  siteCopy,
+  useLanguage,
+} from "@/lib/language";
 import { portfolioProjects } from "@/lib/portfolio-projects";
 import serviceBrandWebsites from "@/assets/services/brand-websites.webp";
 import serviceBusinessWebsites from "@/assets/services/business-websites.webp";
@@ -181,18 +187,35 @@ function Index() {
               {t.home.heroLabel}
             </p>
             <h1 className="reveal reveal-delay-1 mt-5 font-serif text-[clamp(3rem,14vw,4.6rem)] font-light leading-[0.96] text-foreground md:text-7xl lg:text-8xl">
-              {t.home.heroLine1}
-              <br />
-              {t.home.heroLine2}
-              <br />
-              {t.home.heroLine3}{" "}
-              <span className="italic text-bronze-soft">{t.home.heroEmphasis}</span>
-              {t.home.heroLine4 && (
-                <>
-                  <br />
-                  {t.home.heroLine4}
-                </>
-              )}
+              <EnglishLayoutSlot
+                master={
+                  <>
+                    {siteCopy.en.home.heroLine1}
+                    <br />
+                    {siteCopy.en.home.heroLine2}
+                    <br />
+                    {siteCopy.en.home.heroLine3}{" "}
+                    <span className="italic text-bronze-soft">
+                      {siteCopy.en.home.heroEmphasis}
+                    </span>
+                    <br />
+                    {siteCopy.en.home.heroLine4}
+                  </>
+                }
+              >
+                {t.home.heroLine1}
+                <br />
+                {t.home.heroLine2}
+                <br />
+                {t.home.heroLine3}{" "}
+                <span className="italic text-bronze-soft">{t.home.heroEmphasis}</span>
+                {t.home.heroLine4 && (
+                  <>
+                    <br />
+                    {t.home.heroLine4}
+                  </>
+                )}
+              </EnglishLayoutSlot>
             </h1>
             <p className="reveal reveal-delay-2 mt-8 max-w-sm text-sm font-light leading-7 text-foreground/76 md:text-base">
               {t.home.heroBody}
@@ -248,6 +271,7 @@ function Index() {
           <div className="relative z-10 border border-border/35 bg-ink/35 shadow-[0_40px_120px_oklch(0_0_0/.28)]">
             {selectedWorkProjects.map((p, i) => {
               const display = projectDisplay(p.slug, language);
+              const masterDisplay = projectDisplay(p.slug, "en");
               return (
                 <Link
                   key={p.slug}
@@ -272,7 +296,9 @@ function Index() {
                         {formatLocalizedNumber(i + 1, language, { minimumIntegerDigits: 2 })}
                       </p>
                       <p className="mt-5 max-w-sm text-[10px] uppercase tracking-luxury text-bronze/90">
-                        {display.category ?? p.cat}
+                        <EnglishLayoutSlot master={masterDisplay.category ?? p.cat}>
+                          {display.category ?? p.cat}
+                        </EnglishLayoutSlot>
                       </p>
                       <h3 className="mt-3 font-serif text-4xl font-light leading-none text-foreground transition-colors duration-500 group-hover:text-bronze-soft md:text-5xl">
                         {p.t}
@@ -280,7 +306,9 @@ function Index() {
                     </div>
 
                     <p className="max-w-sm self-end text-sm font-light leading-7 text-foreground/74 md:self-center">
-                      {display.disciplines ?? p.disciplines}
+                      <EnglishLayoutSlot master={masterDisplay.disciplines ?? p.disciplines}>
+                        {display.disciplines ?? p.disciplines}
+                      </EnglishLayoutSlot>
                     </p>
 
                     <span className="inline-flex w-fit items-center gap-3 self-end border border-bronze/35 bg-ink/25 px-5 py-3 text-[10px] uppercase tracking-editorial text-bronze transition-all duration-500 group-hover:border-bronze group-hover:bg-bronze group-hover:text-ink md:self-center">
@@ -350,7 +378,9 @@ function Index() {
               data-scroll-reveal
               style={{ transitionDelay: "220ms" }}
             >
-              {t.home.aboutBody}
+              <EnglishLayoutSlot master={siteCopy.en.home.aboutBody}>
+                {t.home.aboutBody}
+              </EnglishLayoutSlot>
             </p>
             <Link
               to="/about"
@@ -491,13 +521,17 @@ function Index() {
                     <span className="mt-4 block h-px w-12 bg-bronze/55" />
                     <div className="mt-5">
                       <h3 className="text-sm font-medium uppercase tracking-editorial text-foreground/95">
-                        {localizedSteps[i].t}
+                        <EnglishLayoutSlot master={siteCopy.en.steps[i].t}>
+                          {localizedSteps[i].t}
+                        </EnglishLayoutSlot>
                       </h3>
                       <p
                         id={`process-step-${step.n}`}
                         className="mt-5 max-w-xs text-sm font-light leading-7 text-foreground/72"
                       >
-                        {localizedSteps[i].d}
+                        <EnglishLayoutSlot master={siteCopy.en.steps[i].d}>
+                          {localizedSteps[i].d}
+                        </EnglishLayoutSlot>
                       </p>
                     </div>
                   </div>
@@ -528,7 +562,9 @@ function Index() {
           <div className="final-cta__copy scroll-reveal" data-scroll-reveal>
             <p className="text-[10px] uppercase tracking-luxury text-bronze">{t.home.ctaLabel}</p>
             <h2 className="mt-6 max-w-4xl font-serif text-[clamp(2.8rem,6vw,7.6rem)] font-light leading-[0.96]">
-              {t.home.ctaTitle}
+              <EnglishLayoutSlot master={siteCopy.en.home.ctaTitle}>
+                {t.home.ctaTitle}
+              </EnglishLayoutSlot>
             </h2>
             <p className="mt-7 max-w-md text-sm font-light leading-7 text-foreground/70">
               {t.home.ctaBody}

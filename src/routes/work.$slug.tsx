@@ -1,7 +1,13 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
-import { formatLocalizedNumber, localizeProject, siteCopy, useLanguage } from "@/lib/language";
+import {
+  EnglishLayoutSlot,
+  formatLocalizedNumber,
+  localizeProject,
+  siteCopy,
+  useLanguage,
+} from "@/lib/language";
 import hudaImg from "@/assets/projects/huda.webp";
 import mahnImg from "@/assets/projects/mahn.webp";
 import lilyImg from "@/assets/projects/lily.webp";
@@ -996,6 +1002,7 @@ function ProjectDetail() {
   const labels = siteCopy[language].project;
   const rawProject = Route.useLoaderData();
   const project = localizeProject(rawProject, language);
+  const masterProject = localizeProject(rawProject, "en");
   const next = localizeProject(getNextProject(rawProject.slug), language);
 
   const overview = project.overview ?? {
@@ -1012,13 +1019,39 @@ function ProjectDetail() {
         ? "سيُوثق الأثر النهائي هنا."
         : "Final outcomes and reflections will be documented here.",
   };
+  const masterOverview = masterProject.overview ?? {
+    challenge: "The project context will be documented here.",
+    approach: "The design and development approach will be documented here.",
+    outcome: "Final outcomes and reflections will be documented here.",
+  };
   const detailItems = [
-    { key: labels.client, value: project.details.client },
-    { key: labels.industry, value: project.details.industry },
-    { key: labels.service, value: project.details.services, wide: true },
-    { key: labels.year, value: formatLocalizedNumber(project.details.year, language) },
-    { key: labels.type, value: project.details.platform },
+    { key: labels.client, value: project.details.client, masterValue: masterProject.details.client },
+    {
+      key: labels.industry,
+      value: project.details.industry,
+      masterValue: masterProject.details.industry,
+    },
+    {
+      key: labels.service,
+      value: project.details.services,
+      masterValue: masterProject.details.services,
+      wide: true,
+    },
+    {
+      key: labels.year,
+      value: formatLocalizedNumber(project.details.year, language),
+      masterValue: masterProject.details.year,
+    },
+    { key: labels.type, value: project.details.platform, masterValue: masterProject.details.platform },
   ];
+  const reflection =
+    project.reflection ??
+    (language === "ar"
+      ? "سيضم هذا القسم نتائج المشروع وأثره وخلاصته عند توفرها."
+      : "This section will contain project impact and final observations once available.");
+  const masterReflection =
+    masterProject.reflection ??
+    "This section will contain project impact and final observations once available.";
 
   return (
     <SiteLayout>
@@ -1046,7 +1079,11 @@ function ProjectDetail() {
             <h1 className="mt-4 font-serif text-3xl md:text-5xl lg:text-[3.6rem] leading-[1.08] italic font-light">
               {project.name}
             </h1>
-            <p className="mt-5 max-w-xl text-foreground/75 font-light">{project.intro}</p>
+            <p className="mt-5 max-w-xl text-foreground/75 font-light">
+              <EnglishLayoutSlot master={masterProject.intro}>
+                {project.intro}
+              </EnglishLayoutSlot>
+            </p>
           </div>
         </div>
       </section>
@@ -1059,14 +1096,14 @@ function ProjectDetail() {
           </div>
           <div className="project-detail__overview-list md:col-span-8 space-y-10">
             {[
-              { h: labels.challenge, b: overview.challenge },
-              { h: labels.approach, b: overview.approach },
-              { h: labels.outcome, b: overview.outcome },
+              { h: labels.challenge, b: overview.challenge, master: masterOverview.challenge },
+              { h: labels.approach, b: overview.approach, master: masterOverview.approach },
+              { h: labels.outcome, b: overview.outcome, master: masterOverview.outcome },
             ].map((s) => (
               <div key={s.h}>
                 <h3 className="text-[10px] tracking-luxury uppercase text-bronze">{s.h}</h3>
                 <p className="mt-3 font-serif text-xl md:text-2xl leading-[1.3] font-light text-foreground/85">
-                  {s.b}
+                  <EnglishLayoutSlot master={s.master}>{s.b}</EnglishLayoutSlot>
                 </p>
               </div>
             ))}
@@ -1089,7 +1126,9 @@ function ProjectDetail() {
                   className={`project-spec-card ${item.wide ? "project-spec-card--wide" : ""}`}
                 >
                   <dt className="project-spec-label">{item.key}</dt>
-                  <dd className="project-spec-value">{item.value}</dd>
+                  <dd className="project-spec-value">
+                    <EnglishLayoutSlot master={item.masterValue}>{item.value}</EnglishLayoutSlot>
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -1104,7 +1143,10 @@ function ProjectDetail() {
 
           {project.gallery ? (
             <div className="mt-12 space-y-16 md:space-y-20">
-              {project.gallery.map((g: GalleryItem, i: number) => (
+              {project.gallery.map((g: GalleryItem, i: number) => {
+                const masterGalleryItem = masterProject.gallery?.[i];
+
+                return (
                 <figure key={g.title} className="space-y-5">
                   <div className="relative aspect-[16/9] overflow-hidden ring-1 ring-bronze/10">
                     <img
@@ -1122,15 +1164,20 @@ function ProjectDetail() {
                         {formatLocalizedNumber(i + 1, language, { minimumIntegerDigits: 2 })}
                       </p>
                       <h3 className="mt-2 font-serif text-2xl md:text-3xl italic font-light">
-                        {g.title}
+                        <EnglishLayoutSlot master={masterGalleryItem?.title ?? g.title}>
+                          {g.title}
+                        </EnglishLayoutSlot>
                       </h3>
                     </div>
                     <p className="md:col-span-8 font-serif text-lg md:text-xl leading-[1.4] font-light text-foreground/80">
-                      {g.caption}
+                      <EnglishLayoutSlot master={masterGalleryItem?.caption ?? g.caption}>
+                        {g.caption}
+                      </EnglishLayoutSlot>
                     </p>
                   </figcaption>
                 </figure>
-              ))}
+                );
+              })}
             </div>
           ) : (
             <div className="mt-10 grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6">
@@ -1177,10 +1224,7 @@ function ProjectDetail() {
           </div>
           <div className="project-detail__reflection md:col-span-8">
             <p className="font-serif text-xl md:text-2xl leading-[1.35] font-light text-foreground/85">
-              {project.reflection ??
-                (language === "ar"
-                  ? "سيضم هذا القسم نتائج المشروع وأثره وخلاصته عند توفرها."
-                  : "This section will contain project impact and final observations once available.")}
+              <EnglishLayoutSlot master={masterReflection}>{reflection}</EnglishLayoutSlot>
             </p>
           </div>
         </div>
@@ -1213,7 +1257,7 @@ function ProjectDetail() {
               </p>
             </div>
             <span className="hidden md:inline-flex items-center gap-2 text-[10px] tracking-luxury uppercase text-bronze">
-              {labels.view}
+              <EnglishLayoutSlot master={siteCopy.en.project.view}>{labels.view}</EnglishLayoutSlot>
               <ArrowRight className="lang-arrow h-3.5 w-3.5" aria-hidden="true" />
             </span>
           </Link>

@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
 import aboutImg from "@/assets/about.webp";
-import { siteCopy, useLanguage } from "@/lib/language";
+import { EnglishLayoutSlot, siteCopy, useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -63,13 +63,19 @@ function AboutPage() {
             <div>
               <SectionLabel index="II" title={t.about.biography} />
               <p className="mt-8 font-serif text-xl md:text-2xl italic font-light leading-snug text-foreground/85">
-                {t.about.biographyBody}
+                <EnglishLayoutSlot master={siteCopy.en.about.biographyBody}>
+                  {t.about.biographyBody}
+                </EnglishLayoutSlot>
               </p>
             </div>
 
             <div>
               <SectionLabel index="III" title={t.about.philosophy} />
-              <p className="mt-8 text-foreground/70 leading-relaxed">{t.about.philosophyBody}</p>
+              <p className="mt-8 text-foreground/70 leading-relaxed">
+                <EnglishLayoutSlot master={siteCopy.en.about.philosophyBody}>
+                  {t.about.philosophyBody}
+                </EnglishLayoutSlot>
+              </p>
             </div>
 
             <div>
@@ -86,7 +92,9 @@ function AboutPage() {
             <div>
               <SectionLabel index="V" title={t.about.recognition} />
               <p className="mt-8 text-foreground/70 leading-relaxed italic">
-                {t.about.recognitionBody}
+                <EnglishLayoutSlot master={siteCopy.en.about.recognitionBody}>
+                  {t.about.recognitionBody}
+                </EnglishLayoutSlot>
               </p>
             </div>
 
