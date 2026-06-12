@@ -2949,3 +2949,10 @@ body.intro-scroll-lock {
     transform-origin: left;
   }
 }
+
+body[data-lang="ar"] :where(*:not(.english-layout-slot__master, .english-layout-slot__master *)) {
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
