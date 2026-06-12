@@ -2956,3 +2956,41 @@ body[data-lang="ar"] :where(*:not(.english-layout-slot__master, .english-layout-
   font-kerning: normal;
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
 }
+
+@media (min-width: 1200px) {
+  body[data-lang="ar"] .about-page__intro .section-label,
+  body[data-lang="ar"] .about-page__headline {
+    margin-left: clamp(2rem, 3.2vw, 4rem);
+  }
+
+  body[data-lang="ar"] .about-page__headline {
+    max-width: min(20ch, calc(100vw - 8rem));
+    font-size: clamp(2.55rem, 2.9vw, 3.65rem);
+    line-height: 1.18;
+    min-height: calc(clamp(3.15rem, 3.9vw, 4.8rem) * 2.08);
+    overflow: visible;
+    text-wrap: balance;
+  }
+
+  body[data-lang="ar"] .about-page__content {
+    gap: clamp(0.95rem, 1.15vw, 1.3rem);
+  }
+
+  body[data-lang="ar"] .about-page__content > div > p {
+    max-width: 56ch;
+    line-height: 1.78;
+    text-wrap: pretty;
+  }
+
+  body[data-lang="ar"] .about-page__content > div:first-child > p {
+    max-width: 42ch;
+    font-size: clamp(1.18rem, 1.18vw, 1.42rem);
+    line-height: 1.48;
+  }
+
+  body[data-lang="ar"] .about-page__content > div > ul {
+    max-width: 34rem;
+    row-gap: 0.34rem;
+    line-height: 1.55;
+  }
+}
