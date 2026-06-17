@@ -2059,7 +2059,24 @@ body.intro-scroll-lock {
       overflow-x: clip;
     }
 
+    html.intro-scroll-lock,
+    body.intro-scroll-lock {
+      height: auto;
+      overflow-x: clip !important;
+      overflow-y: visible !important;
+      overscroll-behavior: auto;
+    }
+
+    body.intro-scroll-lock {
+      position: static;
+      inset: auto;
+      width: 100%;
+      touch-action: auto;
+    }
+
     .intro-overlay {
+      display: none;
+      pointer-events: none;
       top: 0;
       right: 0;
       bottom: auto;
@@ -2072,6 +2089,7 @@ body.intro-scroll-lock {
       min-height: 100dvh;
       overflow: hidden;
       background: #000;
+      touch-action: auto;
     }
 
     .intro-overlay__video {

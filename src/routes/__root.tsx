@@ -24,6 +24,15 @@ const DESKTOP_INTRO_VERSION_KEY = "tarik-intro-desktop-v3";
 const mobileIntroVideoSrc = `${mobileIntroVideo}?v=${MOBILE_INTRO_CACHE_VERSION}`;
 const desktopIntroVideoSrc = `${introVideo}?v=${DESKTOP_INTRO_CACHE_VERSION}`;
 
+function isMobileIntroViewport() {
+  return window.matchMedia(MOBILE_INTRO_MEDIA_QUERY).matches;
+}
+
+function unlockIntroScroll() {
+  document.documentElement.classList.remove("intro-scroll-lock");
+  document.body.classList.remove("intro-scroll-lock");
+}
+
 function NotFoundComponent() {
   const { language } = useLanguage();
   const labels = siteCopy[language].common;
@@ -185,9 +194,8 @@ function IntroOverlay() {
   };
 
   useEffect(() => {
-    if (state === "hidden") {
-      document.documentElement.classList.remove("intro-scroll-lock");
-      document.body.classList.remove("intro-scroll-lock");
+    if (state === "hidden" || isMobileIntroViewport()) {
+      unlockIntroScroll();
       return undefined;
     }
 
@@ -196,8 +204,7 @@ function IntroOverlay() {
     document.body.classList.add("intro-scroll-lock");
 
     return () => {
-      document.documentElement.classList.remove("intro-scroll-lock");
-      document.body.classList.remove("intro-scroll-lock");
+      unlockIntroScroll();
     };
   }, [state]);
 
@@ -205,7 +212,14 @@ function IntroOverlay() {
     const video = videoRef.current;
     if (!video) return undefined;
 
-    const isMobileIntro = window.matchMedia(MOBILE_INTRO_MEDIA_QUERY).matches;
+    const isMobileIntro = isMobileIntroViewport();
+
+    if (isMobileIntro) {
+      unlockIntroScroll();
+      setState("hidden");
+      return undefined;
+    }
+
     const introSrc = isMobileIntro ? mobileIntroVideoSrc : desktopIntroVideoSrc;
     const introVersionKey = isMobileIntro ? MOBILE_INTRO_VERSION_KEY : DESKTOP_INTRO_VERSION_KEY;
     const introVersion = isMobileIntro ? MOBILE_INTRO_CACHE_VERSION : DESKTOP_INTRO_CACHE_VERSION;
