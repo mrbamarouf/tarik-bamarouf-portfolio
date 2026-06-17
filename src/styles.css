@@ -2952,80 +2952,30 @@ body.intro-scroll-lock {
 
 @media (max-width: 767px) {
   @media (prefers-reduced-motion: no-preference) {
-    body.mobile-reveals-ready [data-mobile-reveal] {
-      opacity: 0;
-      transform: translate3d(0, 1.1rem, 0);
-      transition:
-        opacity 860ms cubic-bezier(0.16, 1, 0.3, 1),
-        transform 860ms cubic-bezier(0.16, 1, 0.3, 1);
-      transition-delay: calc(var(--mobile-reveal-index, 0) * 62ms);
-      will-change: opacity, transform;
-    }
-
-    body.mobile-reveals-ready [data-mobile-reveal].is-mobile-visible {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-      will-change: auto;
-    }
-
-    body.mobile-reveals-ready .home-hero__image[data-mobile-reveal] {
-      opacity: 0;
-      transform: translateX(50%) translateY(0.55rem) scale(1.012);
-      transition:
-        opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 1.35s cubic-bezier(0.16, 1, 0.3, 1),
-        filter 1.35s cubic-bezier(0.16, 1, 0.3, 1);
-      transition-delay: 0ms;
-    }
-
-    body.mobile-reveals-ready .home-hero__image[data-mobile-reveal].is-mobile-visible {
-      opacity: 0.98;
-      transform: translateX(50%) translateY(0) scale(1);
-    }
-
-    body.mobile-reveals-ready .project-detail__hero > img[data-mobile-reveal] {
-      transform: translate3d(0, 0.45rem, 0) scale(1.018);
-      transition:
-        opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 1.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    body.mobile-reveals-ready .project-detail__hero > img[data-mobile-reveal].is-mobile-visible {
-      transform: translate3d(0, 0, 0) scale(1);
-    }
-
     .selected-work__row,
     .work-archive__row,
-    .service-card,
-    .process-card,
-    .project-spec-card,
-    .contact-card,
-    .final-cta__button,
-    footer a {
+    .project-detail__next a {
       -webkit-tap-highlight-color: transparent;
-      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: center;
+      transition:
+        transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+        filter 260ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .home-hero__copy a:active,
     .selected-work__row:active,
     .work-archive__row:active,
-    .service-card:active,
-    .process-card:active,
-    .project-spec-card:active,
-    .contact-card:active,
-    .final-cta__button:active,
-    footer a:active {
-      transform: translateY(1px) scale(0.992);
+    .project-detail__next a:active {
+      filter: brightness(1.05);
+      transform: scale(0.992);
+      box-shadow: 0 22px 70px oklch(0.765 0.072 76 / 0.10);
     }
 
-    .service-carousel-dots__dot {
-      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .process-card,
-    .process-card::before,
-    .process-card p {
-      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    .selected-work__row:active .selected-work__image,
+    .work-archive__row:active .work-archive__image,
+    .project-detail__next a:active img {
+      opacity: 0.98;
+      transform: scale(1.018);
     }
   }
 }
