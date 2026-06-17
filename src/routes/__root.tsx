@@ -19,10 +19,9 @@ const MOBILE_INTRO_MEDIA_QUERY = "(max-width: 767px)";
 const DESKTOP_INTRO_MEDIA_QUERY = "(min-width: 768px)";
 const MOBILE_INTRO_CACHE_VERSION = "intro-mobile-v3";
 const DESKTOP_INTRO_CACHE_VERSION = "intro-desktop-v3";
-const MOBILE_INTRO_VERSION_KEY = "tarik-intro-mobile-v3";
-const DESKTOP_INTRO_VERSION_KEY = "tarik-intro-desktop-v3";
 const mobileIntroVideoSrc = `${mobileIntroVideo}?v=${MOBILE_INTRO_CACHE_VERSION}`;
 const desktopIntroVideoSrc = `${introVideo}?v=${DESKTOP_INTRO_CACHE_VERSION}`;
+const INTRO_FALLBACK_MS = 12_500;
 
 function isMobileIntroViewport() {
   return window.matchMedia(MOBILE_INTRO_MEDIA_QUERY).matches;
@@ -174,6 +173,8 @@ function IntroOverlay() {
   const [state, setState] = useState<"visible" | "fading" | "hidden">("visible");
 
   const dismiss = () => {
+    unlockIntroScroll();
+
     setState((current) => {
       if (current !== "visible") return current;
 
@@ -194,7 +195,7 @@ function IntroOverlay() {
   };
 
   useEffect(() => {
-    if (state === "hidden" || isMobileIntroViewport()) {
+    if (state !== "visible") {
       unlockIntroScroll();
       return undefined;
     }
@@ -213,16 +214,7 @@ function IntroOverlay() {
     if (!video) return undefined;
 
     const isMobileIntro = isMobileIntroViewport();
-
-    if (isMobileIntro) {
-      unlockIntroScroll();
-      setState("hidden");
-      return undefined;
-    }
-
     const introSrc = isMobileIntro ? mobileIntroVideoSrc : desktopIntroVideoSrc;
-    const introVersionKey = isMobileIntro ? MOBILE_INTRO_VERSION_KEY : DESKTOP_INTRO_VERSION_KEY;
-    const introVersion = isMobileIntro ? MOBILE_INTRO_CACHE_VERSION : DESKTOP_INTRO_CACHE_VERSION;
 
     const setIntroStartTime = () => {
       try {
@@ -235,18 +227,11 @@ function IntroOverlay() {
     video.src = introSrc;
     video.dataset.introMode = isMobileIntro ? "mobile" : "desktop";
 
-    try {
-      window.localStorage.setItem(introVersionKey, introVersion);
-      window.sessionStorage.setItem(introVersionKey, introVersion);
-    } catch {
-      // Storage can be unavailable in private browsing; the versioned URL still busts cache.
-    }
-
     video.load();
     setIntroStartTime();
     video.addEventListener("loadedmetadata", setIntroStartTime, { once: true });
 
-    fallbackTimerRef.current = window.setTimeout(dismiss, 14000);
+    fallbackTimerRef.current = window.setTimeout(dismiss, INTRO_FALLBACK_MS);
 
     const playPromise = video.play();
     playPromise?.catch(() => {
