@@ -8,6 +8,7 @@ const publicDir = path.join(rootDir, "public");
 const projectsFile = path.join(rootDir, "src", "lib", "portfolio-projects.ts");
 
 const SITE_URL = "https://tarikbamarouf.com";
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
 const staticRoutes = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
@@ -28,7 +29,7 @@ function escapeXml(value) {
 }
 
 function normalizeUrl(routePath) {
-  return `${SITE_URL}${routePath === "/" ? "/" : routePath}`;
+  return new URL(routePath, SITE_URL).toString();
 }
 
 function getProjectSlugs(source) {
@@ -50,6 +51,7 @@ ${routes
   .map(
     (route) => `  <url>
     <loc>${escapeXml(normalizeUrl(route.path))}</loc>
+    <lastmod>${BUILD_DATE}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
   </url>`,
