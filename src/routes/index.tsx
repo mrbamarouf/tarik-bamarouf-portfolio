@@ -251,6 +251,37 @@ function Index() {
         </div>
       </section>
 
+      <section className="relative overflow-hidden border-t border-border/25 bg-ink py-14 md:py-18">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,oklch(0.72_0.09_70/.10),transparent_34%)]" />
+        <div className="relative z-10 grid w-full grid-cols-1 gap-10 px-6 md:px-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(300px,0.46fr)] lg:items-end lg:px-14">
+          <div className="max-w-4xl">
+            <h2 className="font-serif text-[clamp(2.25rem,5vw,5.35rem)] font-light leading-[1.02] text-foreground">
+              {t.home.beforeDesignTitle}
+            </h2>
+            <p className="mt-7 max-w-xl text-xl font-light leading-8 text-bronze-soft md:text-2xl md:leading-9">
+              {t.home.beforeDesignIntro}
+            </p>
+            <div className="mt-5 max-w-3xl space-y-4 text-sm font-light leading-7 text-foreground/74 md:text-base md:leading-8">
+              <p>{t.home.beforeDesignBody}</p>
+              <p>{t.home.beforeDesignDetail}</p>
+            </div>
+          </div>
+
+          <div className="border-t border-bronze/25 pt-7 lg:border-l lg:border-t-0 lg:pl-10">
+            <p className="text-[10px] uppercase tracking-luxury text-bronze">
+              {t.home.beforeDesignFocusLabel}
+            </p>
+            <ul className="mt-5 grid gap-3 text-sm font-light leading-6 text-foreground/80 md:text-base">
+              {t.home.beforeDesignFocus.map((item) => (
+                <li key={item} className="border-b border-border/30 pb-3 last:border-b-0">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section className="selected-work relative overflow-hidden border-y border-border/25 bg-background py-18 md:py-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,oklch(0.72_0.09_70/.08),transparent_30%)]" />
         <div className="w-full px-6 md:px-10 lg:px-14">
