@@ -89,15 +89,17 @@ function Index() {
     minimumIntegerDigits: 2,
   });
   const serviceCarouselRef = useRef<HTMLDivElement | null>(null);
-  const beforeDesignRef = useRef<HTMLElement | null>(null);
+  const approachRef = useRef<HTMLElement | null>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const [activeProcessIndex, setActiveProcessIndex] = useState<number | null>(null);
-  const [activeBeforeDesignIndex, setActiveBeforeDesignIndex] = useState(0);
-  const [beforeDesignProgress, setBeforeDesignProgress] = useState(0);
-  const beforeDesignStages = t.home.beforeDesignStages;
-  const beforeDesignStyle = {
-    "--before-progress": beforeDesignProgress,
-  } as CSSProperties & Record<"--before-progress", number>;
+  const [activeApproachIndex, setActiveApproachIndex] = useState<number | null>(null);
+  const [approachProgress, setApproachProgress] = useState(0);
+  const approachStages = t.home.approachStages;
+  const approachTimelineProgress =
+    activeApproachIndex === null ? approachProgress : (activeApproachIndex + 1) / approachStages.length;
+  const approachStyle = {
+    "--approach-progress": approachTimelineProgress,
+  } as CSSProperties & Record<"--approach-progress", number>;
 
   useEffect(() => {
     const items = document.querySelectorAll<HTMLElement>("[data-scroll-reveal]");
@@ -173,36 +175,21 @@ function Index() {
   }, [localizedServices.length]);
 
   useEffect(() => {
-    const section = beforeDesignRef.current;
+    const section = approachRef.current;
     if (!section) return undefined;
 
-    const cards = Array.from(section.querySelectorAll<HTMLElement>("[data-before-card]"));
     let frame = 0;
 
-    const updateBeforeDesignState = () => {
+    const updateApproachProgress = () => {
       const sectionRect = section.getBoundingClientRect();
       const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
       const start = viewportHeight * 0.72;
       const end = -sectionRect.height + viewportHeight * 0.34;
       const rawProgress = (start - sectionRect.top) / Math.max(start - end, 1);
       const nextProgress = Math.min(1, Math.max(0, rawProgress));
-      const activeLine = viewportHeight * 0.52;
 
-      const closestIndex = cards.reduce(
-        (closest, card, index) => {
-          const cardRect = card.getBoundingClientRect();
-          const cardCenter = cardRect.top + cardRect.height / 2;
-          const distance = Math.abs(cardCenter - activeLine);
-          return distance < closest.distance ? { index, distance } : closest;
-        },
-        { index: 0, distance: Number.POSITIVE_INFINITY },
-      ).index;
-
-      setBeforeDesignProgress((current) =>
+      setApproachProgress((current) =>
         Math.abs(current - nextProgress) < 0.006 ? current : nextProgress,
-      );
-      setActiveBeforeDesignIndex((current) =>
-        current === closestIndex ? current : closestIndex,
       );
     };
 
@@ -210,7 +197,7 @@ function Index() {
       if (frame) return;
       frame = window.requestAnimationFrame(() => {
         frame = 0;
-        updateBeforeDesignState();
+        updateApproachProgress();
       });
     };
 
@@ -223,7 +210,20 @@ function Index() {
       window.removeEventListener("scroll", scheduleUpdate);
       window.removeEventListener("resize", scheduleUpdate);
     };
-  }, [beforeDesignStages.length]);
+  }, []);
+
+  const handleApproachStageClick = (index: number) => {
+    const hasFineHover =
+      typeof window !== "undefined" &&
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    if (hasFineHover) {
+      setActiveApproachIndex(index);
+      return;
+    }
+
+    setActiveApproachIndex((current) => (current === index ? null : index));
+  };
 
   return (
     <SiteLayout>
@@ -312,80 +312,84 @@ function Index() {
       </section>
 
       <section
-        ref={beforeDesignRef}
-        className="before-design relative overflow-hidden border-t border-border/25 bg-ink"
-        style={beforeDesignStyle}
+        ref={approachRef}
+        className="approach-section relative overflow-hidden border-t border-border/25 bg-ink"
+        style={approachStyle}
       >
-        <div className="before-design__ambient" aria-hidden="true" />
-        <div className="before-design__inner relative z-10">
-          <div className="before-design__statement">
-            <h2 className="before-design__headline font-serif font-light text-foreground">
-              <EnglishLayoutSlot master={siteCopy.en.home.beforeDesignStatement}>
-                {t.home.beforeDesignStatement}
+        <div className="approach-section__atmosphere" aria-hidden="true" />
+        <div className="approach-section__inner relative z-10">
+          <div className="approach-section__lead">
+            <h2 className="approach-section__headline font-serif font-light text-foreground">
+              <EnglishLayoutSlot
+                master={siteCopy.en.home.approachHeadline.map((line) => (
+                  <span key={line} className="approach-section__headline-line">
+                    {line}
+                  </span>
+                ))}
+              >
+                {t.home.approachHeadline.map((line) => (
+                  <span key={line} className="approach-section__headline-line">
+                    {line}
+                  </span>
+                ))}
               </EnglishLayoutSlot>
             </h2>
-            <p className="before-design__body font-light text-foreground/76">
-              <EnglishLayoutSlot master={siteCopy.en.home.beforeDesignBody}>
-                {t.home.beforeDesignBody}
+            <p className="approach-section__body font-light text-foreground/76">
+              <EnglishLayoutSlot master={siteCopy.en.home.approachBody}>
+                {t.home.approachBody}
               </EnglishLayoutSlot>
             </p>
           </div>
 
-          <div className="before-design__timeline" aria-hidden="true">
-            <span className="before-design__timeline-track" />
-            <span className="before-design__timeline-progress" />
-            {beforeDesignStages.map((stage, index) => (
-              <span
-                key={stage.t}
-                className={
-                  index === activeBeforeDesignIndex
-                    ? "before-design__timeline-point is-active"
-                    : index < activeBeforeDesignIndex
-                      ? "before-design__timeline-point is-passed"
-                      : "before-design__timeline-point"
-                }
-                style={
-                  { "--point-index": index } as CSSProperties & Record<"--point-index", number>
-                }
-              />
-            ))}
-          </div>
+          <div className="approach-section__experience">
+            <div className="approach-section__timeline" aria-hidden="true">
+              <span className="approach-section__timeline-track" />
+              <span className="approach-section__timeline-fill" />
+            </div>
 
-          <div className="before-design__cards">
-            {beforeDesignStages.map((stage, index) => {
-              const stateClass =
-                index === activeBeforeDesignIndex
-                  ? "is-active"
-                  : index < activeBeforeDesignIndex
-                    ? "is-passed"
-                    : "";
+            <div
+              className="approach-section__stages"
+              onMouseLeave={() => setActiveApproachIndex(null)}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget)) {
+                  setActiveApproachIndex(null);
+                }
+              }}
+            >
+              {approachStages.map((stage, index) => {
+                const isActive = activeApproachIndex === index;
 
-              return (
-                <article
-                  key={stage.t}
-                  data-before-card
-                  data-scroll-reveal
-                  className={`before-design__card scroll-reveal ${stateClass}`}
-                  style={{ transitionDelay: `${index * 90}ms` }}
-                >
-                  <span className="before-design__stage-number font-serif">
-                    {formatLocalizedNumber(index + 1, language, { minimumIntegerDigits: 2 })}
-                  </span>
-                  <div className="before-design__stage-copy">
-                    <h3 className="before-design__stage-title">
-                      <EnglishLayoutSlot master={siteCopy.en.home.beforeDesignStages[index].t}>
-                        {stage.t}
-                      </EnglishLayoutSlot>
-                    </h3>
-                    <p>
-                      <EnglishLayoutSlot master={siteCopy.en.home.beforeDesignStages[index].d}>
-                        {stage.d}
-                      </EnglishLayoutSlot>
-                    </p>
-                  </div>
-                </article>
-              );
-            })}
+                return (
+                  <button
+                    key={stage.t}
+                    type="button"
+                    data-scroll-reveal
+                    className={`approach-stage ${isActive ? "is-active" : ""}`}
+                    aria-expanded={isActive}
+                    style={{ transitionDelay: `${index * 70}ms` }}
+                    onMouseEnter={() => setActiveApproachIndex(index)}
+                    onFocus={() => setActiveApproachIndex(index)}
+                    onClick={() => handleApproachStageClick(index)}
+                  >
+                    <span className="approach-stage__number font-serif">
+                      {formatLocalizedNumber(index + 1, language, { minimumIntegerDigits: 2 })}
+                    </span>
+                    <span className="approach-stage__copy">
+                      <span className="approach-stage__title">
+                        <EnglishLayoutSlot master={siteCopy.en.home.approachStages[index].t}>
+                          {stage.t}
+                        </EnglishLayoutSlot>
+                      </span>
+                      <span className="approach-stage__description">
+                        <EnglishLayoutSlot master={siteCopy.en.home.approachStages[index].d}>
+                          {stage.d}
+                        </EnglishLayoutSlot>
+                      </span>
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>

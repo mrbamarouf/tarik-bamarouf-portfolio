@@ -149,10 +149,10 @@ export const siteCopy = {
       viewWork: "View Work",
       startProject: "Start Project",
       portfolioLabel: "Portfolio 2026",
-      beforeDesignStatement: "Design is never where I begin.",
-      beforeDesignBody:
-        "Before a screen is drawn, I look for the reason the brand should matter, the audience it speaks to, and the journey that turns attention into trust.",
-      beforeDesignStages: [
+      approachHeadline: ["Design", "starts", "long before", "the screen."],
+      approachBody:
+        "Before visuals, I define what the brand needs to make clear and how the visitor should move through it.",
+      approachStages: [
         {
           t: "Understand",
           d: "Brand, audience, business goals.",
@@ -357,17 +357,17 @@ export const siteCopy = {
       viewWork: "عرض الأعمال",
       startProject: "ابدأ مشروعك",
       portfolioLabel: "محفظة ٢٠٢٦",
-      beforeDesignStatement: "لا يبدأ المشروع بالشكل.",
-      beforeDesignBody:
-        "يبدأ بالفهم، من هوية العلامة والجمهور والهدف التجاري، ثم يتحول إلى تجربة تقود الانطباع بثقة من أول لحظة.",
-      beforeDesignStages: [
+      approachHeadline: ["التصميم", "يبدأ", "قبل", "الشاشة."],
+      approachBody:
+        "قبل الشكل، أحدد ما يجب أن توضحه العلامة وكيف تتحرك التجربة في ذهن الزائر.",
+      approachStages: [
         {
           t: "الفهم",
-          d: "العلامة، الجمهور، وأهداف العمل.",
+          d: "هوية العلامة، الجمهور، وأهداف العمل.",
         },
         {
-          t: "الاستراتيجية",
-          d: "اتجاه واضح قبل أي شكل بصري.",
+          t: "الاتجاه",
+          d: "قرار واضح قبل أي شكل بصري.",
         },
         {
           t: "التجربة",
@@ -375,7 +375,7 @@ export const siteCopy = {
         },
         {
           t: "التصميم",
-          d: "لغة بصرية لها سبب.",
+          d: "لغة بصرية تحمل سببها.",
         },
         {
           t: "التنفيذ",
