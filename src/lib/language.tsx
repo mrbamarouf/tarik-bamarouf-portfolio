@@ -149,19 +149,30 @@ export const siteCopy = {
       viewWork: "View Work",
       startProject: "Start Project",
       portfolioLabel: "Portfolio 2026",
-      beforeDesignTitle: "Before the design",
-      beforeDesignIntro: "I don’t start with screens.",
+      beforeDesignStatement: "Design is never where I begin.",
       beforeDesignBody:
-        "I start with the brand, the audience, and the reason someone should care.",
-      beforeDesignDetail:
-        "Every website I create is shaped around clarity, trust, and a user journey that feels intentional from the first impression to the final action.",
-      beforeDesignFocusLabel: "What I focus on:",
-      beforeDesignFocus: [
-        "Brand clarity",
-        "User experience",
-        "Visual direction",
-        "Interface design",
-        "Front-end implementation",
+        "Before a screen is drawn, I look for the reason the brand should matter, the audience it speaks to, and the journey that turns attention into trust.",
+      beforeDesignStages: [
+        {
+          t: "Understand",
+          d: "Brand, audience, business goals.",
+        },
+        {
+          t: "Strategy",
+          d: "Clear direction before visuals.",
+        },
+        {
+          t: "Experience",
+          d: "User journey before interface.",
+        },
+        {
+          t: "Design",
+          d: "Visual language with purpose.",
+        },
+        {
+          t: "Build",
+          d: "High-end implementation.",
+        },
       ],
       selectedWork: "Selected Work",
       selectedTitle: "Selected Projects",
@@ -346,18 +357,30 @@ export const siteCopy = {
       viewWork: "عرض الأعمال",
       startProject: "ابدأ مشروعك",
       portfolioLabel: "محفظة ٢٠٢٦",
-      beforeDesignTitle: "قبل التصميم",
-      beforeDesignIntro: "لا أبدأ بالشاشات.",
-      beforeDesignBody: "أبدأ بالعلامة، والجمهور، والسبب الذي يجعل الناس تهتم.",
-      beforeDesignDetail:
-        "كل موقع أعمل عليه يُبنى حول الوضوح، والثقة، وتجربة مستخدم مقصودة من أول انطباع إلى آخر إجراء.",
-      beforeDesignFocusLabel: "أركز على:",
-      beforeDesignFocus: [
-        "وضوح العلامة",
-        "تجربة المستخدم",
-        "التوجه البصري",
-        "تصميم الواجهة",
-        "تنفيذ الواجهة الأمامية",
+      beforeDesignStatement: "لا يبدأ المشروع بالشكل.",
+      beforeDesignBody:
+        "يبدأ بالفهم، من هوية العلامة والجمهور والهدف التجاري، ثم يتحول إلى تجربة تقود الانطباع بثقة من أول لحظة.",
+      beforeDesignStages: [
+        {
+          t: "الفهم",
+          d: "العلامة، الجمهور، وأهداف العمل.",
+        },
+        {
+          t: "الاستراتيجية",
+          d: "اتجاه واضح قبل أي شكل بصري.",
+        },
+        {
+          t: "التجربة",
+          d: "رحلة المستخدم قبل الواجهة.",
+        },
+        {
+          t: "التصميم",
+          d: "لغة بصرية لها سبب.",
+        },
+        {
+          t: "التنفيذ",
+          d: "بناء نهائي بعناية عالية.",
+        },
       ],
       selectedWork: "أعمال مختارة",
       selectedTitle: "أعمال مختارة",

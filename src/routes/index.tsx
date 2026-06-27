@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Compass, LayoutTemplate, PenTool, Rocket } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import cinematicHero from "@/assets/cinematic-hero.webp";
 import processDesign from "@/assets/process/design.webp";
 import processDevelopment from "@/assets/process/development.webp";
@@ -89,8 +89,15 @@ function Index() {
     minimumIntegerDigits: 2,
   });
   const serviceCarouselRef = useRef<HTMLDivElement | null>(null);
+  const beforeDesignRef = useRef<HTMLElement | null>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const [activeProcessIndex, setActiveProcessIndex] = useState<number | null>(null);
+  const [activeBeforeDesignIndex, setActiveBeforeDesignIndex] = useState(0);
+  const [beforeDesignProgress, setBeforeDesignProgress] = useState(0);
+  const beforeDesignStages = t.home.beforeDesignStages;
+  const beforeDesignStyle = {
+    "--before-progress": beforeDesignProgress,
+  } as CSSProperties & Record<"--before-progress", number>;
 
   useEffect(() => {
     const items = document.querySelectorAll<HTMLElement>("[data-scroll-reveal]");
@@ -164,6 +171,59 @@ function Index() {
       mobileQuery.removeEventListener("change", handleMediaChange);
     };
   }, [localizedServices.length]);
+
+  useEffect(() => {
+    const section = beforeDesignRef.current;
+    if (!section) return undefined;
+
+    const cards = Array.from(section.querySelectorAll<HTMLElement>("[data-before-card]"));
+    let frame = 0;
+
+    const updateBeforeDesignState = () => {
+      const sectionRect = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const start = viewportHeight * 0.72;
+      const end = -sectionRect.height + viewportHeight * 0.34;
+      const rawProgress = (start - sectionRect.top) / Math.max(start - end, 1);
+      const nextProgress = Math.min(1, Math.max(0, rawProgress));
+      const activeLine = viewportHeight * 0.52;
+
+      const closestIndex = cards.reduce(
+        (closest, card, index) => {
+          const cardRect = card.getBoundingClientRect();
+          const cardCenter = cardRect.top + cardRect.height / 2;
+          const distance = Math.abs(cardCenter - activeLine);
+          return distance < closest.distance ? { index, distance } : closest;
+        },
+        { index: 0, distance: Number.POSITIVE_INFINITY },
+      ).index;
+
+      setBeforeDesignProgress((current) =>
+        Math.abs(current - nextProgress) < 0.006 ? current : nextProgress,
+      );
+      setActiveBeforeDesignIndex((current) =>
+        current === closestIndex ? current : closestIndex,
+      );
+    };
+
+    const scheduleUpdate = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        updateBeforeDesignState();
+      });
+    };
+
+    scheduleUpdate();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+    };
+  }, [beforeDesignStages.length]);
 
   return (
     <SiteLayout>
@@ -251,33 +311,81 @@ function Index() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-t border-border/25 bg-ink py-14 md:py-18">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,oklch(0.72_0.09_70/.10),transparent_34%)]" />
-        <div className="relative z-10 grid w-full grid-cols-1 gap-10 px-6 md:px-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(300px,0.46fr)] lg:items-end lg:px-14">
-          <div className="max-w-4xl">
-            <h2 className="font-serif text-[clamp(2.25rem,5vw,5.35rem)] font-light leading-[1.02] text-foreground">
-              {t.home.beforeDesignTitle}
+      <section
+        ref={beforeDesignRef}
+        className="before-design relative overflow-hidden border-t border-border/25 bg-ink"
+        style={beforeDesignStyle}
+      >
+        <div className="before-design__ambient" aria-hidden="true" />
+        <div className="before-design__inner relative z-10">
+          <div className="before-design__statement">
+            <h2 className="before-design__headline font-serif font-light text-foreground">
+              <EnglishLayoutSlot master={siteCopy.en.home.beforeDesignStatement}>
+                {t.home.beforeDesignStatement}
+              </EnglishLayoutSlot>
             </h2>
-            <p className="mt-7 max-w-xl text-xl font-light leading-8 text-bronze-soft md:text-2xl md:leading-9">
-              {t.home.beforeDesignIntro}
+            <p className="before-design__body font-light text-foreground/76">
+              <EnglishLayoutSlot master={siteCopy.en.home.beforeDesignBody}>
+                {t.home.beforeDesignBody}
+              </EnglishLayoutSlot>
             </p>
-            <div className="mt-5 max-w-3xl space-y-4 text-sm font-light leading-7 text-foreground/74 md:text-base md:leading-8">
-              <p>{t.home.beforeDesignBody}</p>
-              <p>{t.home.beforeDesignDetail}</p>
-            </div>
           </div>
 
-          <div className="border-t border-bronze/25 pt-7 lg:border-l lg:border-t-0 lg:pl-10">
-            <p className="text-[10px] uppercase tracking-luxury text-bronze">
-              {t.home.beforeDesignFocusLabel}
-            </p>
-            <ul className="mt-5 grid gap-3 text-sm font-light leading-6 text-foreground/80 md:text-base">
-              {t.home.beforeDesignFocus.map((item) => (
-                <li key={item} className="border-b border-border/30 pb-3 last:border-b-0">
-                  {item}
-                </li>
-              ))}
-            </ul>
+          <div className="before-design__timeline" aria-hidden="true">
+            <span className="before-design__timeline-track" />
+            <span className="before-design__timeline-progress" />
+            {beforeDesignStages.map((stage, index) => (
+              <span
+                key={stage.t}
+                className={
+                  index === activeBeforeDesignIndex
+                    ? "before-design__timeline-point is-active"
+                    : index < activeBeforeDesignIndex
+                      ? "before-design__timeline-point is-passed"
+                      : "before-design__timeline-point"
+                }
+                style={
+                  { "--point-index": index } as CSSProperties & Record<"--point-index", number>
+                }
+              />
+            ))}
+          </div>
+
+          <div className="before-design__cards">
+            {beforeDesignStages.map((stage, index) => {
+              const stateClass =
+                index === activeBeforeDesignIndex
+                  ? "is-active"
+                  : index < activeBeforeDesignIndex
+                    ? "is-passed"
+                    : "";
+
+              return (
+                <article
+                  key={stage.t}
+                  data-before-card
+                  data-scroll-reveal
+                  className={`before-design__card scroll-reveal ${stateClass}`}
+                  style={{ transitionDelay: `${index * 90}ms` }}
+                >
+                  <span className="before-design__stage-number font-serif">
+                    {formatLocalizedNumber(index + 1, language, { minimumIntegerDigits: 2 })}
+                  </span>
+                  <div className="before-design__stage-copy">
+                    <h3 className="before-design__stage-title">
+                      <EnglishLayoutSlot master={siteCopy.en.home.beforeDesignStages[index].t}>
+                        {stage.t}
+                      </EnglishLayoutSlot>
+                    </h3>
+                    <p>
+                      <EnglishLayoutSlot master={siteCopy.en.home.beforeDesignStages[index].d}>
+                        {stage.d}
+                      </EnglishLayoutSlot>
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
