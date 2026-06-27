@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
-import { whatsappHref, emailHref, CONTACT_EMAIL } from "@/lib/contact";
+import { whatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
 import { EnglishLayoutSlot, siteCopy, useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/contact")({
@@ -106,7 +106,7 @@ function ContactPage() {
               </p>
               <div className="mt-auto">
                 <h2 className="font-serif text-3xl font-light leading-[1.05] text-foreground transition-transform duration-700 group-hover:translate-x-2 md:text-5xl">
-                  {t.contact.whatsapp}
+                  {WHATSAPP_DISPLAY}
                 </h2>
                 <p className="mt-8 max-w-sm text-sm font-light leading-relaxed text-foreground/58 md:text-base">
                   {t.contact.whatsappBody}

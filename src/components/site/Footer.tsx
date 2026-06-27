@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import signature from "@/assets/signature.webp";
-import { whatsappHref, emailHref, CONTACT_EMAIL } from "@/lib/contact";
+import { whatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
 import { siteCopy, useLanguage } from "@/lib/language";
 
 export function Footer() {
@@ -88,7 +88,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="link-underline"
                 >
-                  {t.footer.whatsapp}
+                  {WHATSAPP_DISPLAY}
                 </a>
               </li>
             </ul>
