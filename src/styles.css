@@ -3540,27 +3540,80 @@ body[data-lang="ar"] .approach-stage__title {
     line-height: 1.76;
   }
 
-  .approach-stage {
-    grid-template-columns: minmax(2.65rem, 0.16fr) minmax(0, 1fr);
-    min-height: 6.65rem;
-    padding: 1rem 0.95rem;
+  .approach-section__stages {
+    display: block;
+    border-top: 1px solid oklch(0.765 0.072 76 / 0.22);
   }
 
-  .approach-stage.is-active {
-    min-height: 10.3rem;
+  .approach-stage {
+    grid-template-columns: minmax(3rem, max-content) minmax(0, 1fr);
+    column-gap: 1.15rem;
+    align-items: start;
+    min-height: 0;
+    padding: 1.35rem 0;
+    overflow: visible;
+    border-top: 0;
+    background: transparent;
+    cursor: default;
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 460ms cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 460ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .approach-stage.is-active,
+  .approach-stage.is-visible {
+    min-height: 0;
+    border-color: oklch(0.765 0.072 76 / 0.22);
+    background: transparent;
+    opacity: 1;
+    transform: none;
+  }
+
+  .approach-stage::before,
+  .approach-stage::after {
+    display: none;
   }
 
   .approach-stage__number {
-    font-size: 2.55rem;
+    color: var(--bronze-soft);
+    font-size: 1.92rem;
+    line-height: 1;
+    opacity: 0.92;
+    transform: none;
+  }
+
+  .approach-stage.is-active .approach-stage__number {
+    color: var(--bronze-soft);
+    transform: none;
+  }
+
+  .approach-stage__copy {
+    padding-top: 0.02rem;
   }
 
   .approach-stage__title {
-    font-size: 1.28rem;
+    font-size: 1.24rem;
+    line-height: 1.18;
   }
 
   .approach-stage__description {
-    font-size: 0.82rem;
-    line-height: 1.68;
+    max-height: none;
+    margin-top: 0.55rem;
+    overflow: visible;
+    font-size: 0.93rem;
+    line-height: 1.76;
+    opacity: 0.78;
+    transform: none;
+    transition: none;
+  }
+
+  .approach-stage.is-active .approach-stage__description {
+    max-height: none;
+    margin-top: 0.55rem;
+    opacity: 0.78;
+    transform: none;
   }
 
   body[data-lang="ar"] .approach-section__headline {

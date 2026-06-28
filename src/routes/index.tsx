@@ -86,6 +86,10 @@ function hasFineHoverPointer() {
   );
 }
 
+function isApproachMobileViewport() {
+  return typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
+}
+
 function renderApproachHeadline(headline: typeof siteCopy.en.home.approachHeadline) {
   return (
     <>
@@ -116,10 +120,15 @@ function Index() {
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const [activeProcessIndex, setActiveProcessIndex] = useState<number | null>(null);
   const [activeApproachIndex, setActiveApproachIndex] = useState<number | null>(null);
+  const [isApproachMobile, setIsApproachMobile] = useState(false);
   const [approachProgress, setApproachProgress] = useState(0);
   const approachStages = t.home.approachStages;
   const approachTimelineProgress =
-    activeApproachIndex === null ? approachProgress : (activeApproachIndex + 1) / approachStages.length;
+    isApproachMobile
+      ? 0
+      : activeApproachIndex === null
+        ? approachProgress
+        : (activeApproachIndex + 1) / approachStages.length;
   const approachStyle = {
     "--approach-progress": approachTimelineProgress,
   } as CSSProperties & Record<"--approach-progress", number>;
@@ -140,6 +149,23 @@ function Index() {
 
     items.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+
+    const syncApproachMode = () => {
+      const isMobile = mobileQuery.matches;
+      setIsApproachMobile(isMobile);
+      if (isMobile) {
+        setActiveApproachIndex(null);
+      }
+    };
+
+    syncApproachMode();
+    mobileQuery.addEventListener("change", syncApproachMode);
+
+    return () => mobileQuery.removeEventListener("change", syncApproachMode);
   }, []);
 
   useEffect(() => {
@@ -201,7 +227,9 @@ function Index() {
     const section = approachRef.current;
     if (!section) return undefined;
 
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
     let frame = 0;
+    let listening = false;
 
     const updateApproachProgress = () => {
       const sectionRect = section.getBoundingClientRect();
@@ -224,18 +252,50 @@ function Index() {
       });
     };
 
-    scheduleUpdate();
-    window.addEventListener("scroll", scheduleUpdate, { passive: true });
-    window.addEventListener("resize", scheduleUpdate);
+    const addListeners = () => {
+      if (listening) return;
+      window.addEventListener("scroll", scheduleUpdate, { passive: true });
+      window.addEventListener("resize", scheduleUpdate);
+      listening = true;
+    };
+
+    const removeListeners = () => {
+      if (!listening) return;
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      listening = false;
+    };
+
+    const syncTimeline = () => {
+      if (mobileQuery.matches) {
+        if (frame) {
+          window.cancelAnimationFrame(frame);
+          frame = 0;
+        }
+        removeListeners();
+        setApproachProgress(0);
+        return;
+      }
+
+      addListeners();
+      scheduleUpdate();
+    };
+
+    syncTimeline();
+    mobileQuery.addEventListener("change", syncTimeline);
 
     return () => {
       if (frame) window.cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", scheduleUpdate);
-      window.removeEventListener("resize", scheduleUpdate);
+      removeListeners();
+      mobileQuery.removeEventListener("change", syncTimeline);
     };
   }, []);
 
   const handleApproachStageClick = (index: number) => {
+    if (isApproachMobileViewport()) {
+      return;
+    }
+
     if (hasFineHoverPointer()) {
       setActiveApproachIndex(index);
       return;
@@ -360,15 +420,50 @@ function Index() {
 
             <div
               className="approach-section__stages"
-              onMouseLeave={() => setActiveApproachIndex(null)}
-              onBlur={(event) => {
-                if (!event.currentTarget.contains(event.relatedTarget)) {
-                  setActiveApproachIndex(null);
-                }
-              }}
+              onMouseLeave={isApproachMobile ? undefined : () => setActiveApproachIndex(null)}
+              onBlur={
+                isApproachMobile
+                  ? undefined
+                  : (event) => {
+                      if (!event.currentTarget.contains(event.relatedTarget)) {
+                        setActiveApproachIndex(null);
+                      }
+                    }
+              }
             >
               {approachStages.map((stage, index) => {
                 const isActive = activeApproachIndex === index;
+                const stageContent = (
+                  <>
+                    <span className="approach-stage__number font-serif">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="approach-stage__copy">
+                      <span className="approach-stage__title">
+                        <EnglishLayoutSlot master={siteCopy.en.home.approachStages[index].t}>
+                          {stage.t}
+                        </EnglishLayoutSlot>
+                      </span>
+                      <span className="approach-stage__description">
+                        <EnglishLayoutSlot master={siteCopy.en.home.approachStages[index].d}>
+                          {stage.d}
+                        </EnglishLayoutSlot>
+                      </span>
+                    </span>
+                  </>
+                );
+
+                if (isApproachMobile) {
+                  return (
+                    <article
+                      key={stage.t}
+                      className="approach-stage approach-stage--mobile-story"
+                      style={{ transitionDelay: `${index * 55}ms` }}
+                    >
+                      {stageContent}
+                    </article>
+                  );
+                }
 
                 return (
                   <button
@@ -390,21 +485,7 @@ function Index() {
                     }}
                     onClick={() => handleApproachStageClick(index)}
                   >
-                    <span className="approach-stage__number font-serif">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="approach-stage__copy">
-                      <span className="approach-stage__title">
-                        <EnglishLayoutSlot master={siteCopy.en.home.approachStages[index].t}>
-                          {stage.t}
-                        </EnglishLayoutSlot>
-                      </span>
-                      <span className="approach-stage__description">
-                        <EnglishLayoutSlot master={siteCopy.en.home.approachStages[index].d}>
-                          {stage.d}
-                        </EnglishLayoutSlot>
-                      </span>
-                    </span>
+                    {stageContent}
                   </button>
                 );
               })}
