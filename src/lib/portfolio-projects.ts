@@ -9,6 +9,7 @@ import pokemonHero from "@/assets/projects/pokemon-sa/01-hero-home.webp";
 import pakmanHero from "@/assets/projects/pakman/01-hero.webp";
 import circleSectionHero from "@/assets/projects/circle-section/01-hero.webp";
 import opalStonesHero from "@/assets/projects/opal-stones/01-homepage-hero.webp";
+import exEventsHero from "@/assets/projects/ex-events-exhibitions/01-hero.webp";
 
 export const portfolioProjects = [
   {
@@ -129,6 +130,17 @@ export const portfolioProjects = [
     img: opalStonesHero,
     year: "2026",
     disciplines: "Luxury Brand Identity, UX Strategy, UI Design, Website Design",
+    span: "wide",
+    ratio: "aspect-[16/10]",
+  },
+  {
+    n: "12",
+    t: "EX Events & Exhibitions",
+    slug: "ex-events-exhibitions",
+    cat: "Digital Strategy, UX Strategy, UX/UI Design, Website Design, Front-end Development, Content Direction",
+    img: exEventsHero,
+    year: "2026",
+    disciplines: "Digital Strategy, UX Strategy, UX/UI, Website Design",
     span: "wide",
     ratio: "aspect-[16/10]",
   },

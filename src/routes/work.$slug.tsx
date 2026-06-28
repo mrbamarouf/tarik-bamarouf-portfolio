@@ -110,6 +110,16 @@ import opalStoneStories from "@/assets/projects/opal-stones/06-stone-stories.web
 import opalCommissions from "@/assets/projects/opal-stones/07-commissions.webp";
 import opalEmeraldNecklace from "@/assets/projects/opal-stones/08-emerald-necklace.webp";
 import opalPrivateAppointment from "@/assets/projects/opal-stones/09-private-appointment.webp";
+import exEventsHero from "@/assets/projects/ex-events-exhibitions/01-hero.webp";
+import exEventsHomepageHero from "@/assets/projects/ex-events-exhibitions/02-homepage-hero.webp";
+import exOperationsOverview from "@/assets/projects/ex-events-exhibitions/03-operations-overview.webp";
+import exOperationsSystem from "@/assets/projects/ex-events-exhibitions/04-operations-system.webp";
+import exCompanyValues from "@/assets/projects/ex-events-exhibitions/05-company-values.webp";
+import exFieldWork from "@/assets/projects/ex-events-exhibitions/06-field-work.webp";
+import exMajorProjects from "@/assets/projects/ex-events-exhibitions/07-major-projects.webp";
+import exMission from "@/assets/projects/ex-events-exhibitions/08-mission.webp";
+import exBehindScenes from "@/assets/projects/ex-events-exhibitions/09-behind-the-scenes.webp";
+import exContact from "@/assets/projects/ex-events-exhibitions/10-contact.webp";
 
 type GalleryItem = { image: string; title: string; caption: string; fit?: "cover" | "contain" };
 
@@ -549,6 +559,105 @@ const PROJECTS: ProjectData[] = [
     ],
     reflection:
       "OPAL STONES became a luxury digital experience for a contemporary Saudi fine jewellery maison, combining brand direction, editorial UX, premium interface design, content direction, responsive layouts, and front-end development into a refined online presence.",
+  },
+  {
+    slug: "ex-events-exhibitions",
+    name: "EX Events & Exhibitions",
+    category:
+      "Digital Strategy, UX Strategy, UX/UI Design, Website Design, Front-end Development, Content Direction",
+    intro:
+      "EX Events & Exhibitions is a Saudi events and exhibitions company specializing in operational excellence, supervision, planning, protocol, visitor experience, and on-site execution.",
+    image: exEventsHero,
+    details: {
+      client: "EX Events & Exhibitions",
+      industry: "Events, Exhibitions, Operations / Saudi Arabia",
+      services:
+        "Digital Strategy, UX Strategy, Information Architecture, UX/UI Design, Content Direction, Responsive Design, Motion Direction, Front-end Development",
+      year: "2026",
+      platform: "Events and Exhibitions Website",
+    },
+    overview: {
+      challenge:
+        "EX Events & Exhibitions is a Saudi events and exhibitions company specializing in operational excellence, supervision, planning, protocol, visitor experience, and on-site execution.",
+      approach:
+        "The project focused on transforming a traditional corporate presence into a premium digital experience that reflects the company's professionalism and large-scale operational capabilities.",
+      outcome:
+        "The final website brings strategy, information architecture, interface design, responsive layouts, content direction, and front-end development together into a clear digital presence for events and exhibition operations.",
+    },
+    gallery: [
+      {
+        image: exEventsHero,
+        title: "Hero and Brand Entry",
+        caption:
+          "The opening visual introduces EX through a cinematic command-room atmosphere, linking the brand to supervision, control, and operational readiness.",
+        fit: "contain",
+      },
+      {
+        image: exEventsHomepageHero,
+        title: "Homepage Hero",
+        caption:
+          "The homepage frames EX as a company that leads major event details through professionalism, planning, and on-site execution.",
+        fit: "contain",
+      },
+      {
+        image: exOperationsOverview,
+        title: "Operations Overview",
+        caption:
+          "A compact operations section presents experience, VIP protocol, media, exhibitions, and events as a structured capability system.",
+        fit: "contain",
+      },
+      {
+        image: exOperationsSystem,
+        title: "Operations System",
+        caption:
+          "The operations system translates planning, documentation, supervision, field execution, and protocol into one organized service model.",
+        fit: "contain",
+      },
+      {
+        image: exCompanyValues,
+        title: "Company Values",
+        caption:
+          "The values chapter communicates professionalism, commitment, transparency, and efficiency with a restrained corporate interface.",
+        fit: "contain",
+      },
+      {
+        image: exBehindScenes,
+        title: "Behind The Scenes",
+        caption:
+          "Execution imagery shows the field teams, venues, production moments, and operational scenes behind major events.",
+        fit: "contain",
+      },
+      {
+        image: exMission,
+        title: "Mission",
+        caption:
+          "The mission section clarifies the company's role in improving the visitor experience through preparation, planning, and precise execution.",
+        fit: "contain",
+      },
+      {
+        image: exMajorProjects,
+        title: "Major Projects",
+        caption:
+          "Milestone projects are presented with strong event imagery and structured cards that communicate scale, reliability, and experience.",
+        fit: "contain",
+      },
+      {
+        image: exContact,
+        title: "Contact and Consultation",
+        caption:
+          "The contact section turns inquiry into a focused consultation path with clear channels for WhatsApp, calls, email, and appointment requests.",
+        fit: "contain",
+      },
+      {
+        image: exFieldWork,
+        title: "Field Work",
+        caption:
+          "Field-work moments highlight official occasions, guest guidance, site presence, and the visible discipline of live execution.",
+        fit: "contain",
+      },
+    ],
+    reflection:
+      "EX Events & Exhibitions became a premium digital presence for a Saudi events and exhibitions company, connecting operational strategy, UX structure, interface design, content direction, responsive layouts, motion direction, and front-end implementation into one professional case study.",
   },
 ];
 

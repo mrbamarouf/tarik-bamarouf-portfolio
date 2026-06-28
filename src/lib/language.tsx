@@ -1941,6 +1941,158 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         "أصبح OPAL STONES تجربة رقمية فاخرة لدار مجوهرات سعودية معاصرة، تجمع التوجه الإبداعي، تجربة المستخدم التحريرية، تصميم الواجهة الفاخر، توجيه المحتوى، التصميم المتجاوب، وتطوير الواجهة الأمامية داخل حضور رقمي مصقول.",
     },
   },
+  "ex-events-exhibitions": {
+    en: {
+      category:
+        "Digital Strategy, UX Strategy, UX/UI Design, Website Design, Front-end Development, Content Direction",
+      disciplines: "Digital Strategy, UX Strategy, UX/UI, Website Design",
+      intro:
+        "A Saudi events and exhibitions company specializing in operational excellence, supervision, planning, protocol, visitor experience, and on-site execution.",
+      details: {
+        industry: "Events, Exhibitions, Operations / Saudi Arabia",
+        services:
+          "Digital Strategy, UX Strategy, Information Architecture, UX/UI Design, Content Direction, Responsive Design, Motion Direction, Front-end Development",
+        platform: "Events and Exhibitions Website",
+      },
+      overview: {
+        challenge:
+          "EX Events & Exhibitions is a Saudi events and exhibitions company specializing in operational excellence, supervision, planning, protocol, visitor experience, and on-site execution.",
+        approach:
+          "The project focused on transforming a traditional corporate presence into a premium digital experience that reflects the company's professionalism and large-scale operational capabilities.",
+        outcome:
+          "The final website brings strategy, information architecture, interface design, responsive layouts, content direction, and front-end development together into a clear digital presence for events and exhibition operations.",
+      },
+      gallery: [
+        {
+          title: "Hero and Brand Entry",
+          caption:
+            "The opening visual introduces EX through a cinematic command-room atmosphere, linking the brand to supervision, control, and operational readiness.",
+        },
+        {
+          title: "Homepage Hero",
+          caption:
+            "The homepage frames EX as a company that leads major event details through professionalism, planning, and on-site execution.",
+        },
+        {
+          title: "Operations Overview",
+          caption:
+            "A compact operations section presents experience, VIP protocol, media, exhibitions, and events as a structured capability system.",
+        },
+        {
+          title: "Operations System",
+          caption:
+            "The operations system translates planning, documentation, supervision, field execution, and protocol into one organized service model.",
+        },
+        {
+          title: "Company Values",
+          caption:
+            "The values chapter communicates professionalism, commitment, transparency, and efficiency with a restrained corporate interface.",
+        },
+        {
+          title: "Behind The Scenes",
+          caption:
+            "Execution imagery shows the field teams, venues, production moments, and operational scenes behind major events.",
+        },
+        {
+          title: "Mission",
+          caption:
+            "The mission section clarifies the company's role in improving the visitor experience through preparation, planning, and precise execution.",
+        },
+        {
+          title: "Major Projects",
+          caption:
+            "Milestone projects are presented with strong event imagery and structured cards that communicate scale, reliability, and experience.",
+        },
+        {
+          title: "Contact and Consultation",
+          caption:
+            "The contact section turns inquiry into a focused consultation path with clear channels for WhatsApp, calls, email, and appointment requests.",
+        },
+        {
+          title: "Field Work",
+          caption:
+            "Field-work moments highlight official occasions, guest guidance, site presence, and the visible discipline of live execution.",
+        },
+      ],
+      reflection:
+        "EX Events & Exhibitions became a premium digital presence for a Saudi events and exhibitions company, connecting operational strategy, UX structure, interface design, content direction, responsive layouts, motion direction, and front-end implementation into one professional case study.",
+    },
+    ar: {
+      category:
+        "استراتيجية رقمية، استراتيجية تجربة المستخدم، تصميم تجربة وواجهة، تصميم موقع، تطوير الواجهة، توجيه المحتوى",
+      disciplines: "استراتيجية رقمية، تجربة مستخدم، تصميم واجهة، تصميم موقع",
+      intro:
+        "شركة سعودية متخصصة في إدارة وتشغيل الفعاليات والمعارض، تجمع بين التخطيط، والإشراف، والتنفيذ الميداني وفق أعلى المعايير.",
+      details: {
+        industry: "فعاليات، معارض، تشغيل / السعودية",
+        services:
+          "الاستراتيجية الرقمية، استراتيجية تجربة المستخدم، هيكلة المعلومات، تصميم تجربة المستخدم، تصميم الواجهة، توجيه المحتوى، التصميم المتجاوب، الحركة، تطوير الواجهة الأمامية",
+        platform: "موقع لشركة فعاليات ومعارض",
+      },
+      overview: {
+        challenge:
+          "EX Events & Exhibitions شركة سعودية متخصصة في إدارة وتشغيل الفعاليات والمعارض، تجمع بين التخطيط، والإشراف، والتنفيذ الميداني وفق أعلى المعايير.",
+        approach:
+          "ركز المشروع على بناء تجربة رقمية تعكس احترافية الشركة وقدرتها على إدارة المشاريع والفعاليات الكبرى بأسلوب واضح ومنظم.",
+        outcome:
+          "تجمع التجربة النهائية الاستراتيجية الرقمية، هيكلة المعلومات، تصميم الواجهة، توجيه المحتوى، التصميم المتجاوب، والحركة داخل حضور رقمي واضح لشركة متخصصة في تشغيل الفعاليات والمعارض.",
+      },
+      gallery: [
+        {
+          title: "الواجهة وهوية الدخول",
+          caption:
+            "تقدم اللقطة الافتتاحية EX من خلال أجواء غرفة تشغيل سينمائية تربط العلامة بالإشراف والتحكم والجاهزية.",
+        },
+        {
+          title: "واجهة الصفحة الرئيسية",
+          caption:
+            "تعرض الصفحة الرئيسية الشركة كجهة تقود تفاصيل الفعاليات الكبرى باحترافية وتخطيط وتنفيذ ميداني.",
+        },
+        {
+          title: "نظرة تشغيلية",
+          caption:
+            "يعرض قسم العمليات الخبرة والبروتوكول وخدمة كبار الشخصيات والإعلام والمعارض والفعاليات كنظام قدرات واضح.",
+        },
+        {
+          title: "نظام العمليات",
+          caption:
+            "يحوّل نظام العمليات التخطيط والتوثيق والإشراف والتنفيذ الميداني والبروتوكول إلى نموذج خدمة منظم.",
+        },
+        {
+          title: "قيم الشركة",
+          caption:
+            "ينقل فصل القيم الاحترافية والالتزام والشفافية والكفاءة من خلال واجهة مؤسسية هادئة.",
+        },
+        {
+          title: "وراء الكواليس",
+          caption:
+            "تعرض صور التنفيذ فرق العمل والمواقع ولحظات الإنتاج والمشاهد التشغيلية خلف الفعاليات الكبرى.",
+        },
+        {
+          title: "المهمة",
+          caption:
+            "يوضح قسم المهمة دور الشركة في تحسين تجربة الزائر من خلال التحضير والتخطيط والتنفيذ الدقيق.",
+        },
+        {
+          title: "المشاريع الكبرى",
+          caption:
+            "تعرض المشاريع البارزة بصور قوية وبطاقات منظمة توضح الحجم والثقة والخبرة.",
+        },
+        {
+          title: "التواصل والاستشارة",
+          caption:
+            "يحوّل قسم التواصل الاستفسار إلى مسار استشارة واضح عبر واتساب والاتصال والبريد وطلب الموعد.",
+        },
+        {
+          title: "العمل الميداني",
+          caption:
+            "تبرز لحظات العمل الميداني المناسبات الرسمية وإرشاد الضيوف والحضور في الموقع وانضباط التنفيذ المباشر.",
+        },
+      ],
+      reflection:
+        "أصبح EX Events & Exhibitions حضورًا رقميًا فاخرًا لشركة سعودية متخصصة في الفعاليات والمعارض، يجمع الاستراتيجية التشغيلية، هيكلة التجربة، تصميم الواجهة، توجيه المحتوى، التصميم المتجاوب، الحركة، وتطوير الواجهة الأمامية داخل دراسة حالة مهنية واضحة.",
+    },
+  },
 };
 
 export function projectDisplay(slug: string, language: Language) {
