@@ -101,6 +101,15 @@ import circleSectionTrustStory from "@/assets/projects/circle-section/11-trust-s
 import circleSectionDelivery from "@/assets/projects/circle-section/12-delivery-experience.webp";
 import circleSectionContact from "@/assets/projects/circle-section/13-contact-experience.webp";
 import circleSectionFooterBrand from "@/assets/projects/circle-section/14-footer-brand.webp";
+import opalStonesHero from "@/assets/projects/opal-stones/01-homepage-hero.webp";
+import opalStonesLogo from "@/assets/projects/opal-stones/02-logo-cover.webp";
+import opalBeginPiece from "@/assets/projects/opal-stones/03-begin-with-piece.webp";
+import opalChoices from "@/assets/projects/opal-stones/04-choices-before-sketch.webp";
+import opalCraftDetails from "@/assets/projects/opal-stones/05-craft-details.webp";
+import opalStoneStories from "@/assets/projects/opal-stones/06-stone-stories.webp";
+import opalCommissions from "@/assets/projects/opal-stones/07-commissions.webp";
+import opalEmeraldNecklace from "@/assets/projects/opal-stones/08-emerald-necklace.webp";
+import opalPrivateAppointment from "@/assets/projects/opal-stones/09-private-appointment.webp";
 
 type GalleryItem = { image: string; title: string; caption: string; fit?: "cover" | "contain" };
 
@@ -448,6 +457,98 @@ const PROJECTS: ProjectData[] = [
     ],
     reflection:
       "Circle Section became a complete restaurant digital experience, combining brand clarity, menu structure, responsive interface design, content direction, motion, and front-end implementation into a premium website that preserves the brand's personality.",
+  },
+  {
+    slug: "opal-stones",
+    name: "OPAL STONES",
+    category:
+      "Luxury Brand Identity, UX Strategy, UI Design, Website Design, Front-end Development, Content Direction",
+    intro:
+      "OPAL STONES is a contemporary Saudi fine jewellery maison focused on timeless craftsmanship and bespoke pieces.",
+    image: opalStonesHero,
+    details: {
+      client: "OPAL STONES",
+      industry: "Fine Jewellery / Luxury Maison, Saudi Arabia",
+      services:
+        "Brand Direction, UX Strategy, UI Design, Content Direction, Editorial Experience, Responsive Design, Front-end Development",
+      year: "2026",
+      platform: "Luxury Maison Website",
+    },
+    overview: {
+      challenge:
+        "OPAL STONES is a contemporary Saudi fine jewellery maison focused on timeless craftsmanship and bespoke pieces. The project needed to feel like a luxury digital experience rather than a traditional e-commerce store.",
+      approach:
+        "The work included creating a refined visual identity, an editorial user experience, premium interface design, content direction, responsive layouts, and front-end implementation that reflects the elegance of the brand.",
+      outcome:
+        "The final experience presents OPAL STONES as a composed luxury maison, balancing jewellery storytelling, private appointment flow, editorial product discovery, and a refined digital presence.",
+    },
+    gallery: [
+      {
+        image: opalStonesHero,
+        title: "Homepage Experience",
+        caption:
+          "The homepage opens with a cinematic jewellery composition and positions OPAL STONES as a contemporary luxury maison.",
+        fit: "contain",
+      },
+      {
+        image: opalStonesLogo,
+        title: "Logo and Brand Cover",
+        caption:
+          "The logo cover establishes the maison identity with a quiet, tactile, and premium visual tone.",
+        fit: "contain",
+      },
+      {
+        image: opalBeginPiece,
+        title: "Begin With The Piece",
+        caption:
+          "The collection entry frames rings, necklaces, and earrings through editorial spacing and refined product storytelling.",
+        fit: "contain",
+      },
+      {
+        image: opalChoices,
+        title: "Before The First Sketch",
+        caption:
+          "A curated product pathway lets visitors begin with a category, a mood, a material, or a bespoke direction.",
+        fit: "contain",
+      },
+      {
+        image: opalCraftDetails,
+        title: "Craft and Detail",
+        caption:
+          "Behind-the-scenes jewellery imagery brings handwork, stone setting, and atelier detail into the digital experience.",
+        fit: "contain",
+      },
+      {
+        image: opalStoneStories,
+        title: "Stone Stories",
+        caption:
+          "Editorial cards introduce bracelets, bridal suites, and heirloom rework as distinct maison narratives.",
+        fit: "contain",
+      },
+      {
+        image: opalCommissions,
+        title: "Private Commissions",
+        caption:
+          "The commission chapter communicates bespoke pieces through restraint, space, and a quiet sense of ceremony.",
+        fit: "contain",
+      },
+      {
+        image: opalEmeraldNecklace,
+        title: "Editorial Product Moment",
+        caption:
+          "A focused jewellery feature gives a single emerald necklace the atmosphere and attention of an editorial spread.",
+        fit: "contain",
+      },
+      {
+        image: opalPrivateAppointment,
+        title: "Private Appointment",
+        caption:
+          "The final appointment flow turns inquiry into a composed private consultation rather than a standard checkout.",
+        fit: "contain",
+      },
+    ],
+    reflection:
+      "OPAL STONES became a luxury digital experience for a contemporary Saudi fine jewellery maison, combining brand direction, editorial UX, premium interface design, content direction, responsive layouts, and front-end development into a refined online presence.",
   },
 ];
 

@@ -1800,6 +1800,147 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         "أصبح Circle Section تجربة رقمية متكاملة لمطعم، تجمع وضوح العلامة، هيكلة المنيو، تصميم الواجهة المتجاوبة، توجيه المحتوى، الحركة، وتطوير الواجهة الأمامية داخل موقع فاخر يحافظ على شخصية العلامة.",
     },
   },
+  "opal-stones": {
+    en: {
+      category:
+        "Luxury Brand Identity, UX Strategy, UI Design, Website Design, Front-end Development, Content Direction",
+      disciplines: "Luxury Brand Identity, UX Strategy, UI Design, Website Design",
+      intro:
+        "A contemporary Saudi fine jewellery maison focused on timeless craftsmanship and bespoke pieces.",
+      details: {
+        industry: "Fine Jewellery / Luxury Maison, Saudi Arabia",
+        services:
+          "Brand Direction, UX Strategy, UI Design, Content Direction, Editorial Experience, Responsive Design, Front-end Development",
+        platform: "Luxury Maison Website",
+      },
+      overview: {
+        challenge:
+          "OPAL STONES is a contemporary Saudi fine jewellery maison focused on timeless craftsmanship and bespoke pieces. The project needed to feel like a luxury digital experience rather than a traditional e-commerce store.",
+        approach:
+          "The work included creating a refined visual identity, an editorial user experience, premium interface design, content direction, responsive layouts, and front-end implementation that reflects the elegance of the brand.",
+        outcome:
+          "The final experience presents OPAL STONES as a composed luxury maison, balancing jewellery storytelling, private appointment flow, editorial product discovery, and a refined digital presence.",
+      },
+      gallery: [
+        {
+          title: "Homepage Experience",
+          caption:
+            "The homepage opens with a cinematic jewellery composition and positions OPAL STONES as a contemporary luxury maison.",
+        },
+        {
+          title: "Logo and Brand Cover",
+          caption:
+            "The logo cover establishes the maison identity with a quiet, tactile, and premium visual tone.",
+        },
+        {
+          title: "Begin With The Piece",
+          caption:
+            "The collection entry frames rings, necklaces, and earrings through editorial spacing and refined product storytelling.",
+        },
+        {
+          title: "Before The First Sketch",
+          caption:
+            "A curated product pathway lets visitors begin with a category, a mood, a material, or a bespoke direction.",
+        },
+        {
+          title: "Craft and Detail",
+          caption:
+            "Behind-the-scenes jewellery imagery brings handwork, stone setting, and atelier detail into the digital experience.",
+        },
+        {
+          title: "Stone Stories",
+          caption:
+            "Editorial cards introduce bracelets, bridal suites, and heirloom rework as distinct maison narratives.",
+        },
+        {
+          title: "Private Commissions",
+          caption:
+            "The commission chapter communicates bespoke pieces through restraint, space, and a quiet sense of ceremony.",
+        },
+        {
+          title: "Editorial Product Moment",
+          caption:
+            "A focused jewellery feature gives a single emerald necklace the atmosphere and attention of an editorial spread.",
+        },
+        {
+          title: "Private Appointment",
+          caption:
+            "The final appointment flow turns inquiry into a composed private consultation rather than a standard checkout.",
+        },
+      ],
+      reflection:
+        "OPAL STONES became a luxury digital experience for a contemporary Saudi fine jewellery maison, combining brand direction, editorial UX, premium interface design, content direction, responsive layouts, and front-end development into a refined online presence.",
+    },
+    ar: {
+      category:
+        "هوية فاخرة، استراتيجية تجربة المستخدم، تصميم واجهة، تصميم موقع، تطوير الواجهة، توجيه المحتوى",
+      disciplines: "هوية فاخرة، تجربة مستخدم، تصميم واجهة، تصميم موقع",
+      intro:
+        "دار مجوهرات سعودية معاصرة تقدم قطعًا مصممة بعناية، تجمع بين الحرفية والهوية الراقية.",
+      details: {
+        industry: "مجوهرات فاخرة / دار فاخرة، السعودية",
+        services:
+          "التوجه الإبداعي، استراتيجية تجربة المستخدم، تصميم الواجهة، توجيه المحتوى، التجربة التحريرية، التصميم المتجاوب، تطوير الواجهة الأمامية",
+        platform: "موقع لدار مجوهرات فاخرة",
+      },
+      overview: {
+        challenge:
+          "OPAL STONES دار مجوهرات سعودية معاصرة تقدم قطعًا مصممة بعناية، تجمع بين الحرفية والهوية الراقية. صُمم المشروع كتجربة رقمية فاخرة تعكس قيمة العلامة، وليس كمتجر إلكتروني تقليدي.",
+        approach:
+          "شمل المشروع التوجه الإبداعي، استراتيجية تجربة المستخدم، تصميم الواجهة، توجيه المحتوى، التجربة التحريرية، التصميم المتجاوب، وتطوير الواجهة الأمامية بما يعكس أناقة العلامة.",
+        outcome:
+          "تقدم التجربة النهائية OPAL STONES كدار فاخرة وهادئة، تجمع سرد المجوهرات، مسار المواعيد الخاصة، اكتشاف القطع بأسلوب تحريري، وحضورًا رقميًا مصقولًا.",
+      },
+      gallery: [
+        {
+          title: "تجربة الصفحة الرئيسية",
+          caption:
+            "تفتتح الصفحة الرئيسية بتكوين سينمائي للمجوهرات، وتضع OPAL STONES كدار سعودية معاصرة وفاخرة.",
+        },
+        {
+          title: "الشعار وغلاف الهوية",
+          caption: "يثبت غلاف الشعار هوية الدار بنبرة هادئة وملمس بصري فاخر.",
+        },
+        {
+          title: "البدء بالقطعة",
+          caption:
+            "يعرض مدخل المجموعة الخواتم والعقود والأقراط بمساحات تحريرية وسرد منتج مصقول.",
+        },
+        {
+          title: "قبل أول رسم",
+          caption:
+            "يوجه مسار الاختيار الزائر للبدء من الفئة أو المزاج أو الخامة أو اتجاه القطعة الخاصة.",
+        },
+        {
+          title: "الحرفة والتفاصيل",
+          caption:
+            "تُدخل صور الكواليس الحرفة وترصيع الأحجار وتفاصيل المشغل إلى التجربة الرقمية.",
+        },
+        {
+          title: "قصص الأحجار",
+          caption:
+            "تقدم البطاقات التحريرية الأساور وأطقم العروس وإعادة صياغة الإرث كقصص مميزة داخل الدار.",
+        },
+        {
+          title: "الطلبات الخاصة",
+          caption:
+            "يتحدث فصل الطلبات الخاصة عن القطع المصممة بعناية عبر الهدوء والمساحة وإحساس المناسبة.",
+        },
+        {
+          title: "لحظة منتج تحريرية",
+          caption:
+            "تمنح لقطة العقد المرصع بالزمرد قطعة واحدة حضورًا واهتمامًا يليقان بصفحة تحريرية.",
+        },
+        {
+          title: "الموعد الخاص",
+          caption:
+            "يحوّل مسار الموعد الاستفسار إلى استشارة خاصة مصقولة بدل تجربة شراء تقليدية.",
+        },
+      ],
+      reflection:
+        "أصبح OPAL STONES تجربة رقمية فاخرة لدار مجوهرات سعودية معاصرة، تجمع التوجه الإبداعي، تجربة المستخدم التحريرية، تصميم الواجهة الفاخر، توجيه المحتوى، التصميم المتجاوب، وتطوير الواجهة الأمامية داخل حضور رقمي مصقول.",
+    },
+  },
 };
 
 export function projectDisplay(slug: string, language: Language) {
