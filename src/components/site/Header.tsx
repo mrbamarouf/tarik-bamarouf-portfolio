@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import signature from "@/assets/signature.webp";
 import { siteCopy, useLanguage } from "@/lib/language";
 
+const MOBILE_MENU_MEDIA_QUERY = "(max-width: 767px)";
+const MOBILE_MENU_LOCK_CLASS = "mobile-menu-scroll-lock";
+
 const nav = [
   { to: "/work", key: "work", kind: "route" },
   { to: "/about", key: "about", kind: "route" },
@@ -11,6 +14,21 @@ const nav = [
   { to: "/#process", key: "process", kind: "anchor" },
   { to: "/contact", key: "contact", kind: "route" },
 ] as const;
+
+function unlockMobileMenuScroll({ restorePosition = true } = {}) {
+  if (typeof window === "undefined") return;
+
+  const scrollY = Number(document.body.dataset.mobileMenuScrollY ?? "0");
+
+  document.documentElement.classList.remove(MOBILE_MENU_LOCK_CLASS);
+  document.body.classList.remove(MOBILE_MENU_LOCK_CLASS);
+  document.body.style.removeProperty("--mobile-menu-scroll-y");
+  delete document.body.dataset.mobileMenuScrollY;
+
+  if (restorePosition && Number.isFinite(scrollY)) {
+    window.scrollTo(0, scrollY);
+  }
+}
 
 export function Header() {
   const { language, toggleLanguage } = useLanguage();
@@ -75,6 +93,34 @@ export function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    const mobileQuery = window.matchMedia(MOBILE_MENU_MEDIA_QUERY);
+
+    if (!open || !mobileQuery.matches) {
+      unlockMobileMenuScroll({ restorePosition: false });
+      return undefined;
+    }
+
+    const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.body.dataset.mobileMenuScrollY = String(scrollY);
+    document.body.style.setProperty("--mobile-menu-scroll-y", `-${scrollY}px`);
+    document.documentElement.classList.add(MOBILE_MENU_LOCK_CLASS);
+    document.body.classList.add(MOBILE_MENU_LOCK_CLASS);
+
+    const handleMediaChange = (event: MediaQueryListEvent) => {
+      if (!event.matches) {
+        setOpen(false);
+      }
+    };
+
+    mobileQuery.addEventListener("change", handleMediaChange);
+
+    return () => {
+      mobileQuery.removeEventListener("change", handleMediaChange);
+      unlockMobileMenuScroll();
+    };
+  }, [open]);
+
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
     setOpen(false);
 
@@ -89,7 +135,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter,padding,opacity,transform,filter] duration-700 ease-out ${
+      className={`site-header ${open ? "site-header--menu-open" : ""} fixed left-0 right-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter,padding,opacity,transform,filter] duration-700 ease-out ${
         chromeVisible
           ? atTop
             ? "border-transparent bg-transparent py-5 md:py-7"
@@ -166,6 +212,8 @@ export function Header() {
               : "pointer-events-none -translate-y-3 opacity-0 blur-[2px]"
           }`}
           onClick={() => setOpen((v) => !v)}
+          aria-controls="mobile-navigation"
+          aria-expanded={open}
           aria-label={open ? t.nav.close : t.nav.menu}
         >
           {open ? t.nav.close : t.nav.menu}
@@ -173,7 +221,10 @@ export function Header() {
       </div>
 
       {open && chromeVisible && (
-        <div className="mt-5 border-t border-bronze/10 bg-background/95 backdrop-blur-md md:hidden">
+        <div
+          id="mobile-navigation"
+          className="site-header__mobile-menu mt-5 border-t border-bronze/10 bg-background/95 backdrop-blur-md md:hidden"
+        >
           <nav className="flex flex-col gap-6 px-6 py-8">
             {nav.map((item) =>
               item.kind === "route" ? (
