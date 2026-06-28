@@ -3198,6 +3198,11 @@ body[data-lang="ar"] :where(*:not(.english-layout-slot__master, .english-layout-
   display: block;
 }
 
+.approach-section__headline-emphasis {
+  color: var(--bronze-soft);
+  font-style: italic;
+}
+
 .approach-section__body {
   max-width: 25rem;
   margin-top: 2rem;
@@ -3413,6 +3418,11 @@ body[data-lang="ar"] .approach-section__body {
 
 body[data-lang="ar"] .approach-section__headline {
   line-height: 1.06;
+}
+
+body[data-lang="ar"] .approach-section__headline-emphasis {
+  font-style: normal;
+  letter-spacing: 0 !important;
 }
 
 body[data-lang="ar"] .approach-stage__copy {

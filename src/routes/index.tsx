@@ -79,6 +79,29 @@ const serviceVisuals = [
   { image: serviceDesignDevelopment, position: "center" },
 ] as const;
 
+function hasFineHoverPointer() {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches
+  );
+}
+
+function renderApproachHeadline(headline: typeof siteCopy.en.home.approachHeadline) {
+  return (
+    <>
+      <span className="approach-section__headline-line">{headline.line1}</span>
+      <span className="approach-section__headline-line">
+        {headline.line2Before && `${headline.line2Before} `}
+        <span className="approach-section__headline-emphasis">{headline.emphasis}</span>
+        {headline.line2After && ` ${headline.line2After}`}
+      </span>
+      {headline.line3 && (
+        <span className="approach-section__headline-line">{headline.line3}</span>
+      )}
+    </>
+  );
+}
+
 function Index() {
   const { language } = useLanguage();
   const t = siteCopy[language];
@@ -213,11 +236,7 @@ function Index() {
   }, []);
 
   const handleApproachStageClick = (index: number) => {
-    const hasFineHover =
-      typeof window !== "undefined" &&
-      window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-
-    if (hasFineHover) {
+    if (hasFineHoverPointer()) {
       setActiveApproachIndex(index);
       return;
     }
@@ -321,17 +340,9 @@ function Index() {
           <div className="approach-section__lead">
             <h2 className="approach-section__headline font-serif font-light text-foreground">
               <EnglishLayoutSlot
-                master={siteCopy.en.home.approachHeadline.map((line) => (
-                  <span key={line} className="approach-section__headline-line">
-                    {line}
-                  </span>
-                ))}
+                master={renderApproachHeadline(siteCopy.en.home.approachHeadline)}
               >
-                {t.home.approachHeadline.map((line) => (
-                  <span key={line} className="approach-section__headline-line">
-                    {line}
-                  </span>
-                ))}
+                {renderApproachHeadline(t.home.approachHeadline)}
               </EnglishLayoutSlot>
             </h2>
             <p className="approach-section__body font-light text-foreground/76">
@@ -367,12 +378,20 @@ function Index() {
                     className={`approach-stage ${isActive ? "is-active" : ""}`}
                     aria-expanded={isActive}
                     style={{ transitionDelay: `${index * 70}ms` }}
-                    onMouseEnter={() => setActiveApproachIndex(index)}
-                    onFocus={() => setActiveApproachIndex(index)}
+                    onMouseEnter={() => {
+                      if (hasFineHoverPointer()) {
+                        setActiveApproachIndex(index);
+                      }
+                    }}
+                    onFocus={() => {
+                      if (hasFineHoverPointer()) {
+                        setActiveApproachIndex(index);
+                      }
+                    }}
                     onClick={() => handleApproachStageClick(index)}
                   >
                     <span className="approach-stage__number font-serif">
-                      {formatLocalizedNumber(index + 1, language, { minimumIntegerDigits: 2 })}
+                      {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="approach-stage__copy">
                       <span className="approach-stage__title">

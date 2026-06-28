@@ -149,29 +149,35 @@ export const siteCopy = {
       viewWork: "View Work",
       startProject: "Start Project",
       portfolioLabel: "Portfolio 2026",
-      approachHeadline: ["Design", "starts", "long before", "the screen."],
+      approachHeadline: {
+        line1: "Design starts",
+        line2Before: "long",
+        emphasis: "before",
+        line2After: "",
+        line3: "the screen.",
+      },
       approachBody:
         "Before visuals, I define what the brand needs to make clear and how the visitor should move through it.",
       approachStages: [
         {
           t: "Understand",
-          d: "Brand, audience, business goals.",
+          d: "Brand, audience, and business goals.",
         },
         {
           t: "Strategy",
-          d: "Clear direction before visuals.",
+          d: "A clear direction before any visual decision.",
         },
         {
           t: "Experience",
-          d: "User journey before interface.",
+          d: "The visitor journey before the interface.",
         },
         {
           t: "Design",
-          d: "Visual language with purpose.",
+          d: "A visual language with purpose.",
         },
         {
           t: "Build",
-          d: "High-end implementation.",
+          d: "A refined front-end built to perform.",
         },
       ],
       selectedWork: "Selected Work",
@@ -357,29 +363,35 @@ export const siteCopy = {
       viewWork: "عرض الأعمال",
       startProject: "ابدأ مشروعك",
       portfolioLabel: "محفظة ٢٠٢٦",
-      approachHeadline: ["التصميم", "يبدأ", "قبل", "الشاشة."],
+      approachHeadline: {
+        line1: "التصميم يبدأ",
+        line2Before: "",
+        emphasis: "قبل",
+        line2After: "الشاشة.",
+        line3: "",
+      },
       approachBody:
-        "قبل الشكل، أحدد ما يجب أن توضحه العلامة وكيف تتحرك التجربة في ذهن الزائر.",
+        "قبل الشكل، أحدد ما تحتاج العلامة لتوضيحه، وكيف يجب أن يتحرك الزائر داخل التجربة.",
       approachStages: [
         {
           t: "الفهم",
-          d: "هوية العلامة، الجمهور، وأهداف العمل.",
+          d: "العلامة، الجمهور، وأهداف العمل.",
         },
         {
-          t: "الاتجاه",
-          d: "قرار واضح قبل أي شكل بصري.",
+          t: "الاستراتيجية",
+          d: "اتجاه واضح قبل أي قرار بصري.",
         },
         {
           t: "التجربة",
-          d: "رحلة المستخدم قبل الواجهة.",
+          d: "رحلة الزائر قبل الواجهة.",
         },
         {
           t: "التصميم",
-          d: "لغة بصرية تحمل سببها.",
+          d: "لغة بصرية لها معنى.",
         },
         {
           t: "التنفيذ",
-          d: "بناء نهائي بعناية عالية.",
+          d: "واجهة مصقولة تعمل بسلاسة.",
         },
       ],
       selectedWork: "أعمال مختارة",
