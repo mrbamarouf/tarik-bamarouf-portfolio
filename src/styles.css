@@ -2958,6 +2958,15 @@ body[data-lang="ar"] :where(*:not(.english-layout-slot__master, .english-layout-
 }
 
 @media (min-width: 1200px) {
+  body[data-lang="ar"] .home-hero__copy > p:first-child {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    direction: rtl;
+    text-align: left;
+    unicode-bidi: isolate;
+  }
+
   body[data-lang="ar"] .about-page__intro .section-label,
   body[data-lang="ar"] .about-page__headline {
     margin-left: clamp(2rem, 3.2vw, 4rem);
