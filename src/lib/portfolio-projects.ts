@@ -7,6 +7,7 @@ import jorofHero from "@/assets/projects/jorof/01-hero.webp";
 import noorixHero from "@/assets/projects/noorix/06-origin-hero.webp";
 import pokemonHero from "@/assets/projects/pokemon-sa/01-hero-home.webp";
 import pakmanHero from "@/assets/projects/pakman/01-hero.webp";
+import circleSectionHero from "@/assets/projects/circle-section/01-hero.webp";
 
 export const portfolioProjects = [
   {
@@ -105,6 +106,17 @@ export const portfolioProjects = [
     img: pakmanHero,
     year: "2026",
     disciplines: "Identity, Packaging, Website",
+    span: "wide",
+    ratio: "aspect-[16/10]",
+  },
+  {
+    n: "10",
+    t: "Circle Section",
+    slug: "circle-section",
+    cat: "Brand Identity, UX/UI Design, Web Design, Front-end Development, Content Direction",
+    img: circleSectionHero,
+    year: "2026",
+    disciplines: "Brand Identity, UX/UI, Web Design, Front-end Development",
     span: "wide",
     ratio: "aspect-[16/10]",
   },

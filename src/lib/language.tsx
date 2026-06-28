@@ -1610,6 +1610,196 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         "أصبحت Pakman دراسة حالة متكاملة لشركة تغليف مطاعم سعودية، تجمع الهوية التجارية وتوجيه التغليف وتصميم الموقع وتصميم الواجهة والتوجيه الفني في حضور رقمي واضح يخدم قطاع الأغذية.",
     },
   },
+  "circle-section": {
+    en: {
+      category: "Brand Identity, UX/UI Design, Web Design, Front-end Development, Content Direction",
+      disciplines: "Brand Identity, UX/UI, Web Design, Front-end Development",
+      intro:
+        "A premium smash burger restaurant in Jeddah shaped into a complete digital experience from strategy to execution.",
+      details: {
+        industry: "Restaurant / Smash Burger",
+        services:
+          "Brand Positioning, UX Strategy, User Experience, UI Design, Content Direction, Information Architecture, Responsive Design, Front-end Implementation, Menu Experience, Motion, Performance Optimization",
+        platform: "Restaurant Brand Website",
+      },
+      overview: {
+        challenge:
+          "Circle Section is a premium smash burger restaurant in Jeddah. The objective was to transform the restaurant into a premium digital experience while preserving the personality of the brand.",
+        approach:
+          "The project included the complete digital experience from strategy to execution, covering brand positioning, UX strategy, user experience, UI design, content direction, information architecture, responsive design, front-end implementation, menu experience, motion, and performance optimization.",
+        outcome:
+          "The final experience turns the restaurant into a polished digital brand presence, connecting menu discovery, brand storytelling, mobile readiness, and clear contact moments into one cohesive journey.",
+      },
+      gallery: [
+        {
+          title: "Hero and Header Experience",
+          caption:
+            "The main website entry introduces Circle Section through a clear header, burger-led composition, and direct paths into the restaurant experience.",
+        },
+        {
+          title: "Intro Brand Moment",
+          caption:
+            "A bold opening brand screen establishes the Circle Section identity before the visitor moves into the website.",
+        },
+        {
+          title: "Flavor System",
+          caption:
+            "The visual language frames product photography, copy, and interface cards around the idea of a circular flavor experience.",
+        },
+        {
+          title: "Menu Experience",
+          caption:
+            "The menu organizes burgers and categories with a light interface, clear item hierarchy, and an easy browsing rhythm.",
+        },
+        {
+          title: "Menu Showcase",
+          caption:
+            "Food sections highlight sides and supporting products with strong imagery and structured product cards.",
+        },
+        {
+          title: "Product Detail",
+          caption:
+            "Individual menu moments give each product space to feel distinct while keeping the same brand energy.",
+        },
+        {
+          title: "Brand Reasons",
+          caption:
+            "A compact value section explains why guests return, pairing direct copy with a warm set of product-led cards.",
+        },
+        {
+          title: "Dessert Detail",
+          caption:
+            "Dessert presentation extends the menu experience beyond burgers without losing the brand's playful personality.",
+        },
+        {
+          title: "Story Section",
+          caption:
+            "The story chapter connects flavor, people, and place through restaurant context, brand copy, and atmospheric details.",
+        },
+        {
+          title: "Big Flavor",
+          caption:
+            "A product-led storytelling section pairs burger imagery with bold editorial typography and focused brand messaging.",
+        },
+        {
+          title: "In Circle We Trust",
+          caption:
+            "Brand trust is expressed through food photography, concise storytelling, and a relaxed restaurant tone.",
+        },
+        {
+          title: "Delivery Experience",
+          caption:
+            "The delivery section turns ordering platforms into a branded moment with simple choices and strong orange presence.",
+        },
+        {
+          title: "Contact Experience",
+          caption:
+            "The contact section combines location, opening hours, and direct action in a clean interface built for real visits.",
+        },
+        {
+          title: "Final Brand View",
+          caption:
+            "The closing brand moment keeps the logo, color, and final action simple, memorable, and easy to recognize.",
+        },
+      ],
+      reflection:
+        "Circle Section became a complete restaurant digital experience, combining brand clarity, menu structure, responsive interface design, content direction, motion, and front-end implementation into a premium website that preserves the brand's personality.",
+    },
+    ar: {
+      category: "هوية تجارية، تجربة مستخدم وواجهة، تصميم موقع، تطوير الواجهة، توجيه المحتوى",
+      disciplines: "هوية تجارية، تجربة وواجهة، تصميم موقع، تطوير الواجهة",
+      intro:
+        "مطعم برجر متخصص في جدة صيغ كتجربة رقمية متكاملة من الاستراتيجية إلى التنفيذ.",
+      details: {
+        industry: "مطعم / سماش برجر",
+        services:
+          "تموضع العلامة، استراتيجية تجربة المستخدم، تجربة المستخدم، تصميم الواجهة، توجيه المحتوى، هيكلة المعلومات، التصميم المتجاوب، تطوير الواجهة الأمامية، تجربة المنيو، الحركة، تحسين الأداء",
+        platform: "موقع لعلامة مطعم",
+      },
+      overview: {
+        challenge:
+          "Circle Section مطعم برجر متخصص في جدة. كان الهدف تقديم تجربة رقمية تعكس جودة العلامة وتبرز شخصية المطعم بأسلوب معاصر ومميز.",
+        approach:
+          "شمل المشروع بناء التجربة الرقمية بالكامل، بدءًا من فهم العلامة وحتى التنفيذ النهائي، عبر تموضع العلامة، استراتيجية التجربة، تجربة المستخدم، تصميم الواجهة، توجيه المحتوى، هيكلة المعلومات، التصميم المتجاوب، تطوير الواجهة الأمامية، تجربة المنيو، الحركة، وتحسين الأداء.",
+        outcome:
+          "حوّلت التجربة النهائية المطعم إلى حضور رقمي مصقول يربط اكتشاف المنيو، سرد العلامة، جاهزية الجوال، ولحظات التواصل داخل رحلة واحدة متماسكة.",
+      },
+      gallery: [
+        {
+          title: "واجهة الموقع والهيدر",
+          caption:
+            "تقدم الواجهة الرئيسية Circle Section من خلال هيدر واضح، تكوين بصري يقوده البرجر، ومسارات مباشرة داخل تجربة المطعم.",
+        },
+        {
+          title: "لحظة الانترو",
+          caption:
+            "شاشة افتتاح جريئة تثبت هوية Circle Section قبل انتقال الزائر إلى تجربة الموقع.",
+        },
+        {
+          title: "نظام النكهة",
+          caption:
+            "لغة بصرية تربط تصوير المنتجات والنصوص وبطاقات الواجهة حول فكرة دائرة النكهة.",
+        },
+        {
+          title: "تجربة المنيو",
+          caption:
+            "ينظم المنيو البرجر والفئات بواجهة خفيفة، هرمية واضحة، وإيقاع تصفح سهل.",
+        },
+        {
+          title: "عرض المنيو",
+          caption:
+            "تُبرز أقسام الطعام المنتجات الجانبية بصور قوية وبطاقات منظمة تدعم الاختيار.",
+        },
+        {
+          title: "تفاصيل المنتج",
+          caption:
+            "تمنح لحظات المنتج مساحة خاصة لكل صنف مع الحفاظ على طاقة العلامة نفسها.",
+        },
+        {
+          title: "أسباب العودة",
+          caption:
+            "قسم مختصر يشرح لماذا يعود الزوار، عبر نص مباشر وبطاقات دافئة تقودها المنتجات.",
+        },
+        {
+          title: "تفاصيل الحلى",
+          caption:
+            "يمد عرض الحلى تجربة المنيو إلى ما بعد البرجر دون فقدان شخصية العلامة المرحة.",
+        },
+        {
+          title: "قصة المكان",
+          caption:
+            "يربط فصل القصة النكهة والناس والمكان من خلال سياق المطعم ونبرة العلامة والتفاصيل البصرية.",
+        },
+        {
+          title: "نكهة كبيرة",
+          caption:
+            "قسم سردي تقوده المنتجات، يجمع صور البرجر مع تايبوغرافي جريء ورسالة واضحة.",
+        },
+        {
+          title: "الثقة بالدائرة",
+          caption:
+            "تُعبّر الثقة بالعلامة عبر تصوير الطعام، سرد مختصر، ونبرة مطعم قريبة من الناس.",
+        },
+        {
+          title: "تجربة التوصيل",
+          caption:
+            "يحوّل قسم التوصيل منصات الطلب إلى لحظة تحمل هوية العلامة بخيارات واضحة وحضور برتقالي قوي.",
+        },
+        {
+          title: "تجربة التواصل",
+          caption:
+            "يجمع قسم التواصل الموقع، ساعات العمل، والدعوة لاتخاذ خطوة مباشرة داخل واجهة واضحة.",
+        },
+        {
+          title: "الختام البصري",
+          caption:
+            "يحافظ ختام العلامة على الشعار واللون والدعوة الأخيرة بشكل بسيط وسهل التذكر.",
+        },
+      ],
+      reflection:
+        "أصبح Circle Section تجربة رقمية متكاملة لمطعم، تجمع وضوح العلامة، هيكلة المنيو، تصميم الواجهة المتجاوبة، توجيه المحتوى، الحركة، وتطوير الواجهة الأمامية داخل موقع فاخر يحافظ على شخصية العلامة.",
+    },
+  },
 };
 
 export function projectDisplay(slug: string, language: Language) {

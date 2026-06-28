@@ -87,8 +87,22 @@ import pakmanQuoteForm from "@/assets/projects/pakman/07-quote-form.webp";
 import pakmanFooter from "@/assets/projects/pakman/08-footer-final.webp";
 import pakmanFoodBusinesses from "@/assets/projects/pakman/09-food-businesses.webp";
 import pakmanWhy from "@/assets/projects/pakman/10-why-pakman.webp";
+import circleSectionHero from "@/assets/projects/circle-section/01-hero.webp";
+import circleSectionIntro from "@/assets/projects/circle-section/02-intro.webp";
+import circleSectionFlavorHeader from "@/assets/projects/circle-section/03-flavor-header.webp";
+import circleSectionMenu from "@/assets/projects/circle-section/04-menu-experience.webp";
+import circleSectionMainEvent from "@/assets/projects/circle-section/05-main-event.webp";
+import circleSectionHotdog from "@/assets/projects/circle-section/06-hotdog-detail.webp";
+import circleSectionReasons from "@/assets/projects/circle-section/07-brand-reasons.webp";
+import circleSectionDessert from "@/assets/projects/circle-section/08-dessert-detail.webp";
+import circleSectionStoryRoom from "@/assets/projects/circle-section/09-story-room.webp";
+import circleSectionBigFlavor from "@/assets/projects/circle-section/10-big-flavor.webp";
+import circleSectionTrustStory from "@/assets/projects/circle-section/11-trust-story.webp";
+import circleSectionDelivery from "@/assets/projects/circle-section/12-delivery-experience.webp";
+import circleSectionContact from "@/assets/projects/circle-section/13-contact-experience.webp";
+import circleSectionFooterBrand from "@/assets/projects/circle-section/14-footer-brand.webp";
 
-type GalleryItem = { image: string; title: string; caption: string };
+type GalleryItem = { image: string; title: string; caption: string; fit?: "cover" | "contain" };
 
 type ProjectData = {
   slug: string;
@@ -308,6 +322,132 @@ const PROJECTS: ProjectData[] = [
       year: "2026",
       platform: "Packaging Brand Website",
     },
+  },
+  {
+    slug: "circle-section",
+    name: "Circle Section",
+    category: "Brand Identity, UX/UI Design, Web Design, Front-end Development, Content Direction",
+    intro:
+      "Circle Section is a premium smash burger restaurant in Jeddah. The project shaped the complete digital experience from strategy to execution.",
+    image: circleSectionHero,
+    details: {
+      client: "Circle Section",
+      industry: "Restaurant / Smash Burger",
+      services:
+        "Brand Positioning, UX Strategy, User Experience, UI Design, Content Direction, Information Architecture, Responsive Design, Front-end Implementation, Menu Experience, Motion, Performance Optimization",
+      year: "2026",
+      platform: "Restaurant Brand Website",
+    },
+    overview: {
+      challenge:
+        "Circle Section is a premium smash burger restaurant in Jeddah. The objective was to transform the restaurant into a premium digital experience while preserving the personality of the brand.",
+      approach:
+        "The project included the complete digital experience from strategy to execution, covering brand positioning, UX strategy, user experience, UI design, content direction, information architecture, responsive design, front-end implementation, menu experience, motion, and performance optimization.",
+      outcome:
+        "The final experience turns the restaurant into a polished digital brand presence, connecting menu discovery, brand storytelling, mobile readiness, and clear contact moments into one cohesive journey.",
+    },
+    gallery: [
+      {
+        image: circleSectionHero,
+        title: "Hero and Header Experience",
+        caption:
+          "The main website entry introduces Circle Section through a clear header, burger-led composition, and direct paths into the restaurant experience.",
+        fit: "contain",
+      },
+      {
+        image: circleSectionIntro,
+        title: "Intro Brand Moment",
+        caption:
+          "A bold opening brand screen establishes the Circle Section identity before the visitor moves into the website.",
+        fit: "contain",
+      },
+      {
+        image: circleSectionFlavorHeader,
+        title: "Flavor System",
+        caption:
+          "The visual language frames product photography, copy, and interface cards around the idea of a circular flavor experience.",
+        fit: "contain",
+      },
+      {
+        image: circleSectionMenu,
+        title: "Menu Experience",
+        caption:
+          "The menu organizes burgers and categories with a light interface, clear item hierarchy, and an easy browsing rhythm.",
+        fit: "contain",
+      },
+      {
+        image: circleSectionMainEvent,
+        title: "Menu Showcase",
+        caption:
+          "Food sections highlight sides and supporting products with strong imagery and structured product cards.",
+        fit: "contain",
+      },
+      {
+        image: circleSectionHotdog,
+        title: "Product Detail",
+        caption:
+          "Individual menu moments give each product space to feel distinct while keeping the same brand energy.",
+        fit: "contain",
+      },
+      {
+        image: circleSectionReasons,
+        title: "Brand Reasons",
+        caption:
+          "A compact value section explains why guests return, pairing direct copy with a warm set of product-led cards.",
+        fit: "contain",
+      },
+      {
+        image: circleSectionDessert,
+        title: "Dessert Detail",
+        caption:
+          "Dessert presentation extends the menu experience beyond burgers without losing the brand's playful personality.",
+        fit: "contain",
+      },
+      {
+        image: circleSectionStoryRoom,
+        title: "Story Section",
+        caption:
+          "The story chapter connects flavor, people, and place through restaurant context, brand copy, and atmospheric details.",
+        fit: "contain",
+      },
+      {
+        image: circleSectionBigFlavor,
+        title: "Big Flavor",
+        caption:
+          "A product-led storytelling section pairs burger imagery with bold editorial typography and focused brand messaging.",
+        fit: "contain",
+      },
+      {
+        image: circleSectionTrustStory,
+        title: "In Circle We Trust",
+        caption:
+          "Brand trust is expressed through food photography, concise storytelling, and a relaxed restaurant tone.",
+        fit: "contain",
+      },
+      {
+        image: circleSectionDelivery,
+        title: "Delivery Experience",
+        caption:
+          "The delivery section turns ordering platforms into a branded moment with simple choices and strong orange presence.",
+        fit: "contain",
+      },
+      {
+        image: circleSectionContact,
+        title: "Contact Experience",
+        caption:
+          "The contact section combines location, opening hours, and direct action in a clean interface built for real visits.",
+        fit: "contain",
+      },
+      {
+        image: circleSectionFooterBrand,
+        title: "Final Brand View",
+        caption:
+          "The closing brand moment keeps the logo, color, and final action simple, memorable, and easy to recognize.",
+        fit: "contain",
+      },
+    ],
+    reflection:
+      "Circle Section became a complete restaurant digital experience, combining brand clarity, menu structure, responsive interface design, content direction, motion, and front-end implementation into a premium website that preserves the brand's personality.",
   },
 ];
 
@@ -1146,13 +1286,17 @@ function ProjectDetail() {
               {project.gallery.map((g: GalleryItem, i: number) => {
                 const masterGalleryItem = masterProject.gallery?.[i];
 
+                const imageFitClass = g.fit === "contain" ? "object-contain" : "object-cover";
+
                 return (
                 <figure key={g.title} className="space-y-5">
-                  <div className="relative aspect-[16/9] overflow-hidden ring-1 ring-bronze/10">
+                  <div
+                    className={`relative aspect-[16/9] overflow-hidden ring-1 ring-bronze/10 ${g.fit === "contain" ? "bg-background" : ""}`}
+                  >
                     <img
                       src={g.image}
                       alt={g.title}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className={`absolute inset-0 w-full h-full ${imageFitClass}`}
                       loading="lazy"
                       decoding="async"
                     />
