@@ -22,6 +22,9 @@ const DESKTOP_INTRO_CACHE_VERSION = "intro-desktop-v3";
 const mobileIntroVideoSrc = `${mobileIntroVideo}?v=${MOBILE_INTRO_CACHE_VERSION}`;
 const desktopIntroVideoSrc = `${introVideo}?v=${DESKTOP_INTRO_CACHE_VERSION}`;
 const INTRO_FALLBACK_MS = 12_500;
+const INTRO_INTERNAL_NAVIGATION_KEY = "tarik-bamarouf-intro-internal-navigation";
+let introHasPlayedThisPageLoad = false;
+let pendingInternalIntroSkipHref: string | null = null;
 
 function isMobileIntroViewport() {
   return window.matchMedia(MOBILE_INTRO_MEDIA_QUERY).matches;
@@ -30,6 +33,45 @@ function isMobileIntroViewport() {
 function unlockIntroScroll() {
   document.documentElement.classList.remove("intro-scroll-lock");
   document.body.classList.remove("intro-scroll-lock");
+}
+
+function consumeInternalNavigationIntroSkip() {
+  if (typeof window === "undefined") return false;
+
+  try {
+    const shouldSkip = window.sessionStorage.getItem(INTRO_INTERNAL_NAVIGATION_KEY) === "1";
+    window.sessionStorage.removeItem(INTRO_INTERNAL_NAVIGATION_KEY);
+    return shouldSkip;
+  } catch {
+    return false;
+  }
+}
+
+function storeInternalNavigationIntroSkip() {
+  try {
+    window.sessionStorage.setItem(INTRO_INTERNAL_NAVIGATION_KEY, "1");
+  } catch {
+    // If storage is unavailable, the intro still falls back to normal page-load behavior.
+  }
+}
+
+function isReloadNavigation() {
+  const [navigation] = performance.getEntriesByType("navigation") as PerformanceNavigationTiming[];
+  return navigation?.type === "reload";
+}
+
+function getInitialIntroState(): "visible" | "fading" | "hidden" {
+  if (typeof window === "undefined") return "visible";
+
+  if (isReloadNavigation()) {
+    consumeInternalNavigationIntroSkip();
+  } else if (introHasPlayedThisPageLoad || consumeInternalNavigationIntroSkip()) {
+    introHasPlayedThisPageLoad = true;
+    return "hidden";
+  }
+
+  introHasPlayedThisPageLoad = true;
+  return "visible";
 }
 
 function NotFoundComponent() {
@@ -141,6 +183,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const internalNavigationIntroCleanup = `try{var n=performance.getEntriesByType("navigation")[0];var r=n&&n.type==="reload";var k=${JSON.stringify(
+    INTRO_INTERNAL_NAVIGATION_KEY,
+  )};if(r){window.sessionStorage.removeItem(k)}else if(window.sessionStorage.getItem(k)==="1"){document.querySelector(".intro-overlay")?.remove();}}catch{}`;
+
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
@@ -148,6 +194,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         <LanguageProvider>{children}</LanguageProvider>
+        <script dangerouslySetInnerHTML={{ __html: internalNavigationIntroCleanup }} />
         <Scripts />
       </body>
     </html>
@@ -170,7 +217,44 @@ function IntroOverlay() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const removeTimerRef = useRef<number | null>(null);
   const fallbackTimerRef = useRef<number | null>(null);
-  const [state, setState] = useState<"visible" | "fading" | "hidden">("visible");
+  const [state, setState] = useState<"visible" | "fading" | "hidden">(getInitialIntroState);
+
+  useEffect(() => {
+    const markInternalNavigation = (event: MouseEvent) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return;
+      }
+
+      const target = event.target instanceof Element ? event.target : null;
+      const link = target?.closest<HTMLAnchorElement>("a[href]");
+
+      if (!link || link.target || link.hasAttribute("download")) return;
+
+      const url = new URL(link.href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+
+      pendingInternalIntroSkipHref = url.href;
+      window.setTimeout(() => {
+        if (pendingInternalIntroSkipHref === url.href) {
+          pendingInternalIntroSkipHref = null;
+        }
+      }, 1500);
+    };
+
+    const persistInternalNavigation = () => {
+      if (pendingInternalIntroSkipHref && window.location.href !== pendingInternalIntroSkipHref) {
+        storeInternalNavigationIntroSkip();
+      }
+    };
+
+    document.addEventListener("click", markInternalNavigation, { capture: true });
+    window.addEventListener("pagehide", persistInternalNavigation);
+
+    return () => {
+      document.removeEventListener("click", markInternalNavigation, { capture: true });
+      window.removeEventListener("pagehide", persistInternalNavigation);
+    };
+  }, []);
 
   const dismiss = () => {
     unlockIntroScroll();
