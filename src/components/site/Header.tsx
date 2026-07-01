@@ -6,6 +6,20 @@ import { siteCopy, useLanguage } from "@/lib/language";
 
 const MOBILE_MENU_MEDIA_QUERY = "(max-width: 767px)";
 const MOBILE_MENU_LOCK_CLASS = "mobile-menu-scroll-lock";
+const MOBILE_MENU_INLINE_LOCK_STYLES = [
+  "overflow",
+  "overflow-x",
+  "overflow-y",
+  "position",
+  "top",
+  "right",
+  "bottom",
+  "left",
+  "height",
+  "width",
+  "touch-action",
+  "overscroll-behavior",
+] as const;
 
 const nav = [
   { to: "/work", key: "work", kind: "route" },
@@ -18,16 +32,34 @@ const nav = [
 function unlockMobileMenuScroll({ restorePosition = true } = {}) {
   if (typeof window === "undefined") return;
 
+  const lockWasActive =
+    document.documentElement.classList.contains(MOBILE_MENU_LOCK_CLASS) ||
+    document.body.classList.contains(MOBILE_MENU_LOCK_CLASS) ||
+    Boolean(document.body.dataset.mobileMenuScrollY);
+  const isMobileMenuViewport = window.matchMedia(MOBILE_MENU_MEDIA_QUERY).matches;
+
+  if (!lockWasActive && !isMobileMenuViewport) return;
+
   const scrollY = Number(document.body.dataset.mobileMenuScrollY ?? "0");
+  const clearMenuLockStyles = () => {
+    MOBILE_MENU_INLINE_LOCK_STYLES.forEach((property) => {
+      document.documentElement.style.removeProperty(property);
+      document.body.style.removeProperty(property);
+    });
+  };
 
   document.documentElement.classList.remove(MOBILE_MENU_LOCK_CLASS);
   document.body.classList.remove(MOBILE_MENU_LOCK_CLASS);
   document.body.style.removeProperty("--mobile-menu-scroll-y");
+  clearMenuLockStyles();
   delete document.body.dataset.mobileMenuScrollY;
 
   if (restorePosition && Number.isFinite(scrollY)) {
     window.scrollTo(0, scrollY);
   }
+
+  window.requestAnimationFrame(clearMenuLockStyles);
+  window.setTimeout(clearMenuLockStyles, 80);
 }
 
 export function Header() {
@@ -121,8 +153,23 @@ export function Header() {
     };
   }, [open]);
 
-  const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
+  const closeMobileMenu = () => {
+    unlockMobileMenuScroll();
     setOpen(false);
+  };
+
+  const toggleMobileMenu = () => {
+    setOpen((current) => {
+      if (current) {
+        unlockMobileMenuScroll();
+      }
+
+      return !current;
+    });
+  };
+
+  const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    closeMobileMenu();
 
     if (window.location.pathname === "/") {
       event.preventDefault();
@@ -211,7 +258,7 @@ export function Header() {
               ? "pointer-events-auto translate-y-0 opacity-100 blur-0"
               : "pointer-events-none -translate-y-3 opacity-0 blur-[2px]"
           }`}
-          onClick={() => setOpen((v) => !v)}
+          onClick={toggleMobileMenu}
           aria-controls="mobile-navigation"
           aria-expanded={open}
           aria-label={open ? t.nav.close : t.nav.menu}
@@ -231,7 +278,7 @@ export function Header() {
                 <Link
                   key={item.to}
                   to={item.to}
-                  onClick={() => setOpen(false)}
+                  onClick={closeMobileMenu}
                   className="site-header__nav-link text-sm uppercase tracking-editorial text-foreground/80 hover:text-bronze"
                 >
                   {t.nav[item.key]}
@@ -240,7 +287,7 @@ export function Header() {
                 <a
                   key={item.to}
                   href={item.to}
-                  onClick={() => setOpen(false)}
+                  onClick={closeMobileMenu}
                   className="site-header__nav-link text-sm uppercase tracking-editorial text-foreground/80 hover:text-bronze"
                 >
                   {t.nav[item.key]}
@@ -251,7 +298,7 @@ export function Header() {
               type="button"
               onClick={() => {
                 toggleLanguage();
-                setOpen(false);
+                closeMobileMenu();
               }}
               aria-label={t.nav.switchLabel}
               className="w-fit text-sm uppercase tracking-editorial text-bronze hover:text-bronze-soft"

@@ -519,8 +519,15 @@ body.intro-scroll-lock {
 }
 
 .intro-overlay--fading {
-  pointer-events: none;
+  pointer-events: none !important;
   opacity: 0;
+  overscroll-behavior: auto;
+  touch-action: pan-y;
+}
+
+.intro-overlay--fading .intro-overlay__video {
+  pointer-events: none;
+  touch-action: pan-y;
 }
 
 .intro-overlay__video {

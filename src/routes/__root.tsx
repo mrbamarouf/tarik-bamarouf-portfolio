@@ -26,13 +26,41 @@ const INTRO_INTERNAL_NAVIGATION_KEY = "tarik-bamarouf-intro-internal-navigation"
 let introHasPlayedThisPageLoad = false;
 let pendingInternalIntroSkipHref: string | null = null;
 
+const MOBILE_SCROLL_LOCK_INLINE_STYLES = [
+  "overflow",
+  "overflow-x",
+  "overflow-y",
+  "position",
+  "top",
+  "right",
+  "bottom",
+  "left",
+  "height",
+  "width",
+  "touch-action",
+  "overscroll-behavior",
+] as const;
+
 function isMobileIntroViewport() {
   return window.matchMedia(MOBILE_INTRO_MEDIA_QUERY).matches;
+}
+
+function clearMobileIntroScrollStyles() {
+  MOBILE_SCROLL_LOCK_INLINE_STYLES.forEach((property) => {
+    document.documentElement.style.removeProperty(property);
+    document.body.style.removeProperty(property);
+  });
 }
 
 function unlockIntroScroll() {
   document.documentElement.classList.remove("intro-scroll-lock");
   document.body.classList.remove("intro-scroll-lock");
+
+  if (typeof window === "undefined" || !isMobileIntroViewport()) return;
+
+  clearMobileIntroScrollStyles();
+  window.requestAnimationFrame(clearMobileIntroScrollStyles);
+  window.setTimeout(clearMobileIntroScrollStyles, 80);
 }
 
 function consumeInternalNavigationIntroSkip() {
@@ -185,7 +213,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   const internalNavigationIntroCleanup = `try{var n=performance.getEntriesByType("navigation")[0];var r=n&&n.type==="reload";var k=${JSON.stringify(
     INTRO_INTERNAL_NAVIGATION_KEY,
-  )};if(r){window.sessionStorage.removeItem(k)}else if(window.sessionStorage.getItem(k)==="1"){document.querySelector(".intro-overlay")?.remove();}}catch{}`;
+  )};var c=function(){var p=["overflow","overflow-x","overflow-y","position","top","right","bottom","left","height","width","touch-action","overscroll-behavior"];document.documentElement.classList.remove("intro-scroll-lock");document.body.classList.remove("intro-scroll-lock");p.forEach(function(s){document.documentElement.style.removeProperty(s);document.body.style.removeProperty(s);});};if(r){window.sessionStorage.removeItem(k)}else if(window.sessionStorage.getItem(k)==="1"){document.querySelector(".intro-overlay")?.remove();c();}}catch{}`;
 
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
