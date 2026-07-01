@@ -10,6 +10,7 @@ import pakmanHero from "@/assets/projects/pakman/01-hero.webp";
 import circleSectionHero from "@/assets/projects/circle-section/01-hero.webp";
 import opalStonesHero from "@/assets/projects/opal-stones/01-homepage-hero.webp";
 import exEventsHero from "@/assets/projects/ex-events-exhibitions/01-hero.webp";
+import firstAdvanceHero from "@/assets/projects/first-advance/01-hero-homepage.webp";
 
 export const portfolioProjects = [
   {
@@ -141,6 +142,17 @@ export const portfolioProjects = [
     img: exEventsHero,
     year: "2026",
     disciplines: "Digital Strategy, UX Strategy, UX/UI, Website Design",
+    span: "wide",
+    ratio: "aspect-[16/10]",
+  },
+  {
+    n: "13",
+    t: "First Advance",
+    slug: "first-advance",
+    cat: "Brand Identity, Logo Design, UX Strategy, UX/UI Design, Website Design, Front-end Development, Content Direction",
+    img: firstAdvanceHero,
+    year: "2026",
+    disciplines: "Logo Design, Brand Identity, UX Strategy, UX/UI, Website Design",
     span: "wide",
     ratio: "aspect-[16/10]",
   },

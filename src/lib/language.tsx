@@ -2093,6 +2093,149 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         "أصبح EX Events & Exhibitions حضورًا رقميًا فاخرًا لشركة سعودية متخصصة في الفعاليات والمعارض، يجمع الاستراتيجية التشغيلية، هيكلة التجربة، تصميم الواجهة، توجيه المحتوى، التصميم المتجاوب، الحركة، وتطوير الواجهة الأمامية داخل دراسة حالة مهنية واضحة.",
     },
   },
+  "first-advance": {
+    en: {
+      category:
+        "Brand Identity, Logo Design, UX Strategy, UX/UI Design, Website Design, Front-end Development, Content Direction",
+      disciplines: "Logo Design, Brand Identity, UX Strategy, UX/UI, Website Design",
+      intro:
+        "First Advance is a Saudi business services company providing integrated administrative, operational, and real estate service solutions.",
+      details: {
+        industry:
+          "Business Services, Real Estate Services, Operations & Administrative Solutions / Saudi Arabia",
+        services:
+          "Logo Design, Brand Direction, UX Strategy, Information Architecture, UX/UI Design, Website Design, Content Direction, Responsive Design, Front-end Development",
+        platform: "Corporate Business Services Website",
+      },
+      overview: {
+        challenge:
+          "First Advance is a Saudi business services company providing integrated administrative, operational, and real estate service solutions.",
+        approach:
+          "The project included creating the company's new logo and building a complete digital presence from brand direction to website execution.",
+        outcome:
+          "The website was designed to communicate trust, clarity, and professional service structure through a refined Saudi business identity.",
+      },
+      gallery: [
+        {
+          title: "Hero and Homepage",
+          caption:
+            "The homepage introduces First Advance through a calm Saudi business identity, a refined logo presence, and a clear service promise.",
+        },
+        {
+          title: "Company Introduction",
+          caption:
+            "The company introduction frames First Advance as an integrated partner for administrative, operational, and real estate services.",
+        },
+        {
+          title: "Vision and Mission",
+          caption:
+            "The vision and mission section clarifies the company's ambition, service philosophy, and commitment to quality.",
+        },
+        {
+          title: "Services Structure",
+          caption:
+            "The services chapter organizes real estate, operational, and business support offerings into a clear information architecture.",
+        },
+        {
+          title: "Work Process",
+          caption:
+            "The process section presents a structured working method from understanding client needs to execution and performance standards.",
+        },
+        {
+          title: "Target Audience",
+          caption:
+            "The audience section identifies the business segments First Advance serves and gives each group a clear visual context.",
+        },
+        {
+          title: "Packages and Offers",
+          caption:
+            "The packages section turns service offers into a clean comparison system with direct consultation paths.",
+        },
+        {
+          title: "Why First Advance",
+          caption:
+            "The trust section communicates service integration, responsiveness, compliance, and long-term client relationships.",
+        },
+        {
+          title: "Contact Experience",
+          caption:
+            "The closing section gives visitors a clear path to WhatsApp and email while maintaining the brand's composed corporate tone.",
+        },
+      ],
+      reflection:
+        "First Advance became a complete corporate digital presence for a Saudi business services company, combining logo design, brand direction, UX strategy, information architecture, interface design, content direction, responsive layouts, and front-end implementation into a calm and professional service website.",
+    },
+    ar: {
+      category:
+        "هوية تجارية، تصميم شعار، استراتيجية تجربة المستخدم، تصميم تجربة وواجهة، تصميم موقع، تطوير الواجهة، توجيه المحتوى",
+      disciplines: "تصميم شعار، هوية تجارية، تجربة مستخدم، تصميم واجهة، تصميم موقع",
+      intro:
+        "شركة سعودية متخصصة في حلول وخدمات الأعمال، تشمل الخدمات الإدارية والتشغيلية والخدمات العقارية.",
+      details: {
+        industry: "خدمات الأعمال، الخدمات العقارية، الحلول التشغيلية والإدارية / السعودية",
+        services:
+          "تصميم الشعار، التوجه البصري، استراتيجية تجربة المستخدم، هيكلة المعلومات، تصميم تجربة المستخدم، تصميم الواجهة، توجيه المحتوى، التصميم المتجاوب، تطوير الواجهة الأمامية",
+        platform: "موقع شركة خدمات أعمال",
+      },
+      overview: {
+        challenge:
+          "First Advance شركة سعودية متخصصة في حلول وخدمات الأعمال، تشمل الخدمات الإدارية والتشغيلية والخدمات العقارية.",
+        approach:
+          "شمل المشروع تصميم الشعار الجديد للشركة، وبناء الحضور الرقمي بالكامل من التوجه البصري إلى تنفيذ الموقع.",
+        outcome:
+          "صُممت التجربة لتعكس الثقة والوضوح والاحترافية، من خلال هوية سعودية هادئة ومظهر مؤسسي راقٍ.",
+      },
+      gallery: [
+        {
+          title: "الواجهة الرئيسية",
+          caption:
+            "تقدم الصفحة الرئيسية First Advance من خلال هوية أعمال سعودية هادئة، وحضور شعار مصقول، ووعد خدمة واضح.",
+        },
+        {
+          title: "تعريف الشركة",
+          caption:
+            "يعرض تعريف الشركة First Advance كشريك متكامل للخدمات الإدارية والتشغيلية والعقارية.",
+        },
+        {
+          title: "الرؤية والرسالة",
+          caption:
+            "يوضح قسم الرؤية والرسالة طموح الشركة وفلسفة الخدمة والالتزام بالجودة.",
+        },
+        {
+          title: "هيكلة الخدمات",
+          caption:
+            "ينظم فصل الخدمات عروض القطاع العقاري والتشغيلي وخدمات الأعمال ضمن هيكلة معلومات واضحة.",
+        },
+        {
+          title: "أسلوب العمل",
+          caption:
+            "يعرض قسم أسلوب العمل منهجية منظمة تبدأ من فهم احتياج العميل وتنتهي بالتنفيذ وفق معايير أداء واضحة.",
+        },
+        {
+          title: "الجمهور المستهدف",
+          caption:
+            "يحدد قسم الجمهور المستهدف شرائح الأعمال التي تخدمها First Advance ويمنح كل شريحة سياقًا بصريًا واضحًا.",
+        },
+        {
+          title: "الباقات والعروض",
+          caption:
+            "يحوّل قسم الباقات عروض الخدمة إلى نظام مقارنة واضح مع مسارات مباشرة للاستشارة.",
+        },
+        {
+          title: "لماذا First Advance",
+          caption:
+            "ينقل قسم الثقة تكامل الخدمات، سرعة الاستجابة، الالتزام، وبناء العلاقات الطويلة مع العملاء.",
+        },
+        {
+          title: "تجربة التواصل",
+          caption:
+            "يمنح القسم الختامي الزائر مسارًا واضحًا للتواصل عبر واتساب والبريد مع الحفاظ على نبرة مؤسسية هادئة.",
+        },
+      ],
+      reflection:
+        "أصبح First Advance حضورًا رقميًا مؤسسيًا متكاملًا لشركة سعودية في خدمات الأعمال، يجمع تصميم الشعار، التوجه البصري، استراتيجية تجربة المستخدم، هيكلة المعلومات، تصميم الواجهة، توجيه المحتوى، التصميم المتجاوب، وتطوير الواجهة الأمامية داخل موقع هادئ واحترافي.",
+    },
+  },
 };
 
 export function projectDisplay(slug: string, language: Language) {

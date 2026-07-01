@@ -120,6 +120,15 @@ import exMajorProjects from "@/assets/projects/ex-events-exhibitions/07-major-pr
 import exMission from "@/assets/projects/ex-events-exhibitions/08-mission.webp";
 import exBehindScenes from "@/assets/projects/ex-events-exhibitions/09-behind-the-scenes.webp";
 import exContact from "@/assets/projects/ex-events-exhibitions/10-contact.webp";
+import firstAdvanceHero from "@/assets/projects/first-advance/01-hero-homepage.webp";
+import firstAdvanceAbout from "@/assets/projects/first-advance/02-company-introduction.webp";
+import firstAdvanceVision from "@/assets/projects/first-advance/03-vision-mission.webp";
+import firstAdvanceServices from "@/assets/projects/first-advance/04-services.webp";
+import firstAdvanceProcess from "@/assets/projects/first-advance/05-work-process.webp";
+import firstAdvanceAudience from "@/assets/projects/first-advance/06-target-audience.webp";
+import firstAdvancePackages from "@/assets/projects/first-advance/07-packages-offers.webp";
+import firstAdvanceWhy from "@/assets/projects/first-advance/08-why-us.webp";
+import firstAdvanceContact from "@/assets/projects/first-advance/09-contact.webp";
 
 type GalleryItem = { image: string; title: string; caption: string; fit?: "cover" | "contain" };
 
@@ -658,6 +667,98 @@ const PROJECTS: ProjectData[] = [
     ],
     reflection:
       "EX Events & Exhibitions became a premium digital presence for a Saudi events and exhibitions company, connecting operational strategy, UX structure, interface design, content direction, responsive layouts, motion direction, and front-end implementation into one professional case study.",
+  },
+  {
+    slug: "first-advance",
+    name: "First Advance",
+    category:
+      "Brand Identity, Logo Design, UX Strategy, UX/UI Design, Website Design, Front-end Development, Content Direction",
+    intro:
+      "First Advance is a Saudi business services company providing integrated administrative, operational, and real estate service solutions.",
+    image: firstAdvanceHero,
+    details: {
+      client: "First Advance",
+      industry: "Business Services, Real Estate Services, Operations & Administrative Solutions / Saudi Arabia",
+      services:
+        "Logo Design, Brand Direction, UX Strategy, Information Architecture, UX/UI Design, Website Design, Content Direction, Responsive Design, Front-end Development",
+      year: "2026",
+      platform: "Corporate Business Services Website",
+    },
+    overview: {
+      challenge:
+        "First Advance is a Saudi business services company providing integrated administrative, operational, and real estate service solutions.",
+      approach:
+        "The project included creating the company's new logo and building a complete digital presence from brand direction to website execution.",
+      outcome:
+        "The website was designed to communicate trust, clarity, and professional service structure through a refined Saudi business identity.",
+    },
+    gallery: [
+      {
+        image: firstAdvanceHero,
+        title: "Hero and Homepage",
+        caption:
+          "The homepage introduces First Advance through a calm Saudi business identity, a refined logo presence, and a clear service promise.",
+        fit: "contain",
+      },
+      {
+        image: firstAdvanceAbout,
+        title: "Company Introduction",
+        caption:
+          "The company introduction frames First Advance as an integrated partner for administrative, operational, and real estate services.",
+        fit: "contain",
+      },
+      {
+        image: firstAdvanceVision,
+        title: "Vision and Mission",
+        caption:
+          "The vision and mission section clarifies the company's ambition, service philosophy, and commitment to quality.",
+        fit: "contain",
+      },
+      {
+        image: firstAdvanceServices,
+        title: "Services Structure",
+        caption:
+          "The services chapter organizes real estate, operational, and business support offerings into a clear information architecture.",
+        fit: "contain",
+      },
+      {
+        image: firstAdvanceProcess,
+        title: "Work Process",
+        caption:
+          "The process section presents a structured working method from understanding client needs to execution and performance standards.",
+        fit: "contain",
+      },
+      {
+        image: firstAdvanceAudience,
+        title: "Target Audience",
+        caption:
+          "The audience section identifies the business segments First Advance serves and gives each group a clear visual context.",
+        fit: "contain",
+      },
+      {
+        image: firstAdvancePackages,
+        title: "Packages and Offers",
+        caption:
+          "The packages section turns service offers into a clean comparison system with direct consultation paths.",
+        fit: "contain",
+      },
+      {
+        image: firstAdvanceWhy,
+        title: "Why First Advance",
+        caption:
+          "The trust section communicates service integration, responsiveness, compliance, and long-term client relationships.",
+        fit: "contain",
+      },
+      {
+        image: firstAdvanceContact,
+        title: "Contact Experience",
+        caption:
+          "The closing section gives visitors a clear path to WhatsApp and email while maintaining the brand's composed corporate tone.",
+        fit: "contain",
+      },
+    ],
+    reflection:
+      "First Advance became a complete corporate digital presence for a Saudi business services company, combining logo design, brand direction, UX strategy, information architecture, interface design, content direction, responsive layouts, and front-end implementation into a calm and professional service website.",
   },
 ];
 
