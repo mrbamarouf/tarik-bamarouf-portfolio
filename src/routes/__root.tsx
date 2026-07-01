@@ -63,6 +63,28 @@ function unlockIntroScroll() {
   window.setTimeout(clearMobileIntroScrollStyles, 80);
 }
 
+function logMobileIntroTopElements() {
+  if (typeof window === "undefined" || !import.meta.env.DEV || !isMobileIntroViewport()) return;
+
+  window.setTimeout(() => {
+    window.requestAnimationFrame(() => {
+      const elements = document
+        .elementsFromPoint(window.innerWidth / 2, window.innerHeight / 2)
+        .slice(0, 8)
+        .map((element) => ({
+          tag: element.tagName.toLowerCase(),
+          id: element.id,
+          className:
+            typeof element.className === "string"
+              ? element.className
+              : element.className.baseVal,
+        }));
+
+      console.debug("[intro-cleanup] elementsFromPoint(center)", elements);
+    });
+  }, 0);
+}
+
 function consumeInternalNavigationIntroSkip() {
   if (typeof window === "undefined") return false;
 
@@ -287,19 +309,26 @@ function IntroOverlay() {
   const dismiss = () => {
     unlockIntroScroll();
 
+    if (fallbackTimerRef.current !== null) {
+      window.clearTimeout(fallbackTimerRef.current);
+    }
+
+    if (removeTimerRef.current !== null) {
+      window.clearTimeout(removeTimerRef.current);
+    }
+
+    if (isMobileIntroViewport()) {
+      setState("hidden");
+      logMobileIntroTopElements();
+      return;
+    }
+
     setState((current) => {
       if (current !== "visible") return current;
 
-      if (fallbackTimerRef.current !== null) {
-        window.clearTimeout(fallbackTimerRef.current);
-      }
-
-      if (removeTimerRef.current !== null) {
-        window.clearTimeout(removeTimerRef.current);
-      }
-
       removeTimerRef.current = window.setTimeout(() => {
         setState("hidden");
+        logMobileIntroTopElements();
       }, 760);
 
       return "fading";

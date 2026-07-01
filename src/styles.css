@@ -255,6 +255,14 @@
 }
 
 @media (max-width: 767px) {
+  html,
+  body,
+  .site-shell,
+  .site-main {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+
   html.mobile-menu-scroll-lock,
   body.mobile-menu-scroll-lock {
     height: 100%;
@@ -315,6 +323,21 @@
     justify-content: center;
     padding-top: clamp(2.25rem, 8svh, 4rem);
     padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  }
+
+  .home-hero,
+  .home-hero__content {
+    touch-action: pan-y;
+  }
+
+  .home-hero > .absolute.inset-0 {
+    pointer-events: none;
+  }
+
+  .home-hero__image {
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
   }
 }
 
