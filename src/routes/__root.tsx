@@ -85,45 +85,6 @@ function logMobileIntroTopElements() {
   }, 0);
 }
 
-function wakeMobileScrollAfterIntro() {
-  if (typeof window === "undefined" || !isMobileIntroViewport()) return;
-
-  const overlay = document.querySelector<HTMLElement>(".intro-overlay");
-  overlay?.style.setProperty("pointer-events", "none");
-  unlockIntroScroll();
-
-  let scrollWasNudged = false;
-
-  const cleanupAndWake = ({ nudgeScroll = false, debug = false } = {}) => {
-    document.querySelector(".intro-overlay")?.remove();
-    unlockIntroScroll();
-
-    // Force WebKit to recalculate the now-unlocked document before the first touch gesture.
-    void document.documentElement.offsetHeight;
-
-    if (nudgeScroll && !scrollWasNudged && window.scrollY === 0) {
-      scrollWasNudged = true;
-      window.scrollTo(0, 1);
-      void document.body.offsetHeight;
-      window.scrollTo(0, 0);
-    }
-
-    if (debug) {
-      logMobileIntroTopElements();
-    }
-  };
-
-  window.requestAnimationFrame(() => {
-    cleanupAndWake({ nudgeScroll: true });
-
-    window.requestAnimationFrame(() => {
-      cleanupAndWake({ debug: true });
-    });
-  });
-
-  window.setTimeout(cleanupAndWake, 120);
-}
-
 function consumeInternalNavigationIntroSkip() {
   if (typeof window === "undefined") return false;
 
@@ -306,7 +267,6 @@ function IntroOverlay() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const removeTimerRef = useRef<number | null>(null);
   const fallbackTimerRef = useRef<number | null>(null);
-  const mobileScrollWakeRanRef = useRef(false);
   const [state, setState] = useState<"visible" | "fading" | "hidden">(getInitialIntroState);
 
   useEffect(() => {
@@ -359,10 +319,7 @@ function IntroOverlay() {
 
     if (isMobileIntroViewport()) {
       setState("hidden");
-      if (!mobileScrollWakeRanRef.current) {
-        mobileScrollWakeRanRef.current = true;
-        wakeMobileScrollAfterIntro();
-      }
+      logMobileIntroTopElements();
       return;
     }
 
