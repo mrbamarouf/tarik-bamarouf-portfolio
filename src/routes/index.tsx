@@ -106,6 +106,16 @@ function renderApproachHeadline(headline: typeof siteCopy.en.home.approachHeadli
   );
 }
 
+function renderHeroStatement(statement: typeof siteCopy.en.home.heroStatement) {
+  return (
+    <>
+      {statement.before}
+      <span className="text-bronze-soft">{statement.emphasis}</span>
+      {statement.after}
+    </>
+  );
+}
+
 function Index() {
   const { language } = useLanguage();
   const t = siteCopy[language];
@@ -357,7 +367,14 @@ function Index() {
               </EnglishLayoutSlot>
             </h1>
             <p className="reveal reveal-delay-2 mt-8 max-w-sm text-sm font-light leading-7 text-foreground/76 md:text-base">
-              {t.home.heroBody}
+              <EnglishLayoutSlot master={renderHeroStatement(siteCopy.en.home.heroStatement)}>
+                {renderHeroStatement(t.home.heroStatement)}
+              </EnglishLayoutSlot>
+            </p>
+            <p className="reveal reveal-delay-2 mt-3 max-w-sm text-[10px] tracking-editorial text-bronze/86 md:text-[11px]">
+              <EnglishLayoutSlot master={siteCopy.en.home.heroCapabilities}>
+                {t.home.heroCapabilities}
+              </EnglishLayoutSlot>
             </p>
             <div className="reveal reveal-delay-3 mt-9 flex flex-wrap items-center gap-4">
               <Link

@@ -144,8 +144,13 @@ export const siteCopy = {
       heroLine3: "For",
       heroEmphasis: "Ambitious",
       heroLine4: "Brands.",
-      heroBody:
-        "Premium websites, e-commerce experiences, and digital products crafted for modern brands.",
+      heroStatement: {
+        before: "Independent designer crafting digital experiences through strategy, ",
+        emphasis: "clarity",
+        after: " and execution.",
+      },
+      heroCapabilities:
+        "Brand Identity • UX/UI • Front-end Development • Content Direction",
       viewWork: "View Work",
       startProject: "Start Project",
       portfolioLabel: "Portfolio 2026",
@@ -359,7 +364,12 @@ export const siteCopy = {
       heroLine3: "لعلامات",
       heroEmphasis: "طموحة",
       heroLine4: "",
-      heroBody: "مواقع راقية، متاجر إلكترونية، ومنتجات رقمية تُصاغ بعناية للعلامات الحديثة.",
+      heroStatement: {
+        before: "مصمم مستقل أبني تجارب رقمية تبدأ بالاستراتيجية، وتكتمل ",
+        emphasis: "بالتنفيذ",
+        after: ".",
+      },
+      heroCapabilities: "الهوية البصرية • تجربة المستخدم • تطوير الواجهة • توجيه المحتوى",
       viewWork: "عرض الأعمال",
       startProject: "ابدأ مشروعك",
       portfolioLabel: "محفظة ٢٠٢٦",
