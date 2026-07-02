@@ -145,12 +145,12 @@ export const siteCopy = {
       heroEmphasis: "Ambitious",
       heroLine4: "Brands.",
       heroStatement: {
-        before: "Independent designer crafting digital experiences through strategy, ",
-        emphasis: "clarity",
-        after: " and execution.",
+        before: "Independent Brand & ",
+        emphasis: "Digital",
+        after: " Experience Designer.",
       },
       heroCapabilities:
-        "Brand Identity • UX/UI • Front-end Development • Content Direction",
+        "Brand Identity\u00a0\u00a0•\u00a0\u00a0UX/UI Design\u00a0\u00a0•\u00a0\u00a0Front-end Development\u00a0\u00a0•\u00a0\u00a0Content Direction",
       viewWork: "View Work",
       startProject: "Start Project",
       portfolioLabel: "Portfolio 2026",
@@ -365,11 +365,12 @@ export const siteCopy = {
       heroEmphasis: "طموحة",
       heroLine4: "",
       heroStatement: {
-        before: "مصمم مستقل أبني تجارب رقمية تبدأ بالاستراتيجية، وتكتمل ",
-        emphasis: "بالتنفيذ",
-        after: ".",
+        before: "مصمم هوية وتجارب ",
+        emphasis: "رقمية",
+        after: " مستقل.",
       },
-      heroCapabilities: "الهوية البصرية • تجربة المستخدم • تطوير الواجهة • توجيه المحتوى",
+      heroCapabilities:
+        "الهوية البصرية\u00a0\u00a0•\u00a0\u00a0تجربة المستخدم\u00a0\u00a0•\u00a0\u00a0تصميم الواجهة\u00a0\u00a0•\u00a0\u00a0تطوير الواجهة الأمامية",
       viewWork: "عرض الأعمال",
       startProject: "ابدأ مشروعك",
       portfolioLabel: "محفظة ٢٠٢٦",
