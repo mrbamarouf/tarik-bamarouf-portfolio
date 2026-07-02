@@ -371,7 +371,7 @@ function Index() {
                 {renderHeroStatement(t.home.heroStatement)}
               </EnglishLayoutSlot>
             </p>
-            <p className="reveal reveal-delay-2 mt-3 max-w-sm text-[10px] tracking-editorial text-bronze/86 md:w-max md:max-w-[calc(100vw-7rem)] md:whitespace-nowrap md:text-[11px]">
+            <p className="reveal reveal-delay-2 mt-5 max-w-sm text-[10px] tracking-editorial text-bronze/86 md:w-max md:max-w-[calc(100vw-7rem)] md:whitespace-nowrap md:text-[11px]">
               <EnglishLayoutSlot master={siteCopy.en.home.heroCapabilities}>
                 {t.home.heroCapabilities}
               </EnglishLayoutSlot>

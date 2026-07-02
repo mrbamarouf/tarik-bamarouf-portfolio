@@ -150,7 +150,7 @@ export const siteCopy = {
         after: " Experience Designer.",
       },
       heroCapabilities:
-        "Brand Identity\u00a0\u00a0•\u00a0\u00a0UX/UI Design\u00a0\u00a0•\u00a0\u00a0Front-end Development\u00a0\u00a0•\u00a0\u00a0Content Direction",
+        "Brand Identity\u00a0\u00a0•\u00a0\u00a0UX/UI Design\u00a0\u00a0•\u00a0\u00a0Front-end Engineering\u00a0\u00a0•\u00a0\u00a0Content Direction",
       viewWork: "View Work",
       startProject: "Start Project",
       portfolioLabel: "Portfolio 2026",
