@@ -2258,6 +2258,12 @@ body.intro-scroll-lock {
       text-shadow: 0 22px 70px oklch(0 0 0 / 0.86);
     }
 
+    .home-hero__copy > p:first-child {
+      position: relative;
+      top: -0.625rem;
+      letter-spacing: 0.26em;
+    }
+
     .home-hero__copy p:not(:first-child) {
       max-width: min(29ch, calc(100vw - 2rem));
       margin-inline: 0;
@@ -2297,7 +2303,7 @@ body.intro-scroll-lock {
     .home-hero__copy .reveal-delay-3 {
       justify-content: flex-start;
       gap: 0.55rem 0.7rem;
-      margin-top: 1.65rem;
+      margin-top: 2.45rem;
     }
 
     .home-hero__copy .reveal-delay-3 a {
