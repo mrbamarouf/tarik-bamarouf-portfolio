@@ -2260,7 +2260,7 @@ body.intro-scroll-lock {
 
     .home-hero__copy > p:first-child {
       position: relative;
-      top: -0.625rem;
+      top: -0.125rem;
       letter-spacing: 0.26em;
     }
 
