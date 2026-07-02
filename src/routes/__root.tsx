@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -21,10 +22,23 @@ const MOBILE_INTRO_CACHE_VERSION = "intro-mobile-v3";
 const DESKTOP_INTRO_CACHE_VERSION = "intro-desktop-v3";
 const mobileIntroVideoSrc = `${mobileIntroVideo}?v=${MOBILE_INTRO_CACHE_VERSION}`;
 const desktopIntroVideoSrc = `${introVideo}?v=${DESKTOP_INTRO_CACHE_VERSION}`;
+const GOOGLE_ANALYTICS_MEASUREMENT_ID = "G-Q94YGB4E3G";
+const GOOGLE_ANALYTICS_SCRIPT_SRC = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_MEASUREMENT_ID}`;
+const googleAnalyticsInitScript = `window.dataLayer = window.dataLayer || [];
+window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+window.gtag('js', new Date());
+window.gtag('config', '${GOOGLE_ANALYTICS_MEASUREMENT_ID}');`;
 const INTRO_FALLBACK_MS = 12_500;
 const INTRO_INTERNAL_NAVIGATION_KEY = "tarik-bamarouf-intro-internal-navigation";
 let introHasPlayedThisPageLoad = false;
 let pendingInternalIntroSkipHref: string | null = null;
+
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+  }
+}
 
 const MOBILE_SCROLL_LOCK_INLINE_STYLES = [
   "overflow",
@@ -241,6 +255,11 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <script id="google-analytics-script" async src={GOOGLE_ANALYTICS_SCRIPT_SRC} />
+        <script
+          id="google-analytics-init"
+          dangerouslySetInnerHTML={{ __html: googleAnalyticsInitScript }}
+        />
       </head>
       <body>
         <LanguageProvider>{children}</LanguageProvider>
@@ -256,11 +275,37 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <GoogleAnalyticsPageViews />
       <IntroOverlay />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );
+}
+
+function GoogleAnalyticsPageViews() {
+  const location = useLocation();
+  const hasTrackedInitialPageViewRef = useRef(false);
+
+  useEffect(() => {
+    if (!hasTrackedInitialPageViewRef.current) {
+      hasTrackedInitialPageViewRef.current = true;
+      return;
+    }
+
+    if (typeof window.gtag !== "function") return;
+
+    const pagePath = `${location.pathname}${location.searchStr ?? ""}`;
+
+    window.gtag("event", "page_view", {
+      send_to: GOOGLE_ANALYTICS_MEASUREMENT_ID,
+      page_title: document.title,
+      page_location: `${window.location.origin}${location.href}`,
+      page_path: pagePath,
+    });
+  }, [location.href, location.pathname, location.searchStr]);
+
+  return null;
 }
 
 function IntroOverlay() {
