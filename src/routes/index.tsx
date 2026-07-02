@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Compass, LayoutTemplate, PenTool, Rocket } from "lucide-react";
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { Fragment, useEffect, useRef, useState, type CSSProperties } from "react";
 import cinematicHero from "@/assets/cinematic-hero.webp";
 import processDesign from "@/assets/process/design.webp";
 import processDevelopment from "@/assets/process/development.webp";
@@ -114,6 +114,19 @@ function renderHeroStatement(statement: typeof siteCopy.en.home.heroStatement) {
       {statement.after}
     </>
   );
+}
+
+function renderHeroCapabilities(capabilities: string) {
+  return capabilities.split(/\s*•\s*/).map((capability, index, items) => (
+    <Fragment key={capability}>
+      <span className="home-hero__capability-item">{capability}</span>
+      {index < items.length - 1 && (
+        <span className="home-hero__capability-separator" aria-hidden="true">
+          {"\u00a0\u00a0•\u00a0\u00a0"}
+        </span>
+      )}
+    </Fragment>
+  ));
 }
 
 function Index() {
@@ -366,14 +379,14 @@ function Index() {
                 )}
               </EnglishLayoutSlot>
             </h1>
-            <p className="reveal reveal-delay-2 mt-8 max-w-sm text-sm font-light leading-7 text-foreground/76 md:text-base">
+            <p className="home-hero__statement reveal reveal-delay-2 mt-8 max-w-sm text-sm font-light leading-7 text-foreground/76 md:text-base">
               <EnglishLayoutSlot master={renderHeroStatement(siteCopy.en.home.heroStatement)}>
                 {renderHeroStatement(t.home.heroStatement)}
               </EnglishLayoutSlot>
             </p>
-            <p className="reveal reveal-delay-2 mt-5 max-w-sm text-[10px] tracking-editorial text-bronze/86 md:w-max md:max-w-[calc(100vw-7rem)] md:whitespace-nowrap md:text-[11px]">
-              <EnglishLayoutSlot master={siteCopy.en.home.heroCapabilities}>
-                {t.home.heroCapabilities}
+            <p className="home-hero__capabilities reveal reveal-delay-2 mt-5 max-w-sm text-[10px] tracking-editorial text-bronze/86 md:w-max md:max-w-[calc(100vw-7rem)] md:whitespace-nowrap md:text-[11px]">
+              <EnglishLayoutSlot master={renderHeroCapabilities(siteCopy.en.home.heroCapabilities)}>
+                {renderHeroCapabilities(t.home.heroCapabilities)}
               </EnglishLayoutSlot>
             </p>
             <div className="reveal reveal-delay-3 mt-9 flex flex-wrap items-center gap-4">
