@@ -513,10 +513,7 @@ body.intro-scroll-lock {
 }
 
 body.intro-scroll-lock {
-  position: fixed;
-  inset: 0;
   width: 100%;
-  touch-action: none;
 }
 
 .intro-overlay {
