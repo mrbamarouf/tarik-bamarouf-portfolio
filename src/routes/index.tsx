@@ -158,6 +158,22 @@ function renderHeroCapabilities(capabilities: string) {
   ));
 }
 
+function renderClientLine(line: string) {
+  const [before, after] = line.split("13");
+
+  if (after === undefined) {
+    return line;
+  }
+
+  return (
+    <>
+      {before}
+      <span className="client-marquee__line-accent">13</span>
+      {after}
+    </>
+  );
+}
+
 function Index() {
   const { language } = useLanguage();
   const t = siteCopy[language];
@@ -458,8 +474,8 @@ function Index() {
               </EnglishLayoutSlot>
             </p>
             <h2 id="client-marquee-title" className="client-marquee__line">
-              <EnglishLayoutSlot master={siteCopy.en.home.clientsLine}>
-                {t.home.clientsLine}
+              <EnglishLayoutSlot master={renderClientLine(siteCopy.en.home.clientsLine)}>
+                {renderClientLine(t.home.clientsLine)}
               </EnglishLayoutSlot>
             </h2>
           </div>

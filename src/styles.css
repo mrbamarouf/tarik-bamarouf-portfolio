@@ -387,6 +387,7 @@
 
 .client-marquee__copy {
   min-width: 0;
+  text-align: center;
 }
 
 .client-marquee__eyebrow {
@@ -401,10 +402,14 @@
 .client-marquee__line {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 2.1vw, 2.2rem);
+  font-size: clamp(1.15rem, 1.4vw, 1.55rem);
   font-weight: 300;
-  line-height: 1.12;
+  line-height: 1.16;
   color: oklch(0.92 0.018 78 / 0.94);
+}
+
+.client-marquee__line-accent {
+  color: oklch(0.765 0.072 76 / 0.92);
 }
 
 .client-marquee__viewport {
