@@ -467,6 +467,10 @@
   transform: scale(2.05);
 }
 
+.client-marquee__logo--pakman img {
+  filter: brightness(1.12) contrast(1.08);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .client-marquee__viewport:hover .client-marquee__track {
     animation-play-state: paused;

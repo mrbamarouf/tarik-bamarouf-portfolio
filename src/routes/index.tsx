@@ -490,7 +490,9 @@ function Index() {
                 >
                   {clientLogos.map((logo) => (
                     <span
-                      className={`client-marquee__logo client-marquee__logo--${logo.size ?? "base"}`}
+                      className={`client-marquee__logo client-marquee__logo--${logo.size ?? "base"}${
+                        logo.name === "Pakman" ? " client-marquee__logo--pakman" : ""
+                      }`}
                       key={`${rowIndex}-${logo.name}`}
                     >
                       <img
