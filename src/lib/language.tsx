@@ -2133,6 +2133,11 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
             "The homepage introduces First Advance through a calm Saudi business identity, a refined logo presence, and a clear service promise.",
         },
         {
+          title: "Services Structure",
+          caption:
+            "The services chapter organizes real estate, operational, and business support offerings into a clear information architecture.",
+        },
+        {
           title: "Company Introduction",
           caption:
             "The company introduction frames First Advance as an integrated partner for administrative, operational, and real estate services.",
@@ -2143,9 +2148,9 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
             "The vision and mission section clarifies the company's ambition, service philosophy, and commitment to quality.",
         },
         {
-          title: "Services Structure",
+          title: "Target Audience",
           caption:
-            "The services chapter organizes real estate, operational, and business support offerings into a clear information architecture.",
+            "The audience section identifies the business segments First Advance serves and gives each group a clear visual context.",
         },
         {
           title: "Work Process",
@@ -2153,19 +2158,14 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
             "The process section presents a structured working method from understanding client needs to execution and performance standards.",
         },
         {
-          title: "Target Audience",
+          title: "Why First Advance",
           caption:
-            "The audience section identifies the business segments First Advance serves and gives each group a clear visual context.",
+            "The trust section communicates service integration, responsiveness, compliance, and long-term client relationships.",
         },
         {
           title: "Packages and Offers",
           caption:
             "The packages section turns service offers into a clean comparison system with direct consultation paths.",
-        },
-        {
-          title: "Why First Advance",
-          caption:
-            "The trust section communicates service integration, responsiveness, compliance, and long-term client relationships.",
         },
         {
           title: "Contact Experience",
@@ -2203,6 +2203,11 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
             "تقدم الصفحة الرئيسية First Advance من خلال هوية أعمال سعودية هادئة، وحضور شعار مصقول، ووعد خدمة واضح.",
         },
         {
+          title: "هيكلة الخدمات",
+          caption:
+            "ينظم فصل الخدمات عروض القطاع العقاري والتشغيلي وخدمات الأعمال ضمن هيكلة معلومات واضحة.",
+        },
+        {
           title: "تعريف الشركة",
           caption:
             "يعرض تعريف الشركة First Advance كشريك متكامل للخدمات الإدارية والتشغيلية والعقارية.",
@@ -2213,9 +2218,9 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
             "يوضح قسم الرؤية والرسالة طموح الشركة وفلسفة الخدمة والالتزام بالجودة.",
         },
         {
-          title: "هيكلة الخدمات",
+          title: "الجمهور المستهدف",
           caption:
-            "ينظم فصل الخدمات عروض القطاع العقاري والتشغيلي وخدمات الأعمال ضمن هيكلة معلومات واضحة.",
+            "يحدد قسم الجمهور المستهدف شرائح الأعمال التي تخدمها First Advance ويمنح كل شريحة سياقًا بصريًا واضحًا.",
         },
         {
           title: "أسلوب العمل",
@@ -2223,19 +2228,14 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
             "يعرض قسم أسلوب العمل منهجية منظمة تبدأ من فهم احتياج العميل وتنتهي بالتنفيذ وفق معايير أداء واضحة.",
         },
         {
-          title: "الجمهور المستهدف",
+          title: "لماذا First Advance",
           caption:
-            "يحدد قسم الجمهور المستهدف شرائح الأعمال التي تخدمها First Advance ويمنح كل شريحة سياقًا بصريًا واضحًا.",
+            "ينقل قسم الثقة تكامل الخدمات، سرعة الاستجابة، الالتزام، وبناء العلاقات الطويلة مع العملاء.",
         },
         {
           title: "الباقات والعروض",
           caption:
             "يحوّل قسم الباقات عروض الخدمة إلى نظام مقارنة واضح مع مسارات مباشرة للاستشارة.",
-        },
-        {
-          title: "لماذا First Advance",
-          caption:
-            "ينقل قسم الثقة تكامل الخدمات، سرعة الاستجابة، الالتزام، وبناء العلاقات الطويلة مع العملاء.",
         },
         {
           title: "تجربة التواصل",

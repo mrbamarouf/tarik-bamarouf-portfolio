@@ -701,6 +701,13 @@ const PROJECTS: ProjectData[] = [
         fit: "contain",
       },
       {
+        image: firstAdvanceServices,
+        title: "Services Structure",
+        caption:
+          "The services chapter organizes real estate, operational, and business support offerings into a clear information architecture.",
+        fit: "contain",
+      },
+      {
         image: firstAdvanceAbout,
         title: "Company Introduction",
         caption:
@@ -715,10 +722,10 @@ const PROJECTS: ProjectData[] = [
         fit: "contain",
       },
       {
-        image: firstAdvanceServices,
-        title: "Services Structure",
+        image: firstAdvanceAudience,
+        title: "Target Audience",
         caption:
-          "The services chapter organizes real estate, operational, and business support offerings into a clear information architecture.",
+          "The audience section identifies the business segments First Advance serves and gives each group a clear visual context.",
         fit: "contain",
       },
       {
@@ -729,10 +736,10 @@ const PROJECTS: ProjectData[] = [
         fit: "contain",
       },
       {
-        image: firstAdvanceAudience,
-        title: "Target Audience",
+        image: firstAdvanceWhy,
+        title: "Why First Advance",
         caption:
-          "The audience section identifies the business segments First Advance serves and gives each group a clear visual context.",
+          "The trust section communicates service integration, responsiveness, compliance, and long-term client relationships.",
         fit: "contain",
       },
       {
@@ -740,13 +747,6 @@ const PROJECTS: ProjectData[] = [
         title: "Packages and Offers",
         caption:
           "The packages section turns service offers into a clean comparison system with direct consultation paths.",
-        fit: "contain",
-      },
-      {
-        image: firstAdvanceWhy,
-        title: "Why First Advance",
-        caption:
-          "The trust section communicates service integration, responsiveness, compliance, and long-term client relationships.",
         fit: "contain",
       },
       {
