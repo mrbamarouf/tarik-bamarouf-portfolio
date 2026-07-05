@@ -445,15 +445,9 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: grayscale(1) invert(1) brightness(1.18) contrast(0.82);
-  mix-blend-mode: screen;
-  opacity: 0.74;
   transform: scale(1);
   transform-origin: center;
-  transition:
-    opacity 500ms ease,
-    filter 500ms ease,
-    transform 500ms ease;
+  transition: transform 500ms ease;
 }
 
 .client-marquee__logo--medium img {
@@ -466,10 +460,6 @@
 
 .client-marquee__logo--strong img {
   transform: scale(2.05);
-}
-
-.client-marquee__viewport:hover .client-marquee__logo img {
-  opacity: 0.88;
 }
 
 @media (hover: hover) and (pointer: fine) {
