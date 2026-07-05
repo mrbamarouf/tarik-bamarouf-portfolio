@@ -8,6 +8,19 @@ import processDiscovery from "@/assets/process/discovery.webp";
 import processStrategy from "@/assets/process/strategy.webp";
 import aboutImg from "@/assets/about.webp";
 import finalCtaWall from "@/assets/final-cta-wall.webp";
+import circleSectionLogo from "@/assets/client-logos/circle-section-logo-transparent copy.png";
+import exEventsLogo from "@/assets/client-logos/B4435926-8D00-4AA0-87A3-9EE7263C33CF copy.png";
+import firstAdvanceLogo from "@/assets/client-logos/70A09C39-DF9C-43EE-B0E1-5426C8B52AC7 copy.png";
+import hudaBamaroufLogo from "@/assets/client-logos/5F69DF47-F964-4E0E-96CD-1EA1C53A584E copy.png";
+import jorofLogo from "@/assets/client-logos/logo copy.png";
+import lillyBreezeLogo from "@/assets/client-logos/4F5B7AB8-6366-4DAD-9FE5-B4AB29E405C0 copy.png";
+import mihnLogo from "@/assets/client-logos/38A4BC37-CF88-4D06-A9A9-CB2882387C49 copy.png";
+import noorixLogo from "@/assets/client-logos/8503A391-7945-402D-B2C6-5F952B189A7C.png";
+import opalLogo from "@/assets/client-logos/opal-logo copy.png";
+import pakmanLogo from "@/assets/client-logos/C27D1490-ADF3-4AF8-A3EA-0D03A378808C copy.png";
+import pokemonLogo from "@/assets/client-logos/pokemon-01 copy.png";
+import sipLogo from "@/assets/client-logos/B444EC1F-6E4F-4031-B544-C04EC67FC987.png";
+import tartaDeAmorLogo from "@/assets/client-logos/F4D76849-676F-4DA7-9BF7-EED8E3F0B3A4 copy.png";
 import { SiteLayout } from "@/components/site/Layout";
 import { CONTACT_EMAIL, emailHref, whatsappHref } from "@/lib/contact";
 import {
@@ -48,6 +61,22 @@ export const Route = createFileRoute("/")({
 
 const projects = portfolioProjects;
 const selectedWorkProjects = portfolioProjects;
+
+const clientLogos = [
+  { name: "JOROF", image: jorofLogo, size: "medium" },
+  { name: "Pokemon SA", image: pokemonLogo, size: "strong" },
+  { name: "EX Events & Exhibitions", image: exEventsLogo },
+  { name: "Lilly Breeze", image: lillyBreezeLogo, size: "soft" },
+  { name: "OPAL STONES", image: opalLogo, size: "soft" },
+  { name: "Tarta De Amor", image: tartaDeAmorLogo, size: "soft" },
+  { name: "Pakman", image: pakmanLogo, size: "medium" },
+  { name: "MIHN", image: mihnLogo },
+  { name: "First Advance", image: firstAdvanceLogo },
+  { name: "Huda Bamarouf", image: hudaBamaroufLogo, size: "soft" },
+  { name: "Circle Section", image: circleSectionLogo },
+  { name: "NOORIX", image: noorixLogo, size: "medium" },
+  { name: "SIP", image: sipLogo, size: "medium" },
+] as const;
 
 const steps = [
   {
@@ -416,6 +445,49 @@ function Index() {
             <span>Tarik Bamarouf</span>
             <span className="hidden text-center md:block">{t.home.portfolioLabel}</span>
             <span className="text-right text-bronze">{t.common.scroll}</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="client-marquee-section" aria-labelledby="client-marquee-title" dir="ltr">
+        <div className="client-marquee__inner">
+          <div className="client-marquee__copy">
+            <p className="client-marquee__eyebrow">
+              <EnglishLayoutSlot master={siteCopy.en.home.clientsEyebrow}>
+                {t.home.clientsEyebrow}
+              </EnglishLayoutSlot>
+            </p>
+            <h2 id="client-marquee-title" className="client-marquee__line">
+              <EnglishLayoutSlot master={siteCopy.en.home.clientsLine}>
+                {t.home.clientsLine}
+              </EnglishLayoutSlot>
+            </h2>
+          </div>
+
+          <div className="client-marquee__viewport" aria-label={t.home.clientsEyebrow}>
+            <div className="client-marquee__track">
+              {[0, 1].map((rowIndex) => (
+                <div
+                  className="client-marquee__row"
+                  key={rowIndex}
+                  aria-hidden={rowIndex === 1}
+                >
+                  {clientLogos.map((logo) => (
+                    <span
+                      className={`client-marquee__logo client-marquee__logo--${logo.size ?? "base"}`}
+                      key={`${rowIndex}-${logo.name}`}
+                    >
+                      <img
+                        src={logo.image}
+                        alt={rowIndex === 0 ? `${logo.name} logo` : ""}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
