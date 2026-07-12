@@ -11,7 +11,6 @@ import finalCtaWall from "@/assets/final-cta-wall.webp";
 import circleSectionLogo from "@/assets/client-logos/circle-section-logo-transparent copy.png";
 import exEventsLogo from "@/assets/client-logos/B4435926-8D00-4AA0-87A3-9EE7263C33CF copy.png";
 import firstAdvanceLogo from "@/assets/client-logos/70A09C39-DF9C-43EE-B0E1-5426C8B52AC7 copy.png";
-import hudaBamaroufLogo from "@/assets/client-logos/5F69DF47-F964-4E0E-96CD-1EA1C53A584E copy.png";
 import jorofLogo from "@/assets/client-logos/logo copy.png";
 import lillyBreezeLogo from "@/assets/client-logos/4F5B7AB8-6366-4DAD-9FE5-B4AB29E405C0 copy.png";
 import mihnLogo from "@/assets/client-logos/38A4BC37-CF88-4D06-A9A9-CB2882387C49 copy.png";
@@ -72,7 +71,6 @@ const clientLogos = [
   { name: "Pakman", image: pakmanLogo, size: "medium" },
   { name: "MIHN", image: mihnLogo },
   { name: "First Advance", image: firstAdvanceLogo },
-  { name: "Huda Bamarouf", image: hudaBamaroufLogo, size: "soft" },
   { name: "Circle Section", image: circleSectionLogo },
   { name: "NOORIX", image: noorixLogo, size: "medium" },
   { name: "SIP", image: sipLogo, size: "medium" },

@@ -1,4 +1,4 @@
-import hudaHero from "@/assets/projects/huda/01-hero.webp";
+import maisonElanHero from "@/assets/projects/maison-elan/01-hero.webp";
 import tartaHero from "@/assets/projects/tarta-de-amor/01-hero.webp";
 import mihnHero from "@/assets/projects/mihn/01-hero-home.webp";
 import lillyHero from "@/assets/projects/lilly-breeze/01-home-hero.webp";
@@ -15,10 +15,10 @@ import firstAdvanceHero from "@/assets/projects/first-advance/01-hero-homepage.w
 export const portfolioProjects = [
   {
     n: "01",
-    t: "Huda Bamarouf",
-    slug: "huda-bamarouf",
-    cat: "Luxury Fashion Maison",
-    img: hudaHero,
+    t: "Maison Élan",
+    slug: "maison-elan",
+    cat: "Luxury Couture House",
+    img: maisonElanHero,
     year: "2026",
     disciplines: "Identity, Direction, E-Commerce",
     span: "full",

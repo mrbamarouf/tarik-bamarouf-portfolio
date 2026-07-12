@@ -576,20 +576,20 @@ type ProjectCopy = {
 };
 
 export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
-  "huda-bamarouf": {
+  "maison-elan": {
     en: {
-      category: "Luxury Fashion Maison",
+      category: "Luxury Couture House",
       disciplines: "Identity, Direction, E-Commerce",
       intro:
         "A luxury fashion maison website shaped around couture, bridal, ready-to-wear, editorial storytelling, and maison presence.",
       details: {
-        industry: "Luxury Fashion",
+        industry: "Luxury Couture",
         services: "Website Design and Development",
-        platform: "Luxury Fashion Website",
+        platform: "Luxury Couture Website",
       },
       overview: {
         challenge:
-          "Huda Bamarouf is a luxury fashion maison digital experience created to present couture collections, bridal pieces, ready-to-wear capsules, editorial stories, press presence, and private maison moments through a refined cinematic website.",
+          "Maison Élan is a luxury couture house digital experience created to present couture collections, bridal pieces, ready-to-wear capsules, editorial stories, press presence, and private maison moments through a refined cinematic website.",
         approach:
           "The goal was to build a premium online presence that feels elegant, restrained, and memorable while allowing the collections and atmosphere to lead the experience.",
         outcome:
@@ -636,21 +636,21 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "The final experience positions Huda Bamarouf as a refined luxury fashion maison, combining visual storytelling, collection presentation, editorial depth, and premium digital presence into one cohesive website.",
+        "The final experience positions Maison Élan as a refined luxury couture house, combining visual storytelling, collection presentation, editorial depth, and premium digital presence into one cohesive website.",
     },
     ar: {
-      category: "دار أزياء فاخرة",
+      category: "دار كوتور فاخرة",
       disciplines: "هوية، توجيه بصري، تجارة إلكترونية",
       intro:
         "موقع لدار أزياء فاخرة صُمم حول الكوتور، أزياء العرائس، الأزياء الجاهزة، السرد التحريري، وحضور الدار.",
       details: {
-        industry: "الأزياء الفاخرة",
+        industry: "الكوتور الفاخر",
         services: "تصميم وتطوير الموقع",
-        platform: "موقع لدار أزياء فاخرة",
+        platform: "موقع لدار كوتور فاخرة",
       },
       overview: {
         challenge:
-          "صُممت تجربة Huda Bamarouf الرقمية لتقديم مجموعات الكوتور، قطع العرائس، الأزياء الجاهزة، القصص التحريرية، الحضور الإعلامي، ولحظات الدار الخاصة ضمن موقع مصقول بإيقاع سينمائي.",
+          "صُممت تجربة Maison Élan الرقمية لتقديم مجموعات الكوتور، قطع العرائس، الأزياء الجاهزة، القصص التحريرية، الحضور الإعلامي، ولحظات الدار الخاصة ضمن موقع مصقول بإيقاع سينمائي.",
         approach:
           "كان الهدف بناء حضور رقمي فاخر يشعر بالأناقة والهدوء والتميّز، مع ترك المساحة للمجموعات والأجواء لتقود التجربة.",
         outcome:
@@ -668,7 +668,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         { title: "الفعاليات", caption: "لقاءات خاصة ولحظات مشحونة بالأجواء داخل عالم العلامة." },
       ],
       reflection:
-        "تضع التجربة النهائية Huda Bamarouf كدار أزياء فاخرة وهادئة، تجمع بين السرد البصري، عرض المجموعات، العمق التحريري، والحضور الرقمي الرفيع داخل موقع واحد متماسك.",
+        "تضع التجربة النهائية Maison Élan كدار كوتور فاخرة وهادئة، تجمع بين السرد البصري، عرض المجموعات، العمق التحريري، والحضور الرقمي الرفيع داخل موقع واحد متماسك.",
     },
   },
   "tarta-de-amor": {

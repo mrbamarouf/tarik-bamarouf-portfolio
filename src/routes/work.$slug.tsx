@@ -8,11 +8,10 @@ import {
   siteCopy,
   useLanguage,
 } from "@/lib/language";
-import hudaImg from "@/assets/projects/huda.webp";
 import mahnImg from "@/assets/projects/mahn.webp";
 import lilyImg from "@/assets/projects/lily.webp";
 
-import hudaHero from "@/assets/projects/huda/01-hero.webp";
+import maisonElanHero from "@/assets/projects/maison-elan/01-hero.webp";
 import tartaHero from "@/assets/projects/tarta-de-amor/01-hero.webp";
 import tartaOrderExperience from "@/assets/projects/tarta-de-amor/02-order-experience.webp";
 import tartaChocolateSauce from "@/assets/projects/tarta-de-amor/03-chocolate-sauce.webp";
@@ -20,15 +19,15 @@ import tartaPackaging from "@/assets/projects/tarta-de-amor/04-packaging-present
 import tartaMoments from "@/assets/projects/tarta-de-amor/05-made-for-moments.webp";
 import tartaPresented from "@/assets/projects/tarta-de-amor/06-presented-before-opened.webp";
 import tartaContact from "@/assets/projects/tarta-de-amor/07-contact-final.webp";
-import hudaCouture from "@/assets/projects/huda/02-couture.webp";
-import hudaRtw from "@/assets/projects/huda/03-rtw.webp";
-import hudaBridal from "@/assets/projects/huda/04-bridal.webp";
-import hudaBridalDetails from "@/assets/projects/huda/05-bridal-details.webp";
-import hudaJournal from "@/assets/projects/huda/06-journal.webp";
-import hudaPress from "@/assets/projects/huda/07-press.webp";
-import hudaMaison from "@/assets/projects/huda/08-maison-presence.webp";
-import hudaWornBy from "@/assets/projects/huda/09-worn-by.webp";
-import hudaEvents from "@/assets/projects/huda/10-events.webp";
+import maisonElanCouture from "@/assets/projects/maison-elan/02-couture.webp";
+import maisonElanRtw from "@/assets/projects/maison-elan/03-rtw.webp";
+import maisonElanBridal from "@/assets/projects/maison-elan/04-bridal.webp";
+import maisonElanBridalDetails from "@/assets/projects/maison-elan/05-bridal-details.webp";
+import maisonElanJournal from "@/assets/projects/maison-elan/06-journal.webp";
+import maisonElanPress from "@/assets/projects/maison-elan/07-press.webp";
+import maisonElanMaison from "@/assets/projects/maison-elan/08-maison-presence.webp";
+import maisonElanWornBy from "@/assets/projects/maison-elan/09-worn-by.webp";
+import maisonElanEvents from "@/assets/projects/maison-elan/10-events.webp";
 import lillyHero from "@/assets/projects/lilly-breeze/01-home-hero.webp";
 import lillyArrival from "@/assets/projects/lilly-breeze/02-house-arrival.webp";
 import lillyPhilosophy from "@/assets/projects/lilly-breeze/03-philosophy.webp";
@@ -154,22 +153,22 @@ type ProjectData = {
 
 const PROJECTS: ProjectData[] = [
   {
-    slug: "huda-bamarouf",
-    name: "Huda Bamarouf",
-    category: "Luxury Fashion Maison",
+    slug: "maison-elan",
+    name: "Maison Élan",
+    category: "Luxury Couture House",
     intro:
       "A luxury fashion maison website designed around couture, bridal, ready-to-wear, editorial storytelling, and maison presence.",
-    image: hudaHero,
+    image: maisonElanHero,
     details: {
-      client: "Huda Bamarouf",
-      industry: "Luxury Fashion",
+      client: "Maison Élan",
+      industry: "Luxury Couture",
       services: "Website Design and Development",
       year: "2026",
-      platform: "Luxury Fashion Website",
+      platform: "Luxury Couture Website",
     },
     overview: {
       challenge:
-        "Huda Bamarouf is a luxury fashion maison digital experience created to present couture collections, bridal creations, ready-to-wear capsules, editorial stories, press presence, and private maison moments through a refined cinematic website.",
+        "Maison Élan is a luxury couture house digital experience created to present couture collections, bridal creations, ready-to-wear capsules, editorial stories, press presence, and private maison moments through a refined cinematic website.",
       approach:
         "The goal was to build a premium online presence that feels elegant, restrained, and visually memorable while allowing the brand’s collections and atmosphere to lead the experience.",
       outcome:
@@ -177,54 +176,54 @@ const PROJECTS: ProjectData[] = [
     },
     gallery: [
       {
-        image: hudaCouture,
+        image: maisonElanCouture,
         title: "Couture World",
         caption: "A restrained visual direction for the maison’s couture identity.",
       },
       {
-        image: hudaRtw,
+        image: maisonElanRtw,
         title: "Ready to Wear",
         caption:
           "A seasonal product experience designed with clarity, softness, and luxury spacing.",
       },
       {
-        image: hudaBridal,
+        image: maisonElanBridal,
         title: "Bridal Archive",
         caption: "A quiet presentation of bridal creations, craftsmanship, and detail.",
       },
       {
-        image: hudaBridalDetails,
+        image: maisonElanBridalDetails,
         title: "Bridal Details",
         caption: "Close visual storytelling for embroidery, texture, and ceremony.",
       },
       {
-        image: hudaJournal,
+        image: maisonElanJournal,
         title: "Journal",
         caption: "Editorial storytelling built to extend the maison beyond product.",
       },
       {
-        image: hudaPress,
+        image: maisonElanPress,
         title: "In The Press",
         caption: "A dedicated media presence for features, interviews, and brand visibility.",
       },
       {
-        image: hudaMaison,
+        image: maisonElanMaison,
         title: "Maison Presence",
         caption: "A cinematic presentation of runway, cultural presence, and public moments.",
       },
       {
-        image: hudaWornBy,
+        image: maisonElanWornBy,
         title: "Worn By",
         caption: "A visual archive of the women, occasions, and figures connected to the maison.",
       },
       {
-        image: hudaEvents,
+        image: maisonElanEvents,
         title: "Events",
         caption: "Private gatherings and atmospheric moments presented as part of the brand world.",
       },
     ],
     reflection:
-      "The final experience positions Huda Bamarouf as a refined luxury fashion maison, combining visual storytelling, collection presentation, editorial depth, and premium digital presence into one cohesive website.",
+      "The final experience positions Maison Élan as a refined luxury couture house, combining visual storytelling, collection presentation, editorial depth, and premium digital presence into one cohesive website.",
   },
   {
     slug: "tarta-de-amor",
