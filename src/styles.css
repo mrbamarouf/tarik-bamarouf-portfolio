@@ -3178,6 +3178,10 @@ body.intro-scroll-lock {
       line-height: 1.04;
     }
 
+    body[data-lang="en"] main.flex-1:has(> section:first-of-type h1 .gradient-bronze-text) > section:first-of-type h1 {
+      transform: translate3d(clamp(3rem, 4vw, 4.5rem), 0, 0);
+    }
+
     main.flex-1:has(> section:first-of-type h1 .gradient-bronze-text) > section:nth-of-type(2) {
       margin-top: clamp(4rem, 4.7vw, 4.85rem);
       padding-bottom: 0 !important;
