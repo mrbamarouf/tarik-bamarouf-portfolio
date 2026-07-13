@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
 import { whatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
-import { EnglishLayoutSlot, siteCopy, useLanguage } from "@/lib/language";
+import { BidiText, EnglishLayoutSlot, siteCopy, useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -58,8 +58,14 @@ function ContactPage() {
           <div className="contact-hero" data-contact-reveal>
             <SectionLabel index="I" title={t.contact.label} />
             <h1 className="mt-10 max-w-4xl font-serif text-5xl font-light leading-[0.98] tracking-normal text-foreground md:text-7xl lg:text-[7rem]">
-              <span className="italic font-light">{t.contact.titleA}</span>
-              {t.contact.titleB && <span className="text-bronze-soft">{t.contact.titleB}</span>}
+              <span className="italic font-light">
+                <BidiText>{t.contact.titleA}</BidiText>
+              </span>
+              {t.contact.titleB && (
+                <span className="text-bronze-soft">
+                  <BidiText>{t.contact.titleB}</BidiText>
+                </span>
+              )}
             </h1>
             <div className="contact-hero__rule mt-10" />
             <p className="mt-10 max-w-md text-base font-light leading-relaxed text-foreground/68 md:text-lg">
@@ -109,7 +115,7 @@ function ContactPage() {
                   {WHATSAPP_DISPLAY}
                 </h2>
                 <p className="mt-8 max-w-sm text-sm font-light leading-relaxed text-foreground/58 md:text-base">
-                  {t.contact.whatsappBody}
+                  <BidiText>{t.contact.whatsappBody}</BidiText>
                 </p>
                 <span className="mt-12 inline-flex items-center gap-3 text-[11px] uppercase tracking-luxury text-bronze">
                   {t.contact.openChat}

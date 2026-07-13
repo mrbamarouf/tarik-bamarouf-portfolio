@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
 import {
+  BidiText,
   EnglishLayoutSlot,
   formatLocalizedNumber,
   localizeProject,
@@ -1441,7 +1442,9 @@ function ProjectError() {
   return (
     <SiteLayout>
       <div className="pt-48 pb-32 px-6 text-center">
-        <p className="font-serif text-3xl">{labels.loadError}</p>
+        <p className="font-serif text-3xl">
+          <BidiText>{labels.loadError}</BidiText>
+        </p>
       </div>
     </SiteLayout>
   );

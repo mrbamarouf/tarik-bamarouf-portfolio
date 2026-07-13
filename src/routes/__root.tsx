@@ -14,7 +14,7 @@ import appCss from "../styles.css?url";
 import introVideo from "../assets/intro/final-intro.mp4";
 import mobileIntroVideo from "../assets/intro/mobile-intro-9x16.mp4";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { LanguageProvider, siteCopy, useLanguage } from "@/lib/language";
+import { BidiText, LanguageProvider, siteCopy, useLanguage } from "@/lib/language";
 
 const MOBILE_INTRO_MEDIA_QUERY = "(max-width: 767px)";
 const DESKTOP_INTRO_MEDIA_QUERY = "(min-width: 768px)";
@@ -146,9 +146,11 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">{labels.notFoundTitle}</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">
+          <BidiText>{labels.notFoundTitle}</BidiText>
+        </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          {labels.notFoundBody}
+          <BidiText>{labels.notFoundBody}</BidiText>
         </p>
         <div className="mt-6">
           <Link
@@ -177,10 +179,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          {labels.errorTitle}
+          <BidiText>{labels.errorTitle}</BidiText>
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          {labels.errorBody}
+          <BidiText>{labels.errorBody}</BidiText>
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button

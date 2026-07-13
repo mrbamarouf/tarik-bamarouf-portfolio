@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import signature from "@/assets/signature.webp";
 import { whatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
-import { siteCopy, useLanguage } from "@/lib/language";
+import { BidiText, siteCopy, useLanguage } from "@/lib/language";
 
 export function Footer() {
   const { language } = useLanguage();
@@ -22,7 +22,7 @@ export function Footer() {
               />
             </Link>
             <p className="mt-8 max-w-md font-serif text-2xl font-light leading-snug text-foreground/90 md:text-3xl">
-              {t.footer.headline}
+              <BidiText>{t.footer.headline}</BidiText>
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
@@ -98,8 +98,12 @@ export function Footer() {
         <div className="my-10 mt-16 h-px bg-bronze/20 md:mt-20" />
 
         <div className="flex flex-col items-start justify-between gap-4 text-[10px] uppercase tracking-editorial text-muted-foreground md:flex-row md:items-center">
-          <span>{t.footer.rights}</span>
-          <span>{t.footer.location}</span>
+          <span>
+            <BidiText>{t.footer.rights}</BidiText>
+          </span>
+          <span>
+            <BidiText>{t.footer.location}</BidiText>
+          </span>
         </div>
       </div>
     </footer>

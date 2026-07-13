@@ -1,4 +1,12 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import {
+  createContext,
+  isValidElement,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from "react";
 
 export type Language = "en" | "ar";
 
@@ -13,6 +21,7 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 const LANGUAGE_STORAGE_KEY = "tarik-bamarouf-language";
 const ARABIC_DIGITS = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"] as const;
+const ARABIC_TEXT_RE = /[\u0600-\u06FF]/;
 const SECTION_INDEXES: Record<string, string> = {
   I: "01",
   II: "02",
@@ -91,6 +100,36 @@ export function useLanguage() {
   return context;
 }
 
+function containsArabicText(node: ReactNode): boolean {
+  if (typeof node === "string" || typeof node === "number") {
+    return ARABIC_TEXT_RE.test(String(node));
+  }
+
+  if (Array.isArray(node)) {
+    return node.some(containsArabicText);
+  }
+
+  if (isValidElement<{ children?: ReactNode }>(node)) {
+    return containsArabicText(node.props.children);
+  }
+
+  return false;
+}
+
+export function BidiText({ children }: { children: ReactNode }) {
+  const { language } = useLanguage();
+
+  if (language !== "ar" || !containsArabicText(children)) {
+    return <>{children}</>;
+  }
+
+  return (
+    <bdi className="arabic-bidi-isolate" dir="rtl">
+      {children}
+    </bdi>
+  );
+}
+
 export function EnglishLayoutSlot({
   master,
   children,
@@ -103,7 +142,9 @@ export function EnglishLayoutSlot({
       <span className="english-layout-slot__master" aria-hidden="true">
         {master}
       </span>
-      <span className="english-layout-slot__local">{children}</span>
+      <span className="english-layout-slot__local">
+        <BidiText>{children}</BidiText>
+      </span>
     </span>
   );
 }

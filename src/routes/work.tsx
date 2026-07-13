@@ -2,6 +2,7 @@ import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-r
 import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import {
+  BidiText,
   EnglishLayoutSlot,
   formatLocalizedNumber,
   projectDisplay,
@@ -52,7 +53,7 @@ function WorkPage() {
                 {t.work.archive}
               </p>
               <h1 className="font-serif text-4xl font-light leading-[1.02] md:text-5xl lg:text-[4.8rem]">
-                {t.work.title}
+                <BidiText>{t.work.title}</BidiText>
               </h1>
             </div>
             <p className="hidden md:block text-[10px] tracking-luxury uppercase text-foreground/40">
@@ -128,8 +129,12 @@ function WorkPage() {
           </ul>
 
           <div className="mt-24 md:mt-32 flex items-center justify-between text-[10px] tracking-luxury uppercase text-foreground/40 pt-8 border-t border-border/20">
-            <span>{t.work.end}</span>
-            <span className="text-bronze/70">{t.work.note}</span>
+            <span>
+              <BidiText>{t.work.end}</BidiText>
+            </span>
+            <span className="text-bronze/70">
+              <BidiText>{t.work.note}</BidiText>
+            </span>
           </div>
         </div>
       </section>

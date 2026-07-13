@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import { formatSectionIndex, useLanguage } from "@/lib/language";
+import { BidiText, formatSectionIndex, useLanguage } from "@/lib/language";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
@@ -21,7 +21,11 @@ export function SectionLabel({ index, title }: { index: string; title?: string }
     <div className="section-label flex items-center gap-6 text-[10px] tracking-luxury uppercase text-bronze">
       <span>{localizedIndex}</span>
       <span className="h-px w-12 bg-bronze/60" />
-      {title && <span className="text-muted-foreground">{title}</span>}
+      {title && (
+        <span className="text-muted-foreground">
+          <BidiText>{title}</BidiText>
+        </span>
+      )}
     </div>
   );
 }

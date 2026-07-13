@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
 import aboutImg from "@/assets/about.webp";
-import { EnglishLayoutSlot, siteCopy, useLanguage } from "@/lib/language";
+import { BidiText, EnglishLayoutSlot, siteCopy, useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -34,9 +34,15 @@ function AboutPage() {
         <div className="about-page__intro-inner w-full px-6 md:px-12">
           <SectionLabel index="I" title={t.about.label} />
           <h1 className="about-page__headline mt-10 font-serif text-2xl md:text-4xl lg:text-[3rem] leading-[1.12] max-w-3xl font-light">
-            <span className="italic font-light">{t.about.titleA}</span>
-            <span className="gradient-bronze-text">{t.about.titleB}</span>
-            <span className="block text-foreground/70 italic font-light">{t.about.titleC}</span>
+            <span className="italic font-light">
+              <BidiText>{t.about.titleA}</BidiText>
+            </span>
+            <span className="gradient-bronze-text">
+              <BidiText>{t.about.titleB}</BidiText>
+            </span>
+            <span className="block text-foreground/70 italic font-light">
+              <BidiText>{t.about.titleC}</BidiText>
+            </span>
           </h1>
         </div>
       </section>
@@ -55,7 +61,7 @@ function AboutPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
             </div>
             <p className="about-page__caption mt-4 text-[10px] tracking-luxury uppercase text-muted-foreground">
-              {t.about.portraitLabel}
+              <BidiText>{t.about.portraitLabel}</BidiText>
             </p>
           </div>
 
@@ -83,7 +89,7 @@ function AboutPage() {
               <ul className="mt-8 grid grid-cols-2 gap-y-3 font-serif text-lg">
                 {t.about.disciplineItems.map((item) => (
                   <li key={item} className="text-foreground/85">
-                    {item}
+                    <BidiText>{item}</BidiText>
                   </li>
                 ))}
               </ul>

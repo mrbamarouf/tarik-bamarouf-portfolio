@@ -23,6 +23,7 @@ import tartaDeAmorLogo from "@/assets/client-logos/F4D76849-676F-4DA7-9BF7-EED8E
 import { SiteLayout } from "@/components/site/Layout";
 import { CONTACT_EMAIL, emailHref, whatsappHref } from "@/lib/contact";
 import {
+  BidiText,
   EnglishLayoutSlot,
   formatLocalizedNumber,
   projectDisplay,
@@ -727,7 +728,7 @@ function Index() {
             >
               {t.home.aboutTitle.split("\n").map((line, index, lines) => (
                 <span key={line}>
-                  {line}
+                  <BidiText>{line}</BidiText>
                   {index < lines.length - 1 && <br />}
                 </span>
               ))}
@@ -800,10 +801,10 @@ function Index() {
                     </span>
                     <div>
                       <h3 className="font-serif text-3xl font-light leading-tight text-foreground transition-colors duration-500 group-hover:text-bronze-soft">
-                        {service.t}
+                        <BidiText>{service.t}</BidiText>
                       </h3>
                       <p className="mt-4 text-sm font-light leading-7 text-foreground/74">
-                        {service.d}
+                        <BidiText>{service.d}</BidiText>
                       </p>
                     </div>
                   </div>
@@ -928,7 +929,7 @@ function Index() {
               </EnglishLayoutSlot>
             </h2>
             <p className="mt-7 max-w-md text-sm font-light leading-7 text-foreground/70">
-              {t.home.ctaBody}
+              <BidiText>{t.home.ctaBody}</BidiText>
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
               <a
