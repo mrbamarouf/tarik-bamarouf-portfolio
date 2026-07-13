@@ -12,7 +12,7 @@ import {
 import mahnImg from "@/assets/projects/mahn.webp";
 import lilyImg from "@/assets/projects/lily.webp";
 
-import maisonElanHero from "@/assets/projects/maison-elan/01-hero.webp";
+import maisonElanHero from "@/assets/projects/maison-elan/01-hero-couture-experience.png";
 import tartaHero from "@/assets/projects/tarta-de-amor/01-hero.webp";
 import tartaOrderExperience from "@/assets/projects/tarta-de-amor/02-order-experience.webp";
 import tartaChocolateSauce from "@/assets/projects/tarta-de-amor/03-chocolate-sauce.webp";
