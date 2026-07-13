@@ -423,7 +423,7 @@ export const siteCopy = {
         line1: "الحضور يبدأ",
         line2Before: "",
         emphasis: "قبل",
-        line2After: "البكسل.",
+        line2After: "التصميم.",
         line3: "",
       },
       approachBody:
