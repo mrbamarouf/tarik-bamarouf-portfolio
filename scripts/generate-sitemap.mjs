@@ -12,8 +12,6 @@ const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
 const staticRoutes = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
-  { path: "/#services", changefreq: "monthly", priority: "0.8" },
-  { path: "/#process", changefreq: "monthly", priority: "0.8" },
   { path: "/about", changefreq: "monthly", priority: "0.7" },
   { path: "/work", changefreq: "weekly", priority: "0.9" },
   { path: "/contact", changefreq: "monthly", priority: "0.7" },

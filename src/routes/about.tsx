@@ -19,7 +19,15 @@ export const Route = createFileRoute("/about")({
         content:
           "Premium website design, UX/UI, visual storytelling, and front-end craft shaped by one independent studio.",
       },
+      { property: "og:type", content: "profile" },
+      { property: "og:url", content: "https://tarikbamarouf.com/about" },
+      {
+        property: "og:image",
+        content: new URL(aboutImg, "https://tarikbamarouf.com").href,
+      },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://tarikbamarouf.com/about" }],
   }),
   component: AboutPage,
 });

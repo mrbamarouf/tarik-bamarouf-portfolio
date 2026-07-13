@@ -66,10 +66,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
+    const direction = language === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = language;
-    document.documentElement.dir = "ltr";
+    document.documentElement.dir = direction;
     document.body.dataset.lang = language;
-    document.body.dir = "ltr";
+    document.body.dir = direction;
   }, [language]);
 
   useEffect(() => {
@@ -199,10 +200,10 @@ export const siteCopy = {
       portfolioLabel: "Portfolio 2026",
       approachHeadline: {
         line1: "Presence starts",
-        line2Before: "before",
-        emphasis: "pixels",
-        line2After: "",
-        line3: "appear.",
+        line2Before: "",
+        emphasis: "before",
+        line2After: "design.",
+        line3: "",
       },
       approachBody:
         "Before the interface, I define what the brand must make clear, what the visitor should feel, and what action should come next.",
@@ -517,19 +518,21 @@ export const siteCopy = {
       metaDescription:
         "استوديو رقمي مستقل يركز على تصميم المواقع الراقية، تجربة وواجهة المستخدم، توجيه الهوية، وحرفة الواجهة الأمامية.",
       label: "ملامح الممارسة",
-      titleA: "استوديو من شخصٍ",
-      titleB: " واحد.",
-      titleC: "بطموحٍ يتّسع للكثيرين.",
+      titleA: "استوديو ",
+      titleB: "مستقل.",
+      titleC: "يقوده طموحٌ يتجاوز حدود الشخص الواحد.",
       portraitAlt: "بورتريه طارق بامعروف",
       portraitLabel: "بورتريه طارق بامعروف في الاستوديو",
       biography: "نبذة",
-      biographyBody: "أصمم مواقع وتجارب رقمية راقية تعمل فيها الهوية والواجهة والأجواء بتناغم واضح.",
+      biographyBody:
+        "أصمم مواقع وتجارب رقمية راقية تعمل فيها الهوية والواجهة والأجواء بتناغم واضح.",
       philosophy: "الفلسفة",
       philosophyBody:
         "الهدوء هنا اختيار مقصود. كل صفحة تُصاغ لتوضح العرض، وتبني الثقة، وتجعل العلامة مدروسة منذ اللحظة الأولى.",
       disciplines: "التخصصات",
       recognition: "التركيز",
-      recognitionBody: "متاح لمواقع مختارة، إطلاقات علامات، أعمال تجربة وواجهة، وتجارب رقمية إبداعية.",
+      recognitionBody:
+        "متاح لمواقع مختارة، إطلاقات علامات، أعمال تجربة وواجهة، وتجارب رقمية إبداعية.",
       begin: "ابدأ الحوار",
       disciplineItems: [
         "التوجيه الإبداعي",
@@ -542,7 +545,8 @@ export const siteCopy = {
     },
     contact: {
       metaTitle: "تواصل | طارق بامعروف",
-      metaDescription: "ابدأ حوارًا مباشرًا حول موقع راقٍ، تجربة وواجهة مستخدم، هوية علامة، أو تجربة رقمية.",
+      metaDescription:
+        "ابدأ حوارًا مباشرًا حول موقع راقٍ، تجربة وواجهة مستخدم، هوية علامة، أو تجربة رقمية.",
       label: "تواصل مباشر",
       titleA: "لنتحدث.",
       titleB: "",
@@ -617,12 +621,12 @@ type ProjectCopy = {
 };
 
 export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
-  "maison-elan": {
+  "couture-experience": {
     en: {
       category: "Luxury Couture House",
       disciplines: "Identity, Direction, E-Commerce",
       intro:
-        "A luxury fashion maison website shaped around couture, bridal, ready-to-wear, editorial storytelling, and maison presence.",
+        "A luxury fashion house website shaped around couture, bridal, ready-to-wear, editorial storytelling, and house presence.",
       details: {
         industry: "Luxury Couture",
         services: "Website Design and Development",
@@ -630,16 +634,16 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
       },
       overview: {
         challenge:
-          "Maison Élan is a luxury couture house digital experience created to present couture collections, bridal pieces, ready-to-wear capsules, editorial stories, press presence, and private maison moments through a refined cinematic website.",
+          "Couture Experience presents couture collections, bridal pieces, ready-to-wear capsules, editorial stories, press presence, and private house moments through a refined cinematic website.",
         approach:
           "The goal was to build a premium online presence that feels elegant, restrained, and memorable while allowing the collections and atmosphere to lead the experience.",
         outcome:
-          "Every chapter of the maison is composed with quiet authority, so the website reads as one continuous editorial experience rather than a catalogue.",
+          "Every chapter of the house is composed with quiet authority, so the website reads as one continuous editorial experience rather than a catalogue.",
       },
       gallery: [
         {
           title: "Couture World",
-          caption: "A restrained visual direction for the maison’s couture identity.",
+          caption: "A restrained visual direction for the house’s couture identity.",
         },
         {
           title: "Ready-to-Wear",
@@ -656,19 +660,19 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "Journal",
-          caption: "Editorial storytelling built to extend the maison beyond product.",
+          caption: "Editorial storytelling built to extend the house beyond product.",
         },
         {
           title: "In The Press",
           caption: "A dedicated media presence for features, interviews, and brand visibility.",
         },
         {
-          title: "Maison Presence",
+          title: "House Presence",
           caption: "A cinematic presentation of runway, cultural presence, and public moments.",
         },
         {
           title: "Worn By",
-          caption: "A visual archive of the women, occasions, and figures connected to the maison.",
+          caption: "A visual archive of the women, occasions, and figures connected to the house.",
         },
         {
           title: "Events",
@@ -677,21 +681,21 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "The final experience positions Maison Élan as a refined luxury couture house, combining visual storytelling, collection presentation, editorial depth, and premium digital presence into one cohesive website.",
+        "The final experience positions Couture Experience as a refined luxury couture house, combining visual storytelling, collection presentation, editorial depth, and premium digital presence in one cohesive website.",
     },
     ar: {
-      category: "دار كوتور فاخرة",
+      category: "دار أزياء راقية",
       disciplines: "هوية، توجيه بصري، تجارة إلكترونية",
       intro:
         "موقع لدار أزياء فاخرة صُمم حول الكوتور، أزياء العرائس، الأزياء الجاهزة، السرد التحريري، وحضور الدار.",
       details: {
         industry: "الكوتور الفاخر",
         services: "تصميم وتطوير الموقع",
-        platform: "موقع لدار كوتور فاخرة",
+        platform: "موقع لدار أزياء راقية",
       },
       overview: {
         challenge:
-          "صُممت تجربة Maison Élan الرقمية لتقديم مجموعات الكوتور، قطع العرائس، الأزياء الجاهزة، القصص التحريرية، الحضور الإعلامي، ولحظات الدار الخاصة ضمن موقع مصقول بإيقاع سينمائي.",
+          "صُممت تجربة Couture Experience الرقمية لتقديم مجموعات الكوتور، قطع العرائس، الأزياء الجاهزة، القصص التحريرية، الحضور الإعلامي، ولحظات الدار الخاصة ضمن موقع مصقول بإيقاع سينمائي.",
         approach:
           "كان الهدف بناء حضور رقمي فاخر يشعر بالأناقة والهدوء والتميّز، مع ترك المساحة للمجموعات والأجواء لتقود التجربة.",
         outcome:
@@ -709,7 +713,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         { title: "الفعاليات", caption: "لقاءات خاصة ولحظات مشحونة بالأجواء داخل عالم العلامة." },
       ],
       reflection:
-        "تضع التجربة النهائية Maison Élan كدار كوتور فاخرة وهادئة، تجمع بين السرد البصري، عرض المجموعات، العمق التحريري، والحضور الرقمي الرفيع داخل موقع واحد متماسك.",
+        "تقدم التجربة النهائية Couture Experience كدار أزياء راقية وهادئة، تجمع بين السرد البصري، عرض المجموعات، العمق التحريري، والحضور الرقمي الرفيع داخل موقع واحد متماسك.",
     },
   },
   "tarta-de-amor": {
@@ -775,8 +779,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
     ar: {
       category: "علامة حلويات فاخرة / تجربة تجارة إلكترونية راقية",
       disciplines: "توجيه العلامة، تجارة إلكترونية، تجربة منتج",
-      intro:
-        "علامة مدريد تشيزكيك فاخرة بُنيت حول الإهداء، العرض الراقي، وتجربة طلب رقمية مصقولة.",
+      intro: "علامة مدريد تشيزكيك فاخرة بُنيت حول الإهداء، العرض الراقي، وتجربة طلب رقمية مصقولة.",
       details: {
         industry: "علامة حلويات فاخرة",
         services:
@@ -804,13 +807,11 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "تشيزكيك بصوص الشوكولاتة",
-          caption:
-            "لحظة منتج غنية تبرز اختيار صوص الشوكولاتة عبر تصوير قريب وواجهة طلب واضحة.",
+          caption: "لحظة منتج غنية تبرز اختيار صوص الشوكولاتة عبر تصوير قريب وواجهة طلب واضحة.",
         },
         {
           title: "عرض التغليف",
-          caption:
-            "يقدم التغليف الكيكة كهدية، حيث يجتمع الصندوق وعبوة الصوص والمنتج في طقس مدروس.",
+          caption: "يقدم التغليف الكيكة كهدية، حيث يجتمع الصندوق وعبوة الصوص والمنتج في طقس مدروس.",
         },
         {
           title: "صُنعت للحظات تُحفظ في الذاكرة",
@@ -819,13 +820,11 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "تُقدّم قبل أن تُفتح",
-          caption:
-            "لحظة الإهداء تؤكد الترقب والحرفة والشعور الفاخر قبل أول قطعة.",
+          caption: "لحظة الإهداء تؤكد الترقب والحرفة والشعور الفاخر قبل أول قطعة.",
         },
         {
           title: "التواصل والختام",
-          caption:
-            "يختتم القسم الأخير التجربة بتفاصيل التواصل وحضور العلامة ولحظة نهائية مصقولة.",
+          caption: "يختتم القسم الأخير التجربة بتفاصيل التواصل وحضور العلامة ولحظة نهائية مصقولة.",
         },
       ],
       reflection:
@@ -834,83 +833,91 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
   },
   "mahn-platform": {
     en: {
-      category: "Digital Experience",
-      disciplines: "Identity, UX/UI, Website Experience",
+      category: "Employment Platform / UX/UI Experience",
+      disciplines: "Employment UX/UI, Candidate Experience, Operations",
       intro:
-        "A refined website experience shaped around clear navigation, polished interface design, and a confident digital presence.",
+        "A Saudi employment and operations platform shaped around job discovery, candidate onboarding, and clear management workflows.",
       details: {
-        industry: "Digital Services",
-        services:
-          "Brand Identity, UX/UI Design, Website Design, Front-end Experience",
-        platform: "Website Experience",
+        industry: "Employment Technology",
+        services: "UX/UI Design, Candidate Experience, Operations Interface, Front-end Experience",
+        platform: "Employment and Operations Platform",
       },
       overview: {
         challenge:
-          "Mihn needed a digital presence that felt sharp, useful, and easy to understand from the first screen. The work focused on turning a complex service idea into a clear website experience with strong identity and focused UX.",
+          "Mihn needed to connect job seekers with opportunities while keeping profiles, applications, reviews, onboarding, and operational management clear across one platform.",
         approach:
-          "The experience was structured around a cinematic entry, a direct introduction, polished interface moments, and a simple path for visitors to understand the offer.",
+          "The experience was organized around job discovery, candidate profiles, application review, candidate and operator dashboards, management workflows, and a direct authentication journey.",
         outcome:
-          "The final presentation connects brand atmosphere with practical interface clarity, making Mihn feel credible, modern, and ready for launch.",
+          "The final interface gives candidates and operating teams distinct, readable paths through the employment experience.",
       },
       gallery: [
         {
           title: "Introduction",
           caption:
-            "A visual introduction establishing the brand atmosphere, positioning, and digital identity.",
+            "A clear introduction to the employment platform, its audience, and the candidate journey.",
         },
         {
-          title: "Dashboard Overview",
+          title: "Candidate Dashboard",
           caption:
-            "Key interface views presented with clean hierarchy and a composed UX rhythm.",
+            "Profile, job discovery, applications, and onboarding actions organized in one candidate view.",
         },
         {
-          title: "Management Interface",
-          caption: "Administrative workflows designed for efficiency, clarity, and ease of use.",
+          title: "Operator and Admin Dashboard",
+          caption: "Candidate review and management workflows structured for daily operations.",
         },
         {
           title: "Platform Operations",
-          caption: "Functional interface moments shaped around usability, clarity, and visual calm.",
+          caption:
+            "Operational views for managing candidates, roles, reviews, and platform activity.",
         },
         {
           title: "Authentication Experience",
-          caption: "A streamlined access flow designed to provide secure and frictionless entry.",
+          caption:
+            "A direct sign-in flow that guides candidates and operating teams to the right workspace.",
         },
       ],
       reflection:
-        "The final experience positions Mihn through clear website design, focused UX/UI, and a polished digital brand presence.",
+        "Mihn brings candidate experience, employment discovery, onboarding, and operational management into one focused UX/UI system.",
     },
     ar: {
-      category: "تجربة رقمية",
-      disciplines: "هوية، تجربة وواجهة، تجربة موقع",
-      intro: "تجربة موقع مصقولة مبنية حول تنقّل واضح، واجهة هادئة، وحضور رقمي واثق.",
+      category: "منصة توظيف وتجربة مستخدم",
+      disciplines: "تجربة التوظيف، تجربة المرشح، واجهات التشغيل",
+      intro:
+        "منصة سعودية للتوظيف والتشغيل صُممت لاكتشاف الفرص، تهيئة المرشحين، وإدارة العمل بوضوح.",
       details: {
-        industry: "الخدمات الرقمية",
-        services: "هوية تجارية، تصميم تجربة وواجهة المستخدم، تصميم الموقع، حرفة الواجهة",
-        platform: "تجربة موقع",
+        industry: "تقنيات التوظيف",
+        services: "تصميم تجربة وواجهة المستخدم، تجربة المرشح، واجهات التشغيل، حرفة الواجهة",
+        platform: "منصة توظيف وتشغيل",
       },
       overview: {
         challenge:
-          "احتاجت Mihn إلى حضور رقمي واضح، واثق، وسهل الفهم منذ الشاشة الأولى. ركز العمل على تحويل فكرة خدمة معقدة إلى تجربة موقع مباشرة بهوية قوية وتجربة مستخدم مركزة.",
+          "احتاجت Mihn إلى ربط الباحثين عن عمل بالفرص، مع تنظيم الملفات، الطلبات، المراجعات، التهيئة، والإدارة التشغيلية داخل منصة واحدة.",
         approach:
-          "نُظمت التجربة حول افتتاح بصري قوي، مقدمة مباشرة، لحظات واجهة مصقولة، ومسار بسيط يساعد الزائر على فهم العرض بسرعة.",
+          "نُظمت التجربة حول اكتشاف الوظائف، ملفات المرشحين، مراجعة الطلبات، لوحات المرشح والمشغل، مسارات الإدارة، وتجربة دخول مباشرة.",
         outcome:
-          "تربط النتيجة بين أجواء العلامة ووضوح الواجهة، لتظهر Mihn كحضور رقمي حديث وموثوق وجاهز للإطلاق.",
+          "تمنح الواجهة النهائية المرشحين وفرق التشغيل مسارات واضحة ومتمايزة عبر تجربة التوظيف.",
       },
       gallery: [
-        { title: "المقدمة", caption: "افتتاح بصري يحدد أجواء العلامة وتموضعها وهويتها الرقمية." },
-        { title: "نظرة على الواجهة", caption: "مشاهد واجهة رئيسية بهرمية واضحة وإيقاع بصري هادئ." },
+        { title: "المقدمة", caption: "تعريف واضح بمنصة التوظيف، جمهورها، ورحلة المرشح." },
         {
-          title: "واجهة الإدارة",
-          caption: "تدفقات إدارية مصممة للكفاءة والوضوح وسهولة الاستخدام.",
+          title: "لوحة المرشح",
+          caption: "الملف، اكتشاف الوظائف، الطلبات، وخطوات التهيئة ضمن واجهة واحدة.",
         },
         {
-          title: "تفاصيل الواجهة",
-          caption: "لحظات وظيفية مصممة حول الوضوح وسهولة الاستخدام والهدوء البصري.",
+          title: "لوحة المشغل والإدارة",
+          caption: "مراجعة المرشحين ومسارات الإدارة منظمة للعمل التشغيلي اليومي.",
         },
-        { title: "تجربة تسجيل الدخول", caption: "مسار دخول مختصر وآمن يمنح المستخدم وصولًا سلسًا." },
+        {
+          title: "تشغيل المنصة",
+          caption: "واجهات لإدارة المرشحين، الوظائف، المراجعات، ونشاط المنصة.",
+        },
+        {
+          title: "تجربة تسجيل الدخول",
+          caption: "مسار مباشر يوجه المرشحين وفرق التشغيل إلى مساحة العمل المناسبة.",
+        },
       ],
       reflection:
-        "تقدم التجربة النهائية Mihn عبر تصميم موقع واضح، تجربة وواجهة مركزة، وحضور رقمي مصقول.",
+        "تجمع Mihn تجربة المرشح، اكتشاف الفرص، التهيئة، والإدارة التشغيلية داخل نظام تجربة وواجهة واحد.",
     },
   },
   "norx-paints": {
@@ -990,8 +997,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
     ar: {
       category: "هوية تجارية وتجربة موقع",
       disciplines: "تسمية، هوية، موقع",
-      intro:
-        "هوية بصرية وتجربة موقع مصاغة حول الحضور الراقي واللون وثقة العميل.",
+      intro: "هوية بصرية وتجربة موقع مصاغة حول الحضور الراقي واللون وثقة العميل.",
       details: {
         industry: "التصميم الداخلي والطلاء",
         services: "تسمية، هوية تجارية، توجيه بصري، تصميم الموقع، وحرفة الواجهة",
@@ -1374,7 +1380,8 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
       gallery: [
         {
           title: "تجربة العلامة",
-          caption: "لحظة افتتاحية سينمائية تقدم SIP بهوية مشروبات سعودية واثقة وحضور واضح يقوده المنتج.",
+          caption:
+            "لحظة افتتاحية سينمائية تقدم SIP بهوية مشروبات سعودية واثقة وحضور واضح يقوده المنتج.",
         },
         {
           title: "تشكيلة المنتجات",
@@ -1382,7 +1389,8 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "مجموعة خالية من السكر",
-          caption: "تمتد المجموعة الخالية من السكر بهوية SIP إلى تعبير أنظف مع الحفاظ على الحضور الجريء نفسه.",
+          caption:
+            "تمتد المجموعة الخالية من السكر بهوية SIP إلى تعبير أنظف مع الحفاظ على الحضور الجريء نفسه.",
         },
         {
           title: "قصة العلامة",
@@ -1468,8 +1476,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
       intro: "علامة مياه سعودية حديثة تحولت من شعار قائم إلى تجربة رقمية متكاملة للعلامة.",
       details: {
         industry: "المياه المعبأة",
-        services:
-          "توجيه إبداعي، هوية بصرية، تجربة وواجهة المستخدم، تصميم الموقع، وحرفة الواجهة",
+        services: "توجيه إبداعي، هوية بصرية، تجربة وواجهة المستخدم، تصميم الموقع، وحرفة الواجهة",
         platform: "هوية تجارية وتجربة موقع",
       },
       overview: {
@@ -1492,8 +1499,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "قصة العلامة",
-          caption:
-            "قسم يحوّل الشعار إلى هوية أوسع تربط الأصل السعودي والجودة والثقة اليومية.",
+          caption: "قسم يحوّل الشعار إلى هوية أوسع تربط الأصل السعودي والجودة والثقة اليومية.",
         },
         {
           title: "نطاق المنتجات",
@@ -1598,8 +1604,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
     ar: {
       category: "هوية تجارية، تصميم موقع، توجيه فني",
       disciplines: "هوية، تغليف، موقع",
-      intro:
-        "شركة سعودية لتغليف المطاعم صيغت كهوية متكاملة وتجربة موقع واضحة لقطاع الأغذية.",
+      intro: "شركة سعودية لتغليف المطاعم صيغت كهوية متكاملة وتجربة موقع واضحة لقطاع الأغذية.",
       details: {
         industry: "تغليف المطاعم",
         services:
@@ -1626,8 +1631,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "عن Pakman",
-          caption:
-            "قسم تعريفي يربط خبرة Pakman السعودية في التغليف بقطاع الضيافة والأغذية.",
+          caption: "قسم تعريفي يربط خبرة Pakman السعودية في التغليف بقطاع الضيافة والأغذية.",
         },
         {
           title: "قطاعات الأعمال الغذائية",
@@ -1667,7 +1671,8 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
   },
   "circle-section": {
     en: {
-      category: "Brand Identity, UX/UI Design, Web Design, Front-end Development, Content Direction",
+      category:
+        "Brand Identity, UX/UI Design, Web Design, Front-end Development, Content Direction",
       disciplines: "Brand Identity, UX/UI, Web Design, Front-end Development",
       intro:
         "A premium smash burger restaurant in Jeddah shaped into a bold website and digital brand presence.",
@@ -1763,8 +1768,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
     ar: {
       category: "هوية تجارية، تجربة مستخدم وواجهة، تصميم موقع، تطوير الواجهة، توجيه المحتوى",
       disciplines: "هوية تجارية، تجربة وواجهة، تصميم موقع، تطوير الواجهة",
-      intro:
-        "مطعم برجر متخصص في جدة صيغ كموقع جريء وحضور رقمي واضح للعلامة.",
+      intro: "مطعم برجر متخصص في جدة صيغ كموقع جريء وحضور رقمي واضح للعلامة.",
       details: {
         industry: "مطعم / سماش برجر",
         services:
@@ -1787,38 +1791,31 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "لحظة الانترو",
-          caption:
-            "شاشة افتتاح جريئة تثبت هوية Circle Section قبل انتقال الزائر إلى تجربة الموقع.",
+          caption: "شاشة افتتاح جريئة تثبت هوية Circle Section قبل انتقال الزائر إلى تجربة الموقع.",
         },
         {
           title: "نظام النكهة",
-          caption:
-            "لغة بصرية تربط تصوير المنتجات والنصوص وبطاقات الواجهة حول فكرة دائرة النكهة.",
+          caption: "لغة بصرية تربط تصوير المنتجات والنصوص وبطاقات الواجهة حول فكرة دائرة النكهة.",
         },
         {
           title: "تجربة المنيو",
-          caption:
-            "ينظم المنيو البرجر والفئات بواجهة خفيفة، هرمية واضحة، وإيقاع تصفح سهل.",
+          caption: "ينظم المنيو البرجر والفئات بواجهة خفيفة، هرمية واضحة، وإيقاع تصفح سهل.",
         },
         {
           title: "عرض المنيو",
-          caption:
-            "تُبرز أقسام الطعام المنتجات الجانبية بصور قوية وبطاقات منظمة تدعم الاختيار.",
+          caption: "تُبرز أقسام الطعام المنتجات الجانبية بصور قوية وبطاقات منظمة تدعم الاختيار.",
         },
         {
           title: "تفاصيل المنتج",
-          caption:
-            "تمنح لحظات المنتج مساحة خاصة لكل صنف مع الحفاظ على طاقة العلامة نفسها.",
+          caption: "تمنح لحظات المنتج مساحة خاصة لكل صنف مع الحفاظ على طاقة العلامة نفسها.",
         },
         {
           title: "أسباب العودة",
-          caption:
-            "قسم مختصر يشرح لماذا يعود الزوار، عبر نص مباشر وبطاقات دافئة تقودها المنتجات.",
+          caption: "قسم مختصر يشرح لماذا يعود الزوار، عبر نص مباشر وبطاقات دافئة تقودها المنتجات.",
         },
         {
           title: "تفاصيل الحلى",
-          caption:
-            "يمد عرض الحلى تجربة المنيو إلى ما بعد البرجر دون فقدان شخصية العلامة المرحة.",
+          caption: "يمد عرض الحلى تجربة المنيو إلى ما بعد البرجر دون فقدان شخصية العلامة المرحة.",
         },
         {
           title: "قصة المكان",
@@ -1827,13 +1824,11 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "نكهة كبيرة",
-          caption:
-            "قسم سردي تقوده المنتجات، يجمع صور البرجر مع تايبوغرافي جريء ورسالة واضحة.",
+          caption: "قسم سردي تقوده المنتجات، يجمع صور البرجر مع تايبوغرافي جريء ورسالة واضحة.",
         },
         {
           title: "الثقة بالدائرة",
-          caption:
-            "تُعبّر الثقة بالعلامة عبر تصوير الطعام، سرد مختصر، ونبرة مطعم قريبة من الناس.",
+          caption: "تُعبّر الثقة بالعلامة عبر تصوير الطعام، سرد مختصر، ونبرة مطعم قريبة من الناس.",
         },
         {
           title: "تجربة التوصيل",
@@ -1847,8 +1842,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "الختام البصري",
-          caption:
-            "يحافظ ختام العلامة على الشعار واللون والدعوة الأخيرة بشكل بسيط وسهل التذكر.",
+          caption: "يحافظ ختام العلامة على الشعار واللون والدعوة الأخيرة بشكل بسيط وسهل التذكر.",
         },
       ],
       reflection:
@@ -1927,11 +1921,9 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         "OPAL STONES became a luxury digital experience for a contemporary Saudi fine jewellery maison, combining brand direction, editorial UX, premium interface design, content direction, responsive layouts, and front-end development into a refined online presence.",
     },
     ar: {
-      category:
-        "هوية فاخرة، تجربة وواجهة المستخدم، تصميم موقع، حرفة الواجهة، توجيه المحتوى",
+      category: "هوية فاخرة، تجربة وواجهة المستخدم، تصميم موقع، حرفة الواجهة، توجيه المحتوى",
       disciplines: "هوية فاخرة، تجربة وواجهة، تصميم موقع",
-      intro:
-        "دار مجوهرات سعودية معاصرة تقدم قطعًا مصممة بعناية، تجمع بين الحرفية والهوية الراقية.",
+      intro: "دار مجوهرات سعودية معاصرة تقدم قطعًا مصممة بعناية، تجمع بين الحرفية والهوية الراقية.",
       details: {
         industry: "مجوهرات فاخرة / دار فاخرة، السعودية",
         services:
@@ -1958,8 +1950,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "البدء بالقطعة",
-          caption:
-            "يعرض مدخل المجموعة الخواتم والعقود والأقراط بمساحات تحريرية وسرد منتج مصقول.",
+          caption: "يعرض مدخل المجموعة الخواتم والعقود والأقراط بمساحات تحريرية وسرد منتج مصقول.",
         },
         {
           title: "قبل أول رسم",
@@ -1968,8 +1959,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "الحرفة والتفاصيل",
-          caption:
-            "تُدخل صور الكواليس الحرفة وترصيع الأحجار وتفاصيل المشغل إلى التجربة الرقمية.",
+          caption: "تُدخل صور الكواليس الحرفة وترصيع الأحجار وتفاصيل المشغل إلى التجربة الرقمية.",
         },
         {
           title: "قصص الأحجار",
@@ -1988,8 +1978,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "الموعد الخاص",
-          caption:
-            "يحوّل مسار الموعد الاستفسار إلى موعد خاص مصقول بدل تجربة شراء تقليدية.",
+          caption: "يحوّل مسار الموعد الاستفسار إلى موعد خاص مصقول بدل تجربة شراء تقليدية.",
         },
       ],
       reflection:
@@ -2074,8 +2063,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
     ar: {
       category: "تجربة وواجهة، تصميم موقع، حضور رقمي، حرفة الواجهة",
       disciplines: "تجربة وواجهة، تصميم موقع، توجيه محتوى",
-      intro:
-        "علامة سعودية في الفعاليات والمعارض صيغت كموقع راقٍ بسرد خدمات واضح وحضور رقمي واثق.",
+      intro: "علامة سعودية في الفعاليات والمعارض صيغت كموقع راقٍ بسرد خدمات واضح وحضور رقمي واثق.",
       details: {
         industry: "فعاليات ومعارض / السعودية",
         services:
@@ -2113,8 +2101,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "قيم الشركة",
-          caption:
-            "ينقل فصل القيم الاحترافية والالتزام والشفافية والكفاءة من خلال واجهة هادئة.",
+          caption: "ينقل فصل القيم الاحترافية والالتزام والشفافية والكفاءة من خلال واجهة هادئة.",
         },
         {
           title: "وراء الكواليس",
@@ -2128,8 +2115,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "المشاريع الكبرى",
-          caption:
-            "تعرض المشاريع البارزة بصور قوية وبطاقات منظمة توضح الحجم والثقة والخبرة.",
+          caption: "تعرض المشاريع البارزة بصور قوية وبطاقات منظمة توضح الحجم والثقة والخبرة.",
         },
         {
           title: "التواصل والاستفسار",
@@ -2219,8 +2205,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
     ar: {
       category: "هوية تجارية، تصميم شعار، تجربة وواجهة، تصميم موقع، حرفة الواجهة",
       disciplines: "تصميم شعار، هوية تجارية، تجربة وواجهة، تصميم موقع",
-      intro:
-        "علامة خدمات سعودية صيغت عبر شعار مصقول، هوية هادئة، تجربة واضحة، وموقع متزن.",
+      intro: "علامة خدمات سعودية صيغت عبر شعار مصقول، هوية هادئة، تجربة واضحة، وموقع متزن.",
       details: {
         industry: "علامة خدمات / السعودية",
         services:
@@ -2243,23 +2228,19 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "هيكلة الخدمات",
-          caption:
-            "ينظم فصل الخدمات العروض في أقسام واضحة تجعل العلامة سهلة الفهم.",
+          caption: "ينظم فصل الخدمات العروض في أقسام واضحة تجعل العلامة سهلة الفهم.",
         },
         {
           title: "تعريف الشركة",
-          caption:
-            "يعرض تعريف الشركة First Advance كعلامة خدمات سعودية متزنة بوعد واضح.",
+          caption: "يعرض تعريف الشركة First Advance كعلامة خدمات سعودية متزنة بوعد واضح.",
         },
         {
           title: "الرؤية والرسالة",
-          caption:
-            "يوضح قسم الرؤية والرسالة طموح الشركة وفلسفة الخدمة والالتزام بالجودة.",
+          caption: "يوضح قسم الرؤية والرسالة طموح الشركة وفلسفة الخدمة والالتزام بالجودة.",
         },
         {
           title: "الجمهور المستهدف",
-          caption:
-            "يمنح قسم الجمهور كل فئة سياقًا بصريًا بسيطًا وسببًا واضحًا لمتابعة القراءة.",
+          caption: "يمنح قسم الجمهور كل فئة سياقًا بصريًا بسيطًا وسببًا واضحًا لمتابعة القراءة.",
         },
         {
           title: "أسلوب العمل",
@@ -2273,8 +2254,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "الباقات والعروض",
-          caption:
-            "يحوّل قسم الباقات عروض الخدمة إلى مقارنة سهلة مع مسارات استفسار مباشرة.",
+          caption: "يحوّل قسم الباقات عروض الخدمة إلى مقارنة سهلة مع مسارات استفسار مباشرة.",
         },
         {
           title: "تجربة التواصل",

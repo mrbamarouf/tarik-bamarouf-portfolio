@@ -32,11 +32,7 @@ if (!xml.startsWith('<?xml version="1.0" encoding="UTF-8"?>\n')) {
   fail("missing XML declaration");
 }
 
-if (
-  !xml.includes(
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-  )
-) {
+if (!xml.includes('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')) {
   fail("missing sitemap namespace");
 }
 
@@ -44,9 +40,7 @@ if (!xml.trimEnd().endsWith("</urlset>")) {
   fail("missing closing urlset tag");
 }
 
-const urlBlocks = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(
-  (match) => match[1],
-);
+const urlBlocks = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => match[1]);
 
 if (urlBlocks.length === 0) {
   fail("no url entries found");
@@ -67,6 +61,10 @@ for (const block of urlBlocks) {
 
   if (!loc.startsWith(SITE_URL)) {
     fail(`${loc} must use ${SITE_URL}`);
+  }
+
+  if (new URL(loc).hash) {
+    fail(`${loc} must not contain a URL fragment`);
   }
 
   if (seen.has(loc)) {

@@ -220,6 +220,15 @@
   min-width: 0;
 }
 
+.site-shell {
+  direction: ltr;
+}
+
+.process-card[role="button"]:focus-visible {
+  outline: 1px solid var(--bronze);
+  outline-offset: -2px;
+}
+
 @media (min-width: 1200px) {
   html,
   body {

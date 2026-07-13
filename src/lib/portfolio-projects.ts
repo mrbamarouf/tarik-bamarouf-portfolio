@@ -1,4 +1,4 @@
-import maisonElanHero from "@/assets/projects/maison-elan/01-hero.webp";
+import coutureExperienceHero from "@/assets/projects/couture-experience/01-hero-couture-experience.png";
 import tartaHero from "@/assets/projects/tarta-de-amor/01-hero.webp";
 import mihnHero from "@/assets/projects/mihn/01-hero-home.webp";
 import lillyHero from "@/assets/projects/lilly-breeze/01-home-hero.webp";
@@ -15,10 +15,10 @@ import firstAdvanceHero from "@/assets/projects/first-advance/01-hero-homepage.w
 export const portfolioProjects = [
   {
     n: "01",
-    t: "Maison Élan",
-    slug: "maison-elan",
+    t: "Couture Experience",
+    slug: "couture-experience",
     cat: "Luxury Couture House",
-    img: maisonElanHero,
+    img: coutureExperienceHero,
     year: "2026",
     disciplines: "Identity, Creative Direction, Website",
     span: "full",
@@ -149,10 +149,10 @@ export const portfolioProjects = [
     n: "13",
     t: "Mihn",
     slug: "mahn-platform",
-    cat: "Digital Experience",
+    cat: "Employment Platform / UX/UI Experience",
     img: mihnHero,
     year: "2026",
-    disciplines: "Identity, UX/UI, Website Experience",
+    disciplines: "Employment UX/UI, Candidate Experience, Operations",
     span: "wide",
     ratio: "aspect-[4/3]",
   },

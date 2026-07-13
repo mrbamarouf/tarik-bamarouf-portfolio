@@ -16,6 +16,10 @@ dist-ssr
 .tanstack/**
 .nitro
 *.local
+coverage/
+playwright-report/
+test-results/
+screenshots/
 
 # Wrangler / Cloudflare
 .wrangler/
@@ -31,7 +35,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-*.zip
-*.zip
-*.zip
 *.zip

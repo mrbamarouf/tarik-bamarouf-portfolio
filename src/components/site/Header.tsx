@@ -66,6 +66,8 @@ export function Header() {
   const { language, toggleLanguage } = useLanguage();
   const t = siteCopy[language];
   const lastScrollY = useRef(0);
+  const mobileMenuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const [atTop, setAtTop] = useState(true);
   const [heroVisible, setHeroVisible] = useState(true);
   const [showChrome, setShowChrome] = useState(true);
@@ -153,6 +155,27 @@ export function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return undefined;
+
+    const firstMenuItem = mobileMenuRef.current?.querySelector<HTMLElement>("a, button");
+    const focusFrame = window.requestAnimationFrame(() => firstMenuItem?.focus());
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      unlockMobileMenuScroll();
+      setOpen(false);
+      window.requestAnimationFrame(() => mobileMenuButtonRef.current?.focus());
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
+
   const closeMobileMenu = () => {
     unlockMobileMenuScroll();
     setOpen(false);
@@ -203,7 +226,9 @@ export function Header() {
             alt="Tarik Bamarouf"
             decoding="async"
             className={`h-auto drop-shadow-[0_8px_24px_oklch(0.72_0.09_70/.14)] transition-all duration-700 ease-out group-hover:opacity-100 group-hover:brightness-125 ${
-              chromeVisible ? "w-[142px] opacity-100 md:w-[178px]" : "w-[132px] opacity-0 md:w-[162px]"
+              chromeVisible
+                ? "w-[142px] opacity-100 md:w-[178px]"
+                : "w-[132px] opacity-0 md:w-[162px]"
             }`}
           />
         </Link>
@@ -253,6 +278,7 @@ export function Header() {
         </button>
 
         <button
+          ref={mobileMenuButtonRef}
           className={`justify-self-end text-[10px] uppercase tracking-editorial text-bronze transition-all duration-700 ease-out md:hidden ${
             chromeVisible
               ? "pointer-events-auto translate-y-0 opacity-100 blur-0"
@@ -269,6 +295,7 @@ export function Header() {
 
       {open && chromeVisible && (
         <div
+          ref={mobileMenuRef}
           id="mobile-navigation"
           className="site-header__mobile-menu mt-5 border-t border-bronze/10 bg-background/95 backdrop-blur-md md:hidden"
         >

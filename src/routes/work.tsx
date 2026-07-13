@@ -12,22 +12,36 @@ import {
 import { portfolioProjects } from "@/lib/portfolio-projects";
 
 export const Route = createFileRoute("/work")({
-  head: () => ({
-    meta: [
-      { title: "Work | Tarik Bamarouf" },
-      {
-        name: "description",
-        content:
-          "Selected website design, UX/UI, brand identity, and front-end experiences by Tarik Bamarouf.",
-      },
-      { property: "og:title", content: "Work | Tarik Bamarouf" },
-      {
-        property: "og:description",
-        content:
-          "An editorial archive of premium websites, digital brand presence, UX/UI, and creative front-end work.",
-      },
-    ],
-  }),
+  head: ({ matches }) => {
+    if (matches.at(-1)?.routeId !== "/work") {
+      return {};
+    }
+
+    return {
+      meta: [
+        { title: "Work | Tarik Bamarouf" },
+        {
+          name: "description",
+          content:
+            "Selected website design, UX/UI, brand identity, and front-end experiences by Tarik Bamarouf.",
+        },
+        { property: "og:title", content: "Work | Tarik Bamarouf" },
+        {
+          property: "og:description",
+          content:
+            "An editorial archive of premium websites, digital brand presence, UX/UI, and creative front-end work.",
+        },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: "https://tarikbamarouf.com/work" },
+        {
+          property: "og:image",
+          content: new URL(portfolioProjects[0].img, "https://tarikbamarouf.com").href,
+        },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      links: [{ rel: "canonical", href: "https://tarikbamarouf.com/work" }],
+    };
+  },
   component: WorkPage,
 });
 
@@ -81,7 +95,7 @@ function WorkPage() {
                     <div className="work-archive__media">
                       <img
                         src={p.img}
-                        alt={p.t}
+                        alt=""
                         loading="lazy"
                         decoding="async"
                         className="work-archive__image"

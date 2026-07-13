@@ -54,7 +54,15 @@ export const Route = createFileRoute("/")({
         content:
           "Premium websites, UX/UI, brand identity direction, and creative digital experiences crafted with clarity.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://tarikbamarouf.com/" },
+      {
+        property: "og:image",
+        content: new URL(cinematicHero, "https://tarikbamarouf.com").href,
+      },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://tarikbamarouf.com/" }],
   }),
   component: Index,
 });
@@ -62,7 +70,13 @@ export const Route = createFileRoute("/")({
 const projects = portfolioProjects;
 const selectedWorkProjects = portfolioProjects;
 
-const clientLogos = [
+type ClientLogo = {
+  name: string;
+  image: string;
+  size?: "medium" | "strong" | "soft";
+};
+
+const clientLogos: ReadonlyArray<ClientLogo> = [
   { name: "JOROF", image: jorofLogo, size: "medium" },
   { name: "Pokemon SA", image: pokemonLogo, size: "strong" },
   { name: "EX Events & Exhibitions", image: exEventsLogo },
@@ -75,7 +89,7 @@ const clientLogos = [
   { name: "Circle Section", image: circleSectionLogo },
   { name: "NOORIX", image: noorixLogo, size: "medium" },
   { name: "SIP", image: sipLogo, size: "medium" },
-] as const;
+];
 
 const steps = [
   {
@@ -109,8 +123,7 @@ const serviceVisuals = [
 
 function hasFineHoverPointer() {
   return (
-    typeof window !== "undefined" &&
-    window.matchMedia("(hover: hover) and (pointer: fine)").matches
+    typeof window !== "undefined" && window.matchMedia("(hover: hover) and (pointer: fine)").matches
   );
 }
 
@@ -118,7 +131,21 @@ function isApproachMobileViewport() {
   return typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches;
 }
 
-function renderApproachHeadline(headline: typeof siteCopy.en.home.approachHeadline) {
+type ApproachHeadlineCopy = {
+  line1: string;
+  line2Before: string;
+  emphasis: string;
+  line2After: string;
+  line3: string;
+};
+
+type HeroStatementCopy = {
+  before: string;
+  emphasis: string;
+  after: string;
+};
+
+function renderApproachHeadline(headline: ApproachHeadlineCopy) {
   return (
     <>
       <span className="approach-section__headline-line">{headline.line1}</span>
@@ -127,14 +154,12 @@ function renderApproachHeadline(headline: typeof siteCopy.en.home.approachHeadli
         <span className="approach-section__headline-emphasis">{headline.emphasis}</span>
         {headline.line2After && ` ${headline.line2After}`}
       </span>
-      {headline.line3 && (
-        <span className="approach-section__headline-line">{headline.line3}</span>
-      )}
+      {headline.line3 && <span className="approach-section__headline-line">{headline.line3}</span>}
     </>
   );
 }
 
-function renderHeroStatement(statement: typeof siteCopy.en.home.heroStatement) {
+function renderHeroStatement(statement: HeroStatementCopy) {
   return (
     <>
       {statement.before}
@@ -190,12 +215,11 @@ function Index() {
   const [isApproachMobile, setIsApproachMobile] = useState(false);
   const [approachProgress, setApproachProgress] = useState(0);
   const approachStages = t.home.approachStages;
-  const approachTimelineProgress =
-    isApproachMobile
-      ? 0
-      : activeApproachIndex === null
-        ? approachProgress
-        : (activeApproachIndex + 1) / approachStages.length;
+  const approachTimelineProgress = isApproachMobile
+    ? 0
+    : activeApproachIndex === null
+      ? approachProgress
+      : (activeApproachIndex + 1) / approachStages.length;
   const approachStyle = {
     "--approach-progress": approachTimelineProgress,
   } as CSSProperties & Record<"--approach-progress", number>;
@@ -401,9 +425,7 @@ function Index() {
                     {siteCopy.en.home.heroLine2}
                     <br />
                     {siteCopy.en.home.heroLine3}{" "}
-                    <span className="italic text-bronze-soft">
-                      {siteCopy.en.home.heroEmphasis}
-                    </span>
+                    <span className="italic text-bronze-soft">{siteCopy.en.home.heroEmphasis}</span>
                     <br />
                     {siteCopy.en.home.heroLine4}
                   </>
@@ -493,11 +515,7 @@ function Index() {
           <div className="client-marquee__viewport" aria-label={t.home.clientsEyebrow}>
             <div className="client-marquee__track">
               {[0, 1].map((rowIndex) => (
-                <div
-                  className="client-marquee__row"
-                  key={rowIndex}
-                  aria-hidden={rowIndex === 1}
-                >
+                <div className="client-marquee__row" key={rowIndex} aria-hidden={rowIndex === 1}>
                   {clientLogos.map((logo) => (
                     <span
                       className={`client-marquee__logo client-marquee__logo--${logo.size ?? "base"}${
@@ -529,9 +547,7 @@ function Index() {
         <div className="approach-section__inner relative z-10">
           <div className="approach-section__lead">
             <h2 className="approach-section__headline font-serif font-light text-foreground">
-              <EnglishLayoutSlot
-                master={renderApproachHeadline(siteCopy.en.home.approachHeadline)}
-              >
+              <EnglishLayoutSlot master={renderApproachHeadline(siteCopy.en.home.approachHeadline)}>
                 {renderApproachHeadline(t.home.approachHeadline)}
               </EnglishLayoutSlot>
             </h2>
@@ -627,16 +643,14 @@ function Index() {
       <section className="selected-work relative overflow-hidden border-y border-border/25 bg-background py-18 md:py-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,oklch(0.72_0.09_70/.08),transparent_30%)]" />
         <div className="w-full px-6 md:px-10 lg:px-14">
-          <div className="selected-work__chapter" aria-label={`${selectedWorkCountLabel} ${t.home.selectedProjectsLabel}`}>
+          <div
+            className="selected-work__chapter"
+            aria-label={`${selectedWorkCountLabel} ${t.home.selectedProjectsLabel}`}
+          >
             <p className="selected-work__chapter-kicker">{t.home.selectedPortfolioLabel}</p>
-            <strong className="selected-work__chapter-count">
-              {selectedWorkCountLabel}
-            </strong>
+            <strong className="selected-work__chapter-count">{selectedWorkCountLabel}</strong>
             <p className="selected-work__chapter-label">{t.home.selectedProjectsLabel}</p>
-            <span
-              className="selected-work__chapter-divider"
-              aria-hidden="true"
-            >
+            <span className="selected-work__chapter-divider" aria-hidden="true">
               <span />
             </span>
           </div>
@@ -654,7 +668,7 @@ function Index() {
                 >
                   <img
                     src={p.img}
-                    alt={p.t}
+                    alt=""
                     loading="lazy"
                     decoding="async"
                     className="selected-work__image absolute inset-y-0 right-0 h-full w-full object-cover opacity-78 transition-all duration-[1400ms] ease-out group-hover:scale-[1.03] group-hover:opacity-95 md:w-[68%]"
@@ -712,13 +726,13 @@ function Index() {
         className="home-about relative overflow-hidden bg-ink py-24 md:min-h-[640px] md:py-34"
       >
         <div className="absolute inset-0">
-            <img
-              src={aboutImg}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              className="home-about__image cinematic-drift h-full w-full object-cover object-[24%_center] opacity-72 saturate-75 contrast-110"
-            />
+          <img
+            src={aboutImg}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="home-about__image cinematic-drift h-full w-full object-cover object-[24%_center] opacity-72 saturate-75 contrast-110"
+          />
           <div className="home-about__shade absolute inset-0 bg-[linear-gradient(90deg,oklch(0.035_0.006_65/.90)_0%,oklch(0.035_0.006_65/.68)_40%,oklch(0.035_0.006_65/.22)_100%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_48%,oklch(0.72_0.09_70/.20),transparent_33%),radial-gradient(circle_at_74%_34%,oklch(0.82_0.07_78/.12),transparent_28%)]" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background via-background/70 to-transparent" />
@@ -855,13 +869,25 @@ function Index() {
               return (
                 <article
                   key={step.n}
-                  aria-controls={`process-step-${step.n}`}
-                  aria-expanded={isOpen}
+                  aria-controls={isApproachMobile ? `process-step-${step.n}` : undefined}
+                  aria-expanded={isApproachMobile ? isOpen : undefined}
+                  role={isApproachMobile ? "button" : undefined}
+                  tabIndex={isApproachMobile ? 0 : undefined}
                   className={`process-card group relative overflow-hidden border border-bronze/22 bg-[linear-gradient(180deg,oklch(0.075_0.006_65),oklch(0.035_0.004_65))] shadow-[0_30px_90px_oklch(0_0_0/.32)] transition-colors duration-500 hover:border-bronze/45 ${isOpen ? "is-open" : ""}`}
-                  onClick={() => {
-                    if (!window.matchMedia("(max-width: 767px)").matches) return;
-                    setActiveProcessIndex((current) => (current === i ? null : i));
-                  }}
+                  onClick={
+                    isApproachMobile
+                      ? () => setActiveProcessIndex((current) => (current === i ? null : i))
+                      : undefined
+                  }
+                  onKeyDown={
+                    isApproachMobile
+                      ? (event) => {
+                          if (event.key !== "Enter" && event.key !== " ") return;
+                          event.preventDefault();
+                          setActiveProcessIndex((current) => (current === i ? null : i));
+                        }
+                      : undefined
+                  }
                 >
                   <div className="process-card__media relative h-56 overflow-hidden border-b border-bronze/16 md:h-64 lg:h-72">
                     <img

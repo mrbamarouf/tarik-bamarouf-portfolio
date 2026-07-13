@@ -20,7 +20,11 @@ export const Route = createFileRoute("/contact")({
         content:
           "Start a direct conversation about your website, UX/UI, brand presence, or creative digital experience.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://tarikbamarouf.com/contact" },
+      { name: "twitter:card", content: "summary" },
     ],
+    links: [{ rel: "canonical", href: "https://tarikbamarouf.com/contact" }],
   }),
   component: ContactPage,
 });

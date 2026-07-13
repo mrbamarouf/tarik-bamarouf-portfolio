@@ -17,12 +17,8 @@ const sitemapHeadersRoute = {
 
 const config = JSON.parse(await readFile(configPath, "utf8"));
 const routes = Array.isArray(config.routes) ? config.routes : [];
-const routesWithoutSitemap = routes.filter(
-  (route) => route?.src !== sitemapHeadersRoute.src,
-);
-const filesystemIndex = routesWithoutSitemap.findIndex(
-  (route) => route?.handle === "filesystem",
-);
+const routesWithoutSitemap = routes.filter((route) => route?.src !== sitemapHeadersRoute.src);
+const filesystemIndex = routesWithoutSitemap.findIndex((route) => route?.handle === "filesystem");
 
 if (filesystemIndex === -1) {
   config.routes = [sitemapHeadersRoute, ...routesWithoutSitemap];

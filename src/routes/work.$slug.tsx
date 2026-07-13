@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
 import {
@@ -12,7 +12,7 @@ import {
 import mahnImg from "@/assets/projects/mahn.webp";
 import lilyImg from "@/assets/projects/lily.webp";
 
-import maisonElanHero from "@/assets/projects/maison-elan/01-hero-couture-experience.png";
+import coutureExperienceHero from "@/assets/projects/couture-experience/01-hero-couture-experience.png";
 import tartaHero from "@/assets/projects/tarta-de-amor/01-hero.webp";
 import tartaOrderExperience from "@/assets/projects/tarta-de-amor/02-order-experience.webp";
 import tartaChocolateSauce from "@/assets/projects/tarta-de-amor/03-chocolate-sauce.webp";
@@ -20,15 +20,15 @@ import tartaPackaging from "@/assets/projects/tarta-de-amor/04-packaging-present
 import tartaMoments from "@/assets/projects/tarta-de-amor/05-made-for-moments.webp";
 import tartaPresented from "@/assets/projects/tarta-de-amor/06-presented-before-opened.webp";
 import tartaContact from "@/assets/projects/tarta-de-amor/07-contact-final.webp";
-import maisonElanCouture from "@/assets/projects/maison-elan/02-couture.webp";
-import maisonElanRtw from "@/assets/projects/maison-elan/03-rtw.webp";
-import maisonElanBridal from "@/assets/projects/maison-elan/04-bridal.webp";
-import maisonElanBridalDetails from "@/assets/projects/maison-elan/05-bridal-details.webp";
-import maisonElanJournal from "@/assets/projects/maison-elan/06-journal.webp";
-import maisonElanPress from "@/assets/projects/maison-elan/07-press.webp";
-import maisonElanMaison from "@/assets/projects/maison-elan/08-maison-presence.webp";
-import maisonElanWornBy from "@/assets/projects/maison-elan/09-worn-by.webp";
-import maisonElanEvents from "@/assets/projects/maison-elan/10-events.webp";
+import coutureExperienceCouture from "@/assets/projects/couture-experience/02-couture.webp";
+import coutureExperienceRtw from "@/assets/projects/couture-experience/03-rtw.webp";
+import coutureExperienceBridal from "@/assets/projects/couture-experience/04-bridal.webp";
+import coutureExperienceBridalDetails from "@/assets/projects/couture-experience/05-bridal-details.webp";
+import coutureExperienceJournal from "@/assets/projects/couture-experience/06-journal.webp";
+import coutureExperiencePress from "@/assets/projects/couture-experience/07-press.webp";
+import coutureExperiencePresence from "@/assets/projects/couture-experience/08-house-presence.webp";
+import coutureExperienceWornBy from "@/assets/projects/couture-experience/09-worn-by.webp";
+import coutureExperienceEvents from "@/assets/projects/couture-experience/10-events.webp";
 import lillyHero from "@/assets/projects/lilly-breeze/01-home-hero.webp";
 import lillyArrival from "@/assets/projects/lilly-breeze/02-house-arrival.webp";
 import lillyPhilosophy from "@/assets/projects/lilly-breeze/03-philosophy.webp";
@@ -152,16 +152,21 @@ type ProjectData = {
   url?: string;
 };
 
+const SITE_URL = "https://tarikbamarouf.com";
+const LEGACY_PROJECT_SLUGS: Record<string, string> = {
+  "maison-elan": "couture-experience",
+};
+
 const PROJECTS: ProjectData[] = [
   {
-    slug: "maison-elan",
-    name: "Maison Élan",
+    slug: "couture-experience",
+    name: "Couture Experience",
     category: "Luxury Couture House",
     intro:
-      "A luxury fashion maison website designed around couture, bridal, ready-to-wear, editorial storytelling, and maison presence.",
-    image: maisonElanHero,
+      "A luxury fashion house website designed around couture, bridal, ready-to-wear, editorial storytelling, and house presence.",
+    image: coutureExperienceHero,
     details: {
-      client: "Maison Élan",
+      client: "Couture Experience",
       industry: "Luxury Couture",
       services: "Website Design and Development",
       year: "2026",
@@ -169,62 +174,62 @@ const PROJECTS: ProjectData[] = [
     },
     overview: {
       challenge:
-        "Maison Élan is a luxury couture house digital experience created to present couture collections, bridal creations, ready-to-wear capsules, editorial stories, press presence, and private maison moments through a refined cinematic website.",
+        "Couture Experience presents couture collections, bridal creations, ready-to-wear capsules, editorial stories, press presence, and private house moments through a refined cinematic website.",
       approach:
         "The goal was to build a premium online presence that feels elegant, restrained, and visually memorable while allowing the brand’s collections and atmosphere to lead the experience.",
       outcome:
-        "Every chapter of the maison is composed with the same quiet authority, so the website reads as one continuous editorial experience rather than a catalogue.",
+        "Every chapter of the house is composed with the same quiet authority, so the website reads as one continuous editorial experience rather than a catalogue.",
     },
     gallery: [
       {
-        image: maisonElanCouture,
+        image: coutureExperienceCouture,
         title: "Couture World",
-        caption: "A restrained visual direction for the maison’s couture identity.",
+        caption: "A restrained visual direction for the house’s couture identity.",
       },
       {
-        image: maisonElanRtw,
+        image: coutureExperienceRtw,
         title: "Ready to Wear",
         caption:
           "A seasonal product experience designed with clarity, softness, and luxury spacing.",
       },
       {
-        image: maisonElanBridal,
+        image: coutureExperienceBridal,
         title: "Bridal Archive",
         caption: "A quiet presentation of bridal creations, craftsmanship, and detail.",
       },
       {
-        image: maisonElanBridalDetails,
+        image: coutureExperienceBridalDetails,
         title: "Bridal Details",
         caption: "Close visual storytelling for embroidery, texture, and ceremony.",
       },
       {
-        image: maisonElanJournal,
+        image: coutureExperienceJournal,
         title: "Journal",
-        caption: "Editorial storytelling built to extend the maison beyond product.",
+        caption: "Editorial storytelling built to extend the house beyond product.",
       },
       {
-        image: maisonElanPress,
+        image: coutureExperiencePress,
         title: "In The Press",
         caption: "A dedicated media presence for features, interviews, and brand visibility.",
       },
       {
-        image: maisonElanMaison,
-        title: "Maison Presence",
+        image: coutureExperiencePresence,
+        title: "House Presence",
         caption: "A cinematic presentation of runway, cultural presence, and public moments.",
       },
       {
-        image: maisonElanWornBy,
+        image: coutureExperienceWornBy,
         title: "Worn By",
-        caption: "A visual archive of the women, occasions, and figures connected to the maison.",
+        caption: "A visual archive of the women, occasions, and figures connected to the house.",
       },
       {
-        image: maisonElanEvents,
+        image: coutureExperienceEvents,
         title: "Events",
         caption: "Private gatherings and atmospheric moments presented as part of the brand world.",
       },
     ],
     reflection:
-      "The final experience positions Maison Élan as a refined luxury couture house, combining visual storytelling, collection presentation, editorial depth, and premium digital presence into one cohesive website.",
+      "The final experience positions Couture Experience as a refined luxury couture house, combining visual storytelling, collection presentation, editorial depth, and premium digital presence in one cohesive website.",
   },
   {
     slug: "tarta-de-amor",
@@ -246,16 +251,16 @@ const PROJECTS: ProjectData[] = [
   {
     slug: "mahn-platform",
     name: "Mihn",
-    category: "Digital Experience",
+    category: "Employment Platform / UX/UI Experience",
     intro:
-      "A digital experience shaped around refined interaction, intuitive navigation, and a calm website presence.",
+      "A Saudi employment and operations platform shaped around job discovery, candidate onboarding, and clear management workflows.",
     image: mahnImg,
     details: {
       client: "Mihn",
-      industry: "Digital Services",
-      services: "Brand Identity, UX/UI Design, Website Design, Front-end Experience",
+      industry: "Employment Technology",
+      services: "UX/UI Design, Candidate Experience, Operations Interface, Front-end Experience",
       year: "2026",
-      platform: "Website Experience",
+      platform: "Employment and Operations Platform",
     },
   },
   {
@@ -456,7 +461,7 @@ const PROJECTS: ProjectData[] = [
         image: circleSectionDelivery,
         title: "Delivery Experience",
         caption:
-        "The delivery section turns ordering services into a branded moment with simple choices and strong orange presence.",
+          "The delivery section turns ordering services into a branded moment with simple choices and strong orange presence.",
         fit: "contain",
       },
       {
@@ -913,57 +918,57 @@ const LILLY_BREEZE_PROJECT: ProjectData = {
 const MIHN_PROJECT: ProjectData = {
   slug: "mahn-platform",
   name: "Mihn",
-  category: "Digital Experience",
+  category: "Employment Platform / UX/UI Experience",
   intro:
-    "A digital experience shaped around refined interaction, intuitive navigation, and a calm website presence.",
+    "A Saudi employment and operations platform shaped around job discovery, candidate onboarding, and clear management workflows.",
   image: mihnHero,
   details: {
     client: "Mihn",
-    industry: "Digital Services",
-    services: "Brand Identity, UX/UI Design, Website Design, Front-end Experience",
+    industry: "Employment Technology",
+    services: "UX/UI Design, Candidate Experience, Operations Interface, Front-end Experience",
     year: "2026",
-    platform: "Website Experience",
+    platform: "Employment and Operations Platform",
   },
   overview: {
     challenge:
-      "Mihn needed to feel clear, calm, and refined from the first interaction, with a website experience that presents the brand and guides users through key interface moments.",
+      "Mihn needed to connect job seekers with opportunities while keeping profiles, applications, reviews, onboarding, and operational management clear across one platform.",
     approach:
-      "The experience was structured around a cinematic home entry, a clear introduction, focused interface views, and a streamlined access journey.",
+      "The experience was organized around job discovery, candidate profiles, application review, candidate and operator dashboards, management workflows, and a direct authentication journey.",
     outcome:
-      "The final presentation connects brand atmosphere with practical interface surfaces, showing Mihn as a clear and composed digital experience.",
+      "The final interface gives candidates and operating teams distinct, readable paths through the employment experience.",
   },
   gallery: [
     {
       image: mihnIntro,
       title: "Introduction",
       caption:
-        "A visual introduction establishing the brand atmosphere, positioning, and digital identity.",
+        "A clear introduction to the employment platform, its audience, and the candidate journey.",
     },
     {
       image: mihnDashOne,
-      title: "Dashboard Overview",
+      title: "Candidate Dashboard",
       caption:
-        "Key interface views presented with clean structure, calm hierarchy, and refined visual rhythm.",
+        "Profile, job discovery, applications, and onboarding actions organized in one candidate view.",
     },
     {
       image: mihnDashTwo,
-      title: "Management Interface",
-      caption: "Administrative workflows designed for efficiency, clarity, and ease of use.",
+      title: "Operator and Admin Dashboard",
+      caption: "Candidate review and management workflows structured for daily operations.",
     },
     {
       image: mihnDashThree,
-      title: "Interface Details",
-      caption: "Functional interface moments built around usability, clarity, and visual calm.",
+      title: "Platform Operations",
+      caption: "Operational views for managing candidates, roles, reviews, and platform activity.",
     },
     {
       image: mihnSignIn,
       title: "Authentication Experience",
       caption:
-        "A streamlined access flow designed to provide secure and frictionless platform access.",
+        "A direct sign-in flow that guides candidates and operating teams to the right workspace.",
     },
   ],
   reflection:
-    "The final experience positions Mihn through clear website design, focused UX/UI, and a polished digital brand presence.",
+    "Mihn brings candidate experience, employment discovery, onboarding, and operational management into one focused UX/UI system.",
 };
 
 const NOORIX_PROJECT: ProjectData = {
@@ -1387,30 +1392,46 @@ const BY_SLUG: Record<string, ProjectData> = {
 
 const PROJECT_SEQUENCE = PROJECTS.map((p) => p.slug);
 
-function getNextProject(currentSlug: string) {
+function getNextProject(currentSlug: string): ProjectData {
   const idx = PROJECT_SEQUENCE.indexOf(currentSlug);
   const nextSlug = PROJECT_SEQUENCE[(idx + 1) % PROJECT_SEQUENCE.length];
-  return BY_SLUG[nextSlug];
+  return BY_SLUG[nextSlug] ?? PROJECTS[0];
 }
 
 export const Route = createFileRoute("/work/$slug")({
   head: ({ params }) => {
-    const p = BY_SLUG[params.slug];
+    const canonicalSlug = LEGACY_PROJECT_SLUGS[params.slug] ?? params.slug;
+    const p = BY_SLUG[canonicalSlug];
     const title = p ? `${p.name} | Tarik Bamarouf` : "Project | Tarik Bamarouf";
     const desc = p?.intro ?? "Selected project by Tarik Bamarouf.";
+    const canonicalUrl = `${SITE_URL}/work/${canonicalSlug}`;
     return {
       meta: [
         { title },
         { name: "description", content: desc },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
-        ...(p ? [{ property: "og:image", content: p.image }] : []),
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: canonicalUrl },
+        { name: "twitter:card", content: "summary_large_image" },
+        ...(p ? [{ property: "og:image", content: new URL(p.image, SITE_URL).href }] : []),
       ],
+      links: p ? [{ rel: "canonical", href: canonicalUrl }] : [],
     };
   },
   loader: ({ params }) => {
-    if (!BY_SLUG[params.slug]) throw notFound();
-    return BY_SLUG[params.slug];
+    const legacyTarget = LEGACY_PROJECT_SLUGS[params.slug];
+    if (legacyTarget) {
+      throw redirect({
+        to: "/work/$slug",
+        params: { slug: legacyTarget },
+        statusCode: 301,
+      });
+    }
+
+    const project = BY_SLUG[params.slug];
+    if (!project) throw notFound();
+    return project as ProjectData;
   },
   component: ProjectDetail,
   notFoundComponent: ProjectNotFound,
@@ -1451,10 +1472,10 @@ function ProjectError() {
 function ProjectDetail() {
   const { language } = useLanguage();
   const labels = siteCopy[language].project;
-  const rawProject = Route.useLoaderData();
-  const project = localizeProject(rawProject, language);
-  const masterProject = localizeProject(rawProject, "en");
-  const next = localizeProject(getNextProject(rawProject.slug), language);
+  const rawProject = Route.useLoaderData() as ProjectData;
+  const project = localizeProject<ProjectData>(rawProject, language);
+  const masterProject = localizeProject<ProjectData>(rawProject, "en");
+  const next = localizeProject<ProjectData>(getNextProject(rawProject.slug), language);
 
   const overview = project.overview ?? {
     challenge:
@@ -1476,7 +1497,11 @@ function ProjectDetail() {
     outcome: "Final outcomes and reflections will be documented here.",
   };
   const detailItems = [
-    { key: labels.client, value: project.details.client, masterValue: masterProject.details.client },
+    {
+      key: labels.client,
+      value: project.details.client,
+      masterValue: masterProject.details.client,
+    },
     {
       key: labels.industry,
       value: project.details.industry,
@@ -1493,7 +1518,11 @@ function ProjectDetail() {
       value: formatLocalizedNumber(project.details.year, language),
       masterValue: masterProject.details.year,
     },
-    { key: labels.type, value: project.details.platform, masterValue: masterProject.details.platform },
+    {
+      key: labels.type,
+      value: project.details.platform,
+      masterValue: masterProject.details.platform,
+    },
   ];
   const reflection =
     project.reflection ??
@@ -1531,9 +1560,7 @@ function ProjectDetail() {
               {project.name}
             </h1>
             <p className="mt-5 max-w-xl text-foreground/75 font-light">
-              <EnglishLayoutSlot master={masterProject.intro}>
-                {project.intro}
-              </EnglishLayoutSlot>
+              <EnglishLayoutSlot master={masterProject.intro}>{project.intro}</EnglishLayoutSlot>
             </p>
           </div>
         </div>
@@ -1600,37 +1627,37 @@ function ProjectDetail() {
                 const imageFitClass = g.fit === "contain" ? "object-contain" : "object-cover";
 
                 return (
-                <figure key={g.title} className="space-y-5">
-                  <div
-                    className={`relative aspect-[16/9] overflow-hidden ring-1 ring-bronze/10 ${g.fit === "contain" ? "bg-background" : ""}`}
-                  >
-                    <img
-                      src={g.image}
-                      alt={g.title}
-                      className={`absolute inset-0 w-full h-full ${imageFitClass}`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <figcaption className="project-detail__figure-caption grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
-                    <div className="md:col-span-4">
-                      <p className="text-[10px] tracking-luxury uppercase text-bronze">
-                        {labels.section}{" "}
-                        {formatLocalizedNumber(i + 1, language, { minimumIntegerDigits: 2 })}
-                      </p>
-                      <h3 className="mt-2 font-serif text-2xl md:text-3xl italic font-light">
-                        <EnglishLayoutSlot master={masterGalleryItem?.title ?? g.title}>
-                          {g.title}
-                        </EnglishLayoutSlot>
-                      </h3>
+                  <figure key={g.title} className="space-y-5">
+                    <div
+                      className={`relative aspect-[16/9] overflow-hidden ring-1 ring-bronze/10 ${g.fit === "contain" ? "bg-background" : ""}`}
+                    >
+                      <img
+                        src={g.image}
+                        alt={g.title}
+                        className={`absolute inset-0 w-full h-full ${imageFitClass}`}
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
-                    <p className="md:col-span-8 font-serif text-lg md:text-xl leading-[1.4] font-light text-foreground/80">
-                      <EnglishLayoutSlot master={masterGalleryItem?.caption ?? g.caption}>
-                        {g.caption}
-                      </EnglishLayoutSlot>
-                    </p>
-                  </figcaption>
-                </figure>
+                    <figcaption className="project-detail__figure-caption grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
+                      <div className="md:col-span-4">
+                        <p className="text-[10px] tracking-luxury uppercase text-bronze">
+                          {labels.section}{" "}
+                          {formatLocalizedNumber(i + 1, language, { minimumIntegerDigits: 2 })}
+                        </p>
+                        <h3 className="mt-2 font-serif text-2xl md:text-3xl italic font-light">
+                          <EnglishLayoutSlot master={masterGalleryItem?.title ?? g.title}>
+                            {g.title}
+                          </EnglishLayoutSlot>
+                        </h3>
+                      </div>
+                      <p className="md:col-span-8 font-serif text-lg md:text-xl leading-[1.4] font-light text-foreground/80">
+                        <EnglishLayoutSlot master={masterGalleryItem?.caption ?? g.caption}>
+                          {g.caption}
+                        </EnglishLayoutSlot>
+                      </p>
+                    </figcaption>
+                  </figure>
                 );
               })}
             </div>

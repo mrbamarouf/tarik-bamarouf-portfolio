@@ -18,7 +18,7 @@ import { BidiText, LanguageProvider, siteCopy, useLanguage } from "@/lib/languag
 
 const MOBILE_INTRO_MEDIA_QUERY = "(max-width: 767px)";
 const DESKTOP_INTRO_MEDIA_QUERY = "(min-width: 768px)";
-const MOBILE_INTRO_CACHE_VERSION = "intro-mobile-v3";
+const MOBILE_INTRO_CACHE_VERSION = "intro-mobile-v4";
 const DESKTOP_INTRO_CACHE_VERSION = "intro-desktop-v3";
 const mobileIntroVideoSrc = `${mobileIntroVideo}?v=${MOBILE_INTRO_CACHE_VERSION}`;
 const desktopIntroVideoSrc = `${introVideo}?v=${DESKTOP_INTRO_CACHE_VERSION}`;
@@ -28,8 +28,24 @@ const googleAnalyticsInitScript = `window.dataLayer = window.dataLayer || [];
 window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
 window.gtag('js', new Date());
 window.gtag('config', '${GOOGLE_ANALYTICS_MEASUREMENT_ID}');`;
+const structuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Tarik Bamarouf",
+  url: "https://tarikbamarouf.com",
+  email: "tarikbamarouf@gmail.com",
+  description:
+    "Independent digital studio focused on premium website design, UX/UI, brand identity direction, and front-end craft.",
+  founder: {
+    "@type": "Person",
+    name: "Tarik Bamarouf",
+    url: "https://tarikbamarouf.com/about",
+  },
+  areaServed: "Worldwide",
+});
 const INTRO_FALLBACK_MS = 12_500;
 const INTRO_INTERNAL_NAVIGATION_KEY = "tarik-bamarouf-intro-internal-navigation";
+const INTRO_INTERNAL_NAVIGATION_SKIP_TTL_MS = 10_000;
 let introHasPlayedThisPageLoad = false;
 let pendingInternalIntroSkipHref: string | null = null;
 
@@ -88,10 +104,7 @@ function logMobileIntroTopElements() {
         .map((element) => ({
           tag: element.tagName.toLowerCase(),
           id: element.id,
-          className:
-            typeof element.className === "string"
-              ? element.className
-              : element.className.baseVal,
+          className: element.getAttribute("class") ?? "",
         }));
 
       console.debug("[intro-cleanup] elementsFromPoint(center)", elements);
@@ -103,17 +116,28 @@ function consumeInternalNavigationIntroSkip() {
   if (typeof window === "undefined") return false;
 
   try {
-    const shouldSkip = window.sessionStorage.getItem(INTRO_INTERNAL_NAVIGATION_KEY) === "1";
+    const storedSkip = window.sessionStorage.getItem(INTRO_INTERNAL_NAVIGATION_KEY);
     window.sessionStorage.removeItem(INTRO_INTERNAL_NAVIGATION_KEY);
-    return shouldSkip;
+
+    if (!storedSkip) return false;
+
+    const skip = JSON.parse(storedSkip) as { href?: string; storedAt?: number };
+    if (skip.href !== window.location.href || typeof skip.storedAt !== "number") {
+      return false;
+    }
+
+    return Date.now() - skip.storedAt < INTRO_INTERNAL_NAVIGATION_SKIP_TTL_MS;
   } catch {
     return false;
   }
 }
 
-function storeInternalNavigationIntroSkip() {
+function storeInternalNavigationIntroSkip(href: string) {
   try {
-    window.sessionStorage.setItem(INTRO_INTERNAL_NAVIGATION_KEY, "1");
+    window.sessionStorage.setItem(
+      INTRO_INTERNAL_NAVIGATION_KEY,
+      JSON.stringify({ href, storedAt: Date.now() }),
+    );
   } catch {
     // If storage is unavailable, the intro still falls back to normal page-load behavior.
   }
@@ -211,24 +235,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Tarik Bamarouf | Digital Experiences for Ambitious Brands" },
+      { title: "Tarik Bamarouf | Independent Digital Studio" },
       {
         name: "description",
         content:
-          "Premium websites, e-commerce stores, and digital experiences crafted for modern brands.",
+          "Premium website design, UX/UI, brand identity direction, and front-end experiences for ambitious brands.",
       },
       { name: "author", content: "Tarik Bamarouf" },
       {
         property: "og:title",
-        content: "Tarik Bamarouf | Digital Experiences for Ambitious Brands",
+        content: "Tarik Bamarouf | Independent Digital Studio",
       },
       {
         property: "og:description",
         content:
-          "Premium websites, e-commerce stores, and digital experiences crafted for modern brands.",
+          "Premium website design, UX/UI, brand identity direction, and front-end experiences for ambitious brands.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:site_name", content: "Tarik Bamarouf" },
+      { name: "robots", content: "index,follow,max-image-preview:large" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
@@ -251,7 +277,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   const internalNavigationIntroCleanup = `try{var n=performance.getEntriesByType("navigation")[0];var r=n&&n.type==="reload";var k=${JSON.stringify(
     INTRO_INTERNAL_NAVIGATION_KEY,
-  )};var c=function(){var p=["overflow","overflow-x","overflow-y","position","top","right","bottom","left","height","width","touch-action","overscroll-behavior"];document.documentElement.classList.remove("intro-scroll-lock");document.body.classList.remove("intro-scroll-lock");p.forEach(function(s){document.documentElement.style.removeProperty(s);document.body.style.removeProperty(s);});};if(r){window.sessionStorage.removeItem(k)}else if(window.sessionStorage.getItem(k)==="1"){document.querySelector(".intro-overlay")?.remove();c();}}catch{}`;
+  )};var ttl=${INTRO_INTERNAL_NAVIGATION_SKIP_TTL_MS};var c=function(){var p=["overflow","overflow-x","overflow-y","position","top","right","bottom","left","height","width","touch-action","overscroll-behavior"];document.documentElement.classList.remove("intro-scroll-lock");document.body.classList.remove("intro-scroll-lock");p.forEach(function(s){document.documentElement.style.removeProperty(s);document.body.style.removeProperty(s);});};if(r){window.sessionStorage.removeItem(k)}else{var raw=window.sessionStorage.getItem(k);if(raw){var skip=JSON.parse(raw);var ok=skip&&skip.href===window.location.href&&typeof skip.storedAt==="number"&&Date.now()-skip.storedAt<ttl;window.sessionStorage.removeItem(k);if(ok){document.querySelector(".intro-overlay")?.remove();c();}}}}catch{}`;
 
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
@@ -261,6 +287,11 @@ function RootShell({ children }: { children: ReactNode }) {
         <script
           id="google-analytics-init"
           dangerouslySetInnerHTML={{ __html: googleAnalyticsInitScript }}
+        />
+        <script
+          id="site-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: structuredData }}
         />
       </head>
       <body>
@@ -318,7 +349,14 @@ function IntroOverlay() {
 
   useEffect(() => {
     const markInternalNavigation = (event: MouseEvent) => {
-      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
         return;
       }
 
@@ -340,7 +378,7 @@ function IntroOverlay() {
 
     const persistInternalNavigation = () => {
       if (pendingInternalIntroSkipHref && window.location.href !== pendingInternalIntroSkipHref) {
-        storeInternalNavigationIntroSkip();
+        storeInternalNavigationIntroSkip(pendingInternalIntroSkipHref);
       }
     };
 
@@ -403,6 +441,15 @@ function IntroOverlay() {
 
     const isMobileIntro = isMobileIntroViewport();
     const introSrc = isMobileIntro ? mobileIntroVideoSrc : desktopIntroVideoSrc;
+
+    if (isMobileIntro) {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      video.setAttribute("muted", "");
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
+    }
 
     const setIntroStartTime = () => {
       try {
