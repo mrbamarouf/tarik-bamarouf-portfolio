@@ -3580,6 +3580,12 @@ body[data-lang="ar"] :where(*:not(.english-layout-slot__master, .english-layout-
   text-wrap: pretty;
 }
 
+@media (min-width: 1200px) {
+  body[data-lang="en"] .approach-section__headline {
+    transform: translate3d(clamp(2.25rem, 3.8vw, 4.6rem), 0, 0);
+  }
+}
+
 .approach-section__experience {
   position: relative;
   display: grid;
