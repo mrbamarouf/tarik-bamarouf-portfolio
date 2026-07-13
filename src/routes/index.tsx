@@ -409,18 +409,29 @@ function Index() {
                   </>
                 }
               >
-                {t.home.heroLine1}
-                <br />
-                {t.home.heroLine2}
-                <br />
-                {t.home.heroLine3}{" "}
-                <span className="italic text-bronze-soft">{t.home.heroEmphasis}</span>
-                {t.home.heroLine4 && (
-                  <>
-                    <br />
-                    {t.home.heroLine4}
-                  </>
-                )}
+                <span className="home-hero__headline-default">
+                  {t.home.heroLine1}
+                  <br />
+                  {t.home.heroLine2}
+                  <br />
+                  {t.home.heroLine3}{" "}
+                  <span className="italic text-bronze-soft">{t.home.heroEmphasis}</span>
+                  {t.home.heroLine4 && (
+                    <>
+                      <br />
+                      {t.home.heroLine4}
+                    </>
+                  )}
+                </span>
+                <span className="home-hero__headline-ar-mobile">
+                  <span>
+                    {t.home.heroLine1} {t.home.heroLine2}
+                  </span>
+                  <span>
+                    {t.home.heroLine3}{" "}
+                    <span className="italic text-bronze-soft">{t.home.heroEmphasis}</span>
+                  </span>
+                </span>
               </EnglishLayoutSlot>
             </h1>
             <p className="home-hero__statement reveal reveal-delay-2 mt-8 max-w-sm text-sm font-light leading-7 text-foreground/76 md:text-base">
