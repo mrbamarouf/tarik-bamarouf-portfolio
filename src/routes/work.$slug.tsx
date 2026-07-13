@@ -246,39 +246,39 @@ const PROJECTS: ProjectData[] = [
   {
     slug: "mahn-platform",
     name: "Mihn",
-    category: "Digital Platform",
+    category: "Digital Experience",
     intro:
-      "A digital platform designed around refined interaction, intuitive navigation, and a modern product experience.",
+      "A digital experience shaped around refined interaction, intuitive navigation, and a calm website presence.",
     image: mahnImg,
     details: {
       client: "Mihn",
-      industry: "Technology",
-      services: "Brand Identity, User Experience Design, Product Design and Development",
+      industry: "Digital Services",
+      services: "Brand Identity, UX/UI Design, Website Design, Front-end Experience",
       year: "2026",
-      platform: "Digital Platform",
+      platform: "Website Experience",
     },
   },
   {
     slug: "norx-paints",
     name: "NOORIX",
-    category: "Brand Identity and Digital Experience",
+    category: "Brand Identity and Website Experience",
     intro:
-      "A complete brand identity and digital experience created around strategic positioning, visual presence, and a cohesive customer journey.",
+      "A visual identity and website experience shaped around premium presence, color, and customer trust.",
     image: noorixOrigin,
     details: {
       client: "NOORIX",
-      industry: "Business and Technology",
-      services: "Naming, Brand Strategy, Brand Identity, Website Design and Development",
+      industry: "Interiors and Coatings",
+      services: "Naming, Brand Identity, Visual Direction, Website Design and Front-end Craft",
       year: "2026",
-      platform: "Brand Identity and Digital Experience",
+      platform: "Brand Identity and Website Experience",
     },
   },
   {
     slug: "pikmon-store",
     name: "Pokémon SA",
-    category: "Collectibles Commerce Platform",
+    category: "Collectibles E-Commerce Experience",
     intro:
-      "A complete Pokémon-inspired commerce ecosystem designed from the ground up, combining collectibles, merchandise, customization, community engagement, and immersive digital experiences.",
+      "A Pokémon-inspired e-commerce experience for collectors, merchandise, customization, and playful brand moments.",
     image: pokemonHero,
     details: {
       client: "Pokémon SA",
@@ -286,7 +286,7 @@ const PROJECTS: ProjectData[] = [
       services:
         "Brand Creation, Naming, Brand Strategy, Visual Identity, Logo Design, User Experience Design, Product Experience and Website Development",
       year: "2026",
-      platform: "Commerce Platform",
+      platform: "E-Commerce Website",
     },
   },
   {
@@ -322,7 +322,7 @@ const PROJECTS: ProjectData[] = [
   {
     slug: "jorof",
     name: "JOROF",
-    category: "Brand Identity, Creative Direction, User Experience, Website Design and Development",
+    category: "Brand Identity, Creative Direction, UX/UI, Website Design",
     intro:
       "A Saudi bottled water brand shaped into a complete digital identity and website experience around clarity, trust, quality, and daily reliability.",
     image: jorofHero,
@@ -330,7 +330,7 @@ const PROJECTS: ProjectData[] = [
       client: "JOROF",
       industry: "Bottled Water",
       services:
-        "Creative Direction, Visual Identity Development, Brand System, Color Strategy, User Experience Design, Website Design, Frontend Experience Planning",
+        "Creative Direction, Visual Identity, UX/UI Design, Website Design, Front-end Experience",
       year: "2026",
       platform: "Brand Identity and Website Experience",
     },
@@ -362,7 +362,7 @@ const PROJECTS: ProjectData[] = [
       client: "Circle Section",
       industry: "Restaurant / Smash Burger",
       services:
-        "Brand Positioning, UX Strategy, User Experience, UI Design, Content Direction, Information Architecture, Responsive Design, Front-end Implementation, Menu Experience, Motion, Performance Optimization",
+        "Brand Positioning, UX/UI Design, Content Direction, Website Design, Front-end Implementation, Menu Experience, Motion, Performance Optimization",
       year: "2026",
       platform: "Restaurant Brand Website",
     },
@@ -370,7 +370,7 @@ const PROJECTS: ProjectData[] = [
       challenge:
         "Circle Section is a premium smash burger restaurant in Jeddah. The objective was to transform the restaurant into a premium digital experience while preserving the personality of the brand.",
       approach:
-        "The project included the complete digital experience from strategy to execution, covering brand positioning, UX strategy, user experience, UI design, content direction, information architecture, responsive design, front-end implementation, menu experience, motion, and performance optimization.",
+        "The work covered brand positioning, UX/UI, content direction, responsive website design, front-end implementation, menu experience, motion, and performance refinement.",
       outcome:
         "The final experience turns the restaurant into a polished digital brand presence, connecting menu discovery, brand storytelling, mobile readiness, and clear contact moments into one cohesive journey.",
     },
@@ -456,7 +456,7 @@ const PROJECTS: ProjectData[] = [
         image: circleSectionDelivery,
         title: "Delivery Experience",
         caption:
-          "The delivery section turns ordering platforms into a branded moment with simple choices and strong orange presence.",
+        "The delivery section turns ordering services into a branded moment with simple choices and strong orange presence.",
         fit: "contain",
       },
       {
@@ -481,7 +481,7 @@ const PROJECTS: ProjectData[] = [
     slug: "opal-stones",
     name: "OPAL STONES",
     category:
-      "Luxury Brand Identity, UX Strategy, UI Design, Website Design, Front-end Development, Content Direction",
+      "Luxury Brand Identity, UX/UI Design, Website Design, Front-end Craft, Content Direction",
     intro:
       "OPAL STONES is a contemporary Saudi fine jewellery maison focused on timeless craftsmanship and bespoke pieces.",
     image: opalStonesHero,
@@ -489,7 +489,7 @@ const PROJECTS: ProjectData[] = [
       client: "OPAL STONES",
       industry: "Fine Jewellery / Luxury Maison, Saudi Arabia",
       services:
-        "Brand Direction, UX Strategy, UI Design, Content Direction, Editorial Experience, Responsive Design, Front-end Development",
+        "Brand Direction, UX/UI Design, Content Direction, Editorial Experience, Responsive Design, Front-end Craft",
       year: "2026",
       platform: "Luxury Maison Website",
     },
@@ -572,33 +572,32 @@ const PROJECTS: ProjectData[] = [
   {
     slug: "ex-events-exhibitions",
     name: "EX Events & Exhibitions",
-    category:
-      "Digital Strategy, UX Strategy, UX/UI Design, Website Design, Front-end Development, Content Direction",
+    category: "UX/UI Design, Website Design, Brand Presence, Front-end Craft",
     intro:
-      "EX Events & Exhibitions is a Saudi events and exhibitions company specializing in operational excellence, supervision, planning, protocol, visitor experience, and on-site execution.",
+      "A Saudi events and exhibitions brand shaped into a premium website with clear service storytelling and a confident digital presence.",
     image: exEventsHero,
     details: {
       client: "EX Events & Exhibitions",
-      industry: "Events, Exhibitions, Operations / Saudi Arabia",
+      industry: "Events and Exhibitions / Saudi Arabia",
       services:
-        "Digital Strategy, UX Strategy, Information Architecture, UX/UI Design, Content Direction, Responsive Design, Motion Direction, Front-end Development",
+        "UX/UI Design, Website Design, Content Direction, Responsive Design, Motion Direction, Front-end Craft",
       year: "2026",
       platform: "Events and Exhibitions Website",
     },
     overview: {
       challenge:
-        "EX Events & Exhibitions is a Saudi events and exhibitions company specializing in operational excellence, supervision, planning, protocol, visitor experience, and on-site execution.",
+        "EX Events & Exhibitions needed a website that could express trust, scale, service clarity, and the energy behind major events without feeling crowded.",
       approach:
-        "The project focused on transforming a traditional corporate presence into a premium digital experience that reflects the company's professionalism and large-scale operational capabilities.",
+        "The work shaped the brand into a polished digital presence through clear UX, refined interface design, cinematic imagery, concise content, and front-end craft.",
       outcome:
-        "The final website brings strategy, information architecture, interface design, responsive layouts, content direction, and front-end development together into a clear digital presence for events and exhibition operations.",
+        "The final website presents EX with a confident visual rhythm, clear service chapters, responsive layouts, and a direct path for new inquiries.",
     },
     gallery: [
       {
         image: exEventsHero,
         title: "Hero and Brand Entry",
         caption:
-          "The opening visual introduces EX through a cinematic command-room atmosphere, linking the brand to supervision, control, and operational readiness.",
+          "The opening visual introduces EX through a cinematic command-room atmosphere, linking the brand to precision, scale, and readiness.",
         fit: "contain",
       },
       {
@@ -610,30 +609,30 @@ const PROJECTS: ProjectData[] = [
       },
       {
         image: exOperationsOverview,
-        title: "Operations Overview",
+        title: "Service Overview",
         caption:
-          "A compact operations section presents experience, VIP protocol, media, exhibitions, and events as a structured capability system.",
+          "A compact service section presents experience, VIP protocol, media, exhibitions, and events with clear hierarchy.",
         fit: "contain",
       },
       {
         image: exOperationsSystem,
-        title: "Operations System",
+        title: "Service Flow",
         caption:
-          "The operations system translates planning, documentation, supervision, field execution, and protocol into one organized service model.",
+          "The service flow translates planning, documentation, supervision, field execution, and protocol into one readable sequence.",
         fit: "contain",
       },
       {
         image: exCompanyValues,
         title: "Company Values",
         caption:
-          "The values chapter communicates professionalism, commitment, transparency, and efficiency with a restrained corporate interface.",
+          "The values chapter communicates professionalism, commitment, transparency, and efficiency with a restrained interface.",
         fit: "contain",
       },
       {
         image: exBehindScenes,
         title: "Behind The Scenes",
         caption:
-          "Execution imagery shows the field teams, venues, production moments, and operational scenes behind major events.",
+          "Execution imagery shows field teams, venues, production moments, and the visible discipline behind major events.",
         fit: "contain",
       },
       {
@@ -666,31 +665,30 @@ const PROJECTS: ProjectData[] = [
       },
     ],
     reflection:
-      "EX Events & Exhibitions became a premium digital presence for a Saudi events and exhibitions company, connecting operational strategy, UX structure, interface design, content direction, responsive layouts, motion direction, and front-end implementation into one professional case study.",
+      "EX Events & Exhibitions became a premium website and digital brand presence, connecting UX/UI, content direction, motion, responsive design, and front-end craft.",
   },
   {
     slug: "first-advance",
     name: "First Advance",
-    category:
-      "Brand Identity, Logo Design, UX Strategy, UX/UI Design, Website Design, Front-end Development, Content Direction",
+    category: "Brand Identity, Logo Design, UX/UI Design, Website Design, Front-end Craft",
     intro:
-      "First Advance is a Saudi business services company providing integrated administrative, operational, and real estate service solutions.",
+      "A Saudi service brand shaped through a refined logo, calm identity, clear UX/UI, and a composed website experience.",
     image: firstAdvanceHero,
     details: {
       client: "First Advance",
-      industry: "Business Services, Real Estate Services, Operations & Administrative Solutions / Saudi Arabia",
+      industry: "Service Brand / Saudi Arabia",
       services:
-        "Logo Design, Brand Direction, UX Strategy, Information Architecture, UX/UI Design, Website Design, Content Direction, Responsive Design, Front-end Development",
+        "Logo Design, Brand Direction, UX/UI Design, Website Design, Content Direction, Responsive Design, Front-end Craft",
       year: "2026",
-      platform: "Corporate Business Services Website",
+      platform: "Service Brand Website",
     },
     overview: {
       challenge:
-        "First Advance is a Saudi business services company providing integrated administrative, operational, and real estate service solutions.",
+        "First Advance needed a digital presence that could make its services feel clear, trustworthy, and easy to understand at first glance.",
       approach:
-        "The project included creating the company's new logo and building a complete digital presence from brand direction to website execution.",
+        "The work created a new logo, a calm visual direction, a clear service narrative, refined UX/UI, and a responsive website experience.",
       outcome:
-        "The website was designed to communicate trust, clarity, and professional service structure through a refined Saudi business identity.",
+        "The final website communicates trust, clarity, and service confidence through a refined Saudi identity and a clean user journey.",
     },
     gallery: [
       {
@@ -704,14 +702,14 @@ const PROJECTS: ProjectData[] = [
         image: firstAdvanceServices,
         title: "Services Structure",
         caption:
-          "The services chapter organizes real estate, operational, and business support offerings into a clear information architecture.",
+          "The services chapter organizes the offer into clear sections that make the brand easy to understand.",
         fit: "contain",
       },
       {
         image: firstAdvanceAbout,
         title: "Company Introduction",
         caption:
-          "The company introduction frames First Advance as an integrated partner for administrative, operational, and real estate services.",
+          "The company introduction frames First Advance as a composed Saudi service brand with a clear promise.",
         fit: "contain",
       },
       {
@@ -725,14 +723,14 @@ const PROJECTS: ProjectData[] = [
         image: firstAdvanceAudience,
         title: "Target Audience",
         caption:
-          "The audience section identifies the business segments First Advance serves and gives each group a clear visual context.",
+          "The audience section gives each visitor group a simple visual context and a clear reason to keep reading.",
         fit: "contain",
       },
       {
         image: firstAdvanceProcess,
         title: "Work Process",
         caption:
-          "The process section presents a structured working method from understanding client needs to execution and performance standards.",
+          "The process section presents a simple working rhythm from understanding the need to shaping the right service path.",
         fit: "contain",
       },
       {
@@ -746,19 +744,19 @@ const PROJECTS: ProjectData[] = [
         image: firstAdvancePackages,
         title: "Packages and Offers",
         caption:
-          "The packages section turns service offers into a clean comparison system with direct consultation paths.",
+          "The packages section turns service offers into an easy comparison with direct inquiry paths.",
         fit: "contain",
       },
       {
         image: firstAdvanceContact,
         title: "Contact Experience",
         caption:
-          "The closing section gives visitors a clear path to WhatsApp and email while maintaining the brand's composed corporate tone.",
+          "The closing section gives visitors a clear path to WhatsApp and email while keeping the brand calm and composed.",
         fit: "contain",
       },
     ],
     reflection:
-      "First Advance became a complete corporate digital presence for a Saudi business services company, combining logo design, brand direction, UX strategy, information architecture, interface design, content direction, responsive layouts, and front-end implementation into a calm and professional service website.",
+      "First Advance became a calm service-brand website, combining logo design, brand direction, UX/UI, content direction, responsive design, and front-end craft.",
   },
 ];
 
@@ -809,7 +807,7 @@ const TARTA_DE_AMOR_PROJECT: ProjectData = {
       image: tartaPackaging,
       title: "Packaging Presentation",
       caption:
-        "The packaging system frames the cake as a gift, with the box, sauce bottle, and product presented as one considered ritual.",
+        "The packaging frames the cake as a gift, with the box, sauce bottle, and product presented as one considered ritual.",
     },
     {
       image: tartaMoments,
@@ -831,7 +829,7 @@ const TARTA_DE_AMOR_PROJECT: ProjectData = {
     },
   ],
   reflection:
-    "Tarta De Amor brings together concept, creative direction, website design, UX/UI, development, and intro video by Tarik Bamarouf, shaping a premium digital ordering experience for a luxury cheesecake brand in Jeddah.",
+    "Tarta De Amor brings together creative direction, website design, UX/UI, front-end craft, and cinematic intro work, shaping a premium digital ordering experience for a luxury cheesecake brand in Jeddah.",
   nextSlug: "mahn-platform",
 };
 
@@ -915,37 +913,37 @@ const LILLY_BREEZE_PROJECT: ProjectData = {
 const MIHN_PROJECT: ProjectData = {
   slug: "mahn-platform",
   name: "Mihn",
-  category: "Digital Platform",
+  category: "Digital Experience",
   intro:
-    "A digital platform designed around refined interaction, intuitive navigation, and a modern product experience.",
+    "A digital experience shaped around refined interaction, intuitive navigation, and a calm website presence.",
   image: mihnHero,
   details: {
     client: "Mihn",
-    industry: "Technology",
-    services: "Brand Identity, User Experience Design, Product Design and Development",
+    industry: "Digital Services",
+    services: "Brand Identity, UX/UI Design, Website Design, Front-end Experience",
     year: "2026",
-    platform: "Digital Platform",
+    platform: "Website Experience",
   },
   overview: {
     challenge:
-      "Mihn is a digital platform designed to simplify user interaction through a refined interface, intuitive navigation, and a modern digital experience. The project focused on creating a seamless product ecosystem that combines elegant visual design with practical functionality across authentication, dashboard management, and platform operations.",
+      "Mihn needed to feel clear, calm, and refined from the first interaction, with a website experience that presents the brand and guides users through key interface moments.",
     approach:
-      "The experience was structured around a cinematic home entry, a clear introduction, focused dashboard views, operational management flows, and a streamlined authentication journey.",
+      "The experience was structured around a cinematic home entry, a clear introduction, focused interface views, and a streamlined access journey.",
     outcome:
-      "The platform presentation connects brand atmosphere with practical product surfaces, showing how Mihn moves from public positioning into everyday user and operator workflows.",
+      "The final presentation connects brand atmosphere with practical interface surfaces, showing Mihn as a clear and composed digital experience.",
   },
   gallery: [
     {
       image: mihnIntro,
       title: "Introduction",
       caption:
-        "A visual introduction establishing the platform’s atmosphere, positioning, and digital identity.",
+        "A visual introduction establishing the brand atmosphere, positioning, and digital identity.",
     },
     {
       image: mihnDashOne,
       title: "Dashboard Overview",
       caption:
-        "Core platform functionality presented through a clean and structured dashboard experience.",
+        "Key interface views presented with clean structure, calm hierarchy, and refined visual rhythm.",
     },
     {
       image: mihnDashTwo,
@@ -954,8 +952,8 @@ const MIHN_PROJECT: ProjectData = {
     },
     {
       image: mihnDashThree,
-      title: "Platform Operations",
-      caption: "System tools and operational controls built around usability and scalability.",
+      title: "Interface Details",
+      caption: "Functional interface moments built around usability, clarity, and visual calm.",
     },
     {
       image: mihnSignIn,
@@ -965,30 +963,30 @@ const MIHN_PROJECT: ProjectData = {
     },
   ],
   reflection:
-    "The final experience positions Mihn as a modern digital platform that balances functionality, usability, and visual refinement through a cohesive product ecosystem.",
+    "The final experience positions Mihn through clear website design, focused UX/UI, and a polished digital brand presence.",
 };
 
 const NOORIX_PROJECT: ProjectData = {
   slug: "norx-paints",
   name: "NOORIX",
-  category: "Brand Identity and Digital Experience",
+  category: "Brand Identity and Website Experience",
   intro:
-    "A complete brand identity and digital experience created around strategic positioning, visual presence, and a cohesive customer journey.",
+    "A visual identity and website experience shaped around premium presence, color, and customer trust.",
   image: noorixOrigin,
   details: {
     client: "NOORIX",
-    industry: "Business and Technology",
-    services: "Naming, Brand Strategy, Brand Identity, Website Design and Development",
+    industry: "Interiors and Coatings",
+    services: "Naming, Brand Identity, Visual Direction, Website Design and Front-end Craft",
     year: "2026",
-    platform: "Brand Identity and Digital Experience",
+    platform: "Brand Identity and Website Experience",
   },
   overview: {
     challenge:
-      "NOORIX is a brand created from the ground up, including naming, strategy, visual identity, digital direction, and website experience. The project focused on building a distinctive and scalable brand with a strong visual presence, clear positioning, and a cohesive identity system across every customer touchpoint.",
+      "NOORIX was created from the name outward: visual identity, digital direction, and a website experience that makes the coatings brand feel distinctive, premium, and easy to trust.",
     approach:
       "The brand world was shaped through premium editorial layouts, refined color language, product presentation, environmental applications, and a website experience that connects visual identity with customer-facing storytelling.",
     outcome:
-      "The digital presentation brings the brand system together across positioning, product identity, interiors, color exploration, transformation moments, and final brand applications.",
+      "The final website brings the identity together through product storytelling, interior atmosphere, color exploration, transformation moments, and polished brand applications.",
   },
   gallery: [
     {
@@ -1025,13 +1023,13 @@ const NOORIX_PROJECT: ProjectData = {
       image: noorixProductSpectrum,
       title: "Product Spectrum",
       caption:
-        "A product range section introduces the full premium coatings system through editorial layout and refined product presentation.",
+        "A product range section introduces premium coatings through editorial layout and refined product presentation.",
     },
     {
       image: noorixPaletteCollection,
       title: "Palette Collection",
       caption:
-        "The color library organizes signature shades, finishes, and families into a clear system for browsing and specification.",
+        "The color library organizes signature shades, finishes, and families into a calm way to explore the range.",
     },
     {
       image: noorixTrendReport,
@@ -1053,15 +1051,15 @@ const NOORIX_PROJECT: ProjectData = {
     },
   ],
   reflection:
-    "The final outcome established NOORIX as a complete brand ecosystem, combining strategic positioning, visual identity, and digital execution into a cohesive and memorable experience.",
+    "The final outcome gives NOORIX a memorable identity, a refined website, and a digital presence built around color, texture, trust, and visual clarity.",
 };
 
 const POKEMON_SA_PROJECT: ProjectData = {
   slug: "pikmon-store",
   name: "Pokémon SA",
-  category: "Collectibles Commerce Platform",
+  category: "Collectibles E-Commerce Experience",
   intro:
-    "A complete Pokémon-inspired commerce ecosystem designed from the ground up, combining collectibles, merchandise, customization, community engagement, and immersive digital experiences.",
+    "A Pokémon-inspired e-commerce experience for collectors, merchandise, customization, and playful brand moments.",
   image: pokemonHero,
   details: {
     client: "Pokémon SA",
@@ -1069,15 +1067,15 @@ const POKEMON_SA_PROJECT: ProjectData = {
     services:
       "Brand Creation, Naming, Brand Strategy, Visual Identity, Logo Design, User Experience Design, Product Experience and Website Development",
     year: "2026",
-    platform: "Commerce Platform",
+    platform: "E-Commerce Website",
   },
   overview: {
     challenge:
-      "Pokémon SA was created entirely from scratch, including brand naming, brand strategy, logo design, visual identity, user experience, interface design, product architecture, gamified experiences, merchandise customization systems, and the complete e-commerce website experience.",
+      "Pokémon SA needed to feel like a destination for collectors, not a standard online store. The work shaped the name, identity, UX/UI, product presentation, and the full e-commerce website experience.",
     approach:
-      "The goal was to build the ultimate destination for Pokémon collectors in Saudi Arabia, bringing together trading cards, sealed products, apparel, collectibles, rewards, and community-driven interactions inside a unified platform inspired by the Pokémon universe.",
+      "The design brought trading cards, sealed products, apparel, collectibles, rewards, and customization into one vivid shopping journey inspired by the Pokémon universe.",
     outcome:
-      "The project organizes commerce, customization, rewards, and rare item discovery into a single collector ecosystem designed for browsing, buying, participating, and building personal Pokémon collections.",
+      "The final website makes browsing, buying, discovery, and customization feel playful, organized, and made for collectors in Saudi Arabia.",
   },
   gallery: [
     {
@@ -1090,7 +1088,7 @@ const POKEMON_SA_PROJECT: ProjectData = {
       image: pokemonBrandExperience,
       title: "Logo and Identity",
       caption:
-        "A focused brand moment introduces the platform identity and visual language before the experience expands into products and community features.",
+        "A focused brand moment introduces the identity and visual language before the experience expands into products and community features.",
     },
     {
       image: pokemonTradingCards,
@@ -1126,7 +1124,7 @@ const POKEMON_SA_PROJECT: ProjectData = {
       image: pokemonHoodies,
       title: "Layered Apparel",
       caption:
-        "The hoodie collection expands the merchandise system with richer product presentation, sizing guidance, and premium apparel options.",
+        "The hoodie collection expands the merchandise presentation with richer product detail, sizing guidance, and premium apparel options.",
     },
     {
       image: pokemonCustomBuilder,
@@ -1138,7 +1136,7 @@ const POKEMON_SA_PROJECT: ProjectData = {
       image: pokemonCommunityGamification,
       title: "Community and Gamification",
       caption:
-        "Interactive reward mechanics and subscription prompts turn the store into a participatory platform with challenges, codes, and community touchpoints.",
+        "Reward moments and subscription prompts make the store feel participatory, with challenges, codes, and community touchpoints.",
     },
     {
       image: pokemonRareMarketplace,
@@ -1148,7 +1146,7 @@ const POKEMON_SA_PROJECT: ProjectData = {
     },
   ],
   reflection:
-    "Pokémon SA demonstrates a complete brand creation process, from naming and visual identity to user experience, commerce architecture, gamification systems, product customization tools, and platform development. The result is an immersive collector ecosystem designed for Pokémon fans and collectors in Saudi Arabia.",
+    "Pokémon SA demonstrates brand creation, UX/UI, e-commerce design, visual storytelling, customization, and front-end craft in one immersive collector website.",
 };
 
 const SIP_PROJECT: ProjectData = {
@@ -1167,9 +1165,9 @@ const SIP_PROJECT: ProjectData = {
   },
   overview: {
     challenge:
-      "SIP is a Saudi beverage brand developed from the ground up, including naming, brand identity, visual direction, digital presence, and website experience. The project focused on creating a modern and memorable beverage brand with a strong visual personality, distinctive market positioning, and a cohesive brand world across physical and digital touchpoints.",
+      "SIP is a Saudi beverage brand developed from the ground up, including naming, brand identity, visual direction, digital presence, and website experience. The work focused on a modern beverage brand with strong visual personality, clear positioning, and a memorable brand world.",
     approach:
-      "The identity system was built around bold typography, high-contrast product presentation, packaging shaped around flavor, and a dark digital environment that lets the cans, naming, and visual attitude carry the experience.",
+      "The visual identity was built around bold typography, high-contrast product presentation, packaging shaped around flavor, and a dark digital environment that lets the cans, naming, and attitude carry the experience.",
     outcome:
       "The website and brand applications present SIP as a confident Saudi beverage brand with a clear product family, a recognizable visual language, and a digital presence designed for launch and lasting recognition.",
   },
@@ -1184,7 +1182,7 @@ const SIP_PROJECT: ProjectData = {
       image: sipProductLineup,
       title: "Product Lineup",
       caption:
-        "The full beverage range is presented as a focused product system built around taste, energy, and zero-sugar options.",
+        "The full beverage range is presented as a focused product family built around taste, energy, and zero-sugar options.",
     },
     {
       image: sipZeroRange,
@@ -1202,11 +1200,11 @@ const SIP_PROJECT: ProjectData = {
       image: sipProductCards,
       title: "Product Cards",
       caption:
-        "Product cards translate the packaging system into a polished website experience for browsing the full range.",
+        "Product cards translate the packaging into a polished website experience for browsing the full range.",
     },
   ],
   reflection:
-    "The final outcome established SIP as a distinctive Saudi beverage brand with a cohesive identity system, memorable visual language, and a premium digital presence that supports lasting brand growth.",
+    "The final outcome established SIP as a distinctive Saudi beverage brand with a memorable visual language and a premium digital presence built for recognition.",
 };
 
 const JOROF_PROJECT: ProjectData = {
@@ -1220,15 +1218,15 @@ const JOROF_PROJECT: ProjectData = {
     client: "JOROF",
     industry: "Bottled Water",
     services:
-      "Creative Direction, Visual Identity Development, Brand System, Color Strategy, User Experience Design, Website Design, Frontend Experience Planning",
+      "Creative Direction, Visual Identity, UX/UI Design, Website Design, Front-end Experience",
     year: "2026",
     platform: "Brand Identity and Website Experience",
   },
   overview: {
     challenge:
-      "JOROF is a Saudi bottled water brand. The client already had the logo, and the project expanded that foundation into a complete visual direction, brand system, color strategy, digital experience, interface design, user experience structure, and full website experience.",
+      "JOROF is a Saudi bottled water brand. The logo already existed, and the work expanded it into a clear visual direction, refined UX/UI, and a complete website experience.",
     approach:
-      "The work focused on clarity, trust, quality, and daily reliability, translating the existing mark into a calm Saudi water brand with product presentation, manufacturing storytelling, quality assurance communication, and a customer acquisition journey.",
+      "The work focused on clarity, trust, quality, and daily reliability, translating the existing mark into a calm Saudi water brand with product presentation, manufacturing storytelling, and a clear inquiry path.",
     outcome:
       "The final experience presents JOROF as a clean and reliable bottled water brand, connecting origin, product range, manufacturing standards, quality controls, and focused contact moments into one cohesive website.",
   },
@@ -1249,13 +1247,13 @@ const JOROF_PROJECT: ProjectData = {
       image: jorofBrandStory,
       title: "Brand Story",
       caption:
-        "The brand story section turns the logo into a wider identity system, connecting Saudi origin, operational confidence, and daily trust.",
+        "The brand story section turns the logo into a wider identity, connecting Saudi origin, quality, and daily trust.",
     },
     {
       image: jorofProductRange,
       title: "Product Range",
       caption:
-        "The product presentation system organizes bottle formats with clean hierarchy, soft gradients, and information architecture shaped for purchase decisions.",
+        "The product presentation organizes bottle formats with clean hierarchy, soft gradients, and clear purchase cues.",
     },
     {
       image: jorofManufacturing,
@@ -1283,7 +1281,7 @@ const JOROF_PROJECT: ProjectData = {
     },
   ],
   reflection:
-    "JOROF transformed an existing logo into a complete digital brand experience through visual direction, brand system development, color strategy, product presentation, manufacturing storytelling, quality assurance communication, and a customer acquisition journey. The result is a modern Saudi water brand built around clarity, trust, quality, and daily reliability.",
+    "JOROF transformed an existing logo into a complete digital brand presence through visual direction, UX/UI, product presentation, manufacturing storytelling, and a clear inquiry journey.",
 };
 
 const PAKMAN_PROJECT: ProjectData = {
@@ -1320,7 +1318,7 @@ const PAKMAN_PROJECT: ProjectData = {
       image: pakmanProductCategories,
       title: "Product Categories",
       caption:
-        "A structured product system organizes cups, bags, boxes, labels, and food service essentials for easy browsing.",
+        "A clear product catalogue organizes cups, bags, boxes, labels, and food service essentials for easy browsing.",
     },
     {
       image: pakmanAbout,
@@ -1344,7 +1342,7 @@ const PAKMAN_PROJECT: ProjectData = {
       image: pakmanClients,
       title: "Trusted Food Brands",
       caption:
-        "Client references show how the packaging system supports restaurants, cafés, and food brands in daily operation.",
+        "Client references show how the packaging supports restaurants, cafés, and food brands in daily use.",
     },
     {
       image: pakmanWhy,
@@ -1372,7 +1370,7 @@ const PAKMAN_PROJECT: ProjectData = {
     },
   ],
   reflection:
-    "Pakman becomes a complete professional case study for a Saudi restaurant packaging company, combining brand identity, packaging direction, website design, user interface direction, and art direction into a clear digital presence for food businesses.",
+    "Pakman becomes a clear digital presence for a Saudi restaurant packaging brand, combining identity, packaging direction, website design, UX/UI, and art direction.",
 };
 
 const BY_SLUG: Record<string, ProjectData> = {

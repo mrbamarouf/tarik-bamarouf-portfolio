@@ -39,20 +39,20 @@ import serviceEcommerceStores from "@/assets/services/ecommerce-stores.webp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tarik Bamarouf | Digital Experiences for Ambitious Brands" },
+      { title: "Tarik Bamarouf | Independent Digital Studio" },
       {
         name: "description",
         content:
-          "Tarik Bamarouf designs and builds premium websites, e-commerce stores, and digital experiences for modern brands.",
+          "Premium website design, UX/UI, brand identity direction, and front-end experiences for ambitious brands.",
       },
       {
         property: "og:title",
-        content: "Tarik Bamarouf | Digital Experiences for Ambitious Brands",
+        content: "Tarik Bamarouf | Independent Digital Studio",
       },
       {
         property: "og:description",
         content:
-          "Premium websites, e-commerce stores, and digital experiences crafted for modern brands.",
+          "Premium websites, UX/UI, brand identity direction, and creative digital experiences crafted with clarity.",
       },
     ],
   }),

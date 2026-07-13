@@ -11,13 +11,13 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "A digital experience designer working with brand systems, cinematic art direction, and considered technology.",
+          "An independent digital studio for premium websites, UX/UI, brand identity direction, and creative front-end experiences.",
       },
       { property: "og:title", content: "About | Tarik Bamarouf" },
       {
         property: "og:description",
         content:
-          "A digital experience designer working at the quiet intersection of editorial design, cinematic art direction, and considered technology.",
+          "Premium website design, UX/UI, visual storytelling, and front-end craft shaped by one independent studio.",
       },
     ],
   }),

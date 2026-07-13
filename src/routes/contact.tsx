@@ -12,13 +12,13 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Start a direct conversation about your next digital experience by WhatsApp or email.",
+          "Start a direct conversation about your website, UX/UI, brand presence, or creative digital experience.",
       },
       { property: "og:title", content: "Contact | Tarik Bamarouf" },
       {
         property: "og:description",
         content:
-          "Start a direct conversation about your next digital experience by WhatsApp or email.",
+          "Start a direct conversation about your website, UX/UI, brand presence, or creative digital experience.",
       },
     ],
   }),

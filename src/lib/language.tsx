@@ -176,56 +176,56 @@ export const siteCopy = {
       goHome: "Go home",
     },
     home: {
-      metaTitle: "Tarik Bamarouf | Digital Experiences for Ambitious Brands",
+      metaTitle: "Tarik Bamarouf | Independent Digital Studio",
       metaDescription:
-        "Tarik Bamarouf designs and builds premium websites, e-commerce stores, and digital experiences for modern brands.",
-      heroLabel: "Digital Experiences",
+        "Premium website design, UX/UI, brand identity direction, and front-end experiences for ambitious brands.",
+      heroLabel: "Independent Digital Studio",
       heroLine1: "Digital",
       heroLine2: "Experiences",
       heroLine3: "For",
       heroEmphasis: "Ambitious",
       heroLine4: "Brands.",
       heroStatement: {
-        before: "Independent Brand & ",
-        emphasis: "Digital",
-        after: " Experience Designer.",
+        before: "Website Design, ",
+        emphasis: "UX/UI",
+        after: " and Digital Brand Presence.",
       },
       heroCapabilities:
-        "Brand Identity\u00a0\u00a0•\u00a0\u00a0UX/UI Design\u00a0\u00a0•\u00a0\u00a0Front-end Engineering\u00a0\u00a0•\u00a0\u00a0Content Direction",
+        "Premium Websites\u00a0\u00a0•\u00a0\u00a0UX/UI Design\u00a0\u00a0•\u00a0\u00a0Brand Identity Direction\u00a0\u00a0•\u00a0\u00a0Front-end Craft",
       clientsEyebrow: "SELECTED CLIENTS",
       clientsLine: "Trusted by 13 ambitious brands.",
       viewWork: "View Work",
       startProject: "Start Project",
       portfolioLabel: "Portfolio 2026",
       approachHeadline: {
-        line1: "Design starts",
-        line2Before: "long",
-        emphasis: "before",
+        line1: "Presence starts",
+        line2Before: "before",
+        emphasis: "pixels",
         line2After: "",
-        line3: "the screen.",
+        line3: "appear.",
       },
       approachBody:
-        "Before visuals, I define what the brand needs to make clear and how the visitor should move through it.",
+        "Before the interface, I define what the brand must make clear, what the visitor should feel, and what action should come next.",
       approachStages: [
         {
-          t: "Understand",
-          d: "Brand, audience, and business goals.",
+          t: "Clarify",
+          d: "Offer, audience, and first impression.",
         },
         {
           t: "Strategy",
-          d: "A clear direction before any visual decision.",
+          d: "A focused direction before design begins.",
         },
         {
-          t: "Experience",
-          d: "The visitor journey before the interface.",
+          t: "UX",
+          d: "A visitor journey with no wasted moments.",
         },
         {
           t: "Design",
-          d: "A visual language with purpose.",
+          d: "A visual language that feels unmistakably yours.",
         },
         {
           t: "Build",
-          d: "A refined front-end built to perform.",
+          d: "A front-end experience shaped with care.",
         },
       ],
       selectedWork: "Selected Work",
@@ -233,56 +233,56 @@ export const siteCopy = {
       selectedPortfolioLabel: "PORTFOLIO 2026",
       selectedProjectsLabel: "SELECTED PROJECTS",
       aboutLabel: "About",
-      aboutTitle: "Design.\nStrategy.\nDevelopment.",
-      aboutBody: "Websites that elevate perception and present every brand with clarity.",
+      aboutTitle: "Websites.\nIdentity.\nExperience.",
+      aboutBody: "Digital presence shaped with clarity, atmosphere, and front-end craft.",
       aboutCta: "About Me",
       servicesLabel: "Services",
       processLabel: "The Process",
       ctaLabel: "Let's Work Together",
-      ctaTitle: "Let's build something exceptional.",
-      ctaBody: "Tell me about your project, your vision, and your goals.",
+      ctaTitle: "Let's shape your digital presence.",
+      ctaBody: "Tell me what you are building, what it should feel like, and who it needs to move.",
       ctaButton: "Start Your Project",
     },
     services: [
       {
-        t: "Brand Websites",
-        d: "Identity led websites that elevate perception.",
+        t: "Premium Websites",
+        d: "Websites designed to sharpen perception and earn attention.",
       },
       {
-        t: "Business Websites",
-        d: "Clear, credible presence for modern companies.",
+        t: "UX/UI Design",
+        d: "Interfaces that feel clear, composed, and easy to trust.",
       },
       {
-        t: "E-Commerce Stores",
-        d: "Stores designed for desire and conversion.",
+        t: "Digital Brand Presence",
+        d: "A visual world that makes the brand feel considered.",
       },
       {
-        t: "Design and Development",
-        d: "Complete digital craft, from concept to launch.",
+        t: "Front-end Craft",
+        d: "Refined implementation with motion, detail, and performance in mind.",
       },
     ],
     steps: [
       {
         t: "Discovery",
-        d: "Understanding your brand, goals, target audience, and market landscape.",
+        d: "Understanding the brand, audience, offer, and desired feeling.",
       },
       {
         t: "Strategy",
-        d: "Building the right plan and structure that aligns with your goals.",
+        d: "Defining the page structure, hierarchy, and creative direction.",
       },
       {
         t: "Design",
-        d: "Crafting visuals that reflect your brand and create a memorable experience.",
+        d: "Designing the visual language, interface, and key moments.",
       },
       {
-        t: "Development and Launch",
-        d: "Developing, testing, and launching with precision and performance in mind.",
+        t: "Front-end and Launch",
+        d: "Building, refining, and preparing the experience for release.",
       },
     ],
     work: {
       metaTitle: "Work | Tarik Bamarouf",
       metaDescription:
-        "Selected projects by Tarik Bamarouf across luxury brand websites, e-commerce, and digital experiences.",
+        "Selected website design, UX/UI, brand identity, and digital experience work by Tarik Bamarouf.",
       archive: "The Archive",
       title: "Selected Work.",
       volume: "Portfolio 2026",
@@ -293,56 +293,56 @@ export const siteCopy = {
     about: {
       metaTitle: "About | Tarik Bamarouf",
       metaDescription:
-        "A digital experience designer working with brand systems, cinematic art direction, and considered technology.",
+        "An independent digital studio focused on premium website design, UX/UI, identity direction, and front-end craft.",
       label: "Portrait of a Practice",
-      titleA: "A studio of ",
-      titleB: "one.",
-      titleC: "An ambition for many.",
+      titleA: "One independent ",
+      titleB: "studio.",
+      titleC: "Driven by ambition that reaches far beyond one person.",
       portraitAlt: "Tarik Bamarouf portrait",
       portraitLabel: "Tarik Bamarouf studio portrait",
       biography: "Biography",
       biographyBody:
-        "I design digital experiences where brand, interface, and atmosphere work as one system.",
+        "I design premium websites and digital experiences where identity, interface, and atmosphere work together.",
       philosophy: "Philosophy",
       philosophyBody:
-        "The work is quiet by choice. Every page is shaped to slow the visitor down, clarify the offer, and make the brand feel considered from the first moment.",
+        "The work is quiet by choice. Every page is shaped to clarify the offer, build trust, and make the brand feel considered from the first moment.",
       disciplines: "Disciplines",
       recognition: "Focus",
       recognitionBody:
-        "Available for selected collaborations, launches, and private digital systems.",
+        "Available for selected websites, brand launches, UX/UI work, and creative digital experiences.",
       begin: "Begin a conversation",
       disciplineItems: [
-        "Art Direction",
-        "Web Design",
+        "Creative Direction",
+        "Website Design",
         "Brand Identity",
-        "Motion",
-        "Editorial",
-        "Strategy",
+        "UX/UI",
+        "Visual Storytelling",
+        "Front-end Craft",
       ],
     },
     contact: {
       metaTitle: "Contact | Tarik Bamarouf",
       metaDescription:
-        "Start a direct conversation about your next digital experience by WhatsApp or email.",
+        "Start a direct conversation about a premium website, UX/UI, brand identity, or digital experience.",
       label: "Direct",
       titleA: "Let's ",
       titleB: "talk.",
-      body: "No forms. Choose a channel, and we begin immediately.",
+      body: "No forms. Send the idea, the ambition, or the problem. We begin there.",
       primary: "Primary",
       compose: "Compose",
       secondary: "Secondary",
       whatsapp: "WhatsApp",
-      whatsappBody: "Open a conversation in one tap.",
+      whatsappBody: "Share the project directly.",
       openChat: "Open Chat",
     },
     footer: {
-      headline: "Premium websites for brands, businesses, and online stores.",
+      headline: "Premium websites, UX/UI, and digital presence for ambitious brands.",
       whatsapp: "WhatsApp",
       email: "Email",
       navigate: "Navigate",
       direct: "Direct",
       rights: "© 2026 Tarik Bamarouf. All rights reserved.",
-      location: "Digital Experiences. Worldwide.",
+      location: "Independent Digital Studio. Worldwide.",
     },
     project: {
       notFound: "Project not found",
@@ -398,56 +398,56 @@ export const siteCopy = {
       goHome: "العودة للرئيسية",
     },
     home: {
-      metaTitle: "طارق بامعروف | تجارب رقمية لعلامات طموحة",
+      metaTitle: "طارق بامعروف | استوديو رقمي مستقل",
       metaDescription:
-        "يصمم طارق بامعروف مواقع راقية ومتاجر إلكترونية وتجارب رقمية للعلامات الحديثة.",
-      heroLabel: "تجارب رقمية",
+        "تصميم مواقع راقية، تجربة وواجهة مستخدم، توجيه هوية، وتجارب واجهة أمامية لعلامات طموحة.",
+      heroLabel: "استوديو رقمي مستقل",
       heroLine1: "تجارب",
       heroLine2: "رقمية",
       heroLine3: "لعلامات",
       heroEmphasis: "طموحة",
       heroLine4: "",
       heroStatement: {
-        before: "مصمم هوية وتجارب ",
-        emphasis: "رقمية",
-        after: " مستقل.",
+        before: "تصميم مواقع، ",
+        emphasis: "تجربة وواجهة",
+        after: "، وحضور رقمي للعلامات.",
       },
       heroCapabilities:
-        "الهوية البصرية\u00a0\u00a0•\u00a0\u00a0تجربة المستخدم\u00a0\u00a0•\u00a0\u00a0تصميم الواجهة\u00a0\u00a0•\u00a0\u00a0تطوير الواجهة الأمامية",
+        "مواقع راقية\u00a0\u00a0•\u00a0\u00a0تجربة وواجهة المستخدم\u00a0\u00a0•\u00a0\u00a0توجيه هوية العلامة\u00a0\u00a0•\u00a0\u00a0حرفة الواجهة الأمامية",
       clientsEyebrow: "عملاء مختارون",
       clientsLine: "تشرفت بالعمل مع 13 علامة طموحة.",
       viewWork: "عرض الأعمال",
       startProject: "ابدأ مشروعك",
       portfolioLabel: "محفظة ٢٠٢٦",
       approachHeadline: {
-        line1: "التصميم يبدأ",
+        line1: "الحضور يبدأ",
         line2Before: "",
         emphasis: "قبل",
-        line2After: "الشاشة.",
+        line2After: "البكسل.",
         line3: "",
       },
       approachBody:
-        "قبل الشكل، أحدد ما تحتاج العلامة لتوضيحه، وكيف يجب أن يتحرك الزائر داخل التجربة.",
+        "قبل الواجهة، أحدد ما يجب أن توضحه العلامة، ما ينبغي أن يشعر به الزائر، وما الخطوة التي تستحق أن تأتي بعد ذلك.",
       approachStages: [
         {
-          t: "الفهم",
-          d: "العلامة، الجمهور، وأهداف العمل.",
+          t: "التوضيح",
+          d: "العرض، الجمهور، والانطباع الأول.",
         },
         {
           t: "الاستراتيجية",
-          d: "اتجاه واضح قبل أي قرار بصري.",
+          d: "اتجاه مركز قبل بدء التصميم.",
         },
         {
-          t: "التجربة",
-          d: "رحلة الزائر قبل الواجهة.",
+          t: "تجربة المستخدم",
+          d: "رحلة زائر بلا لحظات ضائعة.",
         },
         {
           t: "التصميم",
-          d: "لغة بصرية لها معنى.",
+          d: "لغة بصرية تشبه العلامة ولا تشبه غيرها.",
         },
         {
           t: "التنفيذ",
-          d: "واجهة مصقولة تعمل بسلاسة.",
+          d: "واجهة أمامية مصقولة بعناية.",
         },
       ],
       selectedWork: "أعمال مختارة",
@@ -455,56 +455,56 @@ export const siteCopy = {
       selectedPortfolioLabel: "ملف الأعمال ٢٠٢٦",
       selectedProjectsLabel: "المشاريع المختارة",
       aboutLabel: "عنّي",
-      aboutTitle: "تصميم.\nاستراتيجية.\nتطوير.",
-      aboutBody: "مواقع ترفع حضور العلامة وتقدمها بوضوح وثقة.",
+      aboutTitle: "مواقع.\nهوية.\nتجربة.",
+      aboutBody: "حضور رقمي مصاغ بوضوح وأجواء وحرفة في الواجهة.",
       aboutCta: "عنّي",
       servicesLabel: "الخدمات",
       processLabel: "المنهجية",
       ctaLabel: "لنعمل معًا",
-      ctaTitle: "لنصنع شيئًا استثنائيًا.",
-      ctaBody: "حدثني عن مشروعك ورؤيتك وأهدافك.",
+      ctaTitle: "لنصنع حضورك الرقمي.",
+      ctaBody: "حدثني عمّا تبنيه، وما الشعور الذي تريده، ومن تريد أن تحرّكه التجربة.",
       ctaButton: "ابدأ مشروعك",
     },
     services: [
       {
-        t: "مواقع العلامات التجارية",
-        d: "مواقع مبنية على الهوية، تعزز الحضور والانطباع الأول.",
+        t: "مواقع راقية",
+        d: "مواقع تصقل الانطباع وتمنح العلامة حضورًا أوضح.",
       },
       {
-        t: "مواقع الأعمال",
-        d: "حضور واضح وموثوق للشركات الحديثة.",
+        t: "تجربة وواجهة المستخدم",
+        d: "واجهات واضحة، هادئة، وسهلة الثقة.",
       },
       {
-        t: "متاجر إلكترونية",
-        d: "تجارب بيع مصممة لجذب الاهتمام وتحويله إلى طلبات.",
+        t: "حضور العلامة الرقمي",
+        d: "عالم بصري يجعل العلامة أكثر اتزانًا ووضوحًا.",
       },
       {
-        t: "تصميم وتطوير",
-        d: "حرفة رقمية متكاملة، من الفكرة حتى الإطلاق.",
+        t: "حرفة الواجهة الأمامية",
+        d: "تنفيذ مصقول يهتم بالحركة والتفاصيل والأداء.",
       },
     ],
     steps: [
       {
         t: "الاكتشاف",
-        d: "فهم العلامة، الأهداف، الجمهور، والسوق المحيط بها.",
+        d: "فهم العلامة، الجمهور، العرض، والانطباع المطلوب.",
       },
       {
         t: "الاستراتيجية",
-        d: "بناء خطة وهيكل واضحين ينسجمان مع أهداف المشروع.",
+        d: "تحديد بنية الصفحة، الهرمية، والاتجاه الإبداعي.",
       },
       {
         t: "التصميم",
-        d: "صياغة لغة بصرية تعبّر عن العلامة وتصنع تجربة لا تُنسى.",
+        d: "تصميم اللغة البصرية والواجهة واللحظات الأساسية.",
       },
       {
-        t: "التطوير والإطلاق",
-        d: "تطوير واختبار وإطلاق بدقة، مع عناية بالأداء والتفاصيل.",
+        t: "الواجهة والإطلاق",
+        d: "بناء التجربة وصقلها وتجهيزها للنشر.",
       },
     ],
     work: {
       metaTitle: "الأعمال | طارق بامعروف",
       metaDescription:
-        "مجموعة مختارة من مشاريع طارق بامعروف في مواقع العلامات الفاخرة والمتاجر الإلكترونية والتجارب الرقمية.",
+        "أعمال مختارة في تصميم المواقع، تجربة وواجهة المستخدم، الهوية، والتجارب الرقمية.",
       archive: "الأرشيف",
       title: "أعمال مختارة.",
       volume: "محفظة ٢٠٢٦",
@@ -515,53 +515,53 @@ export const siteCopy = {
     about: {
       metaTitle: "عني | طارق بامعروف",
       metaDescription:
-        "مصمم تجارب رقمية يعمل على أنظمة الهوية، والتوجيه البصري السينمائي، والتقنية المدروسة.",
+        "استوديو رقمي مستقل يركز على تصميم المواقع الراقية، تجربة وواجهة المستخدم، توجيه الهوية، وحرفة الواجهة الأمامية.",
       label: "ملامح الممارسة",
-      titleA: "استوديو من ",
-      titleB: "شخص واحد.",
-      titleC: "وطموح يتسع لكثيرين.",
+      titleA: "استوديو من شخصٍ ",
+      titleB: "واحد.",
+      titleC: "بطموحٍ يتّسع للكثيرين.",
       portraitAlt: "بورتريه طارق بامعروف",
       portraitLabel: "بورتريه طارق بامعروف في الاستوديو",
       biography: "نبذة",
-      biographyBody: "أصمم تجارب رقمية تعمل فيها الهوية والواجهة والأجواء كنظام واحد متماسك.",
+      biographyBody: "أصمم مواقع وتجارب رقمية راقية تعمل فيها الهوية والواجهة والأجواء بتناغم واضح.",
       philosophy: "الفلسفة",
       philosophyBody:
-        "الهدوء هنا اختيار مقصود. كل صفحة تُصاغ لتمنح الزائر لحظة أبطأ، وتوضح العرض، وتجعل العلامة مدروسة منذ اللحظة الأولى.",
+        "الهدوء هنا اختيار مقصود. كل صفحة تُصاغ لتوضح العرض، وتبني الثقة، وتجعل العلامة مدروسة منذ اللحظة الأولى.",
       disciplines: "التخصصات",
       recognition: "التركيز",
-      recognitionBody: "متاح لمشاريع مختارة، وإطلاقات جديدة، وأنظمة رقمية خاصة.",
+      recognitionBody: "متاح لمواقع مختارة، إطلاقات علامات، أعمال تجربة وواجهة، وتجارب رقمية إبداعية.",
       begin: "ابدأ الحوار",
       disciplineItems: [
-        "التوجيه الفني",
+        "التوجيه الإبداعي",
         "تصميم المواقع",
         "هوية العلامة",
-        "الحركة",
-        "السرد التحريري",
-        "الاستراتيجية",
+        "تجربة وواجهة المستخدم",
+        "السرد البصري",
+        "حرفة الواجهة",
       ],
     },
     contact: {
       metaTitle: "تواصل | طارق بامعروف",
-      metaDescription: "ابدأ حوارًا مباشرًا حول تجربتك الرقمية القادمة عبر البريد أو واتساب.",
+      metaDescription: "ابدأ حوارًا مباشرًا حول موقع راقٍ، تجربة وواجهة مستخدم، هوية علامة، أو تجربة رقمية.",
       label: "تواصل مباشر",
       titleA: "لنتحدث.",
       titleB: "",
-      body: "بلا نماذج. اختر قناة التواصل ونبدأ مباشرة.",
+      body: "بلا نماذج. أرسل الفكرة، الطموح، أو المشكلة. نبدأ من هناك.",
       primary: "البريد",
       compose: "راسلني",
       secondary: "قناة سريعة",
       whatsapp: "واتساب",
-      whatsappBody: "افتح محادثة مباشرة بخطوة واحدة.",
+      whatsappBody: "شارك المشروع مباشرة.",
       openChat: "افتح المحادثة",
     },
     footer: {
-      headline: "مواقع راقية للعلامات والشركات والمتاجر الإلكترونية.",
+      headline: "مواقع راقية، تجربة وواجهة، وحضور رقمي لعلامات طموحة.",
       whatsapp: "واتساب",
       email: "البريد",
       navigate: "التنقل",
       direct: "مباشر",
       rights: "© ٢٠٢٦ طارق بامعروف. جميع الحقوق محفوظة.",
-      location: "تجارب رقمية. حضور عالمي.",
+      location: "استوديو رقمي مستقل. حضور عالمي.",
     },
     project: {
       notFound: "المشروع غير موجود",
@@ -751,7 +751,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Packaging Presentation",
           caption:
-            "The packaging system frames the cake as a gift, with the box, sauce bottle, and product presented as one considered ritual.",
+            "The packaging frames the cake as a gift, with the box, sauce bottle, and product presented as one considered ritual.",
         },
         {
           title: "Made for Moments Worth Remembering",
@@ -770,7 +770,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "Tarta De Amor brings together concept, creative direction, website design, UX/UI, development, and intro video by Tarik Bamarouf, shaping a premium digital ordering experience for a luxury cheesecake brand in Jeddah.",
+        "Tarta De Amor brings together creative direction, website design, UX/UI, front-end craft, and a cinematic intro by Tarik Bamarouf, shaping a premium digital ordering experience for a luxury cheesecake brand in Jeddah.",
     },
     ar: {
       category: "علامة حلويات فاخرة / تجربة تجارة إلكترونية راقية",
@@ -810,7 +810,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "عرض التغليف",
           caption:
-            "يقدم نظام التغليف الكيكة كهدية، حيث يجتمع الصندوق وعبوة الصوص والمنتج في طقس مدروس.",
+            "يقدم التغليف الكيكة كهدية، حيث يجتمع الصندوق وعبوة الصوص والمنتج في طقس مدروس.",
         },
         {
           title: "صُنعت للحظات تُحفظ في الذاكرة",
@@ -829,39 +829,39 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "يجمع Tarta De Amor بين الفكرة، التوجيه الإبداعي، تصميم الموقع، تجربة المستخدم والواجهة، التطوير، وفيديو الانترو من Tarik Bamarouf، ليصنع تجربة طلب رقمية فاخرة لعلامة تشيزكيك في جدة.",
+        "يجمع Tarta De Amor بين التوجيه الإبداعي، تصميم الموقع، تجربة وواجهة المستخدم، حرفة الواجهة، وانترو سينمائي من Tarik Bamarouf، ليصنع تجربة طلب رقمية فاخرة لعلامة تشيزكيك في جدة.",
     },
   },
   "mahn-platform": {
     en: {
-      category: "Digital Platform",
-      disciplines: "Identity, User Experience, Platform",
+      category: "Digital Experience",
+      disciplines: "Identity, UX/UI, Website Experience",
       intro:
-        "A digital platform designed around refined interaction, intuitive navigation, and a modern product experience.",
+        "A refined website experience shaped around clear navigation, polished interface design, and a confident digital presence.",
       details: {
-        industry: "Technology",
+        industry: "Digital Services",
         services:
-          "Brand Identity, User Experience Design, Interface Design, Product Design and Development",
-        platform: "Digital Platform",
+          "Brand Identity, UX/UI Design, Website Design, Front-end Experience",
+        platform: "Website Experience",
       },
       overview: {
         challenge:
-          "Mihn is a digital platform designed to simplify user interaction through a refined interface, intuitive navigation, and a modern product experience. The work focused on a seamless product ecosystem across authentication, dashboard management, and platform operations.",
+          "Mihn needed a digital presence that felt sharp, useful, and easy to understand from the first screen. The work focused on turning a complex service idea into a clear website experience with strong identity and focused UX.",
         approach:
-          "The experience was structured around a cinematic entry, a clear introduction, focused dashboard views, operational management flows, and a streamlined access journey.",
+          "The experience was structured around a cinematic entry, a direct introduction, polished interface moments, and a simple path for visitors to understand the offer.",
         outcome:
-          "The platform presentation connects brand atmosphere with practical product surfaces, showing how Mihn moves from public positioning into everyday user and operator workflows.",
+          "The final presentation connects brand atmosphere with practical interface clarity, making Mihn feel credible, modern, and ready for launch.",
       },
       gallery: [
         {
           title: "Introduction",
           caption:
-            "A visual introduction establishing the platform atmosphere, positioning, and digital identity.",
+            "A visual introduction establishing the brand atmosphere, positioning, and digital identity.",
         },
         {
           title: "Dashboard Overview",
           caption:
-            "Core platform functionality presented through a clean and structured dashboard experience.",
+            "Key interface views presented with clean hierarchy and a composed UX rhythm.",
         },
         {
           title: "Management Interface",
@@ -869,7 +869,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "Platform Operations",
-          caption: "System tools and operational controls built around usability and scalability.",
+          caption: "Functional interface moments shaped around usability, clarity, and visual calm.",
         },
         {
           title: "Authentication Experience",
@@ -877,60 +877,60 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "The final experience positions Mihn as a modern digital platform that balances functionality, usability, and visual refinement through a cohesive product ecosystem.",
+        "The final experience positions Mihn through clear website design, focused UX/UI, and a polished digital brand presence.",
     },
     ar: {
-      category: "منصة رقمية",
-      disciplines: "هوية، تجربة مستخدم، منصة",
-      intro: "منصة رقمية صُممت حول تفاعل مصقول، تنقّل واضح، وتجربة منتج حديثة.",
+      category: "تجربة رقمية",
+      disciplines: "هوية، تجربة وواجهة، تجربة موقع",
+      intro: "تجربة موقع مصقولة مبنية حول تنقّل واضح، واجهة هادئة، وحضور رقمي واثق.",
       details: {
-        industry: "التقنية",
-        services: "هوية تجارية، تصميم تجربة المستخدم، تصميم الواجهة، تصميم وتطوير المنتج",
-        platform: "منصة رقمية",
+        industry: "الخدمات الرقمية",
+        services: "هوية تجارية، تصميم تجربة وواجهة المستخدم، تصميم الموقع، حرفة الواجهة",
+        platform: "تجربة موقع",
       },
       overview: {
         challenge:
-          "صُممت Mihn لتبسيط تفاعل المستخدم عبر واجهة مصقولة، تنقّل بديهي، وتجربة منتج حديثة. ركز العمل على بناء منظومة منتج متكاملة تشمل تسجيل الدخول، إدارة لوحات التحكم، وتشغيل المنصة.",
+          "احتاجت Mihn إلى حضور رقمي واضح، واثق، وسهل الفهم منذ الشاشة الأولى. ركز العمل على تحويل فكرة خدمة معقدة إلى تجربة موقع مباشرة بهوية قوية وتجربة مستخدم مركزة.",
         approach:
-          "نُظمت التجربة حول افتتاح بصري قوي، مقدمة واضحة، لوحات تشغيل مركزة، مسارات إدارية عملية، وتجربة وصول مختصرة وآمنة.",
+          "نُظمت التجربة حول افتتاح بصري قوي، مقدمة مباشرة، لحظات واجهة مصقولة، ومسار بسيط يساعد الزائر على فهم العرض بسرعة.",
         outcome:
-          "يربط عرض المنصة بين أجواء العلامة وواجهات المنتج العملية، موضحًا انتقال Mihn من التموضع العام إلى الاستخدام اليومي للمستخدمين والمشغلين.",
+          "تربط النتيجة بين أجواء العلامة ووضوح الواجهة، لتظهر Mihn كحضور رقمي حديث وموثوق وجاهز للإطلاق.",
       },
       gallery: [
-        { title: "المقدمة", caption: "افتتاح بصري يحدد أجواء المنصة وتموضعها وهويتها الرقمية." },
-        { title: "نظرة على اللوحة", caption: "وظائف المنصة الأساسية ضمن لوحة واضحة ومنظمة." },
+        { title: "المقدمة", caption: "افتتاح بصري يحدد أجواء العلامة وتموضعها وهويتها الرقمية." },
+        { title: "نظرة على الواجهة", caption: "مشاهد واجهة رئيسية بهرمية واضحة وإيقاع بصري هادئ." },
         {
           title: "واجهة الإدارة",
           caption: "تدفقات إدارية مصممة للكفاءة والوضوح وسهولة الاستخدام.",
         },
         {
-          title: "تشغيل المنصة",
-          caption: "أدوات النظام والتحكم التشغيلي مبنية حول القابلية للاستخدام والتوسع.",
+          title: "تفاصيل الواجهة",
+          caption: "لحظات وظيفية مصممة حول الوضوح وسهولة الاستخدام والهدوء البصري.",
         },
         { title: "تجربة تسجيل الدخول", caption: "مسار دخول مختصر وآمن يمنح المستخدم وصولًا سلسًا." },
       ],
       reflection:
-        "تضع التجربة النهائية Mihn كمنصة رقمية حديثة توازن بين الوظيفة وسهولة الاستخدام والصقل البصري ضمن منظومة منتج واحدة.",
+        "تقدم التجربة النهائية Mihn عبر تصميم موقع واضح، تجربة وواجهة مركزة، وحضور رقمي مصقول.",
     },
   },
   "norx-paints": {
     en: {
-      category: "Brand Identity and Digital Experience",
+      category: "Brand Identity and Website Experience",
       disciplines: "Naming, Identity, Website",
       intro:
-        "A complete brand identity and digital experience created around strategic positioning, visual presence, and a cohesive customer journey.",
+        "A visual identity and website experience shaped around premium presence, color, and customer trust.",
       details: {
-        industry: "Business and Technology",
-        services: "Naming, Brand Strategy, Brand Identity, Website Design and Development",
-        platform: "Brand Identity and Digital Experience",
+        industry: "Interiors and Coatings",
+        services: "Naming, Brand Identity, Visual Direction, Website Design and Front-end Craft",
+        platform: "Brand Identity and Website Experience",
       },
       overview: {
         challenge:
-          "NOORIX is a brand created from the ground up, including naming, strategy, visual identity, digital direction, and website experience. The project focused on building a distinctive and scalable brand with a strong visual presence and a cohesive identity system across every customer touchpoint.",
+          "NOORIX was created from the name outward: visual identity, digital direction, and a website experience that makes the coatings brand feel distinctive, premium, and easy to trust.",
         approach:
           "The brand world was shaped through premium editorial layouts, refined color language, product presentation, environmental applications, and a website experience that connects identity with customer-facing storytelling.",
         outcome:
-          "The digital presentation brings the brand system together across positioning, product identity, interiors, color exploration, transformation moments, and final applications.",
+          "The final website brings the identity together through product storytelling, interior atmosphere, color exploration, transformation moments, and polished brand applications.",
       },
       gallery: [
         {
@@ -961,12 +961,12 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Product Spectrum",
           caption:
-            "A product range section introduces the premium coatings system through editorial layout and refined presentation.",
+            "A product range section introduces premium coatings through editorial layout and refined presentation.",
         },
         {
           title: "Palette Collection",
           caption:
-            "The color library organizes signature shades, finishes, and families into a clear browsing system.",
+            "The color library organizes signature shades, finishes, and families into a calm way to explore the range.",
         },
         {
           title: "Color Trend Report",
@@ -985,25 +985,25 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "The final outcome established NOORIX as a complete brand ecosystem, combining strategic positioning, visual identity, and digital execution into a cohesive and memorable experience.",
+        "The final outcome gives NOORIX a memorable identity, a refined website, and a digital presence built around color, texture, trust, and visual clarity.",
     },
     ar: {
-      category: "هوية تجارية وتجربة رقمية",
+      category: "هوية تجارية وتجربة موقع",
       disciplines: "تسمية، هوية، موقع",
       intro:
-        "هوية تجارية وتجربة رقمية متكاملة مبنية حول التموضع، الحضور البصري، ورحلة عميل متماسكة.",
+        "هوية بصرية وتجربة موقع مصاغة حول الحضور الراقي واللون وثقة العميل.",
       details: {
-        industry: "الأعمال والتقنية",
-        services: "تسمية، استراتيجية العلامة، هوية تجارية، تصميم وتطوير الموقع",
-        platform: "هوية تجارية وتجربة رقمية",
+        industry: "التصميم الداخلي والطلاء",
+        services: "تسمية، هوية تجارية، توجيه بصري، تصميم الموقع، وحرفة الواجهة",
+        platform: "هوية تجارية وتجربة موقع",
       },
       overview: {
         challenge:
-          "بُنيت NOORIX من الصفر، من التسمية والاستراتيجية إلى الهوية البصرية والتوجه الرقمي وتجربة الموقع. ركز المشروع على إنشاء علامة قابلة للنمو، ذات حضور بصري واضح ونظام هوية متماسك عبر نقاط التفاعل.",
+          "بُنيت NOORIX من الاسم إلى الهوية البصرية والتوجه الرقمي وتجربة الموقع، لتبدو علامة طلاء مميزة وراقية وسهلة الثقة.",
         approach:
           "تشكّل عالم العلامة عبر تخطيطات تحريرية راقية، لغة لونية مصقولة، عرض للمنتج، تطبيقات مكانية، وتجربة موقع تربط الهوية بالسرد الموجه للعميل.",
         outcome:
-          "يجمع العرض الرقمي نظام العلامة عبر التموضع، هوية المنتج، المساحات الداخلية، استكشاف اللون، لحظات التحول، والتطبيقات النهائية.",
+          "يجمع الموقع الهوية عبر سرد المنتج، أجواء المساحات، استكشاف اللون، لحظات التحول، والتطبيقات النهائية.",
       },
       gallery: [
         { title: "تجربة الموقع", caption: "مدخل رقمي مصقول يقدم NOORIX بتموضع فاخر ووعد واضح." },
@@ -1022,11 +1022,11 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "نطاق المنتجات",
-          caption: "قسم يعرض أنظمة الطلاء الفاخرة بتخطيط تحريري وتقديم مصقول.",
+          caption: "قسم يعرض الطلاء الفاخر بتخطيط تحريري وتقديم مصقول.",
         },
         {
           title: "مجموعة الألوان",
-          caption: "مكتبة تنظّم الدرجات والتشطيبات والعائلات اللونية بطريقة واضحة.",
+          caption: "مكتبة تنظّم الدرجات والتشطيبات والعائلات اللونية بطريقة هادئة وواضحة.",
         },
         {
           title: "تقرير اتجاهات اللون",
@@ -1039,28 +1039,28 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "رسخت النتيجة النهائية NOORIX كمنظومة علامة متكاملة، تجمع التموضع الاستراتيجي والهوية البصرية والتنفيذ الرقمي في تجربة واحدة متماسكة.",
+        "منحت النتيجة NOORIX هوية لا تُنسى، وموقعًا مصقولًا، وحضورًا رقميًا مبنيًا على اللون والملمس والثقة والوضوح.",
     },
   },
   "pikmon-store": {
     en: {
-      category: "Collectibles Commerce Platform",
+      category: "Collectibles E-Commerce Experience",
       disciplines: "Identity, Commerce, User Experience",
       intro:
-        "A complete Pokémon-inspired commerce ecosystem designed from the ground up, combining collectibles, merchandise, customization, community engagement, and immersive digital experiences.",
+        "A Pokémon-inspired e-commerce experience for collectors, merchandise, customization, and playful brand moments.",
       details: {
         industry: "Collectibles and E-Commerce",
         services:
           "Brand Creation, Naming, Brand Strategy, Visual Identity, Logo Design, User Experience Design, Product Experience and Website Development",
-        platform: "Commerce Platform",
+        platform: "E-Commerce Website",
       },
       overview: {
         challenge:
-          "Pokémon SA was created from scratch, including brand naming, strategy, logo design, visual identity, user experience, interface design, product architecture, gamified experiences, merchandise customization systems, and the complete e-commerce website experience.",
+          "Pokémon SA needed to feel like a destination for collectors, not a standard online store. The work shaped the name, identity, UX/UI, product presentation, and the full e-commerce website experience.",
         approach:
-          "The goal was to build the ultimate destination for Pokémon collectors in Saudi Arabia, bringing together trading cards, sealed products, apparel, collectibles, rewards, and community-driven interactions inside a unified platform inspired by the Pokémon universe.",
+          "The design brought trading cards, sealed products, apparel, collectibles, rewards, and customization into one vivid shopping journey inspired by the Pokémon universe.",
         outcome:
-          "The project organizes commerce, customization, rewards, and rare item discovery into a collector ecosystem designed for browsing, buying, participating, and building personal Pokémon collections.",
+          "The final website makes browsing, buying, discovery, and customization feel playful, organized, and made for collectors in Saudi Arabia.",
       },
       gallery: [
         {
@@ -1071,7 +1071,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Logo and Identity",
           caption:
-            "A focused brand moment introduces the platform identity and visual language before the experience expands into products and community features.",
+            "A focused brand moment introduces the identity and visual language before the experience expands into products and community features.",
         },
         {
           title: "Trading Cards",
@@ -1101,7 +1101,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Layered Apparel",
           caption:
-            "The hoodie collection expands the merchandise system with richer product presentation, sizing guidance, and premium apparel options.",
+            "The hoodie collection expands the merchandise presentation with richer product detail, sizing guidance, and premium apparel options.",
         },
         {
           title: "Custom Product Builder",
@@ -1111,7 +1111,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Community and Gamification",
           caption:
-            "Interactive reward mechanics and subscription prompts turn the store into a participatory platform with challenges, codes, and community touchpoints.",
+            "Reward moments and subscription prompts make the store feel participatory, with challenges, codes, and community touchpoints.",
         },
         {
           title: "Rare Collector Marketplace",
@@ -1120,26 +1120,26 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "Pokémon SA demonstrates a complete brand creation process, from naming and visual identity to user experience, commerce architecture, gamification systems, product customization tools, and platform development. The result is an immersive collector ecosystem designed for Pokémon fans and collectors in Saudi Arabia.",
+        "Pokémon SA demonstrates brand creation, UX/UI, e-commerce design, visual storytelling, customization, and front-end craft in one immersive collector website.",
     },
     ar: {
-      category: "منصة تجارة للمقتنيات",
+      category: "تجربة تجارة إلكترونية للمقتنيات",
       disciplines: "هوية، تجارة، تجربة مستخدم",
       intro:
-        "منظومة تجارة مستوحاة من عالم Pokémon، تجمع المقتنيات والمنتجات المخصصة والمجتمع والتجارب الرقمية الغامرة.",
+        "تجربة تجارة إلكترونية مستوحاة من عالم Pokémon، تجمع المقتنيات والتخصيص ولحظات العلامة المرحة.",
       details: {
         industry: "المقتنيات والتجارة الإلكترونية",
         services:
           "إنشاء العلامة، التسمية، استراتيجية العلامة، الهوية البصرية، تصميم الشعار، تجربة المستخدم، تجربة المنتج، وتطوير الموقع",
-        platform: "منصة تجارة",
+        platform: "موقع تجارة إلكترونية",
       },
       overview: {
         challenge:
-          "أُنشئت Pokémon SA من الصفر، بما يشمل التسمية، الاستراتيجية، تصميم الشعار، الهوية البصرية، تجربة المستخدم، تصميم الواجهات، بنية المنتجات، التجارب التفاعلية، أنظمة تخصيص المنتجات، وتجربة المتجر الإلكتروني بالكامل.",
+          "احتاجت Pokémon SA أن تشعر كوجهة لهواة الجمع، لا كمتجر عادي. شمل العمل التسمية، الهوية، تجربة وواجهة المستخدم، عرض المنتجات، وتجربة المتجر الإلكتروني بالكامل.",
         approach:
-          "كان الهدف بناء وجهة متكاملة لهواة Pokémon في السعودية، تجمع البطاقات، المنتجات المختومة، الملابس، المقتنيات، المكافآت، والتفاعل المجتمعي داخل منصة موحدة مستوحاة من عالم Pokémon.",
+          "جمع التصميم البطاقات، المنتجات المختومة، الملابس، المقتنيات، المكافآت، والتخصيص داخل رحلة شراء نابضة بعالم Pokémon.",
         outcome:
-          "ينظم المشروع التجارة والتخصيص والمكافآت واكتشاف القطع النادرة ضمن منظومة لهواة الجمع، صُممت للتصفح والشراء والمشاركة وبناء المجموعات الشخصية.",
+          "يجعل الموقع التصفح والشراء والاكتشاف والتخصيص تجربة مرحة ومنظمة ومصممة لهواة الجمع في السعودية.",
       },
       gallery: [
         {
@@ -1149,7 +1149,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "الشعار والهوية",
-          caption: "لحظة تعريفية مركزة تكشف هوية المنصة قبل الانتقال إلى المنتجات والمجتمع.",
+          caption: "لحظة تعريفية مركزة تكشف الهوية قبل الانتقال إلى المنتجات والمجتمع.",
         },
         {
           title: "بطاقات التداول",
@@ -1171,7 +1171,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "الكنزات والطبقات",
-          caption: "توسيع لمنظومة الملابس مع عرض أغنى للمنتج ودليل مقاسات وخيارات أعلى قيمة.",
+          caption: "توسيع لعرض الملابس مع تفاصيل أغنى للمنتج ودليل مقاسات وخيارات أعلى قيمة.",
         },
         {
           title: "منشئ المنتجات المخصصة",
@@ -1179,7 +1179,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "المجتمع والتحفيز",
-          caption: "آليات مكافآت وتحديات واشتراك تجعل المتجر مساحة مشاركة لا مجرد واجهة بيع.",
+          caption: "لحظات مكافآت وتحديات واشتراك تجعل المتجر مساحة مشاركة لا مجرد واجهة بيع.",
         },
         {
           title: "سوق القطع النادرة",
@@ -1187,7 +1187,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "تقدم Pokémon SA عملية إنشاء علامة متكاملة، من التسمية والهوية إلى تجربة المستخدم وبنية التجارة وأنظمة التحفيز وأدوات التخصيص وتطوير المنصة. النتيجة منظومة غامرة لهواة Pokémon وجامعيها في السعودية.",
+        "تقدم Pokémon SA إنشاء علامة، تجربة وواجهة مستخدم، تصميم تجارة إلكترونية، سردًا بصريًا، تخصيصًا، وحرفة واجهة داخل موقع غامر لهواة الجمع.",
     },
   },
   "lily-home-spa": {
@@ -1317,9 +1317,9 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
       },
       overview: {
         challenge:
-          "SIP is a Saudi beverage brand developed from the ground up, including naming, brand identity, visual direction, digital presence, and website experience. The project focused on creating a modern and memorable beverage brand with a strong visual personality, clear market positioning, and a cohesive brand world across physical and digital touchpoints.",
+          "SIP is a Saudi beverage brand developed from the ground up, including naming, brand identity, visual direction, digital presence, and website experience. The work focused on a modern beverage brand with strong visual personality, clear positioning, and a memorable brand world.",
         approach:
-          "The identity system was built around bold typography, high-contrast product presentation, flavor-led packaging, and a dark digital environment that lets the cans, naming, and visual attitude carry the experience.",
+          "The visual identity was built around bold typography, high-contrast product presentation, flavor-led packaging, and a dark digital environment that lets the cans, naming, and attitude carry the experience.",
         outcome:
           "The website and brand applications present SIP as a confident Saudi beverage brand with a clear product family, recognizable visual language, and a digital presence designed for launch and long-term recognition.",
       },
@@ -1332,7 +1332,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Product Lineup",
           caption:
-            "The full beverage range is presented as a focused product system built around taste, energy, and zero-sugar options.",
+            "The full beverage range is presented as a focused product family built around taste, energy, and zero-sugar options.",
         },
         {
           title: "Zero Range",
@@ -1347,11 +1347,11 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Product Cards",
           caption:
-            "Product cards translate the packaging system into a polished website experience for browsing the full range.",
+            "Product cards translate the packaging into a polished website experience for browsing the full range.",
         },
       ],
       reflection:
-        "The final outcome established SIP as a distinctive Saudi beverage brand with a cohesive identity system, memorable visual language, and a premium digital presence that supports long-term brand growth.",
+        "The final outcome established SIP as a distinctive Saudi beverage brand with a memorable visual language and a premium digital presence built for recognition.",
     },
     ar: {
       category: "علامة مشروبات سعودية",
@@ -1367,7 +1367,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         challenge:
           "طُورت SIP كعلامة مشروبات سعودية من الصفر، بما يشمل التسمية والهوية والتوجه البصري والحضور الرقمي وتجربة الموقع. ركز المشروع على بناء علامة حديثة وسهلة التذكر ذات شخصية بصرية قوية وتموضع واضح.",
         approach:
-          "بُني نظام الهوية حول خط جريء، عرض منتج عالي التباين، تغليف يتمحور حول النكهات، وبيئة رقمية داكنة تمنح العبوات والاسم والموقف البصري مساحة القيادة.",
+          "بُنيت الهوية حول خط جريء، عرض منتج عالي التباين، تغليف يتمحور حول النكهات، وبيئة رقمية داكنة تمنح العبوات والاسم والموقف البصري مساحة القيادة.",
         outcome:
           "يقدم الموقع وتطبيقات العلامة SIP كعلامة سعودية واثقة ذات عائلة منتجات واضحة ولغة بصرية قابلة للتعرف وحضور رقمي مصمم للإطلاق والنمو.",
       },
@@ -1390,31 +1390,30 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "بطاقات المنتجات",
-          caption: "بطاقات رقمية تترجم نظام التغليف إلى تجربة موقع مصقولة لتصفح المجموعة الكاملة.",
+          caption: "بطاقات رقمية تترجم التغليف إلى تجربة موقع مصقولة لتصفح المجموعة الكاملة.",
         },
       ],
       reflection:
-        "رسخت النتيجة SIP كعلامة مشروبات سعودية مميزة، بنظام هوية متماسك ولغة بصرية واضحة وحضور رقمي فاخر يدعم نمو العلامة على المدى الطويل.",
+        "رسخت النتيجة SIP كعلامة مشروبات سعودية مميزة، بلغة بصرية واضحة وحضور رقمي فاخر مصمم للتميّز.",
     },
   },
   jorof: {
     en: {
-      category:
-        "Brand Identity, Creative Direction, User Experience, Website Design and Development",
-      disciplines: "Identity, User Experience, Website",
+      category: "Brand Identity, Creative Direction, UX/UI, Website Design",
+      disciplines: "Identity, UX/UI, Website",
       intro:
         "A modern Saudi bottled water brand transformed from an existing logo into a complete digital brand experience.",
       details: {
         industry: "Bottled Water",
         services:
-          "Creative Direction, Visual Identity Development, Brand System, Color Strategy, User Experience Design, Website Design, Frontend Experience Planning",
+          "Creative Direction, Visual Identity, UX/UI Design, Website Design, Front-end Experience",
         platform: "Brand Identity and Website Experience",
       },
       overview: {
         challenge:
-          "JOROF is a Saudi bottled water brand. The client already had the logo, and the project expanded that foundation into a complete visual direction, brand system, color strategy, digital experience, interface design, user experience structure, and full website experience.",
+          "JOROF is a Saudi bottled water brand. The logo already existed, and the work expanded it into a clear visual direction, refined UX/UI, and a complete website experience.",
         approach:
-          "The work focused on clarity, trust, quality, and daily reliability, translating the existing mark into a calm Saudi water brand with product presentation, manufacturing storytelling, quality assurance communication, and a customer acquisition journey.",
+          "The work focused on clarity, trust, quality, and daily reliability, translating the existing mark into a calm Saudi water brand with product presentation, manufacturing storytelling, and a clear inquiry path.",
         outcome:
           "The final experience presents JOROF as a clean and reliable bottled water brand, connecting origin, product range, manufacturing standards, quality controls, and conversion-focused contact moments into one cohesive website.",
       },
@@ -1432,12 +1431,12 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Brand Story",
           caption:
-            "The brand story section turns the logo into a wider identity system, connecting Saudi origin, operational confidence, and daily trust.",
+            "The brand story section turns the logo into a wider identity, connecting Saudi origin, quality, and daily trust.",
         },
         {
           title: "Product Range",
           caption:
-            "The product presentation system organizes bottle formats with clean hierarchy, soft gradients, and purchase-oriented information architecture.",
+            "The product presentation organizes bottle formats with clean hierarchy, soft gradients, and clear purchase cues.",
         },
         {
           title: "Manufacturing Storytelling",
@@ -1461,23 +1460,23 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "JOROF transformed an existing logo into a complete digital brand experience through visual direction, brand system development, color strategy, product presentation, manufacturing storytelling, quality assurance communication, and a customer acquisition journey. The result is a modern Saudi water brand built around clarity, trust, quality, and daily reliability.",
+        "JOROF transformed an existing logo into a complete digital brand presence through visual direction, UX/UI, product presentation, manufacturing storytelling, and a clear inquiry journey.",
     },
     ar: {
-      category: "هوية تجارية، توجيه إبداعي، تجربة مستخدم، تصميم وتطوير موقع",
-      disciplines: "هوية، تجربة مستخدم، موقع",
+      category: "هوية تجارية، توجيه إبداعي، تجربة وواجهة، تصميم موقع",
+      disciplines: "هوية، تجربة وواجهة، موقع",
       intro: "علامة مياه سعودية حديثة تحولت من شعار قائم إلى تجربة رقمية متكاملة للعلامة.",
       details: {
         industry: "المياه المعبأة",
         services:
-          "توجيه إبداعي، تطوير الهوية البصرية، نظام العلامة، استراتيجية اللون، تجربة المستخدم، تصميم الموقع، تخطيط تجربة الواجهة",
+          "توجيه إبداعي، هوية بصرية، تجربة وواجهة المستخدم، تصميم الموقع، وحرفة الواجهة",
         platform: "هوية تجارية وتجربة موقع",
       },
       overview: {
         challenge:
-          "JOROF علامة مياه سعودية كان لديها شعار قائم، وتحوّل المشروع إلى بناء اتجاه بصري كامل، نظام علامة، استراتيجية لون، تجربة رقمية، تصميم واجهة، هيكل تجربة مستخدم، وموقع متكامل.",
+          "JOROF علامة مياه سعودية كان لديها شعار قائم، وتحوّل العمل إلى اتجاه بصري واضح، تجربة وواجهة مصقولة، وموقع متكامل.",
         approach:
-          "ركز العمل على الوضوح والثقة والجودة والاعتمادية اليومية، مع تحويل الشعار إلى علامة مياه سعودية هادئة من خلال عرض المنتج، سرد التصنيع، ضمان الجودة، ورحلة اكتساب العملاء.",
+          "ركز العمل على الوضوح والثقة والجودة والاعتمادية اليومية، مع تحويل الشعار إلى علامة مياه سعودية هادئة من خلال عرض المنتج وسرد التصنيع ومسار تواصل واضح.",
         outcome:
           "تقدم التجربة النهائية JOROF كعلامة مياه نظيفة وموثوقة، تربط الأصل ونطاق المنتجات ومعايير التصنيع والجودة ولحظات التواصل داخل موقع واحد متماسك.",
       },
@@ -1494,11 +1493,11 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "قصة العلامة",
           caption:
-            "قسم يحوّل الشعار إلى نظام هوية أوسع يربط الأصل السعودي والثقة التشغيلية والاستخدام اليومي.",
+            "قسم يحوّل الشعار إلى هوية أوسع تربط الأصل السعودي والجودة والثقة اليومية.",
         },
         {
           title: "نطاق المنتجات",
-          caption: "نظام عرض للعبوات بأحجام مختلفة مع هرمية واضحة ومعلومات موجهة للشراء.",
+          caption: "عرض للعبوات بأحجام مختلفة مع هرمية واضحة ومعلومات موجهة للشراء.",
         },
         {
           title: "سرد التصنيع",
@@ -1518,7 +1517,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "حوّلت JOROF شعارًا قائمًا إلى تجربة رقمية متكاملة عبر التوجيه البصري ونظام العلامة واستراتيجية اللون وعرض المنتج وسرد التصنيع وضمان الجودة ورحلة اكتساب العملاء. النتيجة علامة مياه سعودية حديثة مبنية على الوضوح والثقة والجودة والاعتمادية اليومية.",
+        "حوّلت JOROF شعارًا قائمًا إلى حضور رقمي متكامل عبر التوجيه البصري، تجربة وواجهة المستخدم، عرض المنتج، سرد التصنيع، ومسار تواصل واضح.",
     },
   },
   pakman: {
@@ -1526,7 +1525,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
       category: "Brand Identity, Website Design, Art Direction",
       disciplines: "Identity, Packaging, Website",
       intro:
-        "A Saudi restaurant packaging company shaped into a complete brand identity, packaging direction, and website experience for food businesses.",
+        "A Saudi restaurant packaging brand shaped through identity, packaging direction, and a clear website experience.",
       details: {
         industry: "Restaurant Packaging",
         services:
@@ -1539,7 +1538,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         approach:
           "The project was built from start to finish, covering the logo, brand identity, visual direction, packaging concept, website design, user interface direction, and art direction.",
         outcome:
-          "The final experience presents Pakman as a complete professional packaging brand, connecting product categories, packaging applications, client confidence, headquarters, and quote inquiry into one clear digital journey.",
+          "The final website presents Pakman as a confident packaging brand, connecting product categories, applications, client trust, location, and quote inquiry in one clear journey.",
       },
       gallery: [
         {
@@ -1550,7 +1549,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Product Categories",
           caption:
-            "A structured product system organizes cups, bags, boxes, labels, and food service essentials for easy browsing.",
+            "A clear product catalogue organizes cups, bags, boxes, labels, and food service essentials for easy browsing.",
         },
         {
           title: "About Pakman",
@@ -1570,7 +1569,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Trusted Food Brands",
           caption:
-            "Client references show how the packaging system supports restaurants, cafés, and food brands in daily operation.",
+            "Client references show how the packaging supports restaurants, cafés, and food brands in daily use.",
         },
         {
           title: "Why Pakman",
@@ -1594,7 +1593,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "Pakman becomes a complete professional case study for a Saudi restaurant packaging company, combining brand identity, packaging direction, website design, user interface direction, and art direction into a clear digital presence for food businesses.",
+        "Pakman becomes a clear digital presence for a Saudi restaurant packaging brand, combining identity, packaging direction, website design, UX/UI, and art direction.",
     },
     ar: {
       category: "هوية تجارية، تصميم موقع، توجيه فني",
@@ -1613,7 +1612,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         approach:
           "تم بناء المشروع من البداية إلى النهاية، من الشعار والهوية والتوجه البصري إلى مفهوم التغليف وتصميم الموقع وتصميم الواجهة والتوجيه الفني.",
         outcome:
-          "تقدم التجربة النهائية Pakman كعلامة تغليف مهنية ومتكاملة، تربط فئات المنتجات وتطبيقات التغليف وثقة العملاء والمقر وطلب عرض السعر في رحلة رقمية واضحة.",
+          "يقدم الموقع Pakman كعلامة تغليف واثقة، تربط فئات المنتجات والتطبيقات وثقة العملاء والمقر وطلب عرض السعر في رحلة واضحة.",
       },
       gallery: [
         {
@@ -1623,7 +1622,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "فئات المنتجات",
           caption:
-            "نظام منتجات منظم يجمع الأكواب والأكياس والصناديق والملصقات واحتياجات خدمة الطعام لتصفح واضح.",
+            "كتالوج واضح يجمع الأكواب والأكياس والصناديق والملصقات واحتياجات خدمة الطعام لتصفح سهل.",
         },
         {
           title: "عن Pakman",
@@ -1643,7 +1642,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "علامات موثوقة",
           caption:
-            "مراجع العملاء تبرز دعم النظام للمطاعم والمقاهي وعلامات الأغذية في التشغيل اليومي.",
+            "مراجع العملاء تبرز حضور التغليف داخل المطاعم والمقاهي وعلامات الأغذية في الاستخدام اليومي.",
         },
         {
           title: "لماذا Pakman",
@@ -1663,7 +1662,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "أصبحت Pakman دراسة حالة متكاملة لشركة تغليف مطاعم سعودية، تجمع الهوية التجارية وتوجيه التغليف وتصميم الموقع وتصميم الواجهة والتوجيه الفني في حضور رقمي واضح يخدم قطاع الأغذية.",
+        "أصبحت Pakman حضورًا رقميًا واضحًا لعلامة تغليف مطاعم سعودية، يجمع الهوية وتوجيه التغليف وتصميم الموقع وتجربة الواجهة والتوجيه الفني.",
     },
   },
   "circle-section": {
@@ -1671,18 +1670,18 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
       category: "Brand Identity, UX/UI Design, Web Design, Front-end Development, Content Direction",
       disciplines: "Brand Identity, UX/UI, Web Design, Front-end Development",
       intro:
-        "A premium smash burger restaurant in Jeddah shaped into a complete digital experience from strategy to execution.",
+        "A premium smash burger restaurant in Jeddah shaped into a bold website and digital brand presence.",
       details: {
         industry: "Restaurant / Smash Burger",
         services:
-          "Brand Positioning, UX Strategy, User Experience, UI Design, Content Direction, Information Architecture, Responsive Design, Front-end Implementation, Menu Experience, Motion, Performance Optimization",
+          "Brand Positioning, UX/UI Design, Content Direction, Website Design, Front-end Implementation, Menu Experience, Motion, Performance Optimization",
         platform: "Restaurant Brand Website",
       },
       overview: {
         challenge:
           "Circle Section is a premium smash burger restaurant in Jeddah. The objective was to transform the restaurant into a premium digital experience while preserving the personality of the brand.",
         approach:
-          "The project included the complete digital experience from strategy to execution, covering brand positioning, UX strategy, user experience, UI design, content direction, information architecture, responsive design, front-end implementation, menu experience, motion, and performance optimization.",
+          "The work covered brand positioning, UX/UI, content direction, responsive website design, front-end implementation, menu experience, motion, and performance refinement.",
         outcome:
           "The final experience turns the restaurant into a polished digital brand presence, connecting menu discovery, brand storytelling, mobile readiness, and clear contact moments into one cohesive journey.",
       },
@@ -1745,7 +1744,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Delivery Experience",
           caption:
-            "The delivery section turns ordering platforms into a branded moment with simple choices and strong orange presence.",
+            "The delivery section turns ordering services into a branded moment with simple choices and strong orange presence.",
         },
         {
           title: "Contact Experience",
@@ -1759,24 +1758,24 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "Circle Section became a complete restaurant digital experience, combining brand clarity, menu structure, responsive interface design, content direction, motion, and front-end implementation into a premium website that preserves the brand's personality.",
+        "Circle Section became a premium restaurant website that combines brand clarity, menu discovery, responsive UX/UI, motion, and front-end craft while preserving the brand's personality.",
     },
     ar: {
       category: "هوية تجارية، تجربة مستخدم وواجهة، تصميم موقع، تطوير الواجهة، توجيه المحتوى",
       disciplines: "هوية تجارية، تجربة وواجهة، تصميم موقع، تطوير الواجهة",
       intro:
-        "مطعم برجر متخصص في جدة صيغ كتجربة رقمية متكاملة من الاستراتيجية إلى التنفيذ.",
+        "مطعم برجر متخصص في جدة صيغ كموقع جريء وحضور رقمي واضح للعلامة.",
       details: {
         industry: "مطعم / سماش برجر",
         services:
-          "تموضع العلامة، استراتيجية تجربة المستخدم، تجربة المستخدم، تصميم الواجهة، توجيه المحتوى، هيكلة المعلومات، التصميم المتجاوب، تطوير الواجهة الأمامية، تجربة المنيو، الحركة، تحسين الأداء",
+          "تموضع العلامة، تجربة وواجهة المستخدم، توجيه المحتوى، تصميم الموقع، تطوير الواجهة الأمامية، تجربة المنيو، الحركة، وتحسين الأداء",
         platform: "موقع لعلامة مطعم",
       },
       overview: {
         challenge:
           "Circle Section مطعم برجر متخصص في جدة. كان الهدف تقديم تجربة رقمية تعكس جودة العلامة وتبرز شخصية المطعم بأسلوب معاصر ومميز.",
         approach:
-          "شمل المشروع بناء التجربة الرقمية بالكامل، بدءًا من فهم العلامة وحتى التنفيذ النهائي، عبر تموضع العلامة، استراتيجية التجربة، تجربة المستخدم، تصميم الواجهة، توجيه المحتوى، هيكلة المعلومات، التصميم المتجاوب، تطوير الواجهة الأمامية، تجربة المنيو، الحركة، وتحسين الأداء.",
+          "شمل العمل تموضع العلامة، تجربة وواجهة المستخدم، توجيه المحتوى، تصميم الموقع المتجاوب، تطوير الواجهة، تجربة المنيو، الحركة، وتحسين الأداء.",
         outcome:
           "حوّلت التجربة النهائية المطعم إلى حضور رقمي مصقول يربط اكتشاف المنيو، سرد العلامة، جاهزية الجوال، ولحظات التواصل داخل رحلة واحدة متماسكة.",
       },
@@ -1839,7 +1838,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "تجربة التوصيل",
           caption:
-            "يحوّل قسم التوصيل منصات الطلب إلى لحظة تحمل هوية العلامة بخيارات واضحة وحضور برتقالي قوي.",
+            "يحوّل قسم التوصيل خدمات الطلب إلى لحظة تحمل هوية العلامة بخيارات واضحة وحضور برتقالي قوي.",
         },
         {
           title: "تجربة التواصل",
@@ -1853,20 +1852,20 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "أصبح Circle Section تجربة رقمية متكاملة لمطعم، تجمع وضوح العلامة، هيكلة المنيو، تصميم الواجهة المتجاوبة، توجيه المحتوى، الحركة، وتطوير الواجهة الأمامية داخل موقع فاخر يحافظ على شخصية العلامة.",
+        "أصبح Circle Section موقعًا فاخرًا لمطعم، يجمع وضوح العلامة، اكتشاف المنيو، تجربة وواجهة متجاوبة، الحركة، وحرفة الواجهة مع الحفاظ على شخصية العلامة.",
     },
   },
   "opal-stones": {
     en: {
       category:
-        "Luxury Brand Identity, UX Strategy, UI Design, Website Design, Front-end Development, Content Direction",
-      disciplines: "Luxury Brand Identity, UX Strategy, UI Design, Website Design",
+        "Luxury Brand Identity, UX/UI Design, Website Design, Front-end Craft, Content Direction",
+      disciplines: "Luxury Brand Identity, UX/UI, Website Design",
       intro:
         "A contemporary Saudi fine jewellery maison focused on timeless craftsmanship and bespoke pieces.",
       details: {
         industry: "Fine Jewellery / Luxury Maison, Saudi Arabia",
         services:
-          "Brand Direction, UX Strategy, UI Design, Content Direction, Editorial Experience, Responsive Design, Front-end Development",
+          "Brand Direction, UX/UI Design, Content Direction, Editorial Experience, Responsive Design, Front-end Craft",
         platform: "Luxury Maison Website",
       },
       overview: {
@@ -1929,21 +1928,21 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
     },
     ar: {
       category:
-        "هوية فاخرة، استراتيجية تجربة المستخدم، تصميم واجهة، تصميم موقع، تطوير الواجهة، توجيه المحتوى",
-      disciplines: "هوية فاخرة، تجربة مستخدم، تصميم واجهة، تصميم موقع",
+        "هوية فاخرة، تجربة وواجهة المستخدم، تصميم موقع، حرفة الواجهة، توجيه المحتوى",
+      disciplines: "هوية فاخرة، تجربة وواجهة، تصميم موقع",
       intro:
         "دار مجوهرات سعودية معاصرة تقدم قطعًا مصممة بعناية، تجمع بين الحرفية والهوية الراقية.",
       details: {
         industry: "مجوهرات فاخرة / دار فاخرة، السعودية",
         services:
-          "التوجه الإبداعي، استراتيجية تجربة المستخدم، تصميم الواجهة، توجيه المحتوى، التجربة التحريرية، التصميم المتجاوب، تطوير الواجهة الأمامية",
+          "التوجه الإبداعي، تجربة وواجهة المستخدم، توجيه المحتوى، التجربة التحريرية، التصميم المتجاوب، وحرفة الواجهة الأمامية",
         platform: "موقع لدار مجوهرات فاخرة",
       },
       overview: {
         challenge:
           "OPAL STONES دار مجوهرات سعودية معاصرة تقدم قطعًا مصممة بعناية، تجمع بين الحرفية والهوية الراقية. صُمم المشروع كتجربة رقمية فاخرة تعكس قيمة العلامة، وليس كمتجر إلكتروني تقليدي.",
         approach:
-          "شمل المشروع التوجه الإبداعي، استراتيجية تجربة المستخدم، تصميم الواجهة، توجيه المحتوى، التجربة التحريرية، التصميم المتجاوب، وتطوير الواجهة الأمامية بما يعكس أناقة العلامة.",
+          "شمل العمل التوجه الإبداعي، تجربة وواجهة المستخدم، توجيه المحتوى، التجربة التحريرية، التصميم المتجاوب، وحرفة الواجهة بما يعكس أناقة العلامة.",
         outcome:
           "تقدم التجربة النهائية OPAL STONES كدار فاخرة وهادئة، تجمع سرد المجوهرات، مسار المواعيد الخاصة، اكتشاف القطع بأسلوب تحريري، وحضورًا رقميًا مصقولًا.",
       },
@@ -1990,7 +1989,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "الموعد الخاص",
           caption:
-            "يحوّل مسار الموعد الاستفسار إلى استشارة خاصة مصقولة بدل تجربة شراء تقليدية.",
+            "يحوّل مسار الموعد الاستفسار إلى موعد خاص مصقول بدل تجربة شراء تقليدية.",
         },
       ],
       reflection:
@@ -1999,30 +1998,29 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
   },
   "ex-events-exhibitions": {
     en: {
-      category:
-        "Digital Strategy, UX Strategy, UX/UI Design, Website Design, Front-end Development, Content Direction",
-      disciplines: "Digital Strategy, UX Strategy, UX/UI, Website Design",
+      category: "UX/UI Design, Website Design, Brand Presence, Front-end Craft",
+      disciplines: "UX/UI, Website Design, Content Direction",
       intro:
-        "A Saudi events and exhibitions company specializing in operational excellence, supervision, planning, protocol, visitor experience, and on-site execution.",
+        "A Saudi events and exhibitions brand shaped into a premium website with clear service storytelling and a confident digital presence.",
       details: {
-        industry: "Events, Exhibitions, Operations / Saudi Arabia",
+        industry: "Events and Exhibitions / Saudi Arabia",
         services:
-          "Digital Strategy, UX Strategy, Information Architecture, UX/UI Design, Content Direction, Responsive Design, Motion Direction, Front-end Development",
+          "UX/UI Design, Website Design, Content Direction, Responsive Design, Motion Direction, Front-end Craft",
         platform: "Events and Exhibitions Website",
       },
       overview: {
         challenge:
-          "EX Events & Exhibitions is a Saudi events and exhibitions company specializing in operational excellence, supervision, planning, protocol, visitor experience, and on-site execution.",
+          "EX Events & Exhibitions needed a website that could express trust, scale, service clarity, and the energy behind major events without feeling crowded.",
         approach:
-          "The project focused on transforming a traditional corporate presence into a premium digital experience that reflects the company's professionalism and large-scale operational capabilities.",
+          "The work shaped the brand into a polished digital presence through clear UX, refined interface design, cinematic imagery, concise content, and front-end craft.",
         outcome:
-          "The final website brings strategy, information architecture, interface design, responsive layouts, content direction, and front-end development together into a clear digital presence for events and exhibition operations.",
+          "The final website presents EX with a confident visual rhythm, clear service chapters, responsive layouts, and a direct path for new inquiries.",
       },
       gallery: [
         {
           title: "Hero and Brand Entry",
           caption:
-            "The opening visual introduces EX through a cinematic command-room atmosphere, linking the brand to supervision, control, and operational readiness.",
+            "The opening visual introduces EX through a cinematic command-room atmosphere, linking the brand to precision, scale, and readiness.",
         },
         {
           title: "Homepage Hero",
@@ -2030,24 +2028,24 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
             "The homepage frames EX as a company that leads major event details through professionalism, planning, and on-site execution.",
         },
         {
-          title: "Operations Overview",
+          title: "Service Overview",
           caption:
-            "A compact operations section presents experience, VIP protocol, media, exhibitions, and events as a structured capability system.",
+            "A compact service section presents experience, VIP protocol, media, exhibitions, and events with clear hierarchy.",
         },
         {
-          title: "Operations System",
+          title: "Service Flow",
           caption:
-            "The operations system translates planning, documentation, supervision, field execution, and protocol into one organized service model.",
+            "The service flow translates planning, documentation, supervision, field execution, and protocol into one readable sequence.",
         },
         {
           title: "Company Values",
           caption:
-            "The values chapter communicates professionalism, commitment, transparency, and efficiency with a restrained corporate interface.",
+            "The values chapter communicates professionalism, commitment, transparency, and efficiency with a restrained interface.",
         },
         {
           title: "Behind The Scenes",
           caption:
-            "Execution imagery shows the field teams, venues, production moments, and operational scenes behind major events.",
+            "Execution imagery shows field teams, venues, production moments, and the visible discipline behind major events.",
         },
         {
           title: "Mission",
@@ -2071,33 +2069,32 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "EX Events & Exhibitions became a premium digital presence for a Saudi events and exhibitions company, connecting operational strategy, UX structure, interface design, content direction, responsive layouts, motion direction, and front-end implementation into one professional case study.",
+        "EX Events & Exhibitions became a premium website and digital brand presence, connecting UX/UI, content direction, motion, responsive design, and front-end craft.",
     },
     ar: {
-      category:
-        "استراتيجية رقمية، استراتيجية تجربة المستخدم، تصميم تجربة وواجهة، تصميم موقع، تطوير الواجهة، توجيه المحتوى",
-      disciplines: "استراتيجية رقمية، تجربة مستخدم، تصميم واجهة، تصميم موقع",
+      category: "تجربة وواجهة، تصميم موقع، حضور رقمي، حرفة الواجهة",
+      disciplines: "تجربة وواجهة، تصميم موقع، توجيه محتوى",
       intro:
-        "شركة سعودية متخصصة في إدارة وتشغيل الفعاليات والمعارض، تجمع بين التخطيط، والإشراف، والتنفيذ الميداني وفق أعلى المعايير.",
+        "علامة سعودية في الفعاليات والمعارض صيغت كموقع راقٍ بسرد خدمات واضح وحضور رقمي واثق.",
       details: {
-        industry: "فعاليات، معارض، تشغيل / السعودية",
+        industry: "فعاليات ومعارض / السعودية",
         services:
-          "الاستراتيجية الرقمية، استراتيجية تجربة المستخدم، هيكلة المعلومات، تصميم تجربة المستخدم، تصميم الواجهة، توجيه المحتوى، التصميم المتجاوب، الحركة، تطوير الواجهة الأمامية",
+          "تجربة وواجهة المستخدم، تصميم الموقع، توجيه المحتوى، التصميم المتجاوب، الحركة، وحرفة الواجهة الأمامية",
         platform: "موقع لشركة فعاليات ومعارض",
       },
       overview: {
         challenge:
-          "EX Events & Exhibitions شركة سعودية متخصصة في إدارة وتشغيل الفعاليات والمعارض، تجمع بين التخطيط، والإشراف، والتنفيذ الميداني وفق أعلى المعايير.",
+          "احتاجت EX Events & Exhibitions إلى موقع يعبّر عن الثقة والحجم ووضوح الخدمات وطاقة الفعاليات الكبرى دون ازدحام.",
         approach:
-          "ركز المشروع على بناء تجربة رقمية تعكس احترافية الشركة وقدرتها على إدارة المشاريع والفعاليات الكبرى بأسلوب واضح ومنظم.",
+          "صاغ العمل حضور العلامة عبر تجربة واضحة، واجهة مصقولة، صور سينمائية، محتوى مختصر، وحرفة في الواجهة الأمامية.",
         outcome:
-          "تجمع التجربة النهائية الاستراتيجية الرقمية، هيكلة المعلومات، تصميم الواجهة، توجيه المحتوى، التصميم المتجاوب، والحركة داخل حضور رقمي واضح لشركة متخصصة في تشغيل الفعاليات والمعارض.",
+          "يقدم الموقع EX بإيقاع بصري واثق، فصول خدمات واضحة، تصميم متجاوب، ومسار مباشر للاستفسارات الجديدة.",
       },
       gallery: [
         {
           title: "الواجهة وهوية الدخول",
           caption:
-            "تقدم اللقطة الافتتاحية EX من خلال أجواء غرفة تشغيل سينمائية تربط العلامة بالإشراف والتحكم والجاهزية.",
+            "تقدم اللقطة الافتتاحية EX من خلال أجواء سينمائية تربط العلامة بالدقة والحجم والجاهزية.",
         },
         {
           title: "واجهة الصفحة الرئيسية",
@@ -2105,24 +2102,24 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
             "تعرض الصفحة الرئيسية الشركة كجهة تقود تفاصيل الفعاليات الكبرى باحترافية وتخطيط وتنفيذ ميداني.",
         },
         {
-          title: "نظرة تشغيلية",
+          title: "نظرة على الخدمات",
           caption:
-            "يعرض قسم العمليات الخبرة والبروتوكول وخدمة كبار الشخصيات والإعلام والمعارض والفعاليات كنظام قدرات واضح.",
+            "يعرض قسم الخدمات الخبرة والبروتوكول وخدمة كبار الشخصيات والإعلام والمعارض والفعاليات بهرمية واضحة.",
         },
         {
-          title: "نظام العمليات",
+          title: "مسار الخدمة",
           caption:
-            "يحوّل نظام العمليات التخطيط والتوثيق والإشراف والتنفيذ الميداني والبروتوكول إلى نموذج خدمة منظم.",
+            "يحوّل مسار الخدمة التخطيط والتوثيق والإشراف والتنفيذ الميداني والبروتوكول إلى تسلسل مقروء.",
         },
         {
           title: "قيم الشركة",
           caption:
-            "ينقل فصل القيم الاحترافية والالتزام والشفافية والكفاءة من خلال واجهة مؤسسية هادئة.",
+            "ينقل فصل القيم الاحترافية والالتزام والشفافية والكفاءة من خلال واجهة هادئة.",
         },
         {
           title: "وراء الكواليس",
           caption:
-            "تعرض صور التنفيذ فرق العمل والمواقع ولحظات الإنتاج والمشاهد التشغيلية خلف الفعاليات الكبرى.",
+            "تعرض الصور فرق العمل والمواقع ولحظات الإنتاج والانضباط المرئي خلف الفعاليات الكبرى.",
         },
         {
           title: "المهمة",
@@ -2135,9 +2132,9 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
             "تعرض المشاريع البارزة بصور قوية وبطاقات منظمة توضح الحجم والثقة والخبرة.",
         },
         {
-          title: "التواصل والاستشارة",
+          title: "التواصل والاستفسار",
           caption:
-            "يحوّل قسم التواصل الاستفسار إلى مسار استشارة واضح عبر واتساب والاتصال والبريد وطلب الموعد.",
+            "يحوّل قسم التواصل الاهتمام إلى مسار واضح عبر واتساب والاتصال والبريد وطلب الموعد.",
         },
         {
           title: "العمل الميداني",
@@ -2146,30 +2143,28 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
       ],
       reflection:
-        "أصبح EX Events & Exhibitions حضورًا رقميًا فاخرًا لشركة سعودية متخصصة في الفعاليات والمعارض، يجمع الاستراتيجية التشغيلية، هيكلة التجربة، تصميم الواجهة، توجيه المحتوى، التصميم المتجاوب، الحركة، وتطوير الواجهة الأمامية داخل دراسة حالة مهنية واضحة.",
+        "أصبح EX Events & Exhibitions موقعًا فاخرًا وحضورًا رقميًا واضحًا، يجمع تجربة وواجهة المستخدم، توجيه المحتوى، الحركة، التصميم المتجاوب، وحرفة الواجهة.",
     },
   },
   "first-advance": {
     en: {
-      category:
-        "Brand Identity, Logo Design, UX Strategy, UX/UI Design, Website Design, Front-end Development, Content Direction",
-      disciplines: "Logo Design, Brand Identity, UX Strategy, UX/UI, Website Design",
+      category: "Brand Identity, Logo Design, UX/UI Design, Website Design, Front-end Craft",
+      disciplines: "Logo Design, Brand Identity, UX/UI, Website Design",
       intro:
-        "First Advance is a Saudi business services company providing integrated administrative, operational, and real estate service solutions.",
+        "A Saudi service brand shaped through a refined logo, calm identity, clear UX/UI, and a composed website experience.",
       details: {
-        industry:
-          "Business Services, Real Estate Services, Operations & Administrative Solutions / Saudi Arabia",
+        industry: "Service Brand / Saudi Arabia",
         services:
-          "Logo Design, Brand Direction, UX Strategy, Information Architecture, UX/UI Design, Website Design, Content Direction, Responsive Design, Front-end Development",
-        platform: "Corporate Business Services Website",
+          "Logo Design, Brand Direction, UX/UI Design, Website Design, Content Direction, Responsive Design, Front-end Craft",
+        platform: "Service Brand Website",
       },
       overview: {
         challenge:
-          "First Advance is a Saudi business services company providing integrated administrative, operational, and real estate service solutions.",
+          "First Advance needed a digital presence that could make its services feel clear, trustworthy, and easy to understand at first glance.",
         approach:
-          "The project included creating the company's new logo and building a complete digital presence from brand direction to website execution.",
+          "The work created a new logo, a calm visual direction, a clear service narrative, refined UX/UI, and a responsive website experience.",
         outcome:
-          "The website was designed to communicate trust, clarity, and professional service structure through a refined Saudi business identity.",
+          "The final website communicates trust, clarity, and service confidence through a refined Saudi identity and a clean user journey.",
       },
       gallery: [
         {
@@ -2180,12 +2175,12 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Services Structure",
           caption:
-            "The services chapter organizes real estate, operational, and business support offerings into a clear information architecture.",
+            "The services chapter organizes the offer into clear sections that make the brand easy to understand.",
         },
         {
           title: "Company Introduction",
           caption:
-            "The company introduction frames First Advance as an integrated partner for administrative, operational, and real estate services.",
+            "The company introduction frames First Advance as a composed Saudi service brand with a clear promise.",
         },
         {
           title: "Vision and Mission",
@@ -2195,12 +2190,12 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Target Audience",
           caption:
-            "The audience section identifies the business segments First Advance serves and gives each group a clear visual context.",
+            "The audience section gives each visitor group a simple visual context and a clear reason to keep reading.",
         },
         {
           title: "Work Process",
           caption:
-            "The process section presents a structured working method from understanding client needs to execution and performance standards.",
+            "The process section presents a simple working rhythm from understanding the need to shaping the right service path.",
         },
         {
           title: "Why First Advance",
@@ -2210,36 +2205,35 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "Packages and Offers",
           caption:
-            "The packages section turns service offers into a clean comparison system with direct consultation paths.",
+            "The packages section turns service offers into an easy comparison with direct inquiry paths.",
         },
         {
           title: "Contact Experience",
           caption:
-            "The closing section gives visitors a clear path to WhatsApp and email while maintaining the brand's composed corporate tone.",
+            "The closing section gives visitors a clear path to WhatsApp and email while keeping the brand calm and composed.",
         },
       ],
       reflection:
-        "First Advance became a complete corporate digital presence for a Saudi business services company, combining logo design, brand direction, UX strategy, information architecture, interface design, content direction, responsive layouts, and front-end implementation into a calm and professional service website.",
+        "First Advance became a calm service-brand website, combining logo design, brand direction, UX/UI, content direction, responsive design, and front-end craft.",
     },
     ar: {
-      category:
-        "هوية تجارية، تصميم شعار، استراتيجية تجربة المستخدم، تصميم تجربة وواجهة، تصميم موقع، تطوير الواجهة، توجيه المحتوى",
-      disciplines: "تصميم شعار، هوية تجارية، تجربة مستخدم، تصميم واجهة، تصميم موقع",
+      category: "هوية تجارية، تصميم شعار، تجربة وواجهة، تصميم موقع، حرفة الواجهة",
+      disciplines: "تصميم شعار، هوية تجارية، تجربة وواجهة، تصميم موقع",
       intro:
-        "شركة سعودية متخصصة في حلول وخدمات الأعمال، تشمل الخدمات الإدارية والتشغيلية والخدمات العقارية.",
+        "علامة خدمات سعودية صيغت عبر شعار مصقول، هوية هادئة، تجربة واضحة، وموقع متزن.",
       details: {
-        industry: "خدمات الأعمال، الخدمات العقارية، الحلول التشغيلية والإدارية / السعودية",
+        industry: "علامة خدمات / السعودية",
         services:
-          "تصميم الشعار، التوجه البصري، استراتيجية تجربة المستخدم، هيكلة المعلومات، تصميم تجربة المستخدم، تصميم الواجهة، توجيه المحتوى، التصميم المتجاوب، تطوير الواجهة الأمامية",
-        platform: "موقع شركة خدمات أعمال",
+          "تصميم الشعار، التوجه البصري، تجربة وواجهة المستخدم، تصميم الموقع، توجيه المحتوى، التصميم المتجاوب، وحرفة الواجهة الأمامية",
+        platform: "موقع لعلامة خدمات",
       },
       overview: {
         challenge:
-          "First Advance شركة سعودية متخصصة في حلول وخدمات الأعمال، تشمل الخدمات الإدارية والتشغيلية والخدمات العقارية.",
+          "احتاجت First Advance إلى حضور رقمي يجعل خدماتها واضحة وموثوقة وسهلة الفهم منذ اللحظة الأولى.",
         approach:
-          "شمل المشروع تصميم الشعار الجديد للشركة، وبناء الحضور الرقمي بالكامل من التوجه البصري إلى تنفيذ الموقع.",
+          "صمم العمل شعارًا جديدًا، وتوجهًا بصريًا هادئًا، وسردًا واضحًا للخدمات، وتجربة وواجهة مصقولة، وموقعًا متجاوبًا.",
         outcome:
-          "صُممت التجربة لتعكس الثقة والوضوح والاحترافية، من خلال هوية سعودية هادئة ومظهر مؤسسي راقٍ.",
+          "يعكس الموقع الثقة والوضوح وحضور الخدمة من خلال هوية سعودية مصقولة ورحلة استخدام نظيفة.",
       },
       gallery: [
         {
@@ -2250,12 +2244,12 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "هيكلة الخدمات",
           caption:
-            "ينظم فصل الخدمات عروض القطاع العقاري والتشغيلي وخدمات الأعمال ضمن هيكلة معلومات واضحة.",
+            "ينظم فصل الخدمات العروض في أقسام واضحة تجعل العلامة سهلة الفهم.",
         },
         {
           title: "تعريف الشركة",
           caption:
-            "يعرض تعريف الشركة First Advance كشريك متكامل للخدمات الإدارية والتشغيلية والعقارية.",
+            "يعرض تعريف الشركة First Advance كعلامة خدمات سعودية متزنة بوعد واضح.",
         },
         {
           title: "الرؤية والرسالة",
@@ -2265,12 +2259,12 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "الجمهور المستهدف",
           caption:
-            "يحدد قسم الجمهور المستهدف شرائح الأعمال التي تخدمها First Advance ويمنح كل شريحة سياقًا بصريًا واضحًا.",
+            "يمنح قسم الجمهور كل فئة سياقًا بصريًا بسيطًا وسببًا واضحًا لمتابعة القراءة.",
         },
         {
           title: "أسلوب العمل",
           caption:
-            "يعرض قسم أسلوب العمل منهجية منظمة تبدأ من فهم احتياج العميل وتنتهي بالتنفيذ وفق معايير أداء واضحة.",
+            "يعرض قسم أسلوب العمل إيقاعًا بسيطًا يبدأ من فهم الاحتياج وينتهي بتشكيل المسار المناسب.",
         },
         {
           title: "لماذا First Advance",
@@ -2280,16 +2274,16 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         {
           title: "الباقات والعروض",
           caption:
-            "يحوّل قسم الباقات عروض الخدمة إلى نظام مقارنة واضح مع مسارات مباشرة للاستشارة.",
+            "يحوّل قسم الباقات عروض الخدمة إلى مقارنة سهلة مع مسارات استفسار مباشرة.",
         },
         {
           title: "تجربة التواصل",
           caption:
-            "يمنح القسم الختامي الزائر مسارًا واضحًا للتواصل عبر واتساب والبريد مع الحفاظ على نبرة مؤسسية هادئة.",
+            "يمنح القسم الختامي الزائر مسارًا واضحًا للتواصل عبر واتساب والبريد بنبرة هادئة ومتزنة.",
         },
       ],
       reflection:
-        "أصبح First Advance حضورًا رقميًا مؤسسيًا متكاملًا لشركة سعودية في خدمات الأعمال، يجمع تصميم الشعار، التوجه البصري، استراتيجية تجربة المستخدم، هيكلة المعلومات، تصميم الواجهة، توجيه المحتوى، التصميم المتجاوب، وتطوير الواجهة الأمامية داخل موقع هادئ واحترافي.",
+        "أصبح First Advance موقعًا هادئًا لعلامة خدمات، يجمع تصميم الشعار، التوجه البصري، تجربة وواجهة المستخدم، توجيه المحتوى، التصميم المتجاوب، وحرفة الواجهة.",
     },
   },
 };
