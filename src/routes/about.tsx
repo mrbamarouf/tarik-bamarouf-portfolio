@@ -34,12 +34,21 @@ function AboutPage() {
         <div className="about-page__intro-inner w-full px-6 md:px-12">
           <SectionLabel index="I" title={t.about.label} />
           <h1 className="about-page__headline mt-10 font-serif text-2xl md:text-4xl lg:text-[3rem] leading-[1.12] max-w-3xl font-light">
-            <span className="italic font-light">
-              <BidiText>{t.about.titleA}</BidiText>
-            </span>
-            <span className="gradient-bronze-text">
-              <BidiText>{t.about.titleB}</BidiText>
-            </span>
+            {language === "ar" ? (
+              <bdi className="arabic-bidi-isolate" dir="rtl">
+                <span className="italic font-light">{t.about.titleA}</span>
+                <span className="gradient-bronze-text">{t.about.titleB}</span>
+              </bdi>
+            ) : (
+              <>
+                <span className="italic font-light">
+                  <BidiText>{t.about.titleA}</BidiText>
+                </span>
+                <span className="gradient-bronze-text">
+                  <BidiText>{t.about.titleB}</BidiText>
+                </span>
+              </>
+            )}
             <span className="block text-foreground/70 italic font-light">
               <BidiText>{t.about.titleC}</BidiText>
             </span>
