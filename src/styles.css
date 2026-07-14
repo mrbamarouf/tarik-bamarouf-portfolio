@@ -5593,6 +5593,96 @@ body[data-lang="ar"] .approach-stage__arrow {
   }
 }
 
+/* Arabic homepage About composition: keep the portrait clear and group the copy on the right. */
+body[data-lang="ar"] .home-about__content {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  align-content: center;
+  align-items: start;
+  row-gap: clamp(2rem, 2.2vw, 2.5rem);
+  direction: ltr;
+}
+
+body[data-lang="ar"] .home-about__heading,
+body[data-lang="ar"] .home-about__body {
+  grid-column: 8 / 13;
+  justify-self: end;
+  width: 100%;
+  min-width: 0;
+  direction: rtl;
+  text-align: right;
+}
+
+body[data-lang="ar"] .home-about__heading {
+  grid-row: 1;
+}
+
+body[data-lang="ar"] .home-about__body {
+  grid-row: 2;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+body[data-lang="ar"] .home-about__heading > p,
+body[data-lang="ar"] .home-about__heading h2,
+body[data-lang="ar"] .home-about__body p,
+body[data-lang="ar"] .home-about__body a {
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: isolate;
+}
+
+body[data-lang="ar"] .home-about__heading h2 {
+  margin-inline: 0;
+}
+
+body[data-lang="ar"] .home-about__body p {
+  width: 100%;
+  max-width: 32ch;
+  margin-right: 0;
+  margin-left: auto;
+  align-self: auto;
+}
+
+body[data-lang="ar"] .home-about__body a {
+  flex-direction: row;
+  margin-right: 0;
+  margin-left: auto;
+  align-self: auto;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  body[data-lang="ar"] .home-about__heading,
+  body[data-lang="ar"] .home-about__body {
+    grid-column: 7 / 13 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  body[data-lang="ar"] .home-about__content {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-content: end;
+    align-items: end;
+    row-gap: 2rem;
+  }
+
+  body[data-lang="ar"] .home-about__heading,
+  body[data-lang="ar"] .home-about__body {
+    grid-column: 1 / -1 !important;
+    justify-self: end;
+    width: min(62%, 15.5rem);
+    max-width: min(62%, 15.5rem);
+  }
+
+  body[data-lang="ar"] .home-about__heading h2,
+  body[data-lang="ar"] .home-about__body p {
+    width: 100%;
+    max-width: 100%;
+    text-align: right;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .approach-section::before,
   .approach-section::after {
