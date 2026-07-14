@@ -16,6 +16,8 @@ import mobileIntroVideo from "../assets/intro/mobile-intro-9x16.mp4";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { BidiText, LanguageProvider, siteCopy, useLanguage } from "@/lib/language";
 
+declare const __APP_BUILD_VERSION__: string;
+
 const MOBILE_INTRO_MEDIA_QUERY = "(max-width: 767px)";
 const DESKTOP_INTRO_MEDIA_QUERY = "(min-width: 768px)";
 const MOBILE_INTRO_CACHE_VERSION = "intro-mobile-v4";
@@ -44,8 +46,16 @@ const structuredData = JSON.stringify({
   areaServed: "Worldwide",
 });
 const INTRO_FALLBACK_MS = 12_500;
+const INTRO_STALL_FALLBACK_MS = 2_800;
 const INTRO_INTERNAL_NAVIGATION_KEY = "tarik-bamarouf-intro-internal-navigation";
 const INTRO_INTERNAL_NAVIGATION_SKIP_TTL_MS = 10_000;
+const APP_BUILD_VERSION =
+  typeof __APP_BUILD_VERSION__ === "string" && __APP_BUILD_VERSION__
+    ? __APP_BUILD_VERSION__
+    : "dev";
+const APP_BUILD_VERSION_ENDPOINT = "/build-version.json";
+const APP_SHELL_REFRESH_KEY = "tarik-bamarouf-shell-refresh-version";
+const SITE_OWNED_CACHE_PATTERNS = [/tarik/i, /bamarouf/i, /portfolio/i, /tanstack-start/i];
 let introHasPlayedThisPageLoad = false;
 let pendingInternalIntroSkipHref: string | null = null;
 
@@ -308,12 +318,90 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ProductionReliabilityGuards />
       <GoogleAnalyticsPageViews />
       <IntroOverlay />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );
+}
+
+function isSiteOwnedCache(cacheName: string) {
+  return SITE_OWNED_CACHE_PATTERNS.some((pattern) => pattern.test(cacheName));
+}
+
+function ProductionReliabilityGuards() {
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .getRegistrations()
+        .then((registrations) =>
+          Promise.all(registrations.map((registration) => registration.unregister())),
+        )
+        .catch(() => {
+          // A service-worker cleanup failure must never block the page.
+        });
+    }
+
+    if ("caches" in window) {
+      window.caches
+        .keys()
+        .then((cacheNames) =>
+          Promise.all(
+            cacheNames.filter(isSiteOwnedCache).map((cacheName) => window.caches.delete(cacheName)),
+          ),
+        )
+        .catch(() => {
+          // Cache Storage is optional; ignore unsupported or restricted modes.
+        });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!APP_BUILD_VERSION || APP_BUILD_VERSION === "dev") return undefined;
+
+    const controller = new AbortController();
+    let cancelled = false;
+
+    fetch(`${APP_BUILD_VERSION_ENDPOINT}?t=${Date.now()}`, {
+      cache: "no-store",
+      headers: { accept: "application/json" },
+      signal: controller.signal,
+    })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((payload: { version?: unknown; commit?: unknown } | null) => {
+        if (cancelled || !payload) return;
+
+        const deployedVersion =
+          typeof payload.version === "string"
+            ? payload.version
+            : typeof payload.commit === "string"
+              ? payload.commit
+              : "";
+
+        if (!deployedVersion || deployedVersion === APP_BUILD_VERSION) {
+          window.sessionStorage.removeItem(APP_SHELL_REFRESH_KEY);
+          return;
+        }
+
+        const refreshMarker = `${APP_BUILD_VERSION}->${deployedVersion}`;
+        if (window.sessionStorage.getItem(APP_SHELL_REFRESH_KEY) === refreshMarker) return;
+
+        window.sessionStorage.setItem(APP_SHELL_REFRESH_KEY, refreshMarker);
+        window.location.reload();
+      })
+      .catch(() => {
+        // Version checks are defensive only; a failed request should not affect visitors.
+      });
+
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
+  }, []);
+
+  return null;
 }
 
 function GoogleAnalyticsPageViews() {
@@ -345,6 +433,9 @@ function IntroOverlay() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const removeTimerRef = useRef<number | null>(null);
   const fallbackTimerRef = useRef<number | null>(null);
+  const stallTimerRef = useRef<number | null>(null);
+  const dismissedRef = useRef(false);
+  const { language } = useLanguage();
   const [state, setState] = useState<"visible" | "fading" | "hidden">(getInitialIntroState);
 
   useEffect(() => {
@@ -391,16 +482,29 @@ function IntroOverlay() {
     };
   }, []);
 
-  const dismiss = () => {
-    unlockIntroScroll();
-
+  const clearIntroTimers = () => {
     if (fallbackTimerRef.current !== null) {
       window.clearTimeout(fallbackTimerRef.current);
+      fallbackTimerRef.current = null;
+    }
+
+    if (stallTimerRef.current !== null) {
+      window.clearTimeout(stallTimerRef.current);
+      stallTimerRef.current = null;
     }
 
     if (removeTimerRef.current !== null) {
       window.clearTimeout(removeTimerRef.current);
+      removeTimerRef.current = null;
     }
+  };
+
+  const dismiss = () => {
+    if (dismissedRef.current) return;
+
+    dismissedRef.current = true;
+    clearIntroTimers();
+    unlockIntroScroll();
 
     if (isMobileIntroViewport()) {
       setState("hidden");
@@ -459,6 +563,38 @@ function IntroOverlay() {
       }
     };
 
+    const failIntro = () => {
+      dismiss();
+    };
+
+    const clearStallFallback = () => {
+      if (stallTimerRef.current === null) return;
+      window.clearTimeout(stallTimerRef.current);
+      stallTimerRef.current = null;
+    };
+
+    const scheduleStallFallback = () => {
+      if (dismissedRef.current || stallTimerRef.current !== null) return;
+
+      stallTimerRef.current = window.setTimeout(() => {
+        dismiss();
+      }, INTRO_STALL_FALLBACK_MS);
+    };
+
+    const failureEvents = ["abort", "emptied", "error"] as const;
+    const stallEvents = ["stalled", "waiting", "suspend"] as const;
+    const recoveryEvents = [
+      "canplay",
+      "canplaythrough",
+      "loadeddata",
+      "playing",
+      "timeupdate",
+    ] as const;
+
+    failureEvents.forEach((eventName) => video.addEventListener(eventName, failIntro));
+    stallEvents.forEach((eventName) => video.addEventListener(eventName, scheduleStallFallback));
+    recoveryEvents.forEach((eventName) => video.addEventListener(eventName, clearStallFallback));
+
     video.src = introSrc;
     video.dataset.introMode = isMobileIntro ? "mobile" : "desktop";
 
@@ -474,13 +610,15 @@ function IntroOverlay() {
     });
 
     return () => {
-      if (removeTimerRef.current !== null) {
-        window.clearTimeout(removeTimerRef.current);
-      }
-      if (fallbackTimerRef.current !== null) {
-        window.clearTimeout(fallbackTimerRef.current);
-      }
+      clearIntroTimers();
       video.removeEventListener("loadedmetadata", setIntroStartTime);
+      failureEvents.forEach((eventName) => video.removeEventListener(eventName, failIntro));
+      stallEvents.forEach((eventName) =>
+        video.removeEventListener(eventName, scheduleStallFallback),
+      );
+      recoveryEvents.forEach((eventName) =>
+        video.removeEventListener(eventName, clearStallFallback),
+      );
     };
   }, []);
 
@@ -512,6 +650,9 @@ function IntroOverlay() {
           data-intro-source="desktop"
         />
       </video>
+      <button type="button" className="intro-overlay__skip" onClick={dismiss}>
+        {language === "ar" ? "تخطي المقدمة" : "Skip Intro"}
+      </button>
     </div>
   );
 }
