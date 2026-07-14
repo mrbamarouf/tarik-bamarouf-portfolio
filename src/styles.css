@@ -5103,8 +5103,8 @@ body[data-lang="ar"] .process-timeline__copy p {
   }
 
   body[data-lang="en"] .home-hero__copy {
-    margin-left: auto;
-    margin-right: clamp(1.75rem, 2vw, 2.5rem);
+    margin-left: 0;
+    margin-right: auto;
     text-align: left;
   }
 
