@@ -321,7 +321,10 @@ function Index() {
 
   return (
     <SiteLayout>
-      <section className="home-hero relative min-h-[100svh] overflow-hidden bg-ink">
+      <section
+        className="home-hero relative min-h-[100svh] overflow-hidden bg-ink"
+        data-lang={language}
+      >
         <img
           src={cinematicHero}
           alt="Tarik Bamarouf cinematic hero"
