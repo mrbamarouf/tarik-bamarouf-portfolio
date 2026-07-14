@@ -581,8 +581,8 @@ function IntroOverlay() {
       }, INTRO_STALL_FALLBACK_MS);
     };
 
-    const failureEvents = ["abort", "emptied", "error"] as const;
-    const stallEvents = ["stalled", "waiting", "suspend"] as const;
+    const failureEvents = ["abort", "error"] as const;
+    const stallEvents = ["stalled", "waiting"] as const;
     const recoveryEvents = [
       "canplay",
       "canplaythrough",
