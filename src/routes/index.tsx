@@ -7,7 +7,7 @@ import {
   Palette,
   Route as RouteIcon,
 } from "lucide-react";
-import { Fragment, useEffect, useRef, useState, type CSSProperties } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import cinematicHero from "@/assets/cinematic-hero.webp";
 import aboutImg from "@/assets/about.webp";
 import finalCtaWall from "@/assets/final-cta-wall.webp";
@@ -535,13 +535,7 @@ function Index() {
                   return (
                     <article
                       key={stage.t}
-                      className="approach-stage approach-stage--mobile-story scroll-reveal"
-                      data-scroll-reveal
-                      style={
-                        {
-                          "--approach-stage-delay": `${index * 55}ms`,
-                        } as CSSProperties
-                      }
+                      className="approach-stage approach-stage--mobile-story"
                     >
                       {stageContent}
                     </article>
@@ -552,13 +546,7 @@ function Index() {
                   <button
                     key={stage.t}
                     type="button"
-                    data-scroll-reveal
-                    className={`approach-stage scroll-reveal ${isActive ? "is-active" : ""}`}
-                    style={
-                      {
-                        "--approach-stage-delay": `${index * 70}ms`,
-                      } as CSSProperties
-                    }
+                    className={`approach-stage ${isActive ? "is-active" : ""}`}
                     onMouseEnter={() => {
                       if (hasFineHoverPointer()) {
                         setActiveApproachIndex(index);
