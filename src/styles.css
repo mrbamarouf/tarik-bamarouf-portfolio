@@ -3442,33 +3442,49 @@ body[data-lang="ar"] :where(*:not(.english-layout-slot__master, .english-layout-
 
   body[data-lang="ar"] .home-hero__copy p.home-hero__statement,
   body[data-lang="ar"] .home-hero__copy p.home-hero__capabilities {
-    width: min(100%, calc(100vw - 2.1rem));
-    max-width: min(38ch, calc(100vw - 2.1rem));
+    width: 100%;
+    max-width: 100%;
     direction: rtl;
     text-align: right;
     unicode-bidi: isolate;
   }
 
   body[data-lang="ar"] .home-hero__copy p.home-hero__statement {
-    margin-top: 1.1rem;
+    margin-top: 1.15rem;
     line-height: 1.82;
   }
 
   body[data-lang="ar"] .home-hero__copy p.home-hero__capabilities {
-    margin-top: 0.95rem;
-    padding-inline-end: 0.72rem;
-    border-inline-end: 1px solid oklch(0.765 0.072 76 / 0.30);
+    margin-top: 1.05rem;
     line-height: 1.86;
   }
 
-  body[data-lang="ar"] .home-hero__capabilities .english-layout-slot__local {
-    justify-items: end;
-    gap: 0.28rem;
+  body[data-lang="ar"] .home-hero__capabilities .english-layout-slot__local,
+  body[data-lang="ar"] .home-hero__capabilities .arabic-bidi-isolate {
+    width: 100%;
+  }
+
+  body[data-lang="ar"] .home-hero__capabilities .arabic-bidi-isolate {
+    display: grid;
+    justify-items: start;
+    gap: 0.38rem;
   }
 
   body[data-lang="ar"] .home-hero__capability-item {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
     max-width: 100%;
+    gap: 0.55rem;
     text-wrap: pretty;
+  }
+
+  body[data-lang="ar"] .home-hero__capability-item::before {
+    width: 1rem;
+    height: 1px;
+    flex: 0 0 auto;
+    background: oklch(0.765 0.072 76 / 0.62);
+    content: "";
   }
 
   body[data-lang="ar"] .home-hero__copy .reveal-delay-3 {
@@ -3476,8 +3492,8 @@ body[data-lang="ar"] :where(*:not(.english-layout-slot__master, .english-layout-
     grid-template-columns: repeat(2, minmax(0, 1fr));
     width: min(100%, calc(100vw - 2.1rem));
     max-width: min(23rem, calc(100vw - 2.1rem));
-    gap: 0.62rem;
-    margin-top: 1.42rem;
+    gap: 0.68rem;
+    margin-top: 1.35rem;
   }
 
   body[data-lang="ar"] .home-hero__copy .reveal-delay-3 a {
