@@ -5215,6 +5215,8 @@ body[data-lang="ar"] .process-timeline__copy p {
     margin-top: clamp(2.5rem, 2.8vw, 3.15rem);
   }
 
+  html[dir="rtl"] main.site-main > section.home-hero > .home-hero__content > .home-hero__copy,
+  body[dir="rtl"] main.site-main > section.home-hero > .home-hero__content > .home-hero__copy,
   body[data-lang="ar"] main.site-main > section.home-hero > .home-hero__content > .home-hero__copy {
     margin-left: auto;
     margin-right: 0;
