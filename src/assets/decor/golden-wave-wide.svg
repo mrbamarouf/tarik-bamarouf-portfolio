@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 520" fill="none">
+  <defs>
+    <linearGradient id="wide-line" x1="0" y1="0" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9f7b3f" stop-opacity="0" />
+      <stop offset="0.18" stop-color="#b99658" stop-opacity="0.46" />
+      <stop offset="0.5" stop-color="#d0b579" stop-opacity="0.68" />
+      <stop offset="0.82" stop-color="#b99658" stop-opacity="0.42" />
+      <stop offset="1" stop-color="#9f7b3f" stop-opacity="0" />
+    </linearGradient>
+    <filter id="wide-glow" x="-10%" y="-30%" width="120%" height="170%">
+      <feGaussianBlur stdDeviation="5" />
+    </filter>
+  </defs>
+  <g stroke="url(#wide-line)" stroke-linecap="round">
+    <path d="M-80 514C175 472 290 248 528 274C748 298 854 486 1092 399C1284 329 1397 168 1680 206" stroke-width="7" opacity="0.2" filter="url(#wide-glow)" />
+    <path d="M-80 514C175 472 290 248 528 274C748 298 854 486 1092 399C1284 329 1397 168 1680 206" stroke-width="1.35" />
+    <path d="M-72 536C202 487 325 301 548 320C765 338 884 487 1110 429C1311 378 1438 231 1673 257" opacity="0.72" />
+    <path d="M-58 556C231 508 357 352 574 365C786 378 911 496 1134 463C1338 433 1470 302 1658 312" opacity="0.48" />
+    <path d="M-36 574C266 533 397 399 606 407C813 415 946 508 1168 495C1368 484 1504 369 1636 371" opacity="0.28" />
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 720" fill="none">
+  <defs>
+    <linearGradient id="mobile-line" x1="20" y1="710" x2="500" y2="170" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c4a166" stop-opacity="0.7" />
+      <stop offset="0.62" stop-color="#b08a4d" stop-opacity="0.34" />
+      <stop offset="1" stop-color="#8d6b37" stop-opacity="0" />
+    </linearGradient>
+    <filter id="mobile-glow" x="-25%" y="-25%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" />
+    </filter>
+  </defs>
+  <g stroke="url(#mobile-line)" stroke-linecap="round">
+    <path d="M-74 704C99 677 101 495 247 447C400 397 344 227 591 164" stroke-width="7" opacity="0.18" filter="url(#mobile-glow)" />
+    <path d="M-74 704C99 677 101 495 247 447C400 397 344 227 591 164" stroke-width="1.35" />
+    <path d="M-62 730C119 695 135 540 274 493C421 443 398 292 584 233" opacity="0.66" />
+    <path d="M-40 750C145 710 176 583 307 538C445 491 443 361 563 315" opacity="0.4" />
+  </g>
+</svg>

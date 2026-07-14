@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 1400" fill="none">
+  <defs>
+    <linearGradient id="side-line" x1="532" y1="80" x2="96" y2="1328" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#94713d" stop-opacity="0" />
+      <stop offset="0.22" stop-color="#b08b50" stop-opacity="0.4" />
+      <stop offset="0.58" stop-color="#cfb475" stop-opacity="0.65" />
+      <stop offset="1" stop-color="#9d7942" stop-opacity="0" />
+    </linearGradient>
+    <filter id="side-glow" x="-30%" y="-10%" width="170%" height="120%">
+      <feGaussianBlur stdDeviation="5" />
+    </filter>
+  </defs>
+  <g stroke="url(#side-line)" stroke-linecap="round">
+    <path d="M612 -72C455 132 582 320 390 494C222 646 329 824 132 1008C17 1115 23 1260-84 1456" stroke-width="8" opacity="0.18" filter="url(#side-glow)" />
+    <path d="M612 -72C455 132 582 320 390 494C222 646 329 824 132 1008C17 1115 23 1260-84 1456" stroke-width="1.35" />
+    <path d="M650 -42C493 156 612 351 433 525C274 679 375 860 178 1041C62 1147 67 1288-35 1450" opacity="0.68" />
+    <path d="M684 6C532 192 642 388 478 562C330 718 422 901 228 1077C115 1180 109 1311 18 1442" opacity="0.43" />
+    <path d="M712 70C568 231 671 430 524 607C388 770 468 942 282 1115C174 1214 158 1332 76 1428" opacity="0.23" />
+  </g>
+</svg>

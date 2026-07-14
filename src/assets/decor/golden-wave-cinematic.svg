@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 680" fill="none">
+  <defs>
+    <linearGradient id="cinematic-line" x1="0" y1="0" x2="1800" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8f6c38" stop-opacity="0" />
+      <stop offset="0.16" stop-color="#b89557" stop-opacity="0.42" />
+      <stop offset="0.52" stop-color="#d4ba7e" stop-opacity="0.68" />
+      <stop offset="0.84" stop-color="#ac864b" stop-opacity="0.38" />
+      <stop offset="1" stop-color="#8f6c38" stop-opacity="0" />
+    </linearGradient>
+    <filter id="cinematic-glow" x="-10%" y="-30%" width="120%" height="170%">
+      <feGaussianBlur stdDeviation="6" />
+    </filter>
+  </defs>
+  <g stroke="url(#cinematic-line)" stroke-linecap="round">
+    <path d="M-90 570C221 503 320 178 609 236C828 280 863 532 1090 494C1367 447 1405 135 1890 197" stroke-width="9" opacity="0.18" filter="url(#cinematic-glow)" />
+    <path d="M-90 570C221 503 320 178 609 236C828 280 863 532 1090 494C1367 447 1405 135 1890 197" stroke-width="1.5" />
+    <path d="M-82 610C240 537 363 241 637 289C850 326 902 542 1121 520C1398 493 1472 203 1882 255" opacity="0.72" />
+    <path d="M-66 644C274 570 407 300 674 339C877 369 946 556 1154 551C1434 544 1524 277 1867 321" opacity="0.48" />
+    <path d="M-42 674C309 602 455 360 718 390C911 412 993 577 1192 584C1462 594 1570 356 1842 391" opacity="0.27" />
+  </g>
+</svg>

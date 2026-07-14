@@ -187,6 +187,10 @@
     display: contents;
   }
 
+  .home-hero__headline-desktop {
+    display: none;
+  }
+
   .home-hero__headline-ar-mobile {
     display: none;
   }
@@ -612,6 +616,7 @@ body[data-lang="ar"] .client-marquee__line {
   inset: 0;
   z-index: -2;
   background:
+    url("./assets/decor/golden-wave-wide.svg") center 112% / min(112rem, 100vw) auto no-repeat,
     radial-gradient(ellipse at 50% 44%, oklch(0.765 0.072 76 / 0.18), transparent 42%),
     radial-gradient(ellipse at 50% 102%, oklch(0.865 0.052 84 / 0.09), transparent 34%),
     linear-gradient(180deg, transparent 0%, oklch(0.014 0.004 62 / 0.70) 52%, transparent 100%);
@@ -2602,6 +2607,7 @@ body.intro-scroll-lock {
 
     .selected-work__chapter::before {
       background:
+        url("./assets/decor/golden-wave-wide.svg") center bottom -6rem / 52rem auto no-repeat,
         radial-gradient(ellipse at 50% 38%, oklch(0.72 0.09 70 / 0.16), transparent 44%),
         radial-gradient(ellipse at 50% 100%, oklch(0.82 0.07 78 / 0.08), transparent 38%),
         linear-gradient(180deg, oklch(0.009 0.002 62 / 0.04), oklch(0.009 0.002 62 / 0.56) 58%, transparent);
@@ -4597,7 +4603,7 @@ body[data-lang="ar"] .process-timeline__copy p {
   }
 }
 
-/* Global decorative golden-wave field. It never participates in layout. */
+/* Route-wide golden-wave identity. Decorative only: no box participates in layout. */
 .site-shell {
   position: relative;
   isolation: isolate;
@@ -4605,144 +4611,260 @@ body[data-lang="ar"] .process-timeline__copy p {
 
 .site-shell::before,
 .site-shell::after {
-  content: "";
   position: absolute;
   inset: 0;
   z-index: 40;
   background-repeat: no-repeat;
+  content: "";
   mix-blend-mode: screen;
   pointer-events: none;
-  will-change: opacity;
 }
 
 .site-shell::before {
+  --wave-opacity-min: 0.4;
+  --wave-opacity-max: 0.49;
   background-image:
-    url("./assets/decor/golden-wave-a.svg"),
-    url("./assets/decor/golden-wave-b.svg"),
-    url("./assets/decor/golden-wave-c.svg");
+    url("./assets/decor/golden-wave-wide.svg"),
+    url("./assets/decor/golden-wave-left.svg"),
+    url("./assets/decor/golden-wave-side.svg"),
+    url("./assets/decor/golden-wave-cinematic.svg"),
+    url("./assets/decor/golden-wave-right.svg"),
+    url("./assets/decor/golden-wave-wide.svg");
   background-position:
-    left -24rem top 9%,
-    right -27rem top 47%,
-    left -29rem top 86%;
+    center top 11%,
+    left -10rem top 27%,
+    right -10rem top 43%,
+    center top 61%,
+    right -11rem top 79%,
+    center bottom 1%;
   background-size:
-    clamp(42rem, 68vw, 72rem) auto,
-    clamp(44rem, 70vw, 74rem) auto,
-    clamp(46rem, 72vw, 76rem) auto;
-  opacity: 0.14;
-  animation: golden-wave-breathe-a 38s ease-in-out infinite alternate;
+    min(112rem, 96vw) auto,
+    clamp(38rem, 48vw, 58rem) auto,
+    clamp(25rem, 31vw, 38rem) auto,
+    min(118rem, 100vw) auto,
+    clamp(38rem, 48vw, 58rem) auto,
+    min(108rem, 94vw) auto;
+  opacity: var(--wave-opacity-min);
+  animation: golden-wave-breathe-a 42s ease-in-out infinite alternate;
 }
 
 .site-shell::after {
+  --wave-opacity-min: 0.23;
+  --wave-opacity-max: 0.31;
   background-image:
-    url("./assets/decor/golden-wave-c.svg"),
-    url("./assets/decor/golden-wave-a.svg");
+    url("./assets/decor/golden-wave-right.svg"),
+    url("./assets/decor/golden-wave-cinematic.svg"),
+    url("./assets/decor/golden-wave-left.svg"),
+    url("./assets/decor/golden-wave-side.svg"),
+    url("./assets/decor/golden-wave-wide.svg");
   background-position:
-    right -31rem top 27%,
-    right -28rem top 70%;
+    right -13rem top 19%,
+    center top 36%,
+    left -13rem top 54%,
+    left -11rem top 72%,
+    center top 91%;
   background-size:
-    clamp(40rem, 64vw, 68rem) auto,
-    clamp(42rem, 66vw, 70rem) auto;
-  opacity: 0.09;
-  animation: golden-wave-breathe-b 46s ease-in-out infinite alternate;
+    clamp(34rem, 43vw, 52rem) auto,
+    min(110rem, 96vw) auto,
+    clamp(35rem, 44vw, 54rem) auto,
+    clamp(24rem, 30vw, 36rem) auto,
+    min(106rem, 92vw) auto;
+  opacity: var(--wave-opacity-min);
+  animation: golden-wave-breathe-b 53s ease-in-out infinite alternate;
 }
 
+/* Work archive: emphasize negative space between the masthead and editorial rows. */
 .site-shell:has(.work-archive)::before {
+  --wave-opacity-min: 0.34;
+  --wave-opacity-max: 0.42;
   background-image:
-    url("./assets/decor/golden-wave-b.svg"),
-    url("./assets/decor/golden-wave-a.svg");
+    url("./assets/decor/golden-wave-cinematic.svg"),
+    url("./assets/decor/golden-wave-right.svg"),
+    url("./assets/decor/golden-wave-left.svg"),
+    url("./assets/decor/golden-wave-wide.svg");
   background-position:
-    right -25rem top 16%,
-    left -27rem top 78%;
+    center top 8%,
+    right -12rem top 38%,
+    left -12rem top 66%,
+    center bottom 2%;
   background-size:
-    clamp(42rem, 68vw, 72rem) auto,
-    clamp(44rem, 70vw, 74rem) auto;
-  opacity: 0.12;
+    min(116rem, 100vw) auto,
+    clamp(38rem, 48vw, 58rem) auto,
+    clamp(38rem, 48vw, 58rem) auto,
+    min(108rem, 94vw) auto;
+  opacity: var(--wave-opacity-min);
 }
 
 .site-shell:has(.work-archive)::after {
-  background-image: url("./assets/decor/golden-wave-c.svg");
-  background-position: right -30rem top 52%;
-  background-size: clamp(44rem, 68vw, 72rem) auto;
-  opacity: 0.075;
+  --wave-opacity-min: 0.2;
+  --wave-opacity-max: 0.27;
+  background-image:
+    url("./assets/decor/golden-wave-side.svg"),
+    url("./assets/decor/golden-wave-cinematic.svg"),
+    url("./assets/decor/golden-wave-side.svg");
+  background-position:
+    left -10rem top 22%,
+    center top 53%,
+    right -10rem top 86%;
+  background-size:
+    clamp(23rem, 29vw, 34rem) auto,
+    min(108rem, 94vw) auto,
+    clamp(23rem, 29vw, 34rem) auto;
+  opacity: var(--wave-opacity-min);
 }
 
+/* About: retain an open reading column and carry the waves through outer margins. */
 .site-shell:has(.about-page__intro)::before {
+  --wave-opacity-min: 0.33;
+  --wave-opacity-max: 0.4;
   background-image:
-    url("./assets/decor/golden-wave-a.svg"),
-    url("./assets/decor/golden-wave-b.svg");
+    url("./assets/decor/golden-wave-right.svg"),
+    url("./assets/decor/golden-wave-cinematic.svg"),
+    url("./assets/decor/golden-wave-left.svg");
   background-position:
-    left -25rem top 22%,
-    right -27rem top 82%;
+    right -10rem top 13%,
+    center top 61%,
+    left -11rem bottom 1%;
   background-size:
-    clamp(42rem, 68vw, 72rem) auto,
-    clamp(42rem, 68vw, 72rem) auto;
-  opacity: 0.11;
+    clamp(36rem, 46vw, 56rem) auto,
+    min(112rem, 98vw) auto,
+    clamp(38rem, 48vw, 58rem) auto;
+  opacity: var(--wave-opacity-min);
 }
 
 .site-shell:has(.about-page__intro)::after {
-  display: none;
+  --wave-opacity-min: 0.18;
+  --wave-opacity-max: 0.24;
+  display: block;
+  background-image:
+    url("./assets/decor/golden-wave-side.svg"),
+    url("./assets/decor/golden-wave-wide.svg");
+  background-position:
+    left -10rem top 36%,
+    center top 87%;
+  background-size:
+    clamp(23rem, 29vw, 35rem) auto,
+    min(106rem, 92vw) auto;
+  opacity: var(--wave-opacity-min);
 }
 
+/* Contact: the page is shorter, so two confident edge compositions are sufficient. */
 .site-shell:has(.contact-page)::before {
-  background-image: url("./assets/decor/golden-wave-c.svg");
-  background-position: left -25rem bottom 2%;
-  background-size: clamp(42rem, 68vw, 72rem) auto;
-  opacity: 0.105;
+  --wave-opacity-min: 0.26;
+  --wave-opacity-max: 0.33;
+  background-image:
+    url("./assets/decor/golden-wave-side.svg"),
+    url("./assets/decor/golden-wave-left.svg");
+  background-position:
+    right -12rem top 3%,
+    left -16rem bottom -8rem;
+  background-size:
+    clamp(23rem, 29vw, 35rem) auto,
+    clamp(36rem, 45vw, 54rem) auto;
+  opacity: var(--wave-opacity-min);
 }
 
 .site-shell:has(.contact-page)::after {
-  background-image: url("./assets/decor/golden-wave-b.svg");
-  background-position: right -29rem top 8%;
-  background-size: clamp(40rem, 64vw, 68rem) auto;
-  opacity: 0.065;
+  --wave-opacity-min: 0.12;
+  --wave-opacity-max: 0.17;
+  display: block;
+  background-image: url("./assets/decor/golden-wave-wide.svg");
+  background-position: center bottom -10rem;
+  background-size: min(108rem, 94vw) auto;
+  opacity: var(--wave-opacity-min);
 }
 
+/* Project pages are longest, so alternate sides and scales without repeating a motif. */
 .site-shell:has(.project-detail__hero)::before {
+  --wave-opacity-min: 0.34;
+  --wave-opacity-max: 0.41;
   background-image:
-    url("./assets/decor/golden-wave-a.svg"),
-    url("./assets/decor/golden-wave-b.svg"),
-    url("./assets/decor/golden-wave-c.svg");
+    url("./assets/decor/golden-wave-wide.svg"),
+    url("./assets/decor/golden-wave-left.svg"),
+    url("./assets/decor/golden-wave-side.svg"),
+    url("./assets/decor/golden-wave-cinematic.svg"),
+    url("./assets/decor/golden-wave-right.svg"),
+    url("./assets/decor/golden-wave-wide.svg");
   background-position:
-    left -28rem top 29%,
-    right -30rem top 61%,
-    left -27rem top 91%;
+    center top 10%,
+    left -12rem top 26%,
+    right -10rem top 42%,
+    center top 58%,
+    right -12rem top 76%,
+    center top 93%;
   background-size:
-    clamp(42rem, 66vw, 70rem) auto,
-    clamp(44rem, 68vw, 72rem) auto,
-    clamp(42rem, 66vw, 70rem) auto;
-  opacity: 0.105;
+    min(108rem, 94vw) auto,
+    clamp(38rem, 47vw, 57rem) auto,
+    clamp(24rem, 30vw, 36rem) auto,
+    min(116rem, 100vw) auto,
+    clamp(38rem, 47vw, 57rem) auto,
+    min(106rem, 92vw) auto;
+  opacity: var(--wave-opacity-min);
 }
 
 .site-shell:has(.project-detail__hero)::after {
+  --wave-opacity-min: 0.19;
+  --wave-opacity-max: 0.25;
   background-image:
-    url("./assets/decor/golden-wave-c.svg"),
-    url("./assets/decor/golden-wave-a.svg");
+    url("./assets/decor/golden-wave-right.svg"),
+    url("./assets/decor/golden-wave-cinematic.svg"),
+    url("./assets/decor/golden-wave-left.svg"),
+    url("./assets/decor/golden-wave-side.svg"),
+    url("./assets/decor/golden-wave-cinematic.svg");
   background-position:
-    right -30rem top 44%,
-    right -28rem top 78%;
+    right -13rem top 18%,
+    center top 34%,
+    left -13rem top 50%,
+    left -10rem top 69%,
+    center top 85%;
   background-size:
-    clamp(40rem, 62vw, 66rem) auto,
-    clamp(42rem, 64vw, 68rem) auto;
-  opacity: 0.06;
+    clamp(35rem, 44vw, 54rem) auto,
+    min(108rem, 94vw) auto,
+    clamp(35rem, 44vw, 54rem) auto,
+    clamp(23rem, 29vw, 35rem) auto,
+    min(110rem, 96vw) auto;
+  opacity: var(--wave-opacity-min);
 }
 
 @keyframes golden-wave-breathe-a {
   from {
-    opacity: 0.105;
+    opacity: var(--wave-opacity-min);
   }
 
   to {
-    opacity: 0.15;
+    opacity: var(--wave-opacity-max);
   }
 }
 
 @keyframes golden-wave-breathe-b {
   from {
-    opacity: 0.055;
+    opacity: var(--wave-opacity-min);
   }
 
   to {
-    opacity: 0.095;
+    opacity: var(--wave-opacity-max);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .site-shell::before,
+  .site-shell:has(.work-archive)::before,
+  .site-shell:has(.about-page__intro)::before,
+  .site-shell:has(.contact-page)::before,
+  .site-shell:has(.project-detail__hero)::before {
+    --wave-opacity-min: 0.29;
+    --wave-opacity-max: 0.36;
+    opacity: var(--wave-opacity-min);
+  }
+
+  .site-shell::after,
+  .site-shell:has(.work-archive)::after,
+  .site-shell:has(.about-page__intro)::after,
+  .site-shell:has(.contact-page)::after,
+  .site-shell:has(.project-detail__hero)::after {
+    --wave-opacity-min: 0.15;
+    --wave-opacity-max: 0.21;
+    opacity: var(--wave-opacity-min);
   }
 }
 
@@ -4752,18 +4874,26 @@ body[data-lang="ar"] .process-timeline__copy p {
   .site-shell:has(.about-page__intro)::before,
   .site-shell:has(.contact-page)::before,
   .site-shell:has(.project-detail__hero)::before {
+    --wave-opacity-min: 0.27;
+    --wave-opacity-max: 0.34;
     display: block;
     background-image:
-      url("./assets/decor/golden-wave-a.svg"),
-      url("./assets/decor/golden-wave-b.svg");
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-wide.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg");
     background-position:
-      left -27rem top 24%,
-      right -28rem top 74%;
+      left -10rem top 17%,
+      center top 42%,
+      right -10rem top 69%,
+      left -11rem top 94%;
     background-size:
-      36rem auto,
-      37rem auto;
-    opacity: 0.085;
-    animation-duration: 52s;
+      30rem auto,
+      52rem auto,
+      30rem auto,
+      30rem auto;
+    opacity: var(--wave-opacity-min);
+    animation-duration: 58s;
   }
 
   .site-shell::after,
@@ -4771,7 +4901,44 @@ body[data-lang="ar"] .process-timeline__copy p {
   .site-shell:has(.about-page__intro)::after,
   .site-shell:has(.contact-page)::after,
   .site-shell:has(.project-detail__hero)::after {
+    --wave-opacity-min: 0.12;
+    --wave-opacity-max: 0.18;
+    display: block;
+    background-image:
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg");
+    background-position:
+      right -11rem top 31%,
+      right -11rem top 82%;
+    background-size:
+      28rem auto,
+      29rem auto;
+    opacity: var(--wave-opacity-min);
+    animation-duration: 68s;
+  }
+
+  .site-shell:has(.contact-page)::before {
+    background-image:
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-wide.svg");
+    background-position:
+      right -12rem top 15%,
+      center bottom -7rem;
+    background-size:
+      27rem auto,
+      48rem auto;
+  }
+
+  .site-shell:has(.contact-page)::after {
     display: none;
+  }
+
+  .selected-work__chapter::before {
+    background:
+      url("./assets/decor/golden-wave-wide.svg") center bottom -6rem / 52rem auto no-repeat,
+      radial-gradient(ellipse at 50% 38%, oklch(0.72 0.09 70 / 0.16), transparent 44%),
+      radial-gradient(ellipse at 50% 100%, oklch(0.82 0.07 78 / 0.08), transparent 38%),
+      linear-gradient(180deg, oklch(0.009 0.002 62 / 0.04), oklch(0.009 0.002 62 / 0.56) 58%, transparent);
   }
 }
 
@@ -4779,5 +4946,664 @@ body[data-lang="ar"] .process-timeline__copy p {
   .site-shell::before,
   .site-shell::after {
     animation: none;
+  }
+}
+
+/* Desktop hero copy composition. Media, height, and smaller breakpoints stay unchanged. */
+@media (min-width: 1200px) {
+  .home-hero__copy {
+    width: clamp(32.5rem, 43vw, 38.75rem);
+    max-width: 38.75rem;
+    margin-left: auto;
+    margin-right: clamp(3.5rem, 5vw, 7rem);
+    padding-bottom: 0;
+  }
+
+  .home-hero__copy h1 {
+    max-width: 100%;
+    margin-top: clamp(1.5rem, 1.6vw, 2rem);
+  }
+
+  .home-hero__headline-default {
+    display: none;
+  }
+
+  .home-hero__headline-desktop {
+    display: grid;
+  }
+
+  .home-hero__headline-desktop > span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .home-hero__copy p.home-hero__statement {
+    max-width: 38ch;
+    margin-top: clamp(2.1rem, 2.35vw, 2.7rem);
+  }
+
+  .home-hero__copy p.home-hero__capabilities {
+    max-width: 100%;
+    margin-top: clamp(1.45rem, 1.7vw, 1.9rem);
+    line-height: 1.9;
+    white-space: normal;
+  }
+
+  .home-hero__copy .reveal-delay-3 {
+    margin-top: clamp(2.5rem, 2.8vw, 3.15rem);
+  }
+
+  body[data-lang="ar"] .home-hero__copy {
+    direction: rtl;
+    text-align: right;
+  }
+
+  body[data-lang="ar"] .home-hero__copy h1 .english-layout-slot__master {
+    display: none;
+  }
+
+  body[data-lang="ar"] .home-hero__copy h1 .english-layout-slot__local {
+    position: static;
+  }
+
+  body[data-lang="ar"] .home-hero__copy > p:first-child {
+    margin-left: 0;
+    text-align: right;
+  }
+
+  body[data-lang="ar"] .home-hero__copy .reveal-delay-3 {
+    justify-content: flex-start;
+  }
+}
+
+/* Premium editorial approach cards. Scoped to this section only. */
+.approach-section {
+  --approach-card-border: oklch(0.765 0.072 76 / 0.24);
+  --approach-card-border-active: oklch(0.805 0.078 77 / 0.58);
+  padding-block: clamp(7rem, 9vw, 10rem);
+  background:
+    radial-gradient(ellipse at 5% 8%, oklch(0.765 0.072 76 / 0.09), transparent 30%),
+    radial-gradient(ellipse at 94% 88%, oklch(0.50 0.068 58 / 0.08), transparent 30%),
+    linear-gradient(180deg, oklch(0.008 0.002 62), oklch(0.022 0.004 63) 50%, oklch(0.008 0.002 62));
+}
+
+.approach-section::before,
+.approach-section::after {
+  position: absolute;
+  z-index: 0;
+  width: clamp(38rem, 52vw, 60rem);
+  aspect-ratio: 1200 / 520;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  content: "";
+  opacity: 0.13;
+  pointer-events: none;
+  animation: approach-wave-drift 34s ease-in-out infinite alternate;
+}
+
+.approach-section::before {
+  bottom: -13rem;
+  left: -21rem;
+  background-image: url("./assets/decor/golden-wave-a.svg");
+}
+
+.approach-section::after {
+  right: -24rem;
+  bottom: -9rem;
+  background-image: url("./assets/decor/golden-wave-c.svg");
+  opacity: 0.09;
+  animation-duration: 42s;
+  animation-direction: alternate-reverse;
+}
+
+.approach-section__atmosphere {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, oklch(0.006 0.002 62 / 0.18), transparent 34%, oklch(0.006 0.002 62 / 0.24)),
+    radial-gradient(circle at 52% 42%, transparent 0%, oklch(0.006 0.002 62 / 0.42) 100%);
+}
+
+.approach-section__inner {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 112rem);
+  margin-inline: auto;
+  padding-inline: clamp(2rem, 4vw, 5rem);
+}
+
+.approach-section__lead {
+  align-self: start;
+  max-width: 34rem;
+}
+
+.approach-section__headline {
+  max-width: 10.8ch;
+  font-size: clamp(4.8rem, 5.35vw, 6.45rem);
+  line-height: 0.9;
+}
+
+body[data-lang="en"] .approach-section__headline {
+  transform: none;
+}
+
+.approach-section__body {
+  max-width: 27rem;
+  margin-top: clamp(2rem, 2.4vw, 2.75rem);
+  font-size: 1rem;
+  line-height: 1.88;
+}
+
+.approach-section__experience {
+  position: relative;
+  display: block;
+}
+
+.approach-section__stages {
+  display: grid;
+  gap: clamp(0.9rem, 1.2vw, 1.25rem);
+  border: 0;
+}
+
+.approach-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.6rem 6.5rem minmax(0, 1fr) 2.25rem;
+  grid-template-areas: "icon number copy arrow";
+  gap: clamp(1.1rem, 1.8vw, 2rem);
+  align-items: center;
+  min-height: 9.6rem;
+  width: 100%;
+  overflow: hidden;
+  padding: clamp(1.35rem, 1.8vw, 1.8rem) clamp(1.4rem, 2vw, 2.15rem);
+  border: 1px solid var(--approach-card-border);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 8% 50%, oklch(0.765 0.072 76 / 0.075), transparent 30%),
+    linear-gradient(112deg, oklch(0.062 0.006 63 / 0.88), oklch(0.018 0.003 62 / 0.76));
+  box-shadow:
+    0 24px 70px oklch(0 0 0 / 0.28),
+    inset 0 1px 0 oklch(0.92 0.035 78 / 0.025);
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  opacity: 0;
+  transform: translate3d(0, 1.25rem, 0);
+  transition:
+    opacity 760ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 760ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 480ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    background 480ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 480ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.approach-stage:not(.is-visible) {
+  transition-delay: var(--approach-stage-delay, 0ms);
+}
+
+.approach-stage::before {
+  display: block;
+  inset: -45% -10% -55%;
+  z-index: 0;
+  background: radial-gradient(ellipse at 14% 54%, oklch(0.805 0.078 77 / 0.18), transparent 52%);
+  opacity: 0.32;
+  transform: translate3d(-0.65rem, 0, 0);
+}
+
+.approach-stage::after {
+  display: block;
+  inset: auto 8% 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, oklch(0.805 0.078 77 / 0.72), transparent);
+  opacity: 0.18;
+  transform: scaleX(0.58);
+}
+
+.approach-stage.is-visible {
+  min-height: 9.6rem;
+  border-color: var(--approach-card-border);
+  background:
+    radial-gradient(circle at 8% 50%, oklch(0.765 0.072 76 / 0.075), transparent 30%),
+    linear-gradient(112deg, oklch(0.062 0.006 63 / 0.88), oklch(0.018 0.003 62 / 0.76));
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.approach-stage.is-active {
+  min-height: 9.6rem;
+  border-color: var(--approach-card-border-active);
+  background:
+    radial-gradient(circle at 10% 50%, oklch(0.805 0.078 77 / 0.13), transparent 34%),
+    linear-gradient(112deg, oklch(0.075 0.008 64 / 0.94), oklch(0.024 0.004 62 / 0.84));
+  box-shadow:
+    0 30px 90px oklch(0 0 0 / 0.38),
+    0 0 42px oklch(0.765 0.072 76 / 0.09),
+    inset 0 1px 0 oklch(0.92 0.035 78 / 0.05);
+  opacity: 1;
+  transform: translate3d(0, -0.28rem, 0);
+}
+
+.approach-stage.is-active::before {
+  opacity: 0.9;
+  transform: translate3d(0, 0, 0);
+}
+
+.approach-stage.is-active::after {
+  opacity: 0.62;
+  transform: scaleX(1);
+}
+
+.approach-stage__icon,
+.approach-stage__number,
+.approach-stage__copy,
+.approach-stage__arrow {
+  position: relative;
+  z-index: 1;
+}
+
+.approach-stage__icon {
+  grid-area: icon;
+  display: inline-grid;
+  width: 3.6rem;
+  height: 3.6rem;
+  place-items: center;
+  border: 1px solid oklch(0.765 0.072 76 / 0.34);
+  border-radius: 50%;
+  color: var(--bronze-soft);
+  background: oklch(0.035 0.005 63 / 0.72);
+  box-shadow: inset 0 0 22px oklch(0.765 0.072 76 / 0.05);
+  transition:
+    color 420ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 420ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 420ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.approach-stage__icon svg {
+  width: 1.45rem;
+  height: 1.45rem;
+  stroke-width: 1.25;
+}
+
+.approach-stage__number {
+  grid-area: number;
+  color: oklch(0.805 0.078 77 / 0.80);
+  font-size: clamp(3.8rem, 4vw, 5rem);
+  font-weight: 300;
+  line-height: 0.82;
+  opacity: 1;
+  transform: none;
+}
+
+.approach-stage__copy {
+  grid-area: copy;
+  min-width: 0;
+}
+
+.approach-stage__title {
+  color: var(--foreground);
+  font-family: var(--font-serif);
+  font-size: clamp(1.55rem, 1.65vw, 2rem);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.approach-stage__description,
+.approach-stage.is-active .approach-stage__description {
+  display: block;
+  max-width: 34rem;
+  max-height: none;
+  margin-top: 0.72rem;
+  overflow: visible;
+  color: oklch(0.968 0.011 74 / 0.68);
+  font-size: 0.94rem;
+  font-weight: 300;
+  line-height: 1.72;
+  opacity: 1;
+  transform: none;
+}
+
+.approach-stage__arrow {
+  grid-area: arrow;
+  display: inline-grid;
+  width: 2.2rem;
+  height: 2.2rem;
+  place-items: center;
+  justify-self: end;
+  color: oklch(0.805 0.078 77 / 0.62);
+  transition:
+    color 420ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.approach-stage__arrow svg {
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 1.35;
+}
+
+.approach-stage.is-active .approach-stage__number {
+  color: var(--bronze-soft);
+  transform: none;
+}
+
+.approach-stage.is-active .approach-stage__icon {
+  border-color: oklch(0.805 0.078 77 / 0.72);
+  color: var(--bronze-soft);
+  box-shadow:
+    0 0 28px oklch(0.765 0.072 76 / 0.14),
+    inset 0 0 24px oklch(0.765 0.072 76 / 0.08);
+  transform: rotate(-4deg) scale(1.04);
+}
+
+.approach-stage.is-active .approach-stage__arrow {
+  color: var(--bronze-soft);
+  transform: translateX(0.24rem);
+}
+
+.approach-stage:focus-visible {
+  outline: 1px solid var(--bronze-soft);
+  outline-offset: 3px;
+}
+
+body[data-lang="ar"] .approach-section__headline,
+body[data-lang="ar"] .approach-section__body {
+  text-align: right;
+}
+
+body[data-lang="ar"] .approach-stage {
+  grid-template-columns: 2.25rem minmax(0, 1fr) 6.5rem 3.6rem;
+  grid-template-areas: "arrow copy number icon";
+  direction: rtl;
+  text-align: right;
+}
+
+body[data-lang="ar"] .approach-stage__arrow {
+  justify-self: start;
+}
+
+@media (min-width: 1024px) {
+  .approach-section__inner {
+    grid-template-columns: minmax(24rem, 0.36fr) minmax(0, 0.64fr);
+    gap: clamp(4rem, 6vw, 8rem);
+    align-items: start;
+  }
+
+  .approach-section__lead {
+    padding-top: clamp(1.25rem, 3vw, 4rem);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .approach-stage.is-visible:hover {
+    border-color: var(--approach-card-border-active);
+    background:
+      radial-gradient(circle at 10% 50%, oklch(0.805 0.078 77 / 0.13), transparent 34%),
+      linear-gradient(112deg, oklch(0.075 0.008 64 / 0.94), oklch(0.024 0.004 62 / 0.84));
+    box-shadow:
+      0 30px 90px oklch(0 0 0 / 0.38),
+      0 0 42px oklch(0.765 0.072 76 / 0.09),
+      inset 0 1px 0 oklch(0.92 0.035 78 / 0.05);
+    transform: translate3d(0, -0.28rem, 0);
+  }
+
+  .approach-stage.is-visible:hover::before {
+    opacity: 0.9;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .approach-stage.is-visible:hover::after {
+    opacity: 0.62;
+    transform: scaleX(1);
+  }
+
+  .approach-stage.is-visible:hover .approach-stage__icon {
+    border-color: oklch(0.805 0.078 77 / 0.72);
+    box-shadow:
+      0 0 28px oklch(0.765 0.072 76 / 0.14),
+      inset 0 0 24px oklch(0.765 0.072 76 / 0.08);
+    transform: rotate(-4deg) scale(1.04);
+  }
+
+  .approach-stage.is-visible:hover .approach-stage__arrow {
+    color: var(--bronze-soft);
+    transform: translateX(0.24rem);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .approach-section__inner {
+    grid-template-columns: 1fr;
+    gap: 4.25rem;
+  }
+
+  .approach-section__lead {
+    max-width: 42rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .approach-section__headline,
+  .approach-section__body {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .approach-section__stages {
+    width: min(100%, 52rem);
+    margin-inline: auto;
+  }
+
+  body[data-lang="ar"] .approach-section__headline,
+  body[data-lang="ar"] .approach-section__body {
+    text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .approach-section {
+    padding-block: 5.75rem 6.5rem;
+  }
+
+  .approach-section::before,
+  .approach-section::after {
+    width: 34rem;
+    opacity: 0.075;
+  }
+
+  .approach-section::before {
+    bottom: -9rem;
+    left: -24rem;
+  }
+
+  .approach-section::after {
+    right: -27rem;
+    bottom: 28%;
+    opacity: 0.055;
+  }
+
+  .approach-section__inner {
+    grid-template-columns: 1fr;
+    gap: 3.4rem;
+    padding-inline: 1rem;
+  }
+
+  .approach-section__lead {
+    width: min(100%, 24rem);
+    margin-inline: auto;
+    text-align: left;
+  }
+
+  .approach-section__headline {
+    max-width: min(10ch, calc(100vw - 2rem));
+    margin-inline: 0;
+    font-size: clamp(3.15rem, 14.2vw, 4rem);
+    line-height: 0.96;
+    text-align: left;
+  }
+
+  .approach-section__body {
+    max-width: min(34ch, calc(100vw - 2rem));
+    margin: 1.65rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.78;
+    text-align: left;
+  }
+
+  .approach-section__stages {
+    display: grid;
+    gap: 1rem;
+    border: 0;
+  }
+
+  .approach-stage,
+  .approach-stage.is-visible,
+  .approach-stage.is-active {
+    grid-template-columns: 3.15rem minmax(0, 1fr) auto;
+    grid-template-areas:
+      "icon . number"
+      "copy copy copy"
+      ". . arrow";
+    gap: 1.15rem 1rem;
+    align-items: start;
+    min-height: 13.25rem;
+    padding: 1.3rem 1.25rem 1.15rem;
+    border: 1px solid var(--approach-card-border);
+    border-radius: 8px;
+    background:
+      radial-gradient(circle at 8% 14%, oklch(0.765 0.072 76 / 0.10), transparent 31%),
+      linear-gradient(145deg, oklch(0.062 0.006 63 / 0.90), oklch(0.016 0.003 62 / 0.84));
+    box-shadow:
+      0 22px 64px oklch(0 0 0 / 0.30),
+      inset 0 1px 0 oklch(0.92 0.035 78 / 0.025);
+    cursor: default;
+    opacity: 0;
+    transform: translate3d(0, 1.1rem, 0);
+  }
+
+  .approach-stage.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .approach-stage::before {
+    display: block;
+    inset: -28% -18% 8%;
+    opacity: 0.38;
+  }
+
+  .approach-stage::after {
+    display: block;
+    inset: auto 12% 0;
+  }
+
+  .approach-stage__icon {
+    width: 3.15rem;
+    height: 3.15rem;
+  }
+
+  .approach-stage__icon svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .approach-stage__number {
+    justify-self: end;
+    align-self: center;
+    padding-top: 0;
+    font-size: 3.35rem;
+    line-height: 0.82;
+  }
+
+  .approach-stage__copy {
+    align-self: start;
+    padding-top: 0.15rem;
+  }
+
+  .approach-stage__title {
+    font-size: 1.6rem;
+    line-height: 1.15;
+  }
+
+  .approach-stage__description,
+  .approach-stage.is-active .approach-stage__description {
+    max-width: 29ch;
+    margin-top: 0.72rem;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    opacity: 0.72;
+  }
+
+  .approach-stage__arrow {
+    align-self: end;
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  body[data-lang="ar"] .approach-section__lead,
+  body[data-lang="ar"] .approach-section__headline,
+  body[data-lang="ar"] .approach-section__body {
+    text-align: right;
+  }
+
+  body[data-lang="ar"] .approach-section__headline,
+  body[data-lang="ar"] .approach-section__body {
+    margin-inline: 0;
+  }
+
+  body[data-lang="ar"] .approach-stage,
+  body[data-lang="ar"] .approach-stage.is-visible,
+  body[data-lang="ar"] .approach-stage.is-active {
+    grid-template-columns: auto minmax(0, 1fr) 3.15rem;
+    grid-template-areas:
+      "number . icon"
+      "copy copy copy"
+      "arrow . .";
+  }
+
+  body[data-lang="ar"] .approach-stage__number {
+    justify-self: start;
+  }
+
+  body[data-lang="ar"] .approach-stage__copy,
+  body[data-lang="ar"] .approach-stage__title,
+  body[data-lang="ar"] .approach-stage__description {
+    text-align: right;
+  }
+
+  body[data-lang="ar"] .approach-stage__description {
+    margin-inline-start: auto;
+  }
+
+  body[data-lang="ar"] .approach-stage__arrow {
+    justify-self: start;
+  }
+}
+
+@keyframes approach-wave-drift {
+  from {
+    opacity: 0.075;
+    transform: translate3d(-0.4rem, 0.15rem, 0);
+  }
+
+  to {
+    opacity: 0.14;
+    transform: translate3d(0.45rem, -0.2rem, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .approach-section::before,
+  .approach-section::after {
+    animation: none;
+  }
+
+  .approach-stage,
+  .approach-stage::before,
+  .approach-stage::after,
+  .approach-stage__icon,
+  .approach-stage__arrow {
+    transition: none;
   }
 }

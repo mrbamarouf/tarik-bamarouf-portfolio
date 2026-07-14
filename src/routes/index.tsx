@@ -211,20 +211,10 @@ function Index() {
     minimumIntegerDigits: 2,
   });
   const serviceCarouselRef = useRef<HTMLDivElement | null>(null);
-  const approachRef = useRef<HTMLElement | null>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const [activeApproachIndex, setActiveApproachIndex] = useState<number | null>(null);
   const [isApproachMobile, setIsApproachMobile] = useState(false);
-  const [approachProgress, setApproachProgress] = useState(0);
   const approachStages = t.home.approachStages;
-  const approachTimelineProgress = isApproachMobile
-    ? 0
-    : activeApproachIndex === null
-      ? approachProgress
-      : (activeApproachIndex + 1) / approachStages.length;
-  const approachStyle = {
-    "--approach-progress": approachTimelineProgress,
-  } as CSSProperties & Record<"--approach-progress", number>;
 
   useEffect(() => {
     const items = document.querySelectorAll<HTMLElement>("[data-scroll-reveal]");
@@ -242,7 +232,7 @@ function Index() {
 
     items.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
-  }, []);
+  }, [isApproachMobile, language]);
 
   useEffect(() => {
     const mobileQuery = window.matchMedia("(max-width: 767px)");
@@ -316,74 +306,6 @@ function Index() {
     };
   }, [localizedServices.length]);
 
-  useEffect(() => {
-    const section = approachRef.current;
-    if (!section) return undefined;
-
-    const mobileQuery = window.matchMedia("(max-width: 767px)");
-    let frame = 0;
-    let listening = false;
-
-    const updateApproachProgress = () => {
-      const sectionRect = section.getBoundingClientRect();
-      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-      const start = viewportHeight * 0.72;
-      const end = -sectionRect.height + viewportHeight * 0.34;
-      const rawProgress = (start - sectionRect.top) / Math.max(start - end, 1);
-      const nextProgress = Math.min(1, Math.max(0, rawProgress));
-
-      setApproachProgress((current) =>
-        Math.abs(current - nextProgress) < 0.006 ? current : nextProgress,
-      );
-    };
-
-    const scheduleUpdate = () => {
-      if (frame) return;
-      frame = window.requestAnimationFrame(() => {
-        frame = 0;
-        updateApproachProgress();
-      });
-    };
-
-    const addListeners = () => {
-      if (listening) return;
-      window.addEventListener("scroll", scheduleUpdate, { passive: true });
-      window.addEventListener("resize", scheduleUpdate);
-      listening = true;
-    };
-
-    const removeListeners = () => {
-      if (!listening) return;
-      window.removeEventListener("scroll", scheduleUpdate);
-      window.removeEventListener("resize", scheduleUpdate);
-      listening = false;
-    };
-
-    const syncTimeline = () => {
-      if (mobileQuery.matches) {
-        if (frame) {
-          window.cancelAnimationFrame(frame);
-          frame = 0;
-        }
-        removeListeners();
-        setApproachProgress(0);
-        return;
-      }
-
-      addListeners();
-      scheduleUpdate();
-    };
-
-    syncTimeline();
-    mobileQuery.addEventListener("change", syncTimeline);
-
-    return () => {
-      if (frame) window.cancelAnimationFrame(frame);
-      removeListeners();
-      mobileQuery.removeEventListener("change", syncTimeline);
-    };
-  }, []);
-
   const handleApproachStageClick = (index: number) => {
     if (isApproachMobileViewport()) {
       return;
@@ -433,6 +355,16 @@ function Index() {
                   </>
                 }
               >
+                <span className="home-hero__headline-desktop">
+                  <span>
+                    {t.home.heroLine1} {t.home.heroLine2}
+                  </span>
+                  <span>
+                    {t.home.heroLine3}{" "}
+                    <span className="italic text-bronze-soft">{t.home.heroEmphasis}</span>
+                    {t.home.heroLine4 && <> {t.home.heroLine4}</>}
+                  </span>
+                </span>
                 <span className="home-hero__headline-default">
                   {t.home.heroLine1}
                   <br />
@@ -540,11 +472,7 @@ function Index() {
         </div>
       </section>
 
-      <section
-        ref={approachRef}
-        className="approach-section relative overflow-hidden border-t border-border/25 bg-ink"
-        style={approachStyle}
-      >
+      <section className="approach-section relative overflow-hidden border-t border-border/25 bg-ink">
         <div className="approach-section__atmosphere" aria-hidden="true" />
         <div className="approach-section__inner relative z-10">
           <div className="approach-section__lead">
@@ -561,11 +489,6 @@ function Index() {
           </div>
 
           <div className="approach-section__experience">
-            <div className="approach-section__timeline" aria-hidden="true">
-              <span className="approach-section__timeline-track" />
-              <span className="approach-section__timeline-fill" />
-            </div>
-
             <div
               className="approach-section__stages"
               onMouseLeave={isApproachMobile ? undefined : () => setActiveApproachIndex(null)}
@@ -581,8 +504,12 @@ function Index() {
             >
               {approachStages.map((stage, index) => {
                 const isActive = activeApproachIndex === index;
+                const StageIcon = steps[index].icon;
                 const stageContent = (
                   <>
+                    <span className="approach-stage__icon" aria-hidden="true">
+                      <StageIcon />
+                    </span>
                     <span className="approach-stage__number font-serif">
                       {String(index + 1).padStart(2, "0")}
                     </span>
@@ -598,6 +525,9 @@ function Index() {
                         </EnglishLayoutSlot>
                       </span>
                     </span>
+                    <span className="approach-stage__arrow" aria-hidden="true">
+                      <ArrowRight className="lang-arrow" />
+                    </span>
                   </>
                 );
 
@@ -605,8 +535,13 @@ function Index() {
                   return (
                     <article
                       key={stage.t}
-                      className="approach-stage approach-stage--mobile-story"
-                      style={{ transitionDelay: `${index * 55}ms` }}
+                      className="approach-stage approach-stage--mobile-story scroll-reveal"
+                      data-scroll-reveal
+                      style={
+                        {
+                          "--approach-stage-delay": `${index * 55}ms`,
+                        } as CSSProperties
+                      }
                     >
                       {stageContent}
                     </article>
@@ -618,9 +553,12 @@ function Index() {
                     key={stage.t}
                     type="button"
                     data-scroll-reveal
-                    className={`approach-stage ${isActive ? "is-active" : ""}`}
-                    aria-expanded={isActive}
-                    style={{ transitionDelay: `${index * 70}ms` }}
+                    className={`approach-stage scroll-reveal ${isActive ? "is-active" : ""}`}
+                    style={
+                      {
+                        "--approach-stage-delay": `${index * 70}ms`,
+                      } as CSSProperties
+                    }
                     onMouseEnter={() => {
                       if (hasFineHoverPointer()) {
                         setActiveApproachIndex(index);

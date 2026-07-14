@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" fill="none">
+  <defs>
+    <linearGradient id="left-line" x1="0" y1="720" x2="820" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c5a266" stop-opacity="0.7" />
+      <stop offset="0.62" stop-color="#b28b4e" stop-opacity="0.34" />
+      <stop offset="1" stop-color="#8d6b37" stop-opacity="0" />
+    </linearGradient>
+    <filter id="left-glow" x="-20%" y="-20%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="5" />
+    </filter>
+  </defs>
+  <g stroke="url(#left-line)" stroke-linecap="round">
+    <path d="M-112 665C128 686 190 438 388 401C599 362 640 154 946 96" stroke-width="8" opacity="0.18" filter="url(#left-glow)" />
+    <path d="M-112 665C128 686 190 438 388 401C599 362 640 154 946 96" stroke-width="1.4" />
+    <path d="M-104 702C145 706 227 491 417 453C623 412 704 224 944 165" opacity="0.7" />
+    <path d="M-88 731C169 723 264 542 451 506C641 469 752 303 928 246" opacity="0.46" />
+    <path d="M-56 752C205 738 306 594 492 558C664 525 792 388 902 342" opacity="0.25" />
+  </g>
+</svg>
