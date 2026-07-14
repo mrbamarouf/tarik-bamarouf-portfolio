@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" fill="none">
+  <defs>
+    <filter id="glow-c" x="-20%" y="-30%" width="140%" height="160%">
+      <feGaussianBlur stdDeviation="5" />
+    </filter>
+  </defs>
+  <g stroke="#b99d67" stroke-linecap="round" filter="url(#glow-c)" opacity="0.15">
+    <path d="M-72 442C162 530 277 420 374 282C504 98 701 64 840 241C941 370 1027 474 1268 395" stroke-width="5" />
+    <path d="M-58 486C180 541 302 459 414 326C545 171 688 139 808 287C917 421 1040 487 1260 445" stroke-width="4" />
+  </g>
+  <g stroke="#c3a771" stroke-linecap="round">
+    <path d="M-72 442C162 530 277 420 374 282C504 98 701 64 840 241C941 370 1027 474 1268 395" opacity="0.31" />
+    <path d="M-58 486C180 541 302 459 414 326C545 171 688 139 808 287C917 421 1040 487 1260 445" opacity="0.22" />
+    <path d="M-38 522C198 559 332 492 452 377C570 263 681 240 785 356C899 481 1066 513 1242 494" opacity="0.14" />
+  </g>
+</svg>

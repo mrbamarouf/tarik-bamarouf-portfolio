@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" fill="none">
+  <defs>
+    <filter id="glow-a" x="-20%" y="-30%" width="140%" height="160%">
+      <feGaussianBlur stdDeviation="4" />
+    </filter>
+  </defs>
+  <g stroke="#bda16b" stroke-linecap="round" filter="url(#glow-a)" opacity="0.18">
+    <path d="M-70 500C152 470 212 227 438 231C680 235 748 469 1270 111" stroke-width="5" />
+    <path d="M-62 520C177 478 260 286 461 281C723 275 809 447 1262 164" stroke-width="4" />
+  </g>
+  <g stroke="#c7ad79" stroke-linecap="round">
+    <path d="M-70 500C152 470 212 227 438 231C680 235 748 469 1270 111" opacity="0.36" />
+    <path d="M-62 520C177 478 260 286 461 281C723 275 809 447 1262 164" opacity="0.26" />
+    <path d="M-50 538C190 500 302 344 485 332C738 316 853 433 1250 224" opacity="0.18" />
+    <path d="M-34 552C220 529 347 394 521 382C756 366 906 436 1234 292" opacity="0.11" />
+  </g>
+</svg>

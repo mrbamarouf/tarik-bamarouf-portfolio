@@ -4596,3 +4596,188 @@ body[data-lang="ar"] .process-timeline__copy p {
     transform: none;
   }
 }
+
+/* Global decorative golden-wave field. It never participates in layout. */
+.site-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.site-shell::before,
+.site-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.site-shell::before {
+  background-image:
+    url("./assets/decor/golden-wave-a.svg"),
+    url("./assets/decor/golden-wave-b.svg"),
+    url("./assets/decor/golden-wave-c.svg");
+  background-position:
+    left -24rem top 9%,
+    right -27rem top 47%,
+    left -29rem top 86%;
+  background-size:
+    clamp(42rem, 68vw, 72rem) auto,
+    clamp(44rem, 70vw, 74rem) auto,
+    clamp(46rem, 72vw, 76rem) auto;
+  opacity: 0.14;
+  animation: golden-wave-breathe-a 38s ease-in-out infinite alternate;
+}
+
+.site-shell::after {
+  background-image:
+    url("./assets/decor/golden-wave-c.svg"),
+    url("./assets/decor/golden-wave-a.svg");
+  background-position:
+    right -31rem top 27%,
+    right -28rem top 70%;
+  background-size:
+    clamp(40rem, 64vw, 68rem) auto,
+    clamp(42rem, 66vw, 70rem) auto;
+  opacity: 0.09;
+  animation: golden-wave-breathe-b 46s ease-in-out infinite alternate;
+}
+
+.site-shell:has(.work-archive)::before {
+  background-image:
+    url("./assets/decor/golden-wave-b.svg"),
+    url("./assets/decor/golden-wave-a.svg");
+  background-position:
+    right -25rem top 16%,
+    left -27rem top 78%;
+  background-size:
+    clamp(42rem, 68vw, 72rem) auto,
+    clamp(44rem, 70vw, 74rem) auto;
+  opacity: 0.12;
+}
+
+.site-shell:has(.work-archive)::after {
+  background-image: url("./assets/decor/golden-wave-c.svg");
+  background-position: right -30rem top 52%;
+  background-size: clamp(44rem, 68vw, 72rem) auto;
+  opacity: 0.075;
+}
+
+.site-shell:has(.about-page__intro)::before {
+  background-image:
+    url("./assets/decor/golden-wave-a.svg"),
+    url("./assets/decor/golden-wave-b.svg");
+  background-position:
+    left -25rem top 22%,
+    right -27rem top 82%;
+  background-size:
+    clamp(42rem, 68vw, 72rem) auto,
+    clamp(42rem, 68vw, 72rem) auto;
+  opacity: 0.11;
+}
+
+.site-shell:has(.about-page__intro)::after {
+  display: none;
+}
+
+.site-shell:has(.contact-page)::before {
+  background-image: url("./assets/decor/golden-wave-c.svg");
+  background-position: left -25rem bottom 2%;
+  background-size: clamp(42rem, 68vw, 72rem) auto;
+  opacity: 0.105;
+}
+
+.site-shell:has(.contact-page)::after {
+  background-image: url("./assets/decor/golden-wave-b.svg");
+  background-position: right -29rem top 8%;
+  background-size: clamp(40rem, 64vw, 68rem) auto;
+  opacity: 0.065;
+}
+
+.site-shell:has(.project-detail__hero)::before {
+  background-image:
+    url("./assets/decor/golden-wave-a.svg"),
+    url("./assets/decor/golden-wave-b.svg"),
+    url("./assets/decor/golden-wave-c.svg");
+  background-position:
+    left -28rem top 29%,
+    right -30rem top 61%,
+    left -27rem top 91%;
+  background-size:
+    clamp(42rem, 66vw, 70rem) auto,
+    clamp(44rem, 68vw, 72rem) auto,
+    clamp(42rem, 66vw, 70rem) auto;
+  opacity: 0.105;
+}
+
+.site-shell:has(.project-detail__hero)::after {
+  background-image:
+    url("./assets/decor/golden-wave-c.svg"),
+    url("./assets/decor/golden-wave-a.svg");
+  background-position:
+    right -30rem top 44%,
+    right -28rem top 78%;
+  background-size:
+    clamp(40rem, 62vw, 66rem) auto,
+    clamp(42rem, 64vw, 68rem) auto;
+  opacity: 0.06;
+}
+
+@keyframes golden-wave-breathe-a {
+  from {
+    opacity: 0.105;
+  }
+
+  to {
+    opacity: 0.15;
+  }
+}
+
+@keyframes golden-wave-breathe-b {
+  from {
+    opacity: 0.055;
+  }
+
+  to {
+    opacity: 0.095;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-shell::before,
+  .site-shell:has(.work-archive)::before,
+  .site-shell:has(.about-page__intro)::before,
+  .site-shell:has(.contact-page)::before,
+  .site-shell:has(.project-detail__hero)::before {
+    display: block;
+    background-image:
+      url("./assets/decor/golden-wave-a.svg"),
+      url("./assets/decor/golden-wave-b.svg");
+    background-position:
+      left -27rem top 24%,
+      right -28rem top 74%;
+    background-size:
+      36rem auto,
+      37rem auto;
+    opacity: 0.085;
+    animation-duration: 52s;
+  }
+
+  .site-shell::after,
+  .site-shell:has(.work-archive)::after,
+  .site-shell:has(.about-page__intro)::after,
+  .site-shell:has(.contact-page)::after,
+  .site-shell:has(.project-detail__hero)::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-shell::before,
+  .site-shell::after {
+    animation: none;
+  }
+}
