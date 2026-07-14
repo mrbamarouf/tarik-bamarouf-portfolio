@@ -5108,7 +5108,9 @@ body[data-lang="ar"] .process-timeline__copy p {
     text-align: left;
   }
 
-  body[data-lang="ar"] .home-hero__copy {
+  html[dir="rtl"] body[data-lang="ar"] .home-hero .home-hero__copy {
+    margin-left: auto;
+    margin-right: 0;
     direction: rtl;
     text-align: right;
   }
