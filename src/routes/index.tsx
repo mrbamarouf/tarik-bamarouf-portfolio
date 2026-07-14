@@ -1,11 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Compass, LayoutTemplate, PenTool, Rocket } from "lucide-react";
+import {
+  ArrowRight,
+  Code2,
+  Eye,
+  MessageSquareText,
+  Palette,
+  Route as RouteIcon,
+} from "lucide-react";
 import { Fragment, useEffect, useRef, useState, type CSSProperties } from "react";
 import cinematicHero from "@/assets/cinematic-hero.webp";
-import processDesign from "@/assets/process/design.webp";
-import processDevelopment from "@/assets/process/development.webp";
-import processDiscovery from "@/assets/process/discovery.webp";
-import processStrategy from "@/assets/process/strategy.webp";
 import aboutImg from "@/assets/about.webp";
 import finalCtaWall from "@/assets/final-cta-wall.webp";
 import circleSectionLogo from "@/assets/client-logos/circle-section-logo-transparent copy.png";
@@ -94,23 +97,23 @@ const clientLogos: ReadonlyArray<ClientLogo> = [
 const steps = [
   {
     n: "01",
-    icon: Compass,
-    image: processDiscovery,
+    icon: Eye,
   },
   {
     n: "02",
-    icon: LayoutTemplate,
-    image: processStrategy,
+    icon: MessageSquareText,
   },
   {
     n: "03",
-    icon: PenTool,
-    image: processDesign,
+    icon: RouteIcon,
   },
   {
     n: "04",
-    icon: Rocket,
-    image: processDevelopment,
+    icon: Palette,
+  },
+  {
+    n: "05",
+    icon: Code2,
   },
 ] as const;
 
@@ -210,7 +213,6 @@ function Index() {
   const serviceCarouselRef = useRef<HTMLDivElement | null>(null);
   const approachRef = useRef<HTMLElement | null>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
-  const [activeProcessIndex, setActiveProcessIndex] = useState<number | null>(null);
   const [activeApproachIndex, setActiveApproachIndex] = useState<number | null>(null);
   const [isApproachMobile, setIsApproachMobile] = useState(false);
   const [approachProgress, setApproachProgress] = useState(0);
@@ -852,89 +854,48 @@ function Index() {
         </div>
       </section>
 
-      <section id="process" className="relative overflow-hidden bg-ink py-20 md:py-26">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,oklch(0.72_0.09_70/.14),transparent_32%),linear-gradient(180deg,oklch(0.035_0.006_65),oklch(0.045_0.006_65))]" />
-        <div className="relative z-10 w-full px-6 md:px-10 lg:px-14">
-          <div className="mb-10 flex items-center gap-6">
-            <p className="text-[10px] uppercase tracking-luxury text-foreground/70">
-              {t.home.processLabel}
-            </p>
-            <span className="h-px w-14 bg-bronze/65" />
+      <section id="process" className="process-timeline-section">
+        <div className="process-timeline-section__ambient" aria-hidden="true" />
+        <div className="process-timeline__inner">
+          <div className="process-timeline__header scroll-reveal" data-scroll-reveal>
+            <p>{t.home.processLabel}</p>
+            <span aria-hidden="true" />
           </div>
 
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="process-timeline" role="list">
             {steps.map((step, i) => {
               const Icon = step.icon;
-              const isOpen = activeProcessIndex === i;
-              return (
-                <article
-                  key={step.n}
-                  aria-controls={isApproachMobile ? `process-step-${step.n}` : undefined}
-                  aria-expanded={isApproachMobile ? isOpen : undefined}
-                  role={isApproachMobile ? "button" : undefined}
-                  tabIndex={isApproachMobile ? 0 : undefined}
-                  className={`process-card group relative overflow-hidden border border-bronze/22 bg-[linear-gradient(180deg,oklch(0.075_0.006_65),oklch(0.035_0.004_65))] shadow-[0_30px_90px_oklch(0_0_0/.32)] transition-colors duration-500 hover:border-bronze/45 ${isOpen ? "is-open" : ""}`}
-                  onClick={
-                    isApproachMobile
-                      ? () => setActiveProcessIndex((current) => (current === i ? null : i))
-                      : undefined
-                  }
-                  onKeyDown={
-                    isApproachMobile
-                      ? (event) => {
-                          if (event.key !== "Enter" && event.key !== " ") return;
-                          event.preventDefault();
-                          setActiveProcessIndex((current) => (current === i ? null : i));
-                        }
-                      : undefined
-                  }
-                >
-                  <div className="process-card__media relative h-56 overflow-hidden border-b border-bronze/16 md:h-64 lg:h-72">
-                    <img
-                      src={step.image}
-                      alt=""
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover opacity-95 transition-all duration-[1400ms] group-hover:scale-[1.035] group-hover:opacity-100"
-                    />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,oklch(0.035_0.006_65/.08)_0%,oklch(0.035_0.006_65/.04)_45%,oklch(0.035_0.006_65/.54)_100%)]" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,transparent_0%,oklch(0.035_0.006_65/.18)_100%)]" />
-                    <div className="absolute bottom-6 left-6 flex items-center gap-4">
-                      <span className="inline-flex h-16 w-16 items-center justify-center rounded-full border border-bronze/45 bg-ink/58 text-bronze shadow-[0_16px_40px_oklch(0_0_0/.35)] backdrop-blur-sm">
-                        <Icon className="h-6 w-6" aria-hidden="true" />
-                      </span>
-                    </div>
-                    {i < steps.length - 1 && (
-                      <ArrowRight
-                        className="absolute bottom-10 right-6 hidden h-5 w-5 text-bronze md:block"
-                        aria-hidden="true"
-                      />
-                    )}
-                  </div>
 
-                  <div className="process-card__body relative min-h-[260px] p-8">
-                    <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-bronze/50 via-bronze/15 to-transparent" />
-                    <span className="font-serif text-7xl font-light leading-none text-bronze lg:text-8xl">
-                      {formatLocalizedNumber(step.n, language)}
+              return (
+                <div
+                  key={step.n}
+                  className={`process-timeline__row process-timeline__row--${i % 2 === 0 ? "odd" : "even"} scroll-reveal`}
+                  data-scroll-reveal
+                  role="listitem"
+                  style={{ transitionDelay: `${i * 90}ms` }}
+                >
+                  <span className="process-timeline__number" aria-hidden="true">
+                    {step.n}
+                  </span>
+                  <span className="process-timeline__node" aria-hidden="true" />
+                  <article className="process-timeline__card">
+                    <span className="process-timeline__icon" aria-hidden="true">
+                      <Icon />
                     </span>
-                    <span className="mt-4 block h-px w-12 bg-bronze/55" />
-                    <div className="mt-5">
-                      <h3 className="text-sm font-medium uppercase tracking-editorial text-foreground/95">
+                    <span className="process-timeline__copy">
+                      <h3>
                         <EnglishLayoutSlot master={siteCopy.en.steps[i].t}>
                           {localizedSteps[i].t}
                         </EnglishLayoutSlot>
                       </h3>
-                      <p
-                        id={`process-step-${step.n}`}
-                        className="mt-5 max-w-xs text-sm font-light leading-7 text-foreground/72"
-                      >
+                      <p>
                         <EnglishLayoutSlot master={siteCopy.en.steps[i].d}>
                           {localizedSteps[i].d}
                         </EnglishLayoutSlot>
                       </p>
-                    </div>
-                  </div>
-                </article>
+                    </span>
+                  </article>
+                </div>
               );
             })}
           </div>

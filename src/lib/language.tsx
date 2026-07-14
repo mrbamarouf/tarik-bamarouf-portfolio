@@ -264,20 +264,24 @@ export const siteCopy = {
     ],
     steps: [
       {
-        t: "Discovery",
-        d: "Understanding the brand, audience, offer, and desired feeling.",
+        t: "Vision",
+        d: "What should the client see?",
       },
       {
-        t: "Strategy",
-        d: "Defining the page structure, hierarchy, and creative direction.",
+        t: "Message",
+        d: "What should they feel?",
       },
       {
-        t: "Design",
-        d: "Designing the visual language, interface, and key moments.",
+        t: "User Experience",
+        d: "A clear and fluid journey.",
       },
       {
-        t: "Front-end and Launch",
-        d: "Building, refining, and preparing the experience for release.",
+        t: "Visual Identity",
+        d: "A language true to the brand.",
+      },
+      {
+        t: "Execution",
+        d: "A real experience, crafted to work beautifully.",
       },
     ],
     work: {
@@ -486,20 +490,24 @@ export const siteCopy = {
     ],
     steps: [
       {
-        t: "الاكتشاف",
-        d: "فهم العلامة، الجمهور، العرض، والانطباع المطلوب.",
+        t: "الرؤية",
+        d: "ماذا نريد أن يرى العميل؟",
       },
       {
-        t: "الاستراتيجية",
-        d: "تحديد بنية الصفحة، الهرمية، والاتجاه الإبداعي.",
+        t: "الرسالة",
+        d: "ماذا يجب أن يشعر؟",
       },
       {
-        t: "التصميم",
-        d: "تصميم اللغة البصرية والواجهة واللحظات الأساسية.",
+        t: "تجربة المستخدم",
+        d: "رحلة واضحة وسلسة.",
       },
       {
-        t: "الواجهة والإطلاق",
-        d: "بناء التجربة وصقلها وتجهيزها للنشر.",
+        t: "الهوية البصرية",
+        d: "لغة تشبه العلامة.",
+      },
+      {
+        t: "التنفيذ",
+        d: "تجربة حقيقية تعمل بإتقان.",
       },
     ],
     work: {
