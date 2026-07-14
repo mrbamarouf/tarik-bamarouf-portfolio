@@ -5063,8 +5063,8 @@ body[data-lang="ar"] .process-timeline__copy p {
   .home-hero__copy {
     width: clamp(32.5rem, 43vw, 38.75rem);
     max-width: 38.75rem;
-    margin-left: auto;
-    margin-right: clamp(3.5rem, 5vw, 7rem);
+    margin-left: 0;
+    margin-right: auto;
     padding-bottom: 0;
   }
 
@@ -5102,13 +5102,7 @@ body[data-lang="ar"] .process-timeline__copy p {
     margin-top: clamp(2.5rem, 2.8vw, 3.15rem);
   }
 
-  body[data-lang="en"] .home-hero__copy {
-    margin-left: 0;
-    margin-right: auto;
-    text-align: left;
-  }
-
-  html[dir="rtl"] body[data-lang="ar"] .home-hero .home-hero__copy {
+  body[data-lang="ar"] .home-hero .home-hero__copy {
     margin-left: auto;
     margin-right: 0;
     direction: rtl;
