@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import type { MouseEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import signature from "@/assets/signature.webp";
@@ -65,28 +65,33 @@ function unlockMobileMenuScroll({ restorePosition = true } = {}) {
 export function Header() {
   const { language, toggleLanguage } = useLanguage();
   const t = siteCopy[language];
+  const locationHref = useRouterState({ select: (state) => state.location.href });
   const lastScrollY = useRef(0);
+  const hasMobileScrollIntent = useRef(false);
   const mobileMenuButtonRef = useRef<HTMLButtonElement | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [heroVisible, setHeroVisible] = useState(true);
   const [showChrome, setShowChrome] = useState(true);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    lastScrollY.current = window.scrollY;
+    const mobileQuery = window.matchMedia(MOBILE_MENU_MEDIA_QUERY);
+    const getScrollY = () =>
+      Math.max(0, window.scrollY || document.documentElement.scrollTop || 0);
 
     const getHeroVisibility = () => {
       const hero = document.querySelector<HTMLElement>(".home-hero");
 
-      if (!hero) return window.scrollY <= 96;
+      if (!hero) return getScrollY() <= 96;
 
       const rect = hero.getBoundingClientRect();
       return rect.bottom > 96 && rect.top < window.innerHeight;
     };
 
     const onScroll = () => {
-      const currentScrollY = window.scrollY;
+      const currentScrollY = getScrollY();
       const nextAtTop = currentScrollY <= 8;
       const delta = currentScrollY - lastScrollY.current;
       const nextHeroVisible = getHeroVisibility();
@@ -94,7 +99,14 @@ export function Header() {
       setAtTop(nextAtTop);
       setHeroVisible(nextHeroVisible);
 
-      if (!nextHeroVisible) {
+      if (mobileQuery.matches) {
+        if (nextAtTop || delta < -1) {
+          setShowChrome(true);
+        } else if (delta > 6 && hasMobileScrollIntent.current) {
+          setShowChrome(false);
+          setOpen(false);
+        }
+      } else if (!nextHeroVisible) {
         setShowChrome(false);
         setOpen(false);
       } else if (nextAtTop) {
@@ -108,24 +120,81 @@ export function Header() {
       lastScrollY.current = currentScrollY;
     };
 
-    onScroll();
+    lastScrollY.current = getScrollY();
+    setIsMobileViewport(mobileQuery.matches);
+    if (mobileQuery.matches) {
+      setAtTop(lastScrollY.current <= 8);
+      setHeroVisible(getHeroVisibility());
+      setShowChrome(true);
+    } else {
+      onScroll();
+    }
+
     window.addEventListener("scroll", onScroll, { passive: true });
 
     const onResize = () => {
+      const currentScrollY = getScrollY();
       const nextHeroVisible = getHeroVisibility();
+
+      setIsMobileViewport(mobileQuery.matches);
+      setAtTop(currentScrollY <= 8);
       setHeroVisible(nextHeroVisible);
-      if (!nextHeroVisible) {
+
+      if (mobileQuery.matches) {
+        lastScrollY.current = currentScrollY;
+        hasMobileScrollIntent.current = false;
+        setShowChrome(true);
+      } else if (!nextHeroVisible) {
         setShowChrome(false);
         setOpen(false);
       }
     };
 
+    const resetMobileChrome = () => {
+      if (!mobileQuery.matches) return;
+
+      const currentScrollY = getScrollY();
+      lastScrollY.current = currentScrollY;
+      setAtTop(currentScrollY <= 8);
+      setHeroVisible(getHeroVisibility());
+      setShowChrome(true);
+      setOpen(false);
+      hasMobileScrollIntent.current = false;
+    };
+
+    const markMobileScrollIntent = () => {
+      if (mobileQuery.matches) hasMobileScrollIntent.current = true;
+    };
+
     window.addEventListener("resize", onResize);
+    window.addEventListener("pageshow", resetMobileChrome);
+    window.addEventListener("touchstart", markMobileScrollIntent, { passive: true });
+    window.addEventListener("wheel", markMobileScrollIntent, { passive: true });
+    mobileQuery.addEventListener("change", onResize);
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("pageshow", resetMobileChrome);
+      window.removeEventListener("touchstart", markMobileScrollIntent);
+      window.removeEventListener("wheel", markMobileScrollIntent);
+      mobileQuery.removeEventListener("change", onResize);
     };
   }, []);
+
+  useEffect(() => {
+    if (!window.matchMedia(MOBILE_MENU_MEDIA_QUERY).matches) return;
+
+    unlockMobileMenuScroll({ restorePosition: false });
+    const currentScrollY = Math.max(
+      0,
+      window.scrollY || document.documentElement.scrollTop || 0,
+    );
+    lastScrollY.current = currentScrollY;
+    hasMobileScrollIntent.current = false;
+    setAtTop(currentScrollY <= 8);
+    setShowChrome(true);
+    setOpen(false);
+  }, [locationHref]);
 
   useEffect(() => {
     const mobileQuery = window.matchMedia(MOBILE_MENU_MEDIA_QUERY);
@@ -178,10 +247,29 @@ export function Header() {
 
   const closeMobileMenu = () => {
     unlockMobileMenuScroll();
+    if (window.matchMedia(MOBILE_MENU_MEDIA_QUERY).matches) {
+      const currentScrollY = Math.max(
+        0,
+        window.scrollY || document.documentElement.scrollTop || 0,
+      );
+      lastScrollY.current = currentScrollY;
+      hasMobileScrollIntent.current = false;
+      setAtTop(currentScrollY <= 8);
+      setShowChrome(true);
+    }
     setOpen(false);
   };
 
   const toggleMobileMenu = () => {
+    if (window.matchMedia(MOBILE_MENU_MEDIA_QUERY).matches) {
+      lastScrollY.current = Math.max(
+        0,
+        window.scrollY || document.documentElement.scrollTop || 0,
+      );
+      hasMobileScrollIntent.current = false;
+      setShowChrome(true);
+    }
+
     setOpen((current) => {
       if (current) {
         unlockMobileMenuScroll();
@@ -201,7 +289,9 @@ export function Header() {
     }
   };
 
-  const chromeVisible = heroVisible && (showChrome || atTop || open);
+  const chromeVisible = isMobileViewport
+    ? showChrome || atTop || open
+    : heroVisible && (showChrome || atTop || open);
 
   return (
     <header

@@ -4874,24 +4874,36 @@ body[data-lang="ar"] .process-timeline__copy p {
   .site-shell:has(.about-page__intro)::before,
   .site-shell:has(.contact-page)::before,
   .site-shell:has(.project-detail__hero)::before {
-    --wave-opacity-min: 0.27;
-    --wave-opacity-max: 0.34;
+    --wave-opacity-min: 0.36;
+    --wave-opacity-max: 0.44;
     display: block;
     background-image:
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-wide.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
       url("./assets/decor/golden-wave-mobile.svg"),
       url("./assets/decor/golden-wave-wide.svg"),
       url("./assets/decor/golden-wave-mobile.svg"),
       url("./assets/decor/golden-wave-mobile.svg");
     background-position:
-      left -10rem top 17%,
-      center top 42%,
-      right -10rem top 69%,
-      left -11rem top 94%;
+      left -13rem top 8%,
+      right -13rem top 20%,
+      center top 33%,
+      left -14rem top 46%,
+      right -14rem top 59%,
+      center top 72%,
+      left -13rem top 85%,
+      right -13rem top 97%;
     background-size:
-      30rem auto,
+      31rem auto,
+      31rem auto,
       52rem auto,
       30rem auto,
-      30rem auto;
+      30rem auto,
+      50rem auto,
+      31rem auto,
+      31rem auto;
     opacity: var(--wave-opacity-min);
     animation-duration: 58s;
   }
@@ -4901,36 +4913,133 @@ body[data-lang="ar"] .process-timeline__copy p {
   .site-shell:has(.about-page__intro)::after,
   .site-shell:has(.contact-page)::after,
   .site-shell:has(.project-detail__hero)::after {
-    --wave-opacity-min: 0.12;
-    --wave-opacity-max: 0.18;
+    --wave-opacity-min: 0.2;
+    --wave-opacity-max: 0.28;
     display: block;
     background-image:
       url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
       url("./assets/decor/golden-wave-mobile.svg");
     background-position:
-      right -11rem top 31%,
-      right -11rem top 82%;
+      right -14rem top 14%,
+      left -14rem top 29%,
+      right -14rem top 43%,
+      left -14rem top 57%,
+      right -14rem top 77%,
+      left -14rem top 92%;
     background-size:
+      29rem auto,
       28rem auto,
-      29rem auto;
+      29rem auto,
+      28rem auto,
+      29rem auto,
+      28rem auto;
     opacity: var(--wave-opacity-min);
     animation-duration: 68s;
+  }
+
+  .site-shell:has(.work-archive)::before {
+    background-position:
+      right -13rem top 6%,
+      left -13rem top 18%,
+      center top 31%,
+      right -14rem top 44%,
+      left -14rem top 58%,
+      center top 72%,
+      right -13rem top 86%,
+      left -13rem top 98%;
+  }
+
+  .site-shell:has(.about-page__intro)::before {
+    background-position:
+      right -13rem top 8%,
+      left -13rem top 22%,
+      center top 38%,
+      right -14rem top 54%,
+      left -14rem top 69%,
+      center top 82%,
+      right -13rem top 92%,
+      left -13rem top 99%;
   }
 
   .site-shell:has(.contact-page)::before {
     background-image:
       url("./assets/decor/golden-wave-mobile.svg"),
-      url("./assets/decor/golden-wave-wide.svg");
+      url("./assets/decor/golden-wave-wide.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg");
     background-position:
-      right -12rem top 15%,
-      center bottom -7rem;
+      right -12rem top 10%,
+      center top 48%,
+      left -12rem top 74%,
+      right -12rem bottom -5rem;
     background-size:
-      27rem auto,
-      48rem auto;
+      29rem auto,
+      48rem auto,
+      28rem auto,
+      29rem auto;
   }
 
   .site-shell:has(.contact-page)::after {
-    display: none;
+    display: block;
+    background-image:
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg");
+    background-position:
+      left -14rem top 29%,
+      right -14rem top 88%;
+    background-size:
+      28rem auto,
+      29rem auto;
+  }
+
+  .site-shell:has(.project-detail__hero)::before {
+    background-image:
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-wide.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-wide.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg"),
+      url("./assets/decor/golden-wave-mobile.svg");
+    background-position:
+      left -13rem top 5%,
+      right -13rem top 15%,
+      center top 25%,
+      left -14rem top 35%,
+      right -14rem top 45%,
+      left -14rem top 55%,
+      center top 65%,
+      right -13rem top 75%,
+      left -13rem top 86%,
+      right -13rem top 97%;
+    background-size:
+      31rem auto,
+      30rem auto,
+      50rem auto,
+      29rem auto,
+      30rem auto,
+      29rem auto,
+      50rem auto,
+      30rem auto,
+      31rem auto,
+      31rem auto;
+  }
+
+  .site-shell:has(.project-detail__hero)::after {
+    background-position:
+      right -14rem top 10%,
+      left -14rem top 28%,
+      right -14rem top 44%,
+      left -14rem top 61%,
+      right -14rem top 79%,
+      left -14rem top 93%;
   }
 
   .selected-work__chapter::before {
