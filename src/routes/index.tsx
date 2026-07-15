@@ -24,7 +24,7 @@ import pokemonLogo from "@/assets/client-logos/pokemon-01 copy.png";
 import sipLogo from "@/assets/client-logos/B444EC1F-6E4F-4031-B544-C04EC67FC987.png";
 import tartaDeAmorLogo from "@/assets/client-logos/F4D76849-676F-4DA7-9BF7-EED8E3F0B3A4 copy.png";
 import { SiteLayout } from "@/components/site/Layout";
-import { CONTACT_EMAIL, emailHref, whatsappHref } from "@/lib/contact";
+import { CONTACT_EMAIL, emailHref, getWhatsappHref } from "@/lib/contact";
 import {
   BidiText,
   EnglishLayoutSlot,
@@ -210,6 +210,7 @@ function Index() {
   const selectedWorkCountLabel = formatLocalizedNumber(selectedWorkCount, language, {
     minimumIntegerDigits: 2,
   });
+  const whatsappUrl = getWhatsappHref(language);
   const serviceCarouselRef = useRef<HTMLDivElement | null>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const [activeApproachIndex, setActiveApproachIndex] = useState<number | null>(null);
@@ -412,7 +413,7 @@ function Index() {
                 <ArrowRight className="lang-arrow h-3.5 w-3.5" aria-hidden="true" />
               </Link>
               <a
-                href={whatsappHref}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t.home.startProject}
@@ -861,7 +862,7 @@ function Index() {
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
               <a
-                href={whatsappHref}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t.home.ctaButton}

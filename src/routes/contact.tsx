@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
-import { whatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
+import { getWhatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
 import { BidiText, EnglishLayoutSlot, siteCopy, useLanguage } from "@/lib/language";
 
 export const Route = createFileRoute("/contact")({
@@ -33,6 +33,7 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   const { language } = useLanguage();
   const t = siteCopy[language];
+  const whatsappUrl = getWhatsappHref(language);
 
   useEffect(() => {
     const items = document.querySelectorAll<HTMLElement>("[data-contact-reveal]");
@@ -106,7 +107,7 @@ function ContactPage() {
             </a>
 
             <a
-              href={whatsappHref}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${t.contact.whatsapp}: ${WHATSAPP_DISPLAY}`}

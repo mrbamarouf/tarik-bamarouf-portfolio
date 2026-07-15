@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { MessageCircle } from "lucide-react";
 import signature from "@/assets/signature.webp";
-import { whatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
+import { getWhatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
 import { BidiText, siteCopy, useLanguage } from "@/lib/language";
 
 export function Footer() {
   const { language } = useLanguage();
   const t = siteCopy[language];
+  const whatsappUrl = getWhatsappHref(language);
 
   return (
     <footer className="relative border-t border-bronze/10 bg-ink">
@@ -28,7 +29,7 @@ export function Footer() {
 
             <div className="mt-9 flex flex-wrap gap-3">
               <a
-                href={whatsappHref}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${t.footer.whatsapp}: ${WHATSAPP_DISPLAY}`}
@@ -90,7 +91,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={whatsappHref}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${t.footer.whatsapp}: ${WHATSAPP_DISPLAY}`}
