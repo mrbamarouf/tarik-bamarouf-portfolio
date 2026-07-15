@@ -947,6 +947,7 @@ body[data-lang="ar"] .intro-overlay__skip {
   .scroll-reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+    will-change: auto;
   }
 
   .cinematic-drift {
@@ -2890,6 +2891,7 @@ body[data-lang="ar"] .intro-overlay__skip {
     .scroll-reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
+      will-change: auto;
     }
 
     .cinematic-drift,

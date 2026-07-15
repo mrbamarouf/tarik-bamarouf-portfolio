@@ -219,6 +219,9 @@ function Index() {
 
   useEffect(() => {
     const items = document.querySelectorAll<HTMLElement>("[data-scroll-reveal]");
+    const pendingItems = Array.from(items).filter((item) => !item.classList.contains("is-visible"));
+    if (!pendingItems.length) return undefined;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -231,9 +234,9 @@ function Index() {
       { rootMargin: "0px 0px -12% 0px", threshold: 0.18 },
     );
 
-    items.forEach((item) => observer.observe(item));
+    pendingItems.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
-  }, [isApproachMobile, language]);
+  }, []);
 
   useEffect(() => {
     const mobileQuery = window.matchMedia("(max-width: 767px)");
@@ -257,15 +260,15 @@ function Index() {
     if (!carousel) return undefined;
 
     const mobileQuery = window.matchMedia("(max-width: 767px)");
+    const cards = Array.from(carousel.querySelectorAll<HTMLElement>(".service-card"));
     let frame = 0;
 
     const updateActiveService = () => {
       if (!mobileQuery.matches) {
-        setActiveServiceIndex(0);
+        setActiveServiceIndex((current) => (current === 0 ? current : 0));
         return;
       }
 
-      const cards = Array.from(carousel.querySelectorAll<HTMLElement>(".service-card"));
       if (!cards.length) return;
 
       const carouselRect = carousel.getBoundingClientRect();

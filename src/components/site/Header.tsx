@@ -68,6 +68,11 @@ export function Header() {
   const locationHref = useRouterState({ select: (state) => state.location.href });
   const lastScrollY = useRef(0);
   const hasMobileScrollIntent = useRef(false);
+  const isMobileViewportRef = useRef(false);
+  const atTopRef = useRef(true);
+  const heroVisibleRef = useRef(true);
+  const showChromeRef = useRef(true);
+  const openRef = useRef(false);
   const mobileMenuButtonRef = useRef<HTMLButtonElement | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const [isMobileViewport, setIsMobileViewport] = useState(false);
@@ -76,8 +81,40 @@ export function Header() {
   const [showChrome, setShowChrome] = useState(true);
   const [open, setOpen] = useState(false);
 
+  const updateIsMobileViewport = (next: boolean) => {
+    if (isMobileViewportRef.current === next) return;
+    isMobileViewportRef.current = next;
+    setIsMobileViewport(next);
+  };
+
+  const updateAtTop = (next: boolean) => {
+    if (atTopRef.current === next) return;
+    atTopRef.current = next;
+    setAtTop(next);
+  };
+
+  const updateHeroVisible = (next: boolean) => {
+    if (heroVisibleRef.current === next) return;
+    heroVisibleRef.current = next;
+    setHeroVisible(next);
+  };
+
+  const updateShowChrome = (next: boolean) => {
+    if (showChromeRef.current === next) return;
+    showChromeRef.current = next;
+    setShowChrome(next);
+  };
+
+  const updateOpen = (next: boolean) => {
+    if (openRef.current === next) return;
+    openRef.current = next;
+    setOpen(next);
+  };
+
   useEffect(() => {
     const mobileQuery = window.matchMedia(MOBILE_MENU_MEDIA_QUERY);
+    let scrollFrame = 0;
+    let resizeFrame = 0;
     const getScrollY = () =>
       Math.max(0, window.scrollY || document.documentElement.scrollTop || 0);
 
@@ -90,64 +127,85 @@ export function Header() {
       return rect.bottom > 96 && rect.top < window.innerHeight;
     };
 
-    const onScroll = () => {
+    const updateForScrollPosition = () => {
+      scrollFrame = 0;
       const currentScrollY = getScrollY();
       const nextAtTop = currentScrollY <= 8;
       const delta = currentScrollY - lastScrollY.current;
-      const nextHeroVisible = getHeroVisibility();
+      const isMobile = mobileQuery.matches;
 
-      setAtTop(nextAtTop);
-      setHeroVisible(nextHeroVisible);
+      updateAtTop(nextAtTop);
 
-      if (mobileQuery.matches) {
+      if (isMobile) {
         if (nextAtTop || delta < -1) {
-          setShowChrome(true);
+          updateShowChrome(true);
         } else if (delta > 6 && hasMobileScrollIntent.current) {
-          setShowChrome(false);
-          setOpen(false);
+          updateShowChrome(false);
+          updateOpen(false);
         }
-      } else if (!nextHeroVisible) {
-        setShowChrome(false);
-        setOpen(false);
-      } else if (nextAtTop) {
-        setShowChrome(true);
-      } else if (Math.abs(delta) > 6) {
-        const scrollingDown = delta > 0;
-        setShowChrome(!scrollingDown);
-        if (scrollingDown) setOpen(false);
+      } else {
+        const nextHeroVisible = getHeroVisibility();
+        updateHeroVisible(nextHeroVisible);
+
+        if (!nextHeroVisible) {
+          updateShowChrome(false);
+          updateOpen(false);
+        } else if (nextAtTop) {
+          updateShowChrome(true);
+        } else if (Math.abs(delta) > 6) {
+          const scrollingDown = delta > 0;
+          updateShowChrome(!scrollingDown);
+          if (scrollingDown) updateOpen(false);
+        }
       }
 
       lastScrollY.current = currentScrollY;
     };
 
+    const onScroll = () => {
+      if (scrollFrame) return;
+      scrollFrame = window.requestAnimationFrame(updateForScrollPosition);
+    };
+
     lastScrollY.current = getScrollY();
+    isMobileViewportRef.current = mobileQuery.matches;
+    atTopRef.current = lastScrollY.current <= 8;
     setIsMobileViewport(mobileQuery.matches);
     if (mobileQuery.matches) {
-      setAtTop(lastScrollY.current <= 8);
-      setHeroVisible(getHeroVisibility());
+      setAtTop(atTopRef.current);
+      showChromeRef.current = true;
       setShowChrome(true);
     } else {
-      onScroll();
+      updateForScrollPosition();
     }
 
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    const onResize = () => {
+    const updateForResize = () => {
+      resizeFrame = 0;
       const currentScrollY = getScrollY();
-      const nextHeroVisible = getHeroVisibility();
+      const isMobile = mobileQuery.matches;
 
-      setIsMobileViewport(mobileQuery.matches);
-      setAtTop(currentScrollY <= 8);
-      setHeroVisible(nextHeroVisible);
+      updateIsMobileViewport(isMobile);
+      updateAtTop(currentScrollY <= 8);
 
-      if (mobileQuery.matches) {
+      if (isMobile) {
         lastScrollY.current = currentScrollY;
         hasMobileScrollIntent.current = false;
-        setShowChrome(true);
-      } else if (!nextHeroVisible) {
-        setShowChrome(false);
-        setOpen(false);
+        updateShowChrome(true);
+      } else {
+        const nextHeroVisible = getHeroVisibility();
+        updateHeroVisible(nextHeroVisible);
+        if (!nextHeroVisible) {
+          updateShowChrome(false);
+          updateOpen(false);
+        }
       }
+    };
+
+    const onResize = () => {
+      if (resizeFrame) return;
+      resizeFrame = window.requestAnimationFrame(updateForResize);
     };
 
     const resetMobileChrome = () => {
@@ -155,10 +213,9 @@ export function Header() {
 
       const currentScrollY = getScrollY();
       lastScrollY.current = currentScrollY;
-      setAtTop(currentScrollY <= 8);
-      setHeroVisible(getHeroVisibility());
-      setShowChrome(true);
-      setOpen(false);
+      updateAtTop(currentScrollY <= 8);
+      updateShowChrome(true);
+      updateOpen(false);
       hasMobileScrollIntent.current = false;
     };
 
@@ -172,6 +229,8 @@ export function Header() {
     window.addEventListener("wheel", markMobileScrollIntent, { passive: true });
     mobileQuery.addEventListener("change", onResize);
     return () => {
+      if (scrollFrame) window.cancelAnimationFrame(scrollFrame);
+      if (resizeFrame) window.cancelAnimationFrame(resizeFrame);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
       window.removeEventListener("pageshow", resetMobileChrome);
@@ -191,9 +250,9 @@ export function Header() {
     );
     lastScrollY.current = currentScrollY;
     hasMobileScrollIntent.current = false;
-    setAtTop(currentScrollY <= 8);
-    setShowChrome(true);
-    setOpen(false);
+    updateAtTop(currentScrollY <= 8);
+    updateShowChrome(true);
+    updateOpen(false);
   }, [locationHref]);
 
   useEffect(() => {
@@ -212,7 +271,7 @@ export function Header() {
 
     const handleMediaChange = (event: MediaQueryListEvent) => {
       if (!event.matches) {
-        setOpen(false);
+        updateOpen(false);
       }
     };
 
@@ -234,7 +293,7 @@ export function Header() {
       if (event.key !== "Escape") return;
       event.preventDefault();
       unlockMobileMenuScroll();
-      setOpen(false);
+      updateOpen(false);
       window.requestAnimationFrame(() => mobileMenuButtonRef.current?.focus());
     };
 
@@ -254,10 +313,10 @@ export function Header() {
       );
       lastScrollY.current = currentScrollY;
       hasMobileScrollIntent.current = false;
-      setAtTop(currentScrollY <= 8);
-      setShowChrome(true);
+      updateAtTop(currentScrollY <= 8);
+      updateShowChrome(true);
     }
-    setOpen(false);
+    updateOpen(false);
   };
 
   const toggleMobileMenu = () => {
@@ -267,16 +326,12 @@ export function Header() {
         window.scrollY || document.documentElement.scrollTop || 0,
       );
       hasMobileScrollIntent.current = false;
-      setShowChrome(true);
+      updateShowChrome(true);
     }
 
-    setOpen((current) => {
-      if (current) {
-        unlockMobileMenuScroll();
-      }
-
-      return !current;
-    });
+    const nextOpen = !openRef.current;
+    if (!nextOpen) unlockMobileMenuScroll();
+    updateOpen(nextOpen);
   };
 
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -285,7 +340,7 @@ export function Header() {
     if (window.location.pathname === "/") {
       event.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
-      setShowChrome(true);
+      updateShowChrome(true);
     }
   };
 

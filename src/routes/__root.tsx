@@ -636,20 +636,7 @@ function IntroOverlay() {
         onEnded={dismiss}
         onError={dismiss}
         aria-hidden="true"
-      >
-        <source
-          src={mobileIntroVideoSrc}
-          media={MOBILE_INTRO_MEDIA_QUERY}
-          type="video/mp4"
-          data-intro-source="mobile"
-        />
-        <source
-          src={desktopIntroVideoSrc}
-          media={DESKTOP_INTRO_MEDIA_QUERY}
-          type="video/mp4"
-          data-intro-source="desktop"
-        />
-      </video>
+      />
       <button type="button" className="intro-overlay__skip" onClick={dismiss}>
         {language === "ar" ? "تخطي المقدمة" : "Skip Intro"}
       </button>
