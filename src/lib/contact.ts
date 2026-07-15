@@ -9,8 +9,8 @@ export const INSTAGRAM_HANDLE = "tarikbamarouf";
 export const INSTAGRAM_URL = `https://instagram.com/${INSTAGRAM_HANDLE}`;
 
 export const WHATSAPP_MESSAGES = {
-  ar: "السلام عليكم طارق، زرت موقعك وأرغب في تنفيذ موقع إلكتروني.",
-  en: "Hi Tarik, I visited your portfolio and would like to discuss a website project.",
+  ar: "السلام عليكم طارق،\nاطلعت على موقعك وأرغب في مناقشة تنفيذ موقع إلكتروني لمشروعي.",
+  en: "Hi Tarik,\n\nI came across your portfolio and I'd like to discuss building a website for my project.",
 } as const;
 
 export function getWhatsappHref(language: keyof typeof WHATSAPP_MESSAGES) {
