@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { MessageCircle } from "lucide-react";
 import signature from "@/assets/signature.webp";
 import { whatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
 import { BidiText, siteCopy, useLanguage } from "@/lib/language";
@@ -30,12 +31,14 @@ export function Footer() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${t.footer.whatsapp}: ${WHATSAPP_DISPLAY}`}
                 className="inline-flex items-center gap-3 bg-bronze px-6 py-3 text-[10px] uppercase tracking-editorial text-ink transition-colors duration-500 hover:bg-bronze-soft"
               >
                 {t.footer.whatsapp}
               </a>
               <a
                 href={emailHref}
+                aria-label={`${t.footer.email}: ${CONTACT_EMAIL}`}
                 className="inline-flex items-center gap-3 border border-bronze/20 px-6 py-3 text-[10px] uppercase tracking-editorial text-foreground/90 transition-colors duration-500 hover:border-bronze/60 hover:text-bronze"
               >
                 {t.footer.email}
@@ -77,7 +80,11 @@ export function Footer() {
             </p>
             <ul className="space-y-3 font-serif text-xl font-light">
               <li>
-                <a href={emailHref} className="link-underline">
+                <a
+                  href={emailHref}
+                  aria-label={`${t.footer.email}: ${CONTACT_EMAIL}`}
+                  className="footer-contact-row link-underline"
+                >
                   {CONTACT_EMAIL}
                 </a>
               </li>
@@ -86,8 +93,10 @@ export function Footer() {
                   href={whatsappHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="link-underline"
+                  aria-label={`${t.footer.whatsapp}: ${WHATSAPP_DISPLAY}`}
+                  className="footer-contact-row footer-contact-row--whatsapp link-underline"
                 >
+                  <MessageCircle className="footer-contact-row__icon" aria-hidden="true" />
                   {WHATSAPP_DISPLAY}
                 </a>
               </li>

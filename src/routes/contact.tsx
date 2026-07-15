@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
 import { whatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
 import { BidiText, EnglishLayoutSlot, siteCopy, useLanguage } from "@/lib/language";
@@ -82,6 +82,7 @@ function ContactPage() {
           <div className="contact-actions mt-20 grid grid-cols-1 gap-5 md:mt-28 md:grid-cols-12">
             <a
               href={emailHref}
+              aria-label={`${t.contact.email}: ${CONTACT_EMAIL}`}
               className="contact-card contact-card--primary group md:col-span-7"
               data-contact-reveal
             >
@@ -107,6 +108,7 @@ function ContactPage() {
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`${t.contact.whatsapp}: ${WHATSAPP_DISPLAY}`}
               className="contact-card contact-card--secondary group md:col-span-5"
               data-contact-reveal
             >
@@ -115,7 +117,11 @@ function ContactPage() {
                 {t.contact.secondary}
               </p>
               <div className="mt-auto">
-                <h2 className="font-serif text-3xl font-light leading-[1.05] text-foreground transition-transform duration-700 group-hover:translate-x-2 md:text-5xl">
+                <h2 className="contact-card__whatsapp-number font-serif text-3xl font-light leading-[1.05] text-foreground transition-transform duration-700 group-hover:translate-x-2 md:text-5xl">
+                  <MessageCircle
+                    className="contact-card__whatsapp-icon"
+                    aria-hidden="true"
+                  />
                   {WHATSAPP_DISPLAY}
                 </h2>
                 <p className="mt-8 max-w-sm text-sm font-light leading-relaxed text-foreground/58 md:text-base">

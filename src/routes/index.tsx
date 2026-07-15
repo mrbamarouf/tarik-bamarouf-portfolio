@@ -415,6 +415,7 @@ function Index() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={t.home.startProject}
                 className="group inline-flex items-center gap-3 px-3 py-4 text-[11px] uppercase tracking-editorial text-foreground/88 transition-colors duration-500 hover:text-bronze"
               >
                 {t.home.startProject}
@@ -863,6 +864,7 @@ function Index() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={t.home.ctaButton}
                 className="final-cta__button final-cta__button--primary inline-flex items-center gap-3 bg-bronze px-7 py-4 text-[11px] uppercase tracking-editorial text-ink transition-colors duration-500 hover:bg-bronze-soft"
               >
                 {t.home.ctaButton}
@@ -870,6 +872,7 @@ function Index() {
               </a>
               <a
                 href={emailHref}
+                aria-label={`Email: ${CONTACT_EMAIL}`}
                 className="final-cta__button final-cta__button--secondary inline-flex items-center gap-3 border border-bronze/30 px-7 py-4 text-[11px] uppercase tracking-editorial text-bronze transition-colors duration-500 hover:border-bronze hover:text-bronze-soft"
               >
                 {CONTACT_EMAIL}
