@@ -1593,6 +1593,13 @@ body[data-lang="ar"] .intro-overlay__skip {
     text-wrap: balance;
   }
 
+  .contact-card__email {
+    display: block;
+    max-width: 100%;
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+
   .contact-card__whatsapp-number,
   .footer-contact-row {
     display: inline-flex;
@@ -1601,7 +1608,14 @@ body[data-lang="ar"] .intro-overlay__skip {
     gap: 0.65rem;
   }
 
-  .contact-card__whatsapp-icon,
+  .contact-card__whatsapp-icon {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 0.72em;
+    height: 0.72em;
+    color: var(--bronze);
+  }
+
   .footer-contact-row__icon {
     display: none;
     flex: 0 0 auto;
@@ -1685,7 +1699,6 @@ body[data-lang="ar"] .intro-overlay__skip {
     }
 
     .contact-card__whatsapp-icon {
-      display: inline-block;
       width: 0.78em;
       height: 0.78em;
     }
@@ -5958,5 +5971,21 @@ body[data-lang="ar"] .home-about__body a {
   .approach-stage__icon,
   .approach-stage__arrow {
     transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-card--primary h2.contact-card__email,
+  body[data-lang="ar"] .contact-card--primary h2.contact-card__email {
+    max-width: 100%;
+    font-size: clamp(1.08rem, 5.25vw, 1.42rem);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    direction: ltr;
+    overflow-wrap: normal;
+    white-space: nowrap;
+    word-break: normal;
+    text-wrap: nowrap;
+    unicode-bidi: isolate;
   }
 }

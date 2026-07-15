@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { SiteLayout, SectionLabel } from "@/components/site/Layout";
 import { whatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
 import { BidiText, EnglishLayoutSlot, siteCopy, useLanguage } from "@/lib/language";
@@ -91,7 +92,7 @@ function ContactPage() {
                 {t.contact.primary}
               </p>
               <div className="mt-auto">
-                <h2 className="font-serif text-4xl font-light leading-[1.02] text-foreground transition-transform duration-700 group-hover:translate-x-2 md:text-6xl">
+                <h2 className="contact-card__email font-serif text-4xl font-light leading-[1.02] text-foreground transition-transform duration-700 group-hover:translate-x-2 md:text-6xl">
                   {CONTACT_EMAIL}
                 </h2>
                 <span className="mt-12 inline-flex items-center gap-3 text-[11px] uppercase tracking-luxury text-bronze-soft">
@@ -118,9 +119,8 @@ function ContactPage() {
               </p>
               <div className="mt-auto">
                 <h2 className="contact-card__whatsapp-number font-serif text-3xl font-light leading-[1.05] text-foreground transition-transform duration-700 group-hover:translate-x-2 md:text-5xl">
-                  <MessageCircle
+                  <WhatsAppIcon
                     className="contact-card__whatsapp-icon"
-                    aria-hidden="true"
                   />
                   {WHATSAPP_DISPLAY}
                 </h2>
