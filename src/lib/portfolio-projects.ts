@@ -12,6 +12,7 @@ import opalStonesHero from "@/assets/projects/opal-stones/01-homepage-hero.webp"
 import exEventsHero from "@/assets/projects/ex-events-exhibitions/01-hero.webp";
 import firstAdvanceHero from "@/assets/projects/first-advance/01-hero-homepage.webp";
 import osamaLawHero from "@/assets/projects/osama-bin-mahfouz-law-firm/01-hero-homepage.jpg";
+import bamaroufStudioHero from "@/assets/projects/bamarouf-studio/01-three-doors-main-concept.jpg";
 
 export const portfolioProjects = [
   {
@@ -163,6 +164,17 @@ export const portfolioProjects = [
     slug: "osama-bin-mahfouz-law-firm",
     cat: "Law Firm Website",
     img: osamaLawHero,
+    year: "2026",
+    disciplines: "Website Design & Development",
+    span: "wide",
+    ratio: "aspect-[16/10]",
+  },
+  {
+    n: "15",
+    t: "BAMAROUF STUDIO",
+    slug: "bamarouf-studio",
+    cat: "Digital Ecosystem & Brand Experience",
+    img: bamaroufStudioHero,
     year: "2026",
     disciplines: "Website Design & Development",
     span: "wide",

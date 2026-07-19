@@ -135,6 +135,14 @@ import osamaLawAbout from "@/assets/projects/osama-bin-mahfouz-law-firm/03-about
 import osamaLawServices from "@/assets/projects/osama-bin-mahfouz-law-firm/04-legal-services.jpg";
 import osamaLawContact from "@/assets/projects/osama-bin-mahfouz-law-firm/05-contact-footer.jpg";
 import osamaLawValues from "@/assets/projects/osama-bin-mahfouz-law-firm/06-process-values.jpg";
+import bamaroufStudioHero from "@/assets/projects/bamarouf-studio/01-three-doors-main-concept.jpg";
+import bamaroufStudioNoor from "@/assets/projects/bamarouf-studio/02-noor-world.jpg";
+import bamaroufStudioHouse from "@/assets/projects/bamarouf-studio/03-house-philosophy.jpg";
+import bamaroufStudioTarik from "@/assets/projects/bamarouf-studio/04-tarik-world.jpg";
+import bamaroufStudioMeet from "@/assets/projects/bamarouf-studio/05-when-worlds-meet.jpg";
+import bamaroufStudioKhaled from "@/assets/projects/bamarouf-studio/06-khaled-world.jpg";
+import bamaroufStudioDestination from "@/assets/projects/bamarouf-studio/07-choose-destination.jpg";
+import bamaroufStudioPrinciples from "@/assets/projects/bamarouf-studio/08-house-principles.jpg";
 
 type GalleryItem = { image: string; title: string; caption: string; fit?: "cover" | "contain" };
 
@@ -838,6 +846,91 @@ const PROJECTS: ProjectData[] = [
     ],
     reflection:
       "The project became a premium bilingual law-firm website, combining website design, UX/UI, Arabic and English experience, front-end development, responsive design, and visual direction into one composed digital presence.",
+  },
+  {
+    slug: "bamarouf-studio",
+    name: "BAMAROUF STUDIO",
+    category: "Digital Ecosystem & Brand Experience",
+    intro:
+      "BAMAROUF STUDIO is a premium digital gateway connecting three independent professional worlds under one architectural identity. The experience was designed as a house of specialists, allowing visitors to enter the distinct worlds of digital experiences, graphic design and systems engineering while preserving the identity and character of each discipline.",
+    image: bamaroufStudioHero,
+    details: {
+      client: "BAMAROUF STUDIO",
+      industry: "Digital Ecosystem / Family Brand Gateway",
+      services:
+        "Digital Strategy, Website Design, UX/UI Design, Creative Direction, Front-End Development, Bilingual Experience, Responsive Design, Brand Ecosystem Architecture",
+      year: "2026",
+      platform: "Website Design & Development",
+    },
+    url: "https://bamaroufstudio.com",
+    overview: {
+      challenge:
+        "The project needed to present three independent professional worlds without making them feel like one generic agency. Each destination needed its own character while still belonging to one refined family ecosystem.",
+      approach:
+        "The experience was shaped as an architectural house: a cinematic gateway, three distinct destinations, bilingual navigation, and restrained editorial pages that allow each world to feel independent and connected.",
+      outcome:
+        "The final website gives visitors a premium way to choose the right specialist, moving from the parent house into Tarik, Noor, or Khaled with clarity, atmosphere, and trust.",
+    },
+    gallery: [
+      {
+        image: bamaroufStudioHero,
+        title: "Three Doors / Main Concept",
+        caption:
+          "The opening world presents three architectural destinations under one quiet BAMAROUF STUDIO identity.",
+        fit: "contain",
+      },
+      {
+        image: bamaroufStudioNoor,
+        title: "Noor World",
+        caption:
+          "The graphic design destination carries a softer visual atmosphere while staying connected to the parent house.",
+        fit: "contain",
+      },
+      {
+        image: bamaroufStudioHouse,
+        title: "House Philosophy",
+        caption:
+          "The house story explains how three independent disciplines can live side by side without becoming alike.",
+        fit: "contain",
+      },
+      {
+        image: bamaroufStudioTarik,
+        title: "Tarik World",
+        caption:
+          "The digital experiences destination is framed with darker architectural materials, motion, and interaction cues.",
+        fit: "contain",
+      },
+      {
+        image: bamaroufStudioMeet,
+        title: "When the Worlds Meet",
+        caption:
+          "A transitional chapter gives the collaboration model a calm architectural rhythm and keeps responsibilities clear.",
+        fit: "contain",
+      },
+      {
+        image: bamaroufStudioKhaled,
+        title: "Khaled World",
+        caption:
+          "The systems engineering destination uses stone, structure, and measured composition to express precision.",
+        fit: "contain",
+      },
+      {
+        image: bamaroufStudioDestination,
+        title: "Choose Your Destination",
+        caption:
+          "The selection experience helps visitors enter the world their project needs without confusion or unnecessary friction.",
+        fit: "contain",
+      },
+      {
+        image: bamaroufStudioPrinciples,
+        title: "House Principles",
+        caption:
+          "The closing principles clarify autonomy, purpose, rigour, shared standards, and the single vision behind the house.",
+        fit: "contain",
+      },
+    ],
+    reflection:
+      "BAMAROUF STUDIO became a refined digital ecosystem: one architectural address for three specialist worlds, each with its own identity, voice, and purpose.",
   },
 ];
 
@@ -1638,6 +1731,20 @@ function ProjectDetail() {
             <p className="mt-5 max-w-xl text-foreground/75 font-light">
               <EnglishLayoutSlot master={masterProject.intro}>{project.intro}</EnglishLayoutSlot>
             </p>
+            {project.url && project.url !== "#" ? (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-7 inline-flex items-center gap-3 text-[10px] tracking-luxury uppercase text-bronze transition-colors hover:text-foreground"
+                aria-label={labels.visitWebsite}
+              >
+                <EnglishLayoutSlot master={siteCopy.en.project.visitWebsite}>
+                  {labels.visitWebsite}
+                </EnglishLayoutSlot>
+                <ArrowRight className="lang-arrow h-3.5 w-3.5" aria-hidden="true" />
+              </a>
+            ) : null}
           </div>
         </div>
       </section>

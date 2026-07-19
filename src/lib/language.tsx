@@ -196,7 +196,7 @@ export const siteCopy = {
       heroCapabilities:
         "Premium Websites\u00a0\u00a0•\u00a0\u00a0UX/UI Design\u00a0\u00a0•\u00a0\u00a0Brand Identity Direction\u00a0\u00a0•\u00a0\u00a0Front-end Craft",
       clientsEyebrow: "SELECTED CLIENTS",
-      clientsLine: "Trusted by 14 ambitious brands.",
+      clientsLine: "Trusted by 15 ambitious brands.",
       viewWork: "View Work",
       startProject: "Start Project",
       portfolioLabel: "Portfolio 2026",
@@ -372,6 +372,7 @@ export const siteCopy = {
       results: "Results and Outcome",
       next: "Next Project",
       view: "View",
+      visitWebsite: "Visit Website",
       desktopExperience: "Desktop Experience",
       mobileExperience: "Mobile Experience",
       brandAssets: "Brand Assets",
@@ -425,7 +426,7 @@ export const siteCopy = {
       heroCapabilities:
         "مواقع راقية\u00a0\u00a0•\u00a0\u00a0تجربة وواجهة المستخدم\u00a0\u00a0•\u00a0\u00a0توجيه هوية العلامة\u00a0\u00a0•\u00a0\u00a0حرفة الواجهة الأمامية",
       clientsEyebrow: "عملاء مختارون",
-      clientsLine: "تشرفت بالعمل مع ١٤ علامة طموحة.",
+      clientsLine: "تشرفت بالعمل مع ١٥ علامة طموحة.",
       viewWork: "عرض الأعمال",
       startProject: "ابدأ مشروعك",
       portfolioLabel: "محفظة ٢٠٢٦",
@@ -601,6 +602,7 @@ export const siteCopy = {
       results: "النتائج والأثر",
       next: "المشروع التالي",
       view: "عرض المشروع",
+      visitWebsite: "زيارة الموقع",
       desktopExperience: "تجربة سطح المكتب",
       mobileExperience: "تجربة الجوال",
       brandAssets: "أصول الهوية",
@@ -636,6 +638,134 @@ type ProjectCopy = {
 };
 
 export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
+  "bamarouf-studio": {
+    en: {
+      name: "BAMAROUF STUDIO",
+      category: "Digital Ecosystem & Brand Experience",
+      disciplines: "Website Design & Development",
+      intro:
+        "BAMAROUF STUDIO is a premium digital gateway connecting three independent professional worlds under one architectural identity. The experience was designed as a house of specialists, allowing visitors to enter the distinct worlds of digital experiences, graphic design and systems engineering while preserving the identity and character of each discipline.",
+      details: {
+        client: "BAMAROUF STUDIO",
+        industry: "Digital Ecosystem / Family Brand Gateway",
+        services:
+          "Digital Strategy, Website Design, UX/UI Design, Creative Direction, Front-End Development, Bilingual Experience, Responsive Design, Brand Ecosystem Architecture",
+        platform: "Website Design & Development",
+      },
+      overview: {
+        challenge:
+          "The project needed to present three independent professional worlds without making them feel like one generic agency. Each destination needed its own character while still belonging to one refined family ecosystem.",
+        approach:
+          "The experience was shaped as an architectural house: a cinematic gateway, three distinct destinations, bilingual navigation, and restrained editorial pages that allow each world to feel independent and connected.",
+        outcome:
+          "The final website gives visitors a premium way to choose the right specialist, moving from the parent house into Tarik, Noor, or Khaled with clarity, atmosphere, and trust.",
+      },
+      gallery: [
+        {
+          title: "Three Doors / Main Concept",
+          caption:
+            "The opening world presents three architectural destinations under one quiet BAMAROUF STUDIO identity.",
+        },
+        {
+          title: "Noor World",
+          caption:
+            "The graphic design destination carries a softer visual atmosphere while staying connected to the parent house.",
+        },
+        {
+          title: "House Philosophy",
+          caption:
+            "The house story explains how three independent disciplines can live side by side without becoming alike.",
+        },
+        {
+          title: "Tarik World",
+          caption:
+            "The digital experiences destination is framed with darker architectural materials, motion, and interaction cues.",
+        },
+        {
+          title: "When the Worlds Meet",
+          caption:
+            "A transitional chapter gives the collaboration model a calm architectural rhythm and keeps responsibilities clear.",
+        },
+        {
+          title: "Khaled World",
+          caption:
+            "The systems engineering destination uses stone, structure, and measured composition to express precision.",
+        },
+        {
+          title: "Choose Your Destination",
+          caption:
+            "The selection experience helps visitors enter the world their project needs without confusion or unnecessary friction.",
+        },
+        {
+          title: "House Principles",
+          caption:
+            "The closing principles clarify autonomy, purpose, rigour, shared standards, and the single vision behind the house.",
+        },
+      ],
+      reflection:
+        "BAMAROUF STUDIO became a refined digital ecosystem: one architectural address for three specialist worlds, each with its own identity, voice, and purpose.",
+    },
+    ar: {
+      name: "بامعروف استديو",
+      category: "منظومة رقمية وتجربة علامة",
+      disciplines: "تصميم وتطوير موقع إلكتروني",
+      intro:
+        "بامعروف استديو هو بوابة رقمية راقية تجمع ثلاثة عوالم مهنية مستقلة تحت هوية معمارية واحدة. صُممت التجربة كبيت للمتخصصين، يتيح للزائر الدخول إلى عوالم التجارب الرقمية والتصميم الجرافيكي وهندسة الأنظمة، مع الحفاظ على شخصية وهوية كل تخصص بشكل مستقل.",
+      details: {
+        client: "بامعروف استديو",
+        industry: "منظومة رقمية / بوابة عائلية للعلامة",
+        services:
+          "الاستراتيجية الرقمية، تصميم الموقع، تصميم تجربة وواجهة المستخدم، التوجيه الإبداعي، تطوير الواجهة الأمامية، تجربة عربية وإنجليزية، التصميم المتجاوب، بناء منظومة الهوية الرقمية",
+        platform: "تصميم وتطوير موقع إلكتروني",
+      },
+      overview: {
+        challenge:
+          "احتاج المشروع إلى تقديم ثلاثة عوالم مهنية مستقلة من دون أن تبدو كوكالة واحدة عامة. لكل وجهة شخصيتها الخاصة، ومع ذلك يجب أن تبقى ضمن منظومة عائلية واحدة وراقية.",
+        approach:
+          "صُممت التجربة كبيت معماري: بوابة سينمائية، ثلاث وجهات واضحة، تنقل عربي وإنجليزي، وصفحات تحريرية هادئة تمنح كل عالم استقلاله واتصاله في الوقت نفسه.",
+        outcome:
+          "يمنح الموقع الزائر طريقة راقية لاختيار المتخصص المناسب، والانتقال من البيت الأم إلى عالم طارق أو نور أو خالد بوضوح وأجواء وثقة.",
+      },
+      gallery: [
+        {
+          title: "الأبواب الثلاثة / الفكرة الرئيسية",
+          caption: "يعرض المشهد الافتتاحي ثلاث وجهات معمارية تحت هوية بامعروف استديو الهادئة.",
+        },
+        {
+          title: "عالم نور",
+          caption: "تحمل وجهة التصميم الجرافيكي أجواء أكثر نعومة مع بقائها متصلة بالبيت الأم.",
+        },
+        {
+          title: "فلسفة البيت",
+          caption: "توضح قصة البيت كيف يمكن لثلاثة تخصصات مستقلة أن تتجاور من دون أن تتشابه.",
+        },
+        {
+          title: "عالم طارق",
+          caption: "تُقدَّم وجهة التجارب الرقمية بمواد معمارية داكنة وإشارات للحركة والتفاعل.",
+        },
+        {
+          title: "حين تلتقي العوالم",
+          caption:
+            "يمنح هذا الفصل الانتقالي نموذج التعاون إيقاعًا معماريًا هادئًا ومسؤوليات واضحة.",
+        },
+        {
+          title: "عالم خالد",
+          caption: "تعبر وجهة هندسة الأنظمة عن الدقة عبر الحجر والبنية والتكوين المحسوب.",
+        },
+        {
+          title: "اختر وجهتك",
+          caption: "تساعد تجربة الاختيار الزائر على دخول العالم الذي يحتاجه مشروعه بوضوح وسلاسة.",
+        },
+        {
+          title: "مبادئ البيت",
+          caption:
+            "توضح المبادئ الختامية الاستقلالية والهدف والانضباط والمعايير المشتركة والرؤية الواحدة خلف البيت.",
+        },
+      ],
+      reflection:
+        "أصبح بامعروف استديو منظومة رقمية مصقولة: عنوانًا معماريًا واحدًا لثلاثة عوالم متخصصة، لكل منها هويته وصوته وهدفه.",
+    },
+  },
   "osama-bin-mahfouz-law-firm": {
     en: {
       name: "Osama Bin Ahmed Bin Mahfouz Law Firm",
@@ -727,8 +857,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "عن المكتب والرسالة",
-          caption:
-            "يربط قسم التعريف بالمكتب بين رسالة قانونية واثقة ومراجع داخلية ومعمارية راقية.",
+          caption: "يربط قسم التعريف بالمكتب بين رسالة قانونية واثقة ومراجع داخلية ومعمارية راقية.",
         },
         {
           title: "الخدمات القانونية",
@@ -742,8 +871,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         },
         {
           title: "القيم ورحلة التواصل",
-          caption:
-            "توضح الأقسام الداعمة قيم المكتب ومسار التواصل بإيقاع بصري هادئ ومتزن.",
+          caption: "توضح الأقسام الداعمة قيم المكتب ومسار التواصل بإيقاع بصري هادئ ومتزن.",
         },
       ],
       reflection:

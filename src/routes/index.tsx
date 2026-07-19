@@ -24,6 +24,7 @@ import pokemonLogo from "@/assets/client-logos/pokemon-01 copy.png";
 import sipLogo from "@/assets/client-logos/B444EC1F-6E4F-4031-B544-C04EC67FC987.png";
 import tartaDeAmorLogo from "@/assets/client-logos/F4D76849-676F-4DA7-9BF7-EED8E3F0B3A4 copy.png";
 import osamaLawLogo from "@/assets/projects/osama-bin-mahfouz-law-firm/osama-logo-official.png";
+import bamaroufStudioLogo from "@/assets/projects/bamarouf-studio/bamarouf-studio-logo.png";
 import { SiteLayout } from "@/components/site/Layout";
 import { CONTACT_EMAIL, emailHref, getWhatsappHref } from "@/lib/contact";
 import {
@@ -94,6 +95,7 @@ const clientLogos: ReadonlyArray<ClientLogo> = [
   { name: "NOORIX", image: noorixLogo, size: "medium" },
   { name: "SIP", image: sipLogo, size: "medium" },
   { name: "Osama Bin Ahmed Bin Mahfouz Law Firm", image: osamaLawLogo, size: "medium" },
+  { name: "BAMAROUF STUDIO", image: bamaroufStudioLogo, size: "medium" },
 ];
 
 const steps = [
