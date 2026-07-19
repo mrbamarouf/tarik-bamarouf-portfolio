@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import type { MouseEvent } from "react";
 import { useEffect, useRef, useState } from "react";
-import bamaroufStudioSymbol from "@/assets/bamarouf-studio-symbol.png";
+import bamaroufStudioLogoMark from "@/assets/bamarouf-studio-logo-mark.png";
 import signature from "@/assets/signature.webp";
 import { siteCopy, useLanguage } from "@/lib/language";
 
@@ -424,7 +424,7 @@ export function Header() {
             className="site-header__studio-link"
           >
             <img
-              src={bamaroufStudioSymbol}
+              src={bamaroufStudioLogoMark}
               alt=""
               decoding="async"
               className="site-header__studio-mark"
@@ -492,7 +492,7 @@ export function Header() {
               dir={language === "ar" ? "rtl" : "ltr"}
             >
               <img
-                src={bamaroufStudioSymbol}
+                src={bamaroufStudioLogoMark}
                 alt=""
                 loading="lazy"
                 decoding="async"

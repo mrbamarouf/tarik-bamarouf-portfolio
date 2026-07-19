@@ -279,8 +279,9 @@
 .site-header__studio-mark {
   display: block;
   width: 1.72rem;
-  height: 1.72rem;
+  height: 2.02rem;
   object-fit: contain;
+  opacity: 0.94;
 }
 
 .site-header__mobile-studio {
@@ -302,11 +303,11 @@
 
 .site-header__mobile-studio-mark {
   display: block;
-  width: 2rem;
-  height: 2rem;
+  width: 2.15rem;
+  height: 2.52rem;
   flex: 0 0 auto;
   object-fit: contain;
-  opacity: 0.9;
+  opacity: 0.96;
 }
 
 .site-header__studio-name {
@@ -1718,11 +1719,12 @@ body[data-lang="ar"] .intro-overlay__skip {
 
   .footer-studio-signature__mark {
     display: block;
-    width: 1.55rem;
-    height: 1.55rem;
+    width: clamp(2.15rem, 4vw, 2.85rem);
+    height: auto;
+    max-height: 3.65rem;
     flex: 0 0 auto;
     object-fit: contain;
-    opacity: 0.82;
+    opacity: 0.88;
   }
 
   .footer-studio-signature__text {

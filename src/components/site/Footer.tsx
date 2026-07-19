@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { MessageCircle } from "lucide-react";
-import bamaroufStudioSymbol from "@/assets/bamarouf-studio-symbol.png";
+import bamaroufStudioLogoFull from "@/assets/bamarouf-studio-logo-full.png";
 import signature from "@/assets/signature.webp";
 import { getWhatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
 import { BidiText, siteCopy, useLanguage } from "@/lib/language";
@@ -121,7 +121,7 @@ export function Footer() {
             dir={language === "ar" ? "rtl" : "ltr"}
           >
             <img
-              src={bamaroufStudioSymbol}
+              src={bamaroufStudioLogoFull}
               alt=""
               loading="lazy"
               decoding="async"
