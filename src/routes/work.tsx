@@ -85,6 +85,7 @@ function WorkPage() {
               const display = projectDisplay(p.slug, language);
               const masterDisplay = projectDisplay(p.slug, "en");
               const isReversed = i % 2 === 1;
+              const title = display.name ?? p.t;
               return (
                 <li key={p.slug} className="work-archive__item">
                   <Link
@@ -115,7 +116,9 @@ function WorkPage() {
                           {display.category ?? p.cat}
                         </EnglishLayoutSlot>
                       </p>
-                      <h2 className="work-archive__title">{p.t}</h2>
+                      <h2 className="work-archive__title">
+                        <BidiText>{title}</BidiText>
+                      </h2>
                       <p className="work-archive__disciplines">
                         <span>
                           <EnglishLayoutSlot master={masterDisplay.disciplines ?? p.disciplines}>

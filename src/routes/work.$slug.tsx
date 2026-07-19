@@ -129,6 +129,12 @@ import firstAdvanceAudience from "@/assets/projects/first-advance/06-target-audi
 import firstAdvancePackages from "@/assets/projects/first-advance/07-packages-offers.webp";
 import firstAdvanceWhy from "@/assets/projects/first-advance/08-why-us.webp";
 import firstAdvanceContact from "@/assets/projects/first-advance/09-contact.webp";
+import osamaLawHero from "@/assets/projects/osama-bin-mahfouz-law-firm/01-hero-homepage.jpg";
+import osamaLawLogoIntro from "@/assets/projects/osama-bin-mahfouz-law-firm/02-logo-intro.jpg";
+import osamaLawAbout from "@/assets/projects/osama-bin-mahfouz-law-firm/03-about-statement.jpg";
+import osamaLawServices from "@/assets/projects/osama-bin-mahfouz-law-firm/04-legal-services.jpg";
+import osamaLawContact from "@/assets/projects/osama-bin-mahfouz-law-firm/05-contact-footer.jpg";
+import osamaLawValues from "@/assets/projects/osama-bin-mahfouz-law-firm/06-process-values.jpg";
 
 type GalleryItem = { image: string; title: string; caption: string; fit?: "cover" | "contain" };
 
@@ -762,6 +768,76 @@ const PROJECTS: ProjectData[] = [
     ],
     reflection:
       "First Advance became a calm service-brand website, combining logo design, brand direction, UX/UI, content direction, responsive design, and front-end craft.",
+  },
+  {
+    slug: "osama-bin-mahfouz-law-firm",
+    name: "Osama Bin Ahmed Bin Mahfouz Law Firm",
+    category: "Law Firm Website",
+    intro:
+      "A refined bilingual website created for Osama Bin Ahmed Bin Mahfouz Law Firm, combining Saudi architectural references, professional legal clarity and a quiet premium visual language. The experience presents the firm, its legal services and direct communication channels through a structured Arabic and English interface.",
+    image: osamaLawHero,
+    details: {
+      client: "Osama Bin Ahmed Bin Mahfouz Law Firm",
+      industry: "Legal Services / Saudi Arabia",
+      services:
+        "Web Design, UX/UI Design, Arabic & English Experience, Front-End Development, Responsive Design, Visual Direction",
+      year: "2026",
+      platform: "Website Design & Development",
+    },
+    overview: {
+      challenge:
+        "The firm needed a digital presence that could communicate legal trust, bilingual clarity, direct communication, and a premium Saudi visual character without feeling generic or overdesigned.",
+      approach:
+        "The website was shaped around architectural warmth, olive and ivory contrast, structured legal services, direct contact paths, and a refined Arabic and English experience that keeps the firm easy to understand.",
+      outcome:
+        "The final experience presents the firm with quiet authority, making its services, values, office presence, and communication channels clear across desktop and mobile.",
+    },
+    gallery: [
+      {
+        image: osamaLawHero,
+        title: "Hero and Homepage View",
+        caption:
+          "The homepage introduces the firm through Saudi architectural atmosphere, a clear legal promise, and direct paths into services and consultation.",
+        fit: "contain",
+      },
+      {
+        image: osamaLawLogoIntro,
+        title: "Intro and Logo View",
+        caption:
+          "The official identity is presented with restraint, giving the brand mark room to feel formal, sharp, and memorable.",
+        fit: "contain",
+      },
+      {
+        image: osamaLawAbout,
+        title: "About and Statement Section",
+        caption:
+          "The firm story pairs a confident legal statement with premium interior and architectural references.",
+        fit: "contain",
+      },
+      {
+        image: osamaLawServices,
+        title: "Legal Services Section",
+        caption:
+          "Legal services are organized through a calm interface that makes each practice area easy to scan and understand.",
+        fit: "contain",
+      },
+      {
+        image: osamaLawContact,
+        title: "Contact and Footer Section",
+        caption:
+          "The final contact area brings calls, WhatsApp, email, firm details, and legal-service navigation into one structured closing moment.",
+        fit: "contain",
+      },
+      {
+        image: osamaLawValues,
+        title: "Values and Communication Journey",
+        caption:
+          "Supporting sections clarify the firm’s values and communication process with a composed visual rhythm.",
+        fit: "contain",
+      },
+    ],
+    reflection:
+      "The project became a premium bilingual law-firm website, combining website design, UX/UI, Arabic and English experience, front-end development, responsive design, and visual direction into one composed digital presence.",
   },
 ];
 

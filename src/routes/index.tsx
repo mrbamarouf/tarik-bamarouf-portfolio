@@ -23,6 +23,7 @@ import pakmanLogo from "@/assets/client-logos/C27D1490-ADF3-4AF8-A3EA-0D03A37880
 import pokemonLogo from "@/assets/client-logos/pokemon-01 copy.png";
 import sipLogo from "@/assets/client-logos/B444EC1F-6E4F-4031-B544-C04EC67FC987.png";
 import tartaDeAmorLogo from "@/assets/client-logos/F4D76849-676F-4DA7-9BF7-EED8E3F0B3A4 copy.png";
+import osamaLawLogo from "@/assets/projects/osama-bin-mahfouz-law-firm/osama-logo-official.png";
 import { SiteLayout } from "@/components/site/Layout";
 import { CONTACT_EMAIL, emailHref, getWhatsappHref } from "@/lib/contact";
 import {
@@ -92,6 +93,7 @@ const clientLogos: ReadonlyArray<ClientLogo> = [
   { name: "Circle Section", image: circleSectionLogo },
   { name: "NOORIX", image: noorixLogo, size: "medium" },
   { name: "SIP", image: sipLogo, size: "medium" },
+  { name: "Osama Bin Ahmed Bin Mahfouz Law Firm", image: osamaLawLogo, size: "medium" },
 ];
 
 const steps = [
@@ -186,17 +188,17 @@ function renderHeroCapabilities(capabilities: string) {
 }
 
 function renderClientLine(line: string) {
-  const [before, after] = line.split("13");
+  const match = line.match(/^(.*?)([0-9٠-٩]+)(.*)$/);
 
-  if (after === undefined) {
+  if (!match) {
     return line;
   }
 
   return (
     <>
-      {before}
-      <span className="client-marquee__line-accent">13</span>
-      {after}
+      {match[1]}
+      <span className="client-marquee__line-accent">{match[2]}</span>
+      {match[3]}
     </>
   );
 }
@@ -595,6 +597,7 @@ function Index() {
             {selectedWorkProjects.map((p, i) => {
               const display = projectDisplay(p.slug, language);
               const masterDisplay = projectDisplay(p.slug, "en");
+              const title = display.name ?? p.t;
               return (
                 <Link
                   key={p.slug}
@@ -624,7 +627,7 @@ function Index() {
                         </EnglishLayoutSlot>
                       </p>
                       <h3 className="mt-3 font-serif text-4xl font-light leading-none text-foreground transition-colors duration-500 group-hover:text-bronze-soft md:text-5xl">
-                        {p.t}
+                        <BidiText>{title}</BidiText>
                       </h3>
                     </div>
 

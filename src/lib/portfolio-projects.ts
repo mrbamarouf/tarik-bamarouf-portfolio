@@ -11,6 +11,7 @@ import circleSectionHero from "@/assets/projects/circle-section/01-hero.webp";
 import opalStonesHero from "@/assets/projects/opal-stones/01-homepage-hero.webp";
 import exEventsHero from "@/assets/projects/ex-events-exhibitions/01-hero.webp";
 import firstAdvanceHero from "@/assets/projects/first-advance/01-hero-homepage.webp";
+import osamaLawHero from "@/assets/projects/osama-bin-mahfouz-law-firm/01-hero-homepage.jpg";
 
 export const portfolioProjects = [
   {
@@ -155,5 +156,16 @@ export const portfolioProjects = [
     disciplines: "Employment UX/UI, Candidate Experience, Operations",
     span: "wide",
     ratio: "aspect-[4/3]",
+  },
+  {
+    n: "14",
+    t: "Osama Bin Ahmed Bin Mahfouz Law Firm",
+    slug: "osama-bin-mahfouz-law-firm",
+    cat: "Law Firm Website",
+    img: osamaLawHero,
+    year: "2026",
+    disciplines: "Website Design & Development",
+    span: "wide",
+    ratio: "aspect-[16/10]",
   },
 ] as const;

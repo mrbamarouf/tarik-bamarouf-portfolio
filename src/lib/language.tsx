@@ -196,7 +196,7 @@ export const siteCopy = {
       heroCapabilities:
         "Premium Websites\u00a0\u00a0•\u00a0\u00a0UX/UI Design\u00a0\u00a0•\u00a0\u00a0Brand Identity Direction\u00a0\u00a0•\u00a0\u00a0Front-end Craft",
       clientsEyebrow: "SELECTED CLIENTS",
-      clientsLine: "Trusted by 13 ambitious brands.",
+      clientsLine: "Trusted by 14 ambitious brands.",
       viewWork: "View Work",
       startProject: "Start Project",
       portfolioLabel: "Portfolio 2026",
@@ -425,7 +425,7 @@ export const siteCopy = {
       heroCapabilities:
         "مواقع راقية\u00a0\u00a0•\u00a0\u00a0تجربة وواجهة المستخدم\u00a0\u00a0•\u00a0\u00a0توجيه هوية العلامة\u00a0\u00a0•\u00a0\u00a0حرفة الواجهة الأمامية",
       clientsEyebrow: "عملاء مختارون",
-      clientsLine: "تشرفت بالعمل مع 13 علامة طموحة.",
+      clientsLine: "تشرفت بالعمل مع ١٤ علامة طموحة.",
       viewWork: "عرض الأعمال",
       startProject: "ابدأ مشروعك",
       portfolioLabel: "محفظة ٢٠٢٦",
@@ -612,6 +612,7 @@ export const siteCopy = {
 } as const;
 
 type ProjectCopy = {
+  name?: string;
   category?: string;
   disciplines?: string;
   intro?: string;
@@ -635,6 +636,120 @@ type ProjectCopy = {
 };
 
 export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
+  "osama-bin-mahfouz-law-firm": {
+    en: {
+      name: "Osama Bin Ahmed Bin Mahfouz Law Firm",
+      category: "Law Firm Website",
+      disciplines: "Website Design & Development",
+      intro:
+        "A refined bilingual website created for Osama Bin Ahmed Bin Mahfouz Law Firm, combining Saudi architectural references, professional legal clarity and a quiet premium visual language. The experience presents the firm, its legal services and direct communication channels through a structured Arabic and English interface.",
+      details: {
+        client: "Osama Bin Ahmed Bin Mahfouz Law Firm",
+        industry: "Legal Services / Saudi Arabia",
+        services:
+          "Web Design, UX/UI Design, Arabic & English Experience, Front-End Development, Responsive Design, Visual Direction",
+        platform: "Website Design & Development",
+      },
+      overview: {
+        challenge:
+          "The firm needed a digital presence that could communicate legal trust, bilingual clarity, direct communication, and a premium Saudi visual character without feeling generic or overdesigned.",
+        approach:
+          "The website was shaped around architectural warmth, olive and ivory contrast, structured legal services, direct contact paths, and a refined Arabic and English experience that keeps the firm easy to understand.",
+        outcome:
+          "The final experience presents the firm with quiet authority, making its services, values, office presence, and communication channels clear across desktop and mobile.",
+      },
+      gallery: [
+        {
+          title: "Hero and Homepage View",
+          caption:
+            "The homepage introduces the firm through Saudi architectural atmosphere, a clear legal promise, and direct paths into services and consultation.",
+        },
+        {
+          title: "Intro and Logo View",
+          caption:
+            "The official identity is presented with restraint, giving the brand mark room to feel formal, sharp, and memorable.",
+        },
+        {
+          title: "About and Statement Section",
+          caption:
+            "The firm story pairs a confident legal statement with premium interior and architectural references.",
+        },
+        {
+          title: "Legal Services Section",
+          caption:
+            "Legal services are organized through a calm interface that makes each practice area easy to scan and understand.",
+        },
+        {
+          title: "Contact and Footer Section",
+          caption:
+            "The final contact area brings calls, WhatsApp, email, firm details, and legal-service navigation into one structured closing moment.",
+        },
+        {
+          title: "Values and Communication Journey",
+          caption:
+            "Supporting sections clarify the firm’s values and communication process with a composed visual rhythm.",
+        },
+      ],
+      reflection:
+        "The project became a premium bilingual law-firm website, combining website design, UX/UI, Arabic and English experience, front-end development, responsive design, and visual direction into one composed digital presence.",
+    },
+    ar: {
+      name: "مكتب أسامه بن أحمد بن محفوظ للمحاماة",
+      category: "موقع مكتب محاماة",
+      disciplines: "تصميم وتطوير موقع إلكتروني",
+      intro:
+        "موقع ثنائي اللغة صُمم لمكتب أسامه بن أحمد بن محفوظ للمحاماة، يجمع بين الطابع المعماري السعودي والوضوح المهني والهوية البصرية الراقية والهادئة. يقدم الموقع تعريفًا بالمكتب وخدماته القانونية وقنوات التواصل المباشر ضمن تجربة عربية وإنجليزية منظمة.",
+      details: {
+        client: "مكتب أسامه بن أحمد بن محفوظ للمحاماة",
+        industry: "الخدمات القانونية / السعودية",
+        services:
+          "تصميم الموقع، تصميم تجربة وواجهة المستخدم، تجربة عربية وإنجليزية، تطوير الواجهة الأمامية، تصميم متجاوب، التوجيه البصري",
+        platform: "تصميم وتطوير موقع إلكتروني",
+      },
+      overview: {
+        challenge:
+          "احتاج المكتب إلى حضور رقمي يوضح الثقة القانونية، التجربة الثنائية اللغة، قنوات التواصل المباشر، والطابع السعودي الراقي دون أن يبدو تقليديًا أو زائد التصميم.",
+        approach:
+          "صيغ الموقع حول دفء العمارة السعودية، توازن الزيتوني والعاجي، تنظيم الخدمات القانونية، مسارات التواصل المباشر، وتجربة عربية وإنجليزية واضحة تحفظ هيبة المكتب.",
+        outcome:
+          "تقدم التجربة النهائية المكتب بحضور هادئ وواثق، وتوضح خدماته وقيمه وحضور المكتب وقنوات التواصل عبر سطح المكتب والجوال.",
+      },
+      gallery: [
+        {
+          title: "الواجهة الرئيسية",
+          caption:
+            "تقدم الصفحة الرئيسية المكتب بأجواء معمارية سعودية، وعد قانوني واضح، ومسارات مباشرة نحو الخدمات والاستشارة.",
+        },
+        {
+          title: "الانترو والشعار",
+          caption:
+            "تُعرض الهوية الرسمية بهدوء، مع مساحة كافية للشعار كي يبدو رسميًا وحادًا وسهل التذكر.",
+        },
+        {
+          title: "عن المكتب والرسالة",
+          caption:
+            "يربط قسم التعريف بالمكتب بين رسالة قانونية واثقة ومراجع داخلية ومعمارية راقية.",
+        },
+        {
+          title: "الخدمات القانونية",
+          caption:
+            "تُنظم الخدمات القانونية داخل واجهة هادئة تجعل كل مجال ممارسة واضحًا وسهل التصفح.",
+        },
+        {
+          title: "التواصل والختام",
+          caption:
+            "يجمع قسم التواصل الأخير الاتصال وواتساب والبريد وبيانات المكتب وروابط الخدمات القانونية في ختام منظم.",
+        },
+        {
+          title: "القيم ورحلة التواصل",
+          caption:
+            "توضح الأقسام الداعمة قيم المكتب ومسار التواصل بإيقاع بصري هادئ ومتزن.",
+        },
+      ],
+      reflection:
+        "أصبح المشروع موقعًا راقيًا ثنائي اللغة لمكتب محاماة، يجمع تصميم الموقع، تجربة وواجهة المستخدم، التجربة العربية والإنجليزية، تطوير الواجهة الأمامية، التصميم المتجاوب، والتوجيه البصري داخل حضور رقمي واحد متماسك.",
+    },
+  },
   "couture-experience": {
     en: {
       category: "Luxury Couture House",
@@ -2289,6 +2404,7 @@ export function projectDisplay(slug: string, language: Language) {
 export function localizeProject<
   T extends {
     slug: string;
+    name: string;
     category: string;
     intro?: string;
     details?: ProjectCopy["details"];
@@ -2300,6 +2416,7 @@ export function localizeProject<
   const copy = projectDisplay(project.slug, language);
   return {
     ...project,
+    name: copy.name ?? project.name,
     category: copy.category ?? project.category,
     intro: copy.intro ?? project.intro,
     details: project.details
