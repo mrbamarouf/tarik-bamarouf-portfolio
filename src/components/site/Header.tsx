@@ -1,11 +1,13 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import type { MouseEvent } from "react";
 import { useEffect, useRef, useState } from "react";
+import bamaroufStudioSymbol from "@/assets/bamarouf-studio-symbol.png";
 import signature from "@/assets/signature.webp";
 import { siteCopy, useLanguage } from "@/lib/language";
 
 const MOBILE_MENU_MEDIA_QUERY = "(max-width: 767px)";
 const MOBILE_MENU_LOCK_CLASS = "mobile-menu-scroll-lock";
+const BAMAROUF_STUDIO_URL = "https://bamaroufstudio.com";
 const MOBILE_MENU_INLINE_LOCK_STYLES = [
   "overflow",
   "overflow-x",
@@ -409,18 +411,34 @@ export function Header() {
           )}
         </nav>
 
-        <button
-          type="button"
-          onClick={toggleLanguage}
-          aria-label={t.nav.switchLabel}
-          className={`hidden justify-self-end text-[10px] uppercase tracking-editorial text-bronze transition-all duration-700 ease-out hover:text-bronze-soft md:block ${
+        <div
+          className={`site-header__actions hidden justify-self-end transition-all duration-700 ease-out md:flex ${
             chromeVisible
               ? "pointer-events-auto translate-y-0 opacity-100 blur-0"
               : "pointer-events-none -translate-y-3 opacity-0 blur-[2px]"
           }`}
         >
-          {t.nav.switchTo}
-        </button>
+          <a
+            href={BAMAROUF_STUDIO_URL}
+            aria-label={t.nav.studioLabel}
+            className="site-header__studio-link"
+          >
+            <img
+              src={bamaroufStudioSymbol}
+              alt=""
+              decoding="async"
+              className="site-header__studio-mark"
+            />
+          </a>
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            aria-label={t.nav.switchLabel}
+            className="text-[10px] uppercase tracking-editorial text-bronze transition-colors duration-500 hover:text-bronze-soft"
+          >
+            {t.nav.switchTo}
+          </button>
+        </div>
 
         <button
           ref={mobileMenuButtonRef}
@@ -466,6 +484,22 @@ export function Header() {
                 </a>
               ),
             )}
+            <a
+              href={BAMAROUF_STUDIO_URL}
+              onClick={closeMobileMenu}
+              aria-label={t.nav.studioLabel}
+              className="site-header__mobile-studio"
+              dir={language === "ar" ? "rtl" : "ltr"}
+            >
+              <img
+                src={bamaroufStudioSymbol}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="site-header__mobile-studio-mark"
+              />
+              <span className="site-header__studio-name">{t.nav.studio}</span>
+            </a>
             <button
               type="button"
               onClick={() => {

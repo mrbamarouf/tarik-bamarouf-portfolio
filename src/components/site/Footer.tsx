@@ -1,8 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { MessageCircle } from "lucide-react";
+import bamaroufStudioSymbol from "@/assets/bamarouf-studio-symbol.png";
 import signature from "@/assets/signature.webp";
 import { getWhatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
 import { BidiText, siteCopy, useLanguage } from "@/lib/language";
+
+const BAMAROUF_STUDIO_URL = "https://bamaroufstudio.com";
 
 export function Footer() {
   const { language } = useLanguage();
@@ -111,6 +114,23 @@ export function Footer() {
           <span>
             <BidiText>{t.footer.rights}</BidiText>
           </span>
+          <a
+            href={BAMAROUF_STUDIO_URL}
+            aria-label={t.nav.studioLabel}
+            className="footer-studio-signature"
+            dir={language === "ar" ? "rtl" : "ltr"}
+          >
+            <img
+              src={bamaroufStudioSymbol}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="footer-studio-signature__mark"
+            />
+            <span className="footer-studio-signature__text">
+              <BidiText>{t.footer.studioSignature}</BidiText>
+            </span>
+          </a>
           <span>
             <BidiText>{t.footer.location}</BidiText>
           </span>

@@ -242,6 +242,85 @@
   color: oklch(0.98 0.004 70);
 }
 
+.site-header__actions {
+  align-items: center;
+  gap: 1.05rem;
+}
+
+.site-header__studio-link {
+  position: relative;
+  display: inline-flex;
+  width: 2.35rem;
+  height: 2.35rem;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.72;
+  transition:
+    opacity 500ms ease,
+    filter 500ms ease;
+}
+
+.site-header__studio-link::before {
+  position: absolute;
+  inset-inline-start: -0.72rem;
+  top: 50%;
+  width: 1px;
+  height: 1.15rem;
+  background: oklch(0.765 0.072 76 / 0.22);
+  content: "";
+  transform: translateY(-50%);
+}
+
+.site-header__studio-link:hover {
+  opacity: 0.96;
+  filter: brightness(1.08);
+}
+
+.site-header__studio-mark {
+  display: block;
+  width: 1.72rem;
+  height: 1.72rem;
+  object-fit: contain;
+}
+
+.site-header__mobile-studio {
+  display: inline-flex;
+  min-height: 44px;
+  width: 100%;
+  align-items: center;
+  gap: 0.95rem;
+  border-top: 1px solid oklch(0.765 0.072 76 / 0.16);
+  border-bottom: 1px solid oklch(0.765 0.072 76 / 0.08);
+  padding-block: 0.95rem;
+  color: oklch(0.968 0.011 74 / 0.82);
+  transition: color 500ms ease;
+}
+
+.site-header__mobile-studio:hover {
+  color: var(--bronze-soft);
+}
+
+.site-header__mobile-studio-mark {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.site-header__studio-name {
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+body[data-lang="ar"] .site-header__studio-name {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .site-shell,
 .site-main {
   width: 100%;
@@ -1621,6 +1700,39 @@ body[data-lang="ar"] .intro-overlay__skip {
     display: none;
     flex: 0 0 auto;
     color: var(--bronze);
+  }
+
+  .footer-studio-signature {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    gap: 0.7rem;
+    color: oklch(0.745 0.014 74 / 0.82);
+    text-decoration: none;
+    transition: color 500ms ease;
+  }
+
+  .footer-studio-signature:hover {
+    color: var(--bronze-soft);
+  }
+
+  .footer-studio-signature__mark {
+    display: block;
+    width: 1.55rem;
+    height: 1.55rem;
+    flex: 0 0 auto;
+    object-fit: contain;
+    opacity: 0.82;
+  }
+
+  .footer-studio-signature__text {
+    letter-spacing: 0.18em;
+    line-height: 1.4;
+  }
+
+  body[data-lang="ar"] .footer-studio-signature__text {
+    letter-spacing: 0;
+    text-transform: none;
   }
 
   .contact-card:hover {
