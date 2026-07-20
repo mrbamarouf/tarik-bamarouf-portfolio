@@ -13,6 +13,7 @@ import exEventsHero from "@/assets/projects/ex-events-exhibitions/01-hero.webp";
 import firstAdvanceHero from "@/assets/projects/first-advance/01-hero-homepage.webp";
 import osamaLawHero from "@/assets/projects/osama-bin-mahfouz-law-firm/01-hero-homepage.jpg";
 import bamaroufStudioHero from "@/assets/projects/bamarouf-studio/01-three-doors-main-concept.jpg";
+import khalidBamaroufHero from "@/assets/projects/khalid-bamarouf/02-hero.jpg";
 
 export const portfolioProjects = [
   {
@@ -175,6 +176,17 @@ export const portfolioProjects = [
     slug: "bamarouf-studio",
     cat: "Digital Ecosystem & Brand Experience",
     img: bamaroufStudioHero,
+    year: "2026",
+    disciplines: "Website Design & Development",
+    span: "wide",
+    ratio: "aspect-[16/10]",
+  },
+  {
+    n: "16",
+    t: "KHALID BAMAROUF",
+    slug: "khalid-bamarouf",
+    cat: "AI Automation & Systems Engineering",
+    img: khalidBamaroufHero,
     year: "2026",
     disciplines: "Website Design & Development",
     span: "wide",

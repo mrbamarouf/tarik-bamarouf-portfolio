@@ -766,6 +766,128 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         "أصبح بامعروف استديو منظومة رقمية مصقولة: عنوانًا معماريًا واحدًا لثلاثة عوالم متخصصة، لكل منها هويته وصوته وهدفه.",
     },
   },
+  "khalid-bamarouf": {
+    en: {
+      name: "KHALID BAMAROUF",
+      category: "AI Automation & Systems Engineering",
+      disciplines: "Website Design & Development",
+      intro:
+        "A premium engineering website designed for Khalid Bamarouf, presenting AI automation, systems engineering, enterprise architecture and intelligent digital infrastructure through a calm architectural visual language.",
+      details: {
+        client: "KHALID BAMAROUF",
+        industry: "AI Automation & Systems Engineering",
+        services:
+          "AI Automation, Systems Engineering, Enterprise Architecture, Backend Engineering, API Architecture, Cloud Infrastructure, Technical Consulting, Digital Transformation",
+        platform: "Website Design & Development",
+      },
+      overview: {
+        challenge:
+          "The project needed to present AI automation and systems engineering as a premium personal brand, making technical expertise feel clear, credible, and calm instead of complex or scattered.",
+        approach:
+          "The website was shaped around dark architectural systems, intelligent operations, structured capabilities, and a clear bilingual narrative that explains what Khalid builds and how he works.",
+        outcome:
+          "The final experience positions Khalid Bamarouf as an AI automation engineer and systems builder, connecting automation, architecture, backend engineering, cloud infrastructure, and transformation into one focused digital presence.",
+      },
+      gallery: [
+        {
+          title: "Intro / Loading",
+          caption:
+            "The opening sequence introduces the Khalid mark through a dark control-plane atmosphere and a precise systems interface.",
+        },
+        {
+          title: "Hero",
+          caption:
+            "The homepage frames the offer around AI automations that solve current operational problems and make systems run better.",
+        },
+        {
+          title: "What I Do",
+          caption:
+            "The services section organizes AI automation, architecture, backend engineering, operations, cloud, APIs, and integration into one clear capability system.",
+        },
+        {
+          title: "Why Work With Me",
+          caption:
+            "The trust section explains the value of problem-first automation, custom implementation, shipping discipline, and calm execution.",
+        },
+        {
+          title: "Capabilities",
+          caption:
+            "The capabilities chapter groups AI apps, engineering, integration, strategy, and architecture into premium technical cards.",
+        },
+        {
+          title: "Process",
+          caption:
+            "The process chapter shows a structured path from the current issue to working AI automation.",
+        },
+        {
+          title: "Operating Notes and Contact",
+          caption:
+            "The closing section combines operating principles, contact details, and the final conversation path without losing the technical atmosphere.",
+        },
+      ],
+      reflection:
+        "The project became a premium personal engineering website, combining website design, UX/UI, visual direction, responsive front-end development, and a technical brand narrative for AI automation and systems engineering.",
+    },
+    ar: {
+      name: "خالد بامعروف",
+      category: "هندسة الأنظمة وأتمتة الذكاء الاصطناعي",
+      disciplines: "تصميم وتطوير موقع إلكتروني",
+      intro:
+        "موقع احترافي صُمم لخالد بامعروف لعرض هندسة الأنظمة وأتمتة الذكاء الاصطناعي والبنية الرقمية المتقدمة، ضمن هوية معمارية هادئة وفاخرة تركز على الدقة والوضوح.",
+      details: {
+        client: "خالد بامعروف",
+        industry: "هندسة الأنظمة وأتمتة الذكاء الاصطناعي",
+        services:
+          "أتمتة الذكاء الاصطناعي، هندسة الأنظمة، هندسة المؤسسات، هندسة الواجهات الخلفية، هندسة واجهات البرمجة، البنية السحابية، الاستشارات التقنية، التحول الرقمي",
+        platform: "تصميم وتطوير موقع إلكتروني",
+      },
+      overview: {
+        challenge:
+          "كان المشروع يحتاج إلى تقديم أتمتة الذكاء الاصطناعي وهندسة الأنظمة كحضور شخصي فاخر وواضح، يجعل الخبرة التقنية مفهومة وموثوقة دون تعقيد أو تشتت.",
+        approach:
+          "صيغ الموقع حول لغة داكنة ومعمارية، وبنية تشغيل ذكية، وقدرات مرتبة، وسرد ثنائي اللغة يشرح ما يبنيه خالد وكيف يعمل.",
+        outcome:
+          "تضع التجربة النهائية خالد بامعروف كمهندس أتمتة وأنظمة، وتربط الأتمتة، هندسة المؤسسات، الواجهات الخلفية، البنية السحابية، والتحول الرقمي داخل حضور واحد مركز.",
+      },
+      gallery: [
+        {
+          title: "الانترو / التحميل",
+          caption: "تقدم لحظة الافتتاح شعار خالد داخل أجواء تحكم داكنة وواجهة أنظمة دقيقة.",
+        },
+        {
+          title: "الواجهة الرئيسية",
+          caption:
+            "تعرض الواجهة وعد الموقع حول أتمتة تحل المشكلات الحالية وتجعل العمل اليومي أكثر انضباطًا.",
+        },
+        {
+          title: "ما أقدمه",
+          caption:
+            "ينظم قسم الخدمات الأتمتة، هندسة الأنظمة، الواجهات الخلفية، العمليات، السحابة، واجهات البرمجة، والتكامل في منظومة واضحة.",
+        },
+        {
+          title: "لماذا تعمل معي",
+          caption:
+            "يوضح قسم الثقة قيمة البدء من المشكلة، بناء الحل حسب الحاجة، الالتزام بالتنفيذ، والهدوء في إدارة العمل.",
+        },
+        {
+          title: "القدرات",
+          caption:
+            "يجمع فصل القدرات تطبيقات الذكاء الاصطناعي، الهندسة، التكامل، الاستراتيجية، والمعمارية داخل بطاقات تقنية فاخرة.",
+        },
+        {
+          title: "المنهجية",
+          caption: "يعرض فصل العملية مسارًا واضحًا من المشكلة الحالية إلى أتمتة تعمل داخل الواقع.",
+        },
+        {
+          title: "ملاحظات التشغيل والتواصل",
+          caption:
+            "يجمع الختام مبادئ التشغيل، بيانات التواصل، ومسار بدء المحادثة دون فقدان الأجواء التقنية.",
+        },
+      ],
+      reflection:
+        "أصبح المشروع موقعًا هندسيًا شخصيًا فاخرًا يجمع تصميم الموقع، تجربة وواجهة المستخدم، التوجيه البصري، تطوير الواجهة المتجاوبة، وسردًا تقنيًا واضحًا لأتمتة الذكاء الاصطناعي وهندسة الأنظمة.",
+    },
+  },
   "osama-bin-mahfouz-law-firm": {
     en: {
       name: "Osama Bin Ahmed Bin Mahfouz Law Firm",

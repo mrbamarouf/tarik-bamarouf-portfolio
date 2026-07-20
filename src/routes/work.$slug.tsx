@@ -143,6 +143,13 @@ import bamaroufStudioMeet from "@/assets/projects/bamarouf-studio/05-when-worlds
 import bamaroufStudioKhaled from "@/assets/projects/bamarouf-studio/06-khaled-world.jpg";
 import bamaroufStudioDestination from "@/assets/projects/bamarouf-studio/07-choose-destination.jpg";
 import bamaroufStudioPrinciples from "@/assets/projects/bamarouf-studio/08-house-principles.jpg";
+import khalidBamaroufIntro from "@/assets/projects/khalid-bamarouf/01-intro-loading.jpg";
+import khalidBamaroufHero from "@/assets/projects/khalid-bamarouf/02-hero.jpg";
+import khalidBamaroufWhatIDo from "@/assets/projects/khalid-bamarouf/03-what-i-do.jpg";
+import khalidBamaroufWhy from "@/assets/projects/khalid-bamarouf/04-why-work-with-me.jpg";
+import khalidBamaroufCapabilities from "@/assets/projects/khalid-bamarouf/05-capabilities.jpg";
+import khalidBamaroufProcess from "@/assets/projects/khalid-bamarouf/06-process.jpg";
+import khalidBamaroufOperatingNotes from "@/assets/projects/khalid-bamarouf/07-operating-notes-contact.jpg";
 
 type GalleryItem = { image: string; title: string; caption: string; fit?: "cover" | "contain" };
 
@@ -931,6 +938,84 @@ const PROJECTS: ProjectData[] = [
     ],
     reflection:
       "BAMAROUF STUDIO became a refined digital ecosystem: one architectural address for three specialist worlds, each with its own identity, voice, and purpose.",
+  },
+  {
+    slug: "khalid-bamarouf",
+    name: "KHALID BAMAROUF",
+    category: "AI Automation & Systems Engineering",
+    intro:
+      "A premium engineering website designed for Khalid Bamarouf, presenting AI automation, systems engineering, enterprise architecture and intelligent digital infrastructure through a calm architectural visual language.",
+    image: khalidBamaroufHero,
+    details: {
+      client: "KHALID BAMAROUF",
+      industry: "AI Automation & Systems Engineering",
+      services:
+        "AI Automation, Systems Engineering, Enterprise Architecture, Backend Engineering, API Architecture, Cloud Infrastructure, Technical Consulting, Digital Transformation",
+      year: "2026",
+      platform: "Website Design & Development",
+    },
+    url: "https://khaledbamarouf.com",
+    overview: {
+      challenge:
+        "The project needed to present AI automation and systems engineering as a premium personal brand, making technical expertise feel clear, credible, and calm instead of complex or scattered.",
+      approach:
+        "The website was shaped around dark architectural systems, intelligent operations, structured capabilities, and a clear bilingual narrative that explains what Khalid builds and how he works.",
+      outcome:
+        "The final experience positions Khalid Bamarouf as an AI automation engineer and systems builder, connecting automation, architecture, backend engineering, cloud infrastructure, and transformation into one focused digital presence.",
+    },
+    gallery: [
+      {
+        image: khalidBamaroufIntro,
+        title: "Intro / Loading",
+        caption:
+          "The opening sequence introduces the Khalid mark through a dark control-plane atmosphere and a precise systems interface.",
+        fit: "contain",
+      },
+      {
+        image: khalidBamaroufHero,
+        title: "Hero",
+        caption:
+          "The homepage frames the offer around AI automations that solve current operational problems and make systems run better.",
+        fit: "contain",
+      },
+      {
+        image: khalidBamaroufWhatIDo,
+        title: "What I Do",
+        caption:
+          "The services section organizes AI automation, architecture, backend engineering, operations, cloud, APIs, and integration into one clear capability system.",
+        fit: "contain",
+      },
+      {
+        image: khalidBamaroufWhy,
+        title: "Why Work With Me",
+        caption:
+          "The trust section explains the value of problem-first automation, custom implementation, shipping discipline, and calm execution.",
+        fit: "contain",
+      },
+      {
+        image: khalidBamaroufCapabilities,
+        title: "Capabilities",
+        caption:
+          "The capabilities chapter groups AI apps, engineering, integration, strategy, and architecture into premium technical cards.",
+        fit: "contain",
+      },
+      {
+        image: khalidBamaroufProcess,
+        title: "Process",
+        caption:
+          "The process chapter shows a structured path from the current issue to working AI automation.",
+        fit: "contain",
+      },
+      {
+        image: khalidBamaroufOperatingNotes,
+        title: "Operating Notes and Contact",
+        caption:
+          "The closing section combines operating principles, contact details, and the final conversation path without losing the technical atmosphere.",
+        fit: "contain",
+      },
+    ],
+    reflection:
+      "The project became a premium personal engineering website, combining website design, UX/UI, visual direction, responsive front-end development, and a technical brand narrative for AI automation and systems engineering.",
   },
 ];
 
