@@ -888,6 +888,130 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         "أصبح المشروع موقعًا هندسيًا شخصيًا فاخرًا يجمع تصميم الموقع، تجربة وواجهة المستخدم، التوجيه البصري، تطوير الواجهة المتجاوبة، وسردًا تقنيًا واضحًا لأتمتة الذكاء الاصطناعي وهندسة الأنظمة.",
     },
   },
+  "noor-bamarouf": {
+    en: {
+      name: "NOOR BAMAROUF",
+      category: "Graphic Design & Visual Identity",
+      disciplines: "Portfolio Website Design & Development",
+      intro:
+        "A refined bilingual portfolio website designed for Noor Bamarouf, presenting her work in brand identity, packaging, print, editorial and social media design through a soft editorial system. The experience balances warm beige tones, blush pink, sage green, carefully composed imagery and expressive typography to create a feminine, modern and professional digital presence.",
+      details: {
+        client: "NOOR BAMAROUF",
+        industry: "Graphic Design & Visual Identity",
+        services:
+          "Brand Identity, Graphic Design, Packaging Design, Print Design, Social Media Design, Editorial Design, Creative Direction, Bilingual Portfolio Experience, Responsive Web Design, Front-End Development",
+        platform: "Portfolio Website Design & Development",
+      },
+      overview: {
+        challenge:
+          "The project needed to present Noor Bamarouf's graphic design work with softness, clarity, and professional confidence while keeping her visual identity delicate, memorable, and bilingual.",
+        approach:
+          "The website was shaped around warm beige surfaces, blush monogram details, sage green accents, spacious editorial composition, selected project storytelling, and a clear service structure.",
+        outcome:
+          "The final experience gives Noor Bamarouf a refined bilingual portfolio that presents identity, packaging, print, social media, editorial design, and creative direction through one calm digital presence.",
+      },
+      gallery: [
+        {
+          title: "Hero / MATCHA Composition",
+          caption:
+            "The opening composition introduces Noor's visual world through soft packaging imagery, warm surfaces, sage tones, and a restrained editorial layout.",
+        },
+        {
+          title: "Introduction / Hello, I'm Noor",
+          caption:
+            "The introduction frames Noor as an independent graphic designer with a quiet, feminine, and professional design presence.",
+        },
+        {
+          title: "Selected Work Overview",
+          caption:
+            "The work section presents identity, print, packaging, editorial, and social systems through a spacious portfolio rhythm.",
+        },
+        {
+          title: "WELLO Featured Project",
+          caption:
+            "The WELLO chapter highlights bilingual packaging, color systems, ingredient-led imagery, and bright product storytelling.",
+        },
+        {
+          title: "Services Section",
+          caption:
+            "Services are organized with large editorial numbering, refined hierarchy, and a calm description of each design discipline.",
+        },
+        {
+          title: "Wemo Delights Project",
+          caption:
+            "The Wemo Delights project shows playful brand identity work within the same soft and measured portfolio system.",
+        },
+        {
+          title: "More Work and Contact",
+          caption:
+            "The closing view brings additional selected work and the final project invitation into one composed call-to-action moment.",
+        },
+      ],
+      reflection:
+        "The project became a soft editorial portfolio website, combining bilingual experience design, UX/UI, visual direction, responsive front-end development, and a refined presentation system for Noor Bamarouf's graphic design work.",
+    },
+    ar: {
+      name: "نور بامعروف",
+      category: "التصميم الجرافيكي والهوية البصرية",
+      disciplines: "تصميم وتطوير موقع أعمال",
+      intro:
+        "موقع أعمال ثنائي اللغة صُمم لنور بامعروف لعرض مشاريعها في الهوية البصرية والتغليف والطباعة والتصميم التحريري وتصميم محتوى التواصل الاجتماعي. تجمع التجربة بين درجات البيج الدافئة والوردي الهادئ والأخضر الفاتح، مع صور مرتبة بعناية وخطوط تحريرية تعكس حضورًا أنثويًا حديثًا واحترافيًا.",
+      details: {
+        client: "نور بامعروف",
+        industry: "التصميم الجرافيكي والهوية البصرية",
+        services:
+          "تصميم الهوية البصرية، التصميم الجرافيكي، تصميم التغليف، تصميم المطبوعات، تصميم محتوى التواصل الاجتماعي، التصميم التحريري، التوجيه الإبداعي، تجربة أعمال عربية وإنجليزية، تصميم متجاوب، تطوير الواجهة الأمامية",
+        platform: "تصميم وتطوير موقع أعمال",
+      },
+      overview: {
+        challenge:
+          "احتاج المشروع إلى تقديم أعمال نور بامعروف في التصميم الجرافيكي بنعومة ووضوح وثقة مهنية، مع الحفاظ على هوية رقيقة وسهلة التذكر وتعمل باللغتين.",
+        approach:
+          "صيغ الموقع حول مساحات بيج دافئة، تفاصيل وردية هادئة للشعار، لمسات أخضر فاتح، تكوينات تحريرية واسعة، سرد مختار للمشاريع، وبنية خدمات واضحة.",
+        outcome:
+          "تمنح التجربة النهائية نور بامعروف موقع أعمال ثنائي اللغة يعرض الهوية البصرية والتغليف والطباعة ومحتوى التواصل الاجتماعي والتصميم التحريري والتوجيه الإبداعي ضمن حضور رقمي هادئ.",
+      },
+      gallery: [
+        {
+          title: "الواجهة الرئيسية / تكوين ماتشا",
+          caption:
+            "يقدم المشهد الافتتاحي عالم نور البصري عبر صور تغليف ناعمة، مساحات دافئة، درجات أخضر هادئة، وتكوين تحريري متزن.",
+        },
+        {
+          title: "التعريف / مرحبًا، أنا نور",
+          caption:
+            "يعرض قسم التعريف نور كمصممة جرافيك مستقلة بحضور هادئ وأنثوي ومهني.",
+        },
+        {
+          title: "نظرة على الأعمال المختارة",
+          caption:
+            "يعرض قسم الأعمال الهوية والطباعة والتغليف والتصميم التحريري وأنظمة التواصل بإيقاع واسع ومنظم.",
+        },
+        {
+          title: "مشروع WELLO المميز",
+          caption:
+            "يسلط فصل WELLO الضوء على التغليف ثنائي اللغة، وأنظمة اللون، والصور المرتبطة بالمكونات، وسرد المنتج الواضح.",
+        },
+        {
+          title: "قسم الخدمات",
+          caption:
+            "تُنظم الخدمات بأرقام تحريرية كبيرة، وتسلسل بصري راق، ووصف هادئ لكل مجال تصميم.",
+        },
+        {
+          title: "مشروع Wemo Delights",
+          caption:
+            "يعرض مشروع Wemo Delights هوية بصرية مرحة داخل نظام أعمال ناعم ومنضبط.",
+        },
+        {
+          title: "أعمال إضافية والتواصل",
+          caption:
+            "يجمع المشهد الختامي أعمالًا مختارة إضافية ودعوة نهائية لبدء المشروع ضمن لحظة تواصل هادئة.",
+        },
+      ],
+      reflection:
+        "أصبح المشروع موقع أعمال تحريريًا ناعمًا يجمع التجربة الثنائية اللغة، تصميم تجربة وواجهة المستخدم، التوجيه البصري، تطوير الواجهة المتجاوبة، ونظام عرض راق لأعمال نور بامعروف في التصميم الجرافيكي.",
+    },
+  },
   "osama-bin-mahfouz-law-firm": {
     en: {
       name: "Osama Bin Ahmed Bin Mahfouz Law Firm",

@@ -26,6 +26,7 @@ import tartaDeAmorLogo from "@/assets/client-logos/F4D76849-676F-4DA7-9BF7-EED8E
 import osamaLawLogo from "@/assets/projects/osama-bin-mahfouz-law-firm/osama-logo-official.png";
 import bamaroufStudioLogo from "@/assets/projects/bamarouf-studio/bamarouf-studio-logo.png";
 import khalidBamaroufLogo from "@/assets/client-logos/khalid-bamarouf-logo-transparent.png";
+import noorBamaroufLogo from "@/assets/client-logos/noor-bamarouf-monogram.png";
 import { SiteLayout } from "@/components/site/Layout";
 import { CONTACT_EMAIL, emailHref, getWhatsappHref } from "@/lib/contact";
 import {
@@ -98,6 +99,7 @@ const clientLogos: ReadonlyArray<ClientLogo> = [
   { name: "Osama Bin Ahmed Bin Mahfouz Law Firm", image: osamaLawLogo, size: "medium" },
   { name: "BAMAROUF STUDIO", image: bamaroufStudioLogo, size: "medium" },
   { name: "KHALID BAMAROUF", image: khalidBamaroufLogo, size: "medium" },
+  { name: "NOOR BAMAROUF", image: noorBamaroufLogo, size: "medium" },
 ];
 
 const steps = [

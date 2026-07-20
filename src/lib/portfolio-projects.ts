@@ -14,6 +14,7 @@ import firstAdvanceHero from "@/assets/projects/first-advance/01-hero-homepage.w
 import osamaLawHero from "@/assets/projects/osama-bin-mahfouz-law-firm/01-hero-homepage.jpg";
 import bamaroufStudioHero from "@/assets/projects/bamarouf-studio/01-three-doors-main-concept.jpg";
 import khalidBamaroufHero from "@/assets/projects/khalid-bamarouf/02-hero.jpg";
+import noorBamaroufHero from "@/assets/projects/noor-bamarouf/01-hero-matcha.jpg";
 
 export const portfolioProjects = [
   {
@@ -189,6 +190,17 @@ export const portfolioProjects = [
     img: khalidBamaroufHero,
     year: "2026",
     disciplines: "Website Design & Development",
+    span: "wide",
+    ratio: "aspect-[16/10]",
+  },
+  {
+    n: "17",
+    t: "NOOR BAMAROUF",
+    slug: "noor-bamarouf",
+    cat: "Graphic Design & Visual Identity",
+    img: noorBamaroufHero,
+    year: "2026",
+    disciplines: "Portfolio Website Design & Development",
     span: "wide",
     ratio: "aspect-[16/10]",
   },

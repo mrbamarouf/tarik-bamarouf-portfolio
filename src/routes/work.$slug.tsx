@@ -150,6 +150,13 @@ import khalidBamaroufWhy from "@/assets/projects/khalid-bamarouf/04-why-work-wit
 import khalidBamaroufCapabilities from "@/assets/projects/khalid-bamarouf/05-capabilities.jpg";
 import khalidBamaroufProcess from "@/assets/projects/khalid-bamarouf/06-process.jpg";
 import khalidBamaroufOperatingNotes from "@/assets/projects/khalid-bamarouf/07-operating-notes-contact.jpg";
+import noorBamaroufHero from "@/assets/projects/noor-bamarouf/01-hero-matcha.jpg";
+import noorBamaroufIntro from "@/assets/projects/noor-bamarouf/02-introduction.jpg";
+import noorBamaroufSelectedWork from "@/assets/projects/noor-bamarouf/03-selected-work-overview.jpg";
+import noorBamaroufWello from "@/assets/projects/noor-bamarouf/04-wello-featured-project.jpg";
+import noorBamaroufServices from "@/assets/projects/noor-bamarouf/05-services.jpg";
+import noorBamaroufWemo from "@/assets/projects/noor-bamarouf/06-wemo-delights.jpg";
+import noorBamaroufMoreWork from "@/assets/projects/noor-bamarouf/07-more-work-contact.jpg";
 
 type GalleryItem = { image: string; title: string; caption: string; fit?: "cover" | "contain" };
 
@@ -1016,6 +1023,84 @@ const PROJECTS: ProjectData[] = [
     ],
     reflection:
       "The project became a premium personal engineering website, combining website design, UX/UI, visual direction, responsive front-end development, and a technical brand narrative for AI automation and systems engineering.",
+  },
+  {
+    slug: "noor-bamarouf",
+    name: "NOOR BAMAROUF",
+    category: "Graphic Design & Visual Identity",
+    intro:
+      "A refined bilingual portfolio website designed for Noor Bamarouf, presenting her work in brand identity, packaging, print, editorial and social media design through a soft editorial system. The experience balances warm beige tones, blush pink, sage green, carefully composed imagery and expressive typography to create a feminine, modern and professional digital presence.",
+    image: noorBamaroufHero,
+    details: {
+      client: "NOOR BAMAROUF",
+      industry: "Graphic Design & Visual Identity",
+      services:
+        "Brand Identity, Graphic Design, Packaging Design, Print Design, Social Media Design, Editorial Design, Creative Direction, Bilingual Portfolio Experience, Responsive Web Design, Front-End Development",
+      year: "2026",
+      platform: "Portfolio Website Design & Development",
+    },
+    url: "https://noorbamarouf.com",
+    overview: {
+      challenge:
+        "The project needed to present Noor Bamarouf's graphic design work with softness, clarity, and professional confidence while keeping her visual identity delicate, memorable, and bilingual.",
+      approach:
+        "The website was shaped around warm beige surfaces, blush monogram details, sage green accents, spacious editorial composition, selected project storytelling, and a clear service structure.",
+      outcome:
+        "The final experience gives Noor Bamarouf a refined bilingual portfolio that presents identity, packaging, print, social media, editorial design, and creative direction through one calm digital presence.",
+    },
+    gallery: [
+      {
+        image: noorBamaroufHero,
+        title: "Hero / MATCHA Composition",
+        caption:
+          "The opening composition introduces Noor's visual world through soft packaging imagery, warm surfaces, sage tones, and a restrained editorial layout.",
+        fit: "contain",
+      },
+      {
+        image: noorBamaroufIntro,
+        title: "Introduction / Hello, I'm Noor",
+        caption:
+          "The introduction frames Noor as an independent graphic designer with a quiet, feminine, and professional design presence.",
+        fit: "contain",
+      },
+      {
+        image: noorBamaroufSelectedWork,
+        title: "Selected Work Overview",
+        caption:
+          "The work section presents identity, print, packaging, editorial, and social systems through a spacious portfolio rhythm.",
+        fit: "contain",
+      },
+      {
+        image: noorBamaroufWello,
+        title: "WELLO Featured Project",
+        caption:
+          "The WELLO chapter highlights bilingual packaging, color systems, ingredient-led imagery, and bright product storytelling.",
+        fit: "contain",
+      },
+      {
+        image: noorBamaroufServices,
+        title: "Services Section",
+        caption:
+          "Services are organized with large editorial numbering, refined hierarchy, and a calm description of each design discipline.",
+        fit: "contain",
+      },
+      {
+        image: noorBamaroufWemo,
+        title: "Wemo Delights Project",
+        caption:
+          "The Wemo Delights project shows playful brand identity work within the same soft and measured portfolio system.",
+        fit: "contain",
+      },
+      {
+        image: noorBamaroufMoreWork,
+        title: "More Work and Contact",
+        caption:
+          "The closing view brings additional selected work and the final project invitation into one composed call-to-action moment.",
+        fit: "contain",
+      },
+    ],
+    reflection:
+      "The project became a soft editorial portfolio website, combining bilingual experience design, UX/UI, visual direction, responsive front-end development, and a refined presentation system for Noor Bamarouf's graphic design work.",
   },
 ];
 
