@@ -193,11 +193,13 @@ function renderHeroCapabilities(capabilities: string) {
   ));
 }
 
-function renderClientLine(line: string) {
-  const match = line.match(/^(.*?)([0-9٠-٩]+)(.*)$/);
+function renderProjectCountLine(line: string, projectCount: number, language: "en" | "ar") {
+  const projectCountLabel = formatLocalizedNumber(projectCount, language);
+  const resolvedLine = line.replace("{projectCount}", projectCountLabel);
+  const match = resolvedLine.match(/^(.*?)([0-9٠-٩]+)(.*)$/);
 
   if (!match) {
-    return line;
+    return resolvedLine;
   }
 
   return (
@@ -214,7 +216,8 @@ function Index() {
   const t = siteCopy[language];
   const localizedServices = t.services;
   const localizedSteps = t.steps;
-  const selectedWorkCount = selectedWorkProjects.length;
+  const projectCount = projects.length;
+  const selectedWorkCount = projectCount;
   const selectedWorkCountLabel = formatLocalizedNumber(selectedWorkCount, language, {
     minimumIntegerDigits: 2,
   });
@@ -456,8 +459,10 @@ function Index() {
               </EnglishLayoutSlot>
             </p>
             <h2 id="client-marquee-title" className="client-marquee__line">
-              <EnglishLayoutSlot master={renderClientLine(siteCopy.en.home.clientsLine)}>
-                {renderClientLine(t.home.clientsLine)}
+              <EnglishLayoutSlot
+                master={renderProjectCountLine(siteCopy.en.home.clientsLine, projectCount, "en")}
+              >
+                {renderProjectCountLine(t.home.clientsLine, projectCount, language)}
               </EnglishLayoutSlot>
             </h2>
           </div>

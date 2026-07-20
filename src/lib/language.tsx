@@ -196,7 +196,7 @@ export const siteCopy = {
       heroCapabilities:
         "Premium Websites\u00a0\u00a0•\u00a0\u00a0UX/UI Design\u00a0\u00a0•\u00a0\u00a0Brand Identity Direction\u00a0\u00a0•\u00a0\u00a0Front-end Craft",
       clientsEyebrow: "SELECTED CLIENTS",
-      clientsLine: "Trusted by 15 ambitious brands.",
+      clientsLine: "Trusted by {projectCount} ambitious brands.",
       viewWork: "View Work",
       startProject: "Start Project",
       portfolioLabel: "Portfolio 2026",
@@ -426,7 +426,7 @@ export const siteCopy = {
       heroCapabilities:
         "مواقع راقية\u00a0\u00a0•\u00a0\u00a0تجربة وواجهة المستخدم\u00a0\u00a0•\u00a0\u00a0توجيه هوية العلامة\u00a0\u00a0•\u00a0\u00a0حرفة الواجهة الأمامية",
       clientsEyebrow: "عملاء مختارون",
-      clientsLine: "تشرفت بالعمل مع ١٥ علامة طموحة.",
+      clientsLine: "موثوق من قبل {projectCount} علامة طموحة.",
       viewWork: "عرض الأعمال",
       startProject: "ابدأ مشروعك",
       portfolioLabel: "محفظة ٢٠٢٦",
