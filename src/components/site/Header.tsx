@@ -1,8 +1,10 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import type { MouseEvent } from "react";
 import { useEffect, useRef, useState } from "react";
+import { InstagramIcon, TikTokIcon } from "@/components/icons/SocialIcons";
 import bamaroufStudioLogoMark from "@/assets/bamarouf-studio-logo-mark.png";
 import signature from "@/assets/signature.webp";
+import { INSTAGRAM_URL, TIKTOK_URL } from "@/lib/contact";
 import { siteCopy, useLanguage } from "@/lib/language";
 
 const MOBILE_MENU_MEDIA_QUERY = "(max-width: 767px)";
@@ -500,6 +502,26 @@ export function Header() {
               />
               <span className="site-header__studio-name">{t.nav.studio}</span>
             </a>
+            <nav className="site-header__mobile-social" aria-label={t.footer.socialLabel}>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t.footer.instagramLabel}
+                className="site-header__mobile-social-link"
+              >
+                <InstagramIcon className="site-header__mobile-social-icon" />
+              </a>
+              <a
+                href={TIKTOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t.footer.tiktokLabel}
+                className="site-header__mobile-social-link"
+              >
+                <TikTokIcon className="site-header__mobile-social-icon" />
+              </a>
+            </nav>
             <button
               type="button"
               onClick={() => {

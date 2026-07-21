@@ -1,8 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import { MessageCircle } from "lucide-react";
+import { InstagramIcon, TikTokIcon } from "@/components/icons/SocialIcons";
 import bamaroufStudioLogoFull from "@/assets/bamarouf-studio-logo-full.png";
 import signature from "@/assets/signature.webp";
-import { getWhatsappHref, emailHref, CONTACT_EMAIL, WHATSAPP_DISPLAY } from "@/lib/contact";
+import {
+  getWhatsappHref,
+  emailHref,
+  CONTACT_EMAIL,
+  WHATSAPP_DISPLAY,
+  INSTAGRAM_URL,
+  TIKTOK_URL,
+} from "@/lib/contact";
 import { BidiText, siteCopy, useLanguage } from "@/lib/language";
 
 const BAMAROUF_STUDIO_URL = "https://bamaroufstudio.com";
@@ -105,6 +113,26 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+            <nav className="footer-social" aria-label={t.footer.socialLabel}>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t.footer.instagramLabel}
+                className="footer-social__link"
+              >
+                <InstagramIcon className="footer-social__icon" />
+              </a>
+              <a
+                href={TIKTOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t.footer.tiktokLabel}
+                className="footer-social__link"
+              >
+                <TikTokIcon className="footer-social__icon" />
+              </a>
+            </nav>
           </div>
         </div>
 

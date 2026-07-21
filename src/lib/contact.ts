@@ -5,8 +5,9 @@ export const CONTACT_EMAIL = "tarikbamarouf@gmail.com";
 export const WHATSAPP_NUMBER = "966573511132";
 export const WHATSAPP_DISPLAY = "0573511132";
 
-export const INSTAGRAM_HANDLE = "tarikbamarouf";
-export const INSTAGRAM_URL = `https://instagram.com/${INSTAGRAM_HANDLE}`;
+export const INSTAGRAM_URL =
+  "https://www.instagram.com/bamaroufstudio?igsh=MWs0dW0ybzZrMmE4Mw==";
+export const TIKTOK_URL = "https://www.tiktok.com/@bamaroufstudio?_r=1&_t=ZS-98DieCp6cKa";
 
 export const WHATSAPP_MESSAGES = {
   ar: "السلام عليكم طارق،\nاطلعت على موقعك وأرغب في مناقشة تنفيذ موقع إلكتروني لمشروعي.",
