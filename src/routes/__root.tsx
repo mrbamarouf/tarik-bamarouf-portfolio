@@ -37,7 +37,7 @@ const structuredData = JSON.stringify({
   url: "https://tarikbamarouf.com",
   email: "tarikbamarouf@gmail.com",
   description:
-    "Independent digital studio focused on premium website design, UX/UI, brand identity direction, and front-end craft.",
+    "Independent digital studio focused on Website Design, UX/UI, Responsive Experiences and Front-End Development.",
   founder: {
     "@type": "Person",
     name: "Tarik Bamarouf",
@@ -249,7 +249,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Premium website design, UX/UI, brand identity direction, and front-end experiences for ambitious brands.",
+          "Website Design, UX/UI, Responsive Experiences and Front-End Development for ambitious brands.",
       },
       { name: "author", content: "Tarik Bamarouf" },
       {
@@ -259,7 +259,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Premium website design, UX/UI, brand identity direction, and front-end experiences for ambitious brands.",
+          "Website Design, UX/UI, Responsive Experiences and Front-End Development for ambitious brands.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Tarik Bamarouf" },

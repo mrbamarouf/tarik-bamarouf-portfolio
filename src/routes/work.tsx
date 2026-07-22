@@ -23,13 +23,13 @@ export const Route = createFileRoute("/work")({
         {
           name: "description",
           content:
-            "Selected website design, UX/UI, brand identity, and front-end experiences by Tarik Bamarouf.",
+            "Selected Website Design, UX/UI, Responsive Experience, and Front-End Development work by Tarik Bamarouf.",
         },
         { property: "og:title", content: "Work | Tarik Bamarouf" },
         {
           property: "og:description",
           content:
-            "An editorial archive of premium websites, digital brand presence, UX/UI, and creative front-end work.",
+            "An editorial archive of Website Design, UX/UI, Responsive Experience, and Front-End Development work.",
         },
         { property: "og:type", content: "website" },
         { property: "og:url", content: "https://tarikbamarouf.com/work" },

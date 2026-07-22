@@ -181,7 +181,7 @@ export const siteCopy = {
     home: {
       metaTitle: "Tarik Bamarouf | Independent Digital Studio",
       metaDescription:
-        "Premium website design, UX/UI, brand identity direction, and front-end experiences for ambitious brands.",
+        "Website Design, UX/UI, Responsive Experiences and Front-End Development for ambitious brands.",
       heroLabel: "Independent Digital Studio",
       heroLine1: "Digital",
       heroLine2: "Experiences",
@@ -191,10 +191,10 @@ export const siteCopy = {
       heroStatement: {
         before: "Website Design, ",
         emphasis: "UX/UI",
-        after: " and Digital Brand Presence.",
+        after: " and Cross-Device Experiences.",
       },
       heroCapabilities:
-        "Premium Websites\u00a0\u00a0•\u00a0\u00a0UX/UI Design\u00a0\u00a0•\u00a0\u00a0Brand Identity Direction\u00a0\u00a0•\u00a0\u00a0Front-end Craft",
+        "Website Design · UX/UI Design · Responsive Experience · Front-End Development",
       clientsEyebrow: "SELECTED CLIENTS",
       clientsLine: "Trusted by {projectCount} ambitious brands.",
       viewWork: "View Work",
@@ -236,32 +236,32 @@ export const siteCopy = {
       selectedPortfolioLabel: "PORTFOLIO 2026",
       selectedProjectsLabel: "SELECTED PROJECTS",
       aboutLabel: "About",
-      aboutTitle: "Websites.\nIdentity.\nExperience.",
-      aboutBody: "Digital presence shaped with clarity, atmosphere, and front-end craft.",
+      aboutTitle: "Websites.\nUX/UI.\nDevelopment.",
+      aboutBody: "Responsive website experiences shaped with clarity, structure, and front-end precision.",
       aboutCta: "About Me",
       servicesLabel: "Services",
       processLabel: "The Process",
       ctaLabel: "Let's Work Together",
-      ctaTitle: "Let's shape your digital presence.",
+      ctaTitle: "Let's shape your website experience.",
       ctaBody: "Tell me what you are building, what it should feel like, and who it needs to move.",
       ctaButton: "Start Your Project",
     },
     services: [
       {
-        t: "Premium Websites",
-        d: "Websites designed to sharpen perception and earn attention.",
+        t: "Website Design",
+        d: "Custom websites designed to elevate brands through clarity, structure, and purpose.",
       },
       {
         t: "UX/UI Design",
-        d: "Interfaces that feel clear, composed, and easy to trust.",
+        d: "User interfaces designed for clarity, usability, and memorable digital experiences.",
       },
       {
-        t: "Digital Brand Presence",
-        d: "A visual world that makes the brand feel considered.",
+        t: "Responsive Experience",
+        d: "Consistent user experiences across desktop, tablet, and mobile.",
       },
       {
-        t: "Front-end Craft",
-        d: "Refined implementation with motion, detail, and performance in mind.",
+        t: "Front-End Development",
+        d: "Pixel-perfect implementation focused on performance, responsiveness, and precision.",
       },
     ],
     steps: [
@@ -278,8 +278,8 @@ export const siteCopy = {
         d: "A clear and fluid journey.",
       },
       {
-        t: "Visual Identity",
-        d: "A language true to the brand.",
+        t: "Interface Design",
+        d: "A screen language shaped for clarity.",
       },
       {
         t: "Execution",
@@ -289,7 +289,7 @@ export const siteCopy = {
     work: {
       metaTitle: "Work | Tarik Bamarouf",
       metaDescription:
-        "Selected website design, UX/UI, brand identity, and digital experience work by Tarik Bamarouf.",
+        "Selected Website Design, UX/UI, Responsive Experience, and Front-End Development work by Tarik Bamarouf.",
       archive: "The Archive",
       title: "Selected Work.",
       volume: "Portfolio 2026",
@@ -300,7 +300,7 @@ export const siteCopy = {
     about: {
       metaTitle: "About | Tarik Bamarouf",
       metaDescription:
-        "An independent digital studio focused on premium website design, UX/UI, identity direction, and front-end craft.",
+        "An independent digital studio focused on Website Design, UX/UI Design, Responsive Experience, and Front-End Development.",
       label: "Portrait of a Practice",
       titleA: "One independent ",
       titleB: "studio.",
@@ -309,41 +309,40 @@ export const siteCopy = {
       portraitLabel: "Tarik Bamarouf studio portrait",
       biography: "Biography",
       biographyBody:
-        "I design premium websites and digital experiences where identity, interface, and atmosphere work together.",
+        "I design websites and cross-device experiences where structure, interface, and front-end execution work together.",
       philosophy: "Philosophy",
       philosophyBody:
         "The work is quiet by choice. Every page is shaped to clarify the offer, build trust, and make the brand feel considered from the first moment.",
       disciplines: "Disciplines",
       recognition: "Focus",
       recognitionBody:
-        "Available for selected websites, brand launches, UX/UI work, and creative digital experiences.",
+        "Available for selected Website Design, UX/UI Design, Responsive Experience, and Front-End Development projects.",
       begin: "Begin a conversation",
       disciplineItems: [
-        "Creative Direction",
         "Website Design",
-        "Brand Identity",
-        "UX/UI",
-        "Visual Storytelling",
-        "Front-end Craft",
+        "UX/UI Design",
+        "Responsive Experience",
+        "Front-End Development",
       ],
     },
     contact: {
       metaTitle: "Contact | Tarik Bamarouf",
       metaDescription:
-        "Start a direct conversation about a premium website, UX/UI, brand identity, or digital experience.",
+        "Start a direct conversation about Website Design, UX/UI, Responsive Experiences, or Front-End Development.",
       label: "Direct",
       titleA: "Let's ",
       titleB: "talk.",
       body: "No forms. Send the idea, the ambition, or the problem. We begin there.",
       primary: "Primary",
       compose: "Compose",
+      email: "Email",
       secondary: "Secondary",
       whatsapp: "WhatsApp",
       whatsappBody: "Share the project directly.",
       openChat: "Open Chat",
     },
     footer: {
-      headline: "Premium websites, UX/UI, and digital presence for ambitious brands.",
+      headline: "Website Design, UX/UI, Responsive Experiences and Front-End Development.",
       whatsapp: "WhatsApp",
       email: "Email",
       navigate: "Navigate",
@@ -414,7 +413,7 @@ export const siteCopy = {
     home: {
       metaTitle: "طارق بامعروف | استوديو رقمي مستقل",
       metaDescription:
-        "تصميم مواقع راقية، تجربة وواجهة مستخدم، توجيه هوية، وتجارب واجهة أمامية لعلامات طموحة.",
+        "تصميم المواقع، وتجربة وواجهة المستخدم، والتجارب المتجاوبة، وتطوير الواجهات الأمامية.",
       heroLabel: "استوديو رقمي مستقل",
       heroLine1: "تجارب",
       heroLine2: "رقمية",
@@ -422,12 +421,12 @@ export const siteCopy = {
       heroEmphasis: "طموحة",
       heroLine4: "",
       heroStatement: {
-        before: "تصميم مواقع، ",
-        emphasis: "تجربة وواجهة",
-        after: "، وحضور رقمي للعلامات.",
+        before: "تصميم المواقع، وتصميم ",
+        emphasis: "تجربة وواجهة المستخدم",
+        after: "، وتجارب متكاملة عبر جميع الأجهزة.",
       },
       heroCapabilities:
-        "مواقع راقية\u00a0\u00a0•\u00a0\u00a0تجربة وواجهة المستخدم\u00a0\u00a0•\u00a0\u00a0توجيه هوية العلامة\u00a0\u00a0•\u00a0\u00a0حرفة الواجهة الأمامية",
+        "تصميم المواقع · تجربة وواجهة المستخدم · تجربة متجاوبة · تطوير الواجهات الأمامية",
       clientsEyebrow: "عملاء مختارون",
       clientsLine: "موثوق من قبل {projectCount} علامة طموحة.",
       viewWork: "عرض الأعمال",
@@ -469,32 +468,32 @@ export const siteCopy = {
       selectedPortfolioLabel: "ملف الأعمال ٢٠٢٦",
       selectedProjectsLabel: "المشاريع المختارة",
       aboutLabel: "عنّي",
-      aboutTitle: "مواقع.\nهوية.\nتجربة.",
-      aboutBody: "حضور رقمي مصاغ بوضوح وأجواء وحرفة في الواجهة.",
+      aboutTitle: "مواقع.\nتجربة.\nتطوير.",
+      aboutBody: "تجارب مواقع متجاوبة تُصاغ بوضوح وبنية وتنفيذ أمامي دقيق.",
       aboutCta: "عنّي",
       servicesLabel: "الخدمات",
       processLabel: "المنهجية",
       ctaLabel: "لنعمل معًا",
-      ctaTitle: "لنصنع حضورك الرقمي.",
+      ctaTitle: "لنصنع تجربة موقعك.",
       ctaBody: "حدثني عمّا تبنيه، وما الشعور الذي تريده، ومن تريد أن تحرّكه التجربة.",
       ctaButton: "ابدأ مشروعك",
     },
     services: [
       {
-        t: "مواقع راقية",
-        d: "مواقع تصقل الانطباع وتمنح العلامة حضورًا أوضح.",
+        t: "تصميم المواقع",
+        d: "مواقع مخصصة تُصمم لتقديم العلامات بصورة واضحة ومنظمة وهادفة.",
       },
       {
-        t: "تجربة وواجهة المستخدم",
-        d: "واجهات واضحة، هادئة، وسهلة الثقة.",
+        t: "تصميم تجربة وواجهة المستخدم",
+        d: "واجهات وتجارب استخدام واضحة وسهلة، تُصمم حول احتياجات المستخدم وطريقة تفاعله.",
       },
       {
-        t: "حضور العلامة الرقمي",
-        d: "عالم بصري يجعل العلامة أكثر اتزانًا ووضوحًا.",
+        t: "تجربة متجاوبة",
+        d: "تجربة استخدام متكاملة ومتناسقة على الكمبيوتر والأجهزة اللوحية والجوال.",
       },
       {
-        t: "حرفة الواجهة الأمامية",
-        d: "تنفيذ مصقول يهتم بالحركة والتفاصيل والأداء.",
+        t: "تطوير الواجهات الأمامية",
+        d: "تنفيذ دقيق وسريع للواجهات، مع التركيز على الأداء والاستجابة وجودة التفاصيل.",
       },
     ],
     steps: [
@@ -511,8 +510,8 @@ export const siteCopy = {
         d: "رحلة واضحة وسلسة.",
       },
       {
-        t: "الهوية البصرية",
-        d: "لغة تشبه العلامة.",
+        t: "تصميم الواجهة",
+        d: "لغة شاشة واضحة ومصقولة.",
       },
       {
         t: "التنفيذ",
@@ -522,7 +521,7 @@ export const siteCopy = {
     work: {
       metaTitle: "الأعمال | طارق بامعروف",
       metaDescription:
-        "أعمال مختارة في تصميم المواقع، تجربة وواجهة المستخدم، الهوية، والتجارب الرقمية.",
+        "أعمال مختارة في تصميم المواقع، تجربة وواجهة المستخدم، التجارب المتجاوبة، وتطوير الواجهات الأمامية.",
       archive: "الأرشيف",
       title: "أعمال مختارة.",
       volume: "محفظة ٢٠٢٦",
@@ -533,7 +532,7 @@ export const siteCopy = {
     about: {
       metaTitle: "عني | طارق بامعروف",
       metaDescription:
-        "استوديو رقمي مستقل يركز على تصميم المواقع الراقية، تجربة وواجهة المستخدم، توجيه الهوية، وحرفة الواجهة الأمامية.",
+        "استوديو رقمي مستقل يركز على تصميم المواقع، تجربة وواجهة المستخدم، التجارب المتجاوبة، وتطوير الواجهات الأمامية.",
       label: "ملامح الممارسة",
       titleA: "استوديو ",
       titleB: "مستقل.",
@@ -542,41 +541,40 @@ export const siteCopy = {
       portraitLabel: "بورتريه طارق بامعروف في الاستوديو",
       biography: "نبذة",
       biographyBody:
-        "أصمم مواقع وتجارب رقمية راقية تعمل فيها الهوية والواجهة والأجواء بتناغم واضح.",
+        "أصمم مواقع وتجارب متجاوبة تعمل فيها البنية والواجهة والتنفيذ الأمامي بتناغم واضح.",
       philosophy: "الفلسفة",
       philosophyBody:
         "الهدوء هنا اختيار مقصود. كل صفحة تُصاغ لتوضح العرض، وتبني الثقة، وتجعل العلامة مدروسة منذ اللحظة الأولى.",
       disciplines: "التخصصات",
       recognition: "التركيز",
       recognitionBody:
-        "متاح لمواقع مختارة، إطلاقات علامات، أعمال تجربة وواجهة، وتجارب رقمية إبداعية.",
+        "متاح لمشاريع مختارة في تصميم المواقع، تجربة وواجهة المستخدم، التجارب المتجاوبة، وتطوير الواجهات الأمامية.",
       begin: "ابدأ الحوار",
       disciplineItems: [
-        "التوجيه الإبداعي",
         "تصميم المواقع",
-        "هوية العلامة",
-        "تجربة وواجهة المستخدم",
-        "السرد البصري",
-        "حرفة الواجهة",
+        "تصميم تجربة وواجهة المستخدم",
+        "تجربة متجاوبة",
+        "تطوير الواجهات الأمامية",
       ],
     },
     contact: {
       metaTitle: "تواصل | طارق بامعروف",
       metaDescription:
-        "ابدأ حوارًا مباشرًا حول موقع راقٍ، تجربة وواجهة مستخدم، هوية علامة، أو تجربة رقمية.",
+        "ابدأ حوارًا مباشرًا حول تصميم المواقع، تجربة وواجهة المستخدم، التجارب المتجاوبة، أو تطوير الواجهات الأمامية.",
       label: "تواصل مباشر",
       titleA: "لنتحدث.",
       titleB: "",
       body: "بلا نماذج. أرسل الفكرة، الطموح، أو المشكلة. نبدأ من هناك.",
       primary: "البريد",
       compose: "راسلني",
+      email: "البريد",
       secondary: "قناة سريعة",
       whatsapp: "واتساب",
       whatsappBody: "شارك المشروع مباشرة.",
       openChat: "افتح المحادثة",
     },
     footer: {
-      headline: "مواقع راقية، تجربة وواجهة، وحضور رقمي لعلامات طموحة.",
+      headline: "تصميم المواقع، تجربة وواجهة المستخدم، التجارب المتجاوبة، وتطوير الواجهات الأمامية.",
       whatsapp: "واتساب",
       email: "البريد",
       navigate: "التنقل",

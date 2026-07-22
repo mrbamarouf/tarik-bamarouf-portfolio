@@ -50,7 +50,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Premium website design, UX/UI, brand identity direction, and front-end experiences for ambitious brands.",
+          "Website Design, UX/UI, Responsive Experiences and Front-End Development for ambitious brands.",
       },
       {
         property: "og:title",
@@ -59,7 +59,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Premium websites, UX/UI, brand identity direction, and creative digital experiences crafted with clarity.",
+          "Website Design, UX/UI, Responsive Experiences and Front-End Development crafted with clarity.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://tarikbamarouf.com/" },
@@ -181,12 +181,12 @@ function renderHeroStatement(statement: HeroStatementCopy) {
 }
 
 function renderHeroCapabilities(capabilities: string) {
-  return capabilities.split(/\s*•\s*/).map((capability, index, items) => (
+  return capabilities.split(/\s*[•·]\s*/).map((capability, index, items) => (
     <Fragment key={capability}>
       <span className="home-hero__capability-item">{capability}</span>
       {index < items.length - 1 && (
         <span className="home-hero__capability-separator" aria-hidden="true">
-          {"\u00a0\u00a0•\u00a0\u00a0"}
+          {"\u00a0\u00a0·\u00a0\u00a0"}
         </span>
       )}
     </Fragment>
