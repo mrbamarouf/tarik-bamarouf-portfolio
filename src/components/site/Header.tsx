@@ -30,6 +30,7 @@ const nav = [
   { to: "/about", key: "about", kind: "route" },
   { to: "/#services", key: "services", kind: "anchor" },
   { to: "/#process", key: "process", kind: "anchor" },
+  { to: "/#credentials", key: "credentials", kind: "anchor" },
   { to: "/contact", key: "contact", kind: "route" },
 ] as const;
 
@@ -141,9 +142,10 @@ export function Header() {
       updateAtTop(nextAtTop);
 
       if (isMobile) {
-        if (nextAtTop || delta < -1) {
+        if (openRef.current || nextAtTop || delta < -1) {
           updateShowChrome(true);
-        } else if (delta > 6 && hasMobileScrollIntent.current) {
+        } else if (currentScrollY > 72 && delta > 8) {
+          hasMobileScrollIntent.current = true;
           updateShowChrome(false);
           updateOpen(false);
         }
@@ -257,7 +259,7 @@ export function Header() {
     updateAtTop(currentScrollY <= 8);
     updateShowChrome(true);
     updateOpen(false);
-  }, [locationHref]);
+  }, [language, locationHref]);
 
   useEffect(() => {
     const mobileQuery = window.matchMedia(MOBILE_MENU_MEDIA_QUERY);

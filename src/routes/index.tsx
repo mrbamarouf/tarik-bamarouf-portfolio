@@ -157,15 +157,25 @@ const professionalCredentialsCopy = {
         expiry: "24 July 2027",
         actions: [
           {
-            label: "View Certificate",
+            label: "View Document",
             href: credentialDocuments.freelancingCertificate,
             tone: "primary",
             ariaLabel: "View Freelancing Practitioner Certificate",
           },
+        ],
+      },
+      {
+        title: "Freelance ID Card",
+        numberLabel: "Number",
+        number: "FL-257468096",
+        activity: "Website Designer & Hosting Services",
+        issue: "",
+        expiry: "24 July 2027",
+        actions: [
           {
-            label: "View ID Card",
+            label: "View Document",
             href: credentialDocuments.freelanceIdCard,
-            tone: "secondary",
+            tone: "primary",
             ariaLabel: "View Freelance ID Card",
           },
         ],
@@ -179,7 +189,7 @@ const professionalCredentialsCopy = {
         expiry: "24 July 2029",
         actions: [
           {
-            label: "View Certificate",
+            label: "View Document",
             href: credentialDocuments.productiveFamiliesCertificate,
             tone: "primary",
             ariaLabel: "View Productive Families Certificate",
@@ -211,11 +221,21 @@ const professionalCredentialsCopy = {
             tone: "primary",
             ariaLabel: "عرض وثيقة ممارس حر",
           },
+        ],
+      },
+      {
+        title: "البطاقة التعريفية للعمل الحر",
+        numberLabel: "الرقم",
+        number: "FL-257468096",
+        activity: "مصمم المواقع الإلكترونية وخدمات الاستضافة",
+        issue: "",
+        expiry: "24 July 2027",
+        actions: [
           {
-            label: "عرض البطاقة التعريفية",
+            label: "عرض البطاقة",
             href: credentialDocuments.freelanceIdCard,
-            tone: "secondary",
-            ariaLabel: "عرض البطاقة التعريفية",
+            tone: "primary",
+            ariaLabel: "عرض البطاقة التعريفية للعمل الحر",
           },
         ],
       },
@@ -1009,12 +1029,14 @@ function Index() {
                       <BidiText>{credential.activity}</BidiText>
                     </dd>
                   </div>
-                  <div className="credential-card__detail">
-                    <dt>
-                      <BidiText>{credentials.issueLabel}</BidiText>
-                    </dt>
-                    <dd>{credential.issue}</dd>
-                  </div>
+                  {credential.issue ? (
+                    <div className="credential-card__detail">
+                      <dt>
+                        <BidiText>{credentials.issueLabel}</BidiText>
+                      </dt>
+                      <dd>{credential.issue}</dd>
+                    </div>
+                  ) : null}
                   <div className="credential-card__detail">
                     <dt>
                       <BidiText>{credentials.expiryLabel}</BidiText>
