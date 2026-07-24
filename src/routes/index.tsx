@@ -132,6 +132,113 @@ const serviceVisuals = [
   { image: serviceDesignDevelopment, position: "center" },
 ] as const;
 
+const credentialDocuments = {
+  freelancingCertificate: "/documents/freelancing-practitioner-certificate.pdf",
+  freelanceIdCard: "/documents/freelance-id-card.pdf",
+  productiveFamiliesCertificate: "/documents/productive-families-certificate.pdf",
+} as const;
+
+const professionalCredentialsCopy = {
+  en: {
+    label: "CREDENTIALS",
+    title: "Professional Credentials",
+    numberLabel: "Number",
+    certificateNumberLabel: "Certificate Number",
+    activityLabel: "Activity",
+    issueLabel: "Issue Date",
+    expiryLabel: "Expiry",
+    items: [
+      {
+        title: "Freelancing Practitioner Certificate",
+        numberLabel: "Number",
+        number: "FL-257468096",
+        activity: "Website Designer & Hosting Services",
+        issue: "24 July 2026",
+        expiry: "24 July 2027",
+        actions: [
+          {
+            label: "View Certificate",
+            href: credentialDocuments.freelancingCertificate,
+            tone: "primary",
+            ariaLabel: "View Freelancing Practitioner Certificate",
+          },
+          {
+            label: "View ID Card",
+            href: credentialDocuments.freelanceIdCard,
+            tone: "secondary",
+            ariaLabel: "View Freelance ID Card",
+          },
+        ],
+      },
+      {
+        title: "Productive Families Certificate",
+        numberLabel: "Certificate Number",
+        number: "2670408",
+        activity: "Website Design & Hosting Services",
+        issue: "24 July 2026",
+        expiry: "24 July 2029",
+        actions: [
+          {
+            label: "View Certificate",
+            href: credentialDocuments.productiveFamiliesCertificate,
+            tone: "primary",
+            ariaLabel: "View Productive Families Certificate",
+          },
+        ],
+      },
+    ],
+  },
+  ar: {
+    label: "الاعتمادات",
+    title: "الاعتمادات المهنية",
+    numberLabel: "الرقم",
+    certificateNumberLabel: "رقم الوثيقة",
+    activityLabel: "النشاط",
+    issueLabel: "تاريخ الإصدار",
+    expiryLabel: "تاريخ الانتهاء",
+    items: [
+      {
+        title: "وثيقة ممارس حر",
+        numberLabel: "الرقم",
+        number: "FL-257468096",
+        activity: "مصمم المواقع الإلكترونية وخدمات الاستضافة",
+        issue: "24 July 2026",
+        expiry: "24 July 2027",
+        actions: [
+          {
+            label: "عرض الوثيقة",
+            href: credentialDocuments.freelancingCertificate,
+            tone: "primary",
+            ariaLabel: "عرض وثيقة ممارس حر",
+          },
+          {
+            label: "عرض البطاقة التعريفية",
+            href: credentialDocuments.freelanceIdCard,
+            tone: "secondary",
+            ariaLabel: "عرض البطاقة التعريفية",
+          },
+        ],
+      },
+      {
+        title: "شهادة أسرة منتجة",
+        numberLabel: "رقم الوثيقة",
+        number: "2670408",
+        activity: "تصميم المواقع الإلكترونية وخدمات الاستضافة",
+        issue: "24 July 2026",
+        expiry: "24 July 2029",
+        actions: [
+          {
+            label: "عرض الوثيقة",
+            href: credentialDocuments.productiveFamiliesCertificate,
+            tone: "primary",
+            ariaLabel: "عرض شهادة أسرة منتجة",
+          },
+        ],
+      },
+    ],
+  },
+} as const;
+
 function hasFineHoverPointer() {
   return (
     typeof window !== "undefined" && window.matchMedia("(hover: hover) and (pointer: fine)").matches
@@ -221,6 +328,7 @@ function Index() {
   const selectedWorkCountLabel = formatLocalizedNumber(selectedWorkCount, language, {
     minimumIntegerDigits: 2,
   });
+  const credentials = professionalCredentialsCopy[language];
   const whatsappUrl = getWhatsappHref(language);
   const serviceCarouselRef = useRef<HTMLDivElement | null>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
@@ -846,6 +954,92 @@ function Index() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="credentials"
+        className="credentials-section"
+        aria-labelledby="credentials-title"
+        dir={language === "ar" ? "rtl" : "ltr"}
+      >
+        <div className="credentials-section__ambient" aria-hidden="true" />
+        <div className="credentials-section__inner">
+          <header className="credentials-section__header scroll-reveal" data-scroll-reveal>
+            <p className="credentials-section__label">
+              <BidiText>{credentials.label}</BidiText>
+            </p>
+            <h2 id="credentials-title">
+              <BidiText>{credentials.title}</BidiText>
+            </h2>
+            <span className="credentials-section__rule" aria-hidden="true" />
+          </header>
+
+          <div className="credentials-grid" role="list">
+            {credentials.items.map((credential, i) => (
+              <article
+                key={credential.title}
+                className="credential-card scroll-reveal"
+                data-scroll-reveal
+                role="listitem"
+                style={{ transitionDelay: `${i * 90}ms` }}
+              >
+                <p className="credential-card__eyebrow" aria-hidden="true">
+                  {formatLocalizedNumber(i + 1, language, { minimumIntegerDigits: 2 })}
+                </p>
+                <div className="credential-card__heading">
+                  <h3>
+                    <BidiText>{credential.title}</BidiText>
+                  </h3>
+                </div>
+
+                <dl className="credential-card__details">
+                  <div className="credential-card__detail">
+                    <dt>
+                      <BidiText>{credential.numberLabel}</BidiText>
+                    </dt>
+                    <dd>{credential.number}</dd>
+                  </div>
+                  <div className="credential-card__detail">
+                    <dt>
+                      <BidiText>{credentials.activityLabel}</BidiText>
+                    </dt>
+                    <dd>
+                      <BidiText>{credential.activity}</BidiText>
+                    </dd>
+                  </div>
+                  <div className="credential-card__detail">
+                    <dt>
+                      <BidiText>{credentials.issueLabel}</BidiText>
+                    </dt>
+                    <dd>{credential.issue}</dd>
+                  </div>
+                  <div className="credential-card__detail">
+                    <dt>
+                      <BidiText>{credentials.expiryLabel}</BidiText>
+                    </dt>
+                    <dd>{credential.expiry}</dd>
+                  </div>
+                </dl>
+
+                <div className="credential-card__actions" aria-label={credentials.title}>
+                  {credential.actions.map((action) => (
+                    <a
+                      key={action.href}
+                      href={action.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={action.ariaLabel}
+                      className={`credential-card__action credential-card__action--${action.tone}`}
+                    >
+                      <BidiText>{action.label}</BidiText>
+                      <ArrowRight className="lang-arrow h-3.5 w-3.5" aria-hidden="true" />
+                    </a>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
