@@ -5001,6 +5001,11 @@ body[data-lang="ar"] .process-timeline__copy p {
   padding: clamp(1.35rem, 3vw, 2.25rem);
 }
 
+.credentials-grid .credential-card {
+  opacity: 1;
+  transform: none;
+}
+
 .credential-card::before,
 .credential-card::after {
   position: absolute;

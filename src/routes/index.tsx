@@ -998,13 +998,7 @@ function Index() {
 
           <div className="credentials-grid" role="list">
             {credentials.items.map((credential, i) => (
-              <article
-                key={credential.title}
-                className="credential-card scroll-reveal"
-                data-scroll-reveal
-                role="listitem"
-                style={{ transitionDelay: `${i * 90}ms` }}
-              >
+              <article key={credential.title} className="credential-card" role="listitem">
                 <p className="credential-card__eyebrow" aria-hidden="true">
                   {formatLocalizedNumber(i + 1, language, { minimumIntegerDigits: 2 })}
                 </p>
