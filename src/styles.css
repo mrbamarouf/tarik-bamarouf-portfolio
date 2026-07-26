@@ -499,6 +499,13 @@ body[data-lang="ar"] .site-header__mobile-social {
     backdrop-filter: none;
   }
 
+  .site-header.site-header--menu-open .site-header__mobile-menu {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translate3d(0, 0, 0) !important;
+    pointer-events: auto !important;
+  }
+
   .site-header__mobile-menu nav {
     width: 100%;
     justify-content: center;

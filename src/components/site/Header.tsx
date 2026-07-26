@@ -160,12 +160,16 @@ export function Header() {
       updateAtTop(nextAtTop);
 
       if (isMobile) {
-        if (openRef.current || nextAtTop || delta < -1) {
+        if (openRef.current) {
+          updateShowChrome(true);
+          return;
+        }
+
+        if (nextAtTop || delta < -1) {
           updateShowChrome(true);
         } else if (currentScrollY > 72 && delta > 8) {
           hasMobileScrollIntent.current = true;
           updateShowChrome(false);
-          updateOpen(false);
         }
       } else {
         const nextHeroVisible = getHeroVisibility();
@@ -234,6 +238,10 @@ export function Header() {
 
     const resetMobileChrome = () => {
       if (!mobileQuery.matches) return;
+
+      if (openRef.current) {
+        unlockMobileMenuScroll({ restorePosition: false });
+      }
 
       syncMobileChromeVisible();
       updateOpen(false);
@@ -392,12 +400,12 @@ export function Header() {
       syncMobileChromeVisible();
     }
 
-    const nextOpen = !openRef.current;
-    if (!nextOpen) {
+    if (openRef.current) {
       closeMobileMenu();
       return;
     }
-    updateOpen(nextOpen);
+
+    updateOpen(true);
   };
 
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -410,9 +418,11 @@ export function Header() {
     }
   };
 
-  const chromeVisible = isMobileViewport
-    ? showChrome || atTop || open
-    : heroVisible && (showChrome || atTop || open);
+  const chromeVisible = open
+    ? true
+    : isMobileViewport
+      ? showChrome || atTop
+      : heroVisible && (showChrome || atTop);
 
   return (
     <header
@@ -520,7 +530,7 @@ export function Header() {
         </button>
       </div>
 
-      {open && chromeVisible && (
+      {open && (
         <div
           ref={mobileMenuRef}
           id="mobile-navigation"
