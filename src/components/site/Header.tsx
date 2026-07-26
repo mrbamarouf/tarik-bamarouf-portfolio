@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import type { MouseEvent } from "react";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { InstagramIcon, TikTokIcon } from "@/components/icons/SocialIcons";
 import bamaroufStudioLogoMark from "@/assets/bamarouf-studio-logo-mark.png";
 import signature from "@/assets/signature.webp";
@@ -153,13 +154,11 @@ export function Header() {
 
       if (!nextHeroVisible) {
         updateShowChrome(false);
-        setIsMobileMenuOpen(false);
       } else if (nextAtTop) {
         updateShowChrome(true);
       } else if (Math.abs(delta) > 6) {
         const scrollingDown = delta > 0;
         updateShowChrome(!scrollingDown);
-        if (scrollingDown) setIsMobileMenuOpen(false);
       }
 
       lastScrollY.current = currentScrollY;
@@ -204,7 +203,6 @@ export function Header() {
         updateHeroVisible(nextHeroVisible);
         if (!nextHeroVisible) {
           updateShowChrome(false);
-          setIsMobileMenuOpen(false);
         }
       }
     };
@@ -268,7 +266,6 @@ export function Header() {
     }
 
     const scrollY = getWindowScrollY();
-    syncMobileChromeVisible(scrollY);
     document.body.dataset.mobileMenuScrollY = String(scrollY);
     document.body.style.setProperty("--mobile-menu-scroll-y", `-${scrollY}px`);
     document.documentElement.classList.add(MOBILE_MENU_LOCK_CLASS);
@@ -311,11 +308,7 @@ export function Header() {
   }, [isMobileMenuOpen]);
 
   const closeMobileMenu = () => {
-    const restoredScrollY = unlockMobileMenuScroll();
-    if (window.matchMedia(MOBILE_MENU_MEDIA_QUERY).matches) {
-      syncMobileChromeVisible(restoredScrollY);
-      window.requestAnimationFrame(() => syncMobileChromeVisible());
-    }
+    unlockMobileMenuScroll();
     setIsMobileMenuOpen(false);
   };
 
@@ -343,6 +336,101 @@ export function Header() {
     : isMobileMenuOpen
     ? true
     : heroVisible && (showChrome || atTop);
+
+  const mobileMenuPortal =
+    isMobileMenuOpen && typeof document !== "undefined"
+      ? createPortal(
+          <div
+            ref={mobileMenuRef}
+            id="mobile-navigation"
+            className="site-header__mobile-menu md:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label={t.nav.menu}
+          >
+            <button
+              type="button"
+              onClick={closeMobileMenu}
+              aria-label={t.nav.close}
+              className="site-header__mobile-close text-[10px] uppercase tracking-editorial text-bronze transition-colors duration-300 hover:text-bronze-soft"
+            >
+              {t.nav.close}
+            </button>
+
+            <nav className="flex flex-col gap-6 px-6 py-8">
+              {nav.map((item) =>
+                item.kind === "route" ? (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    onClick={closeMobileMenu}
+                    className="site-header__nav-link text-sm uppercase tracking-editorial text-foreground/80 hover:text-bronze"
+                  >
+                    {t.nav[item.key]}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.to}
+                    href={item.to}
+                    onClick={closeMobileMenu}
+                    className="site-header__nav-link text-sm uppercase tracking-editorial text-foreground/80 hover:text-bronze"
+                  >
+                    {t.nav[item.key]}
+                  </a>
+                ),
+              )}
+              <a
+                href={BAMAROUF_STUDIO_URL}
+                onClick={closeMobileMenu}
+                aria-label={t.nav.studioLabel}
+                className="site-header__mobile-studio"
+                dir={language === "ar" ? "rtl" : "ltr"}
+              >
+                <img
+                  src={bamaroufStudioLogoMark}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="site-header__mobile-studio-mark"
+                />
+                <span className="site-header__studio-name">{t.nav.studio}</span>
+              </a>
+              <nav className="site-header__mobile-social" aria-label={t.footer.socialLabel}>
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t.footer.instagramLabel}
+                  className="site-header__mobile-social-link"
+                >
+                  <InstagramIcon className="site-header__mobile-social-icon" />
+                </a>
+                <a
+                  href={TIKTOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t.footer.tiktokLabel}
+                  className="site-header__mobile-social-link"
+                >
+                  <TikTokIcon className="site-header__mobile-social-icon" />
+                </a>
+              </nav>
+              <button
+                type="button"
+                onClick={() => {
+                  closeMobileMenu();
+                  toggleLanguage();
+                }}
+                aria-label={t.nav.switchLabel}
+                className="w-fit text-sm uppercase tracking-editorial text-bronze hover:text-bronze-soft"
+              >
+                {t.nav.switchTo}
+              </button>
+            </nav>
+          </div>,
+          document.body,
+        )
+      : null;
 
   return (
     <>
@@ -452,89 +540,7 @@ export function Header() {
         </div>
       </header>
 
-      {isMobileMenuOpen && (
-        <div className="site-header__mobile-overlay md:hidden" role="presentation">
-          <div
-            ref={mobileMenuRef}
-            id="mobile-navigation"
-            className="site-header__mobile-menu border-t border-bronze/10"
-            role="dialog"
-            aria-modal="true"
-            aria-label={t.nav.menu}
-          >
-            <nav className="flex flex-col gap-6 px-6 py-8">
-              {nav.map((item) =>
-                item.kind === "route" ? (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    onClick={closeMobileMenu}
-                    className="site-header__nav-link text-sm uppercase tracking-editorial text-foreground/80 hover:text-bronze"
-                  >
-                    {t.nav[item.key]}
-                  </Link>
-                ) : (
-                  <a
-                    key={item.to}
-                    href={item.to}
-                    onClick={closeMobileMenu}
-                    className="site-header__nav-link text-sm uppercase tracking-editorial text-foreground/80 hover:text-bronze"
-                  >
-                    {t.nav[item.key]}
-                  </a>
-                ),
-              )}
-              <a
-                href={BAMAROUF_STUDIO_URL}
-                onClick={closeMobileMenu}
-                aria-label={t.nav.studioLabel}
-                className="site-header__mobile-studio"
-                dir={language === "ar" ? "rtl" : "ltr"}
-              >
-                <img
-                  src={bamaroufStudioLogoMark}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  className="site-header__mobile-studio-mark"
-                />
-                <span className="site-header__studio-name">{t.nav.studio}</span>
-              </a>
-              <nav className="site-header__mobile-social" aria-label={t.footer.socialLabel}>
-                <a
-                  href={INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={t.footer.instagramLabel}
-                  className="site-header__mobile-social-link"
-                >
-                  <InstagramIcon className="site-header__mobile-social-icon" />
-                </a>
-                <a
-                  href={TIKTOK_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={t.footer.tiktokLabel}
-                  className="site-header__mobile-social-link"
-                >
-                  <TikTokIcon className="site-header__mobile-social-icon" />
-                </a>
-              </nav>
-              <button
-                type="button"
-                onClick={() => {
-                  toggleLanguage();
-                  closeMobileMenu();
-                }}
-                aria-label={t.nav.switchLabel}
-                className="w-fit text-sm uppercase tracking-editorial text-bronze hover:text-bronze-soft"
-              >
-                {t.nav.switchTo}
-              </button>
-            </nav>
-          </div>
-        </div>
-      )}
+      {mobileMenuPortal}
     </>
   );
 }
