@@ -6,7 +6,7 @@ import { InstagramIcon, TikTokIcon } from "@/components/icons/SocialIcons";
 import bamaroufStudioLogoMark from "@/assets/bamarouf-studio-logo-mark.png";
 import signature from "@/assets/signature.webp";
 import { INSTAGRAM_URL, TIKTOK_URL } from "@/lib/contact";
-import { siteCopy, useLanguage } from "@/lib/language";
+import { formatLocalizedNumber, siteCopy, useLanguage } from "@/lib/language";
 
 const MOBILE_MENU_MEDIA_QUERY = "(max-width: 767px)";
 const MOBILE_MENU_LOCK_CLASS = "mobile-menu-scroll-lock";
@@ -34,6 +34,37 @@ const nav = [
   { to: "/#credentials", key: "credentials", kind: "anchor" },
   { to: "/contact", key: "contact", kind: "route" },
 ] as const;
+
+const mobileNav = [
+  { to: "/", key: "home", kind: "route" },
+  { to: "/about", key: "about", kind: "route" },
+  { to: "/work", key: "work", kind: "route" },
+  { to: "/#services", key: "services", kind: "anchor" },
+  { to: "/#process", key: "process", kind: "anchor" },
+  { to: "/#credentials", key: "credentials", kind: "anchor" },
+  { to: "/contact", key: "contact", kind: "route" },
+] as const;
+
+const mobileNavLabels = {
+  en: {
+    home: "Home",
+    about: "About",
+    work: "Work",
+    services: "Services",
+    process: "Process",
+    credentials: "Credentials",
+    contact: "Contact",
+  },
+  ar: {
+    home: "الرئيسية",
+    about: "عني",
+    work: "الأعمال",
+    services: "الخدمات",
+    process: "آلية العمل",
+    credentials: "الاعتمادات",
+    contact: "التواصل",
+  },
+} as const;
 
 function getWindowScrollY() {
   if (typeof window === "undefined") return 0;
@@ -347,38 +378,77 @@ export function Header() {
             role="dialog"
             aria-modal="true"
             aria-label={t.nav.menu}
+            dir={language === "ar" ? "rtl" : "ltr"}
           >
-            <button
-              type="button"
-              onClick={closeMobileMenu}
-              aria-label={t.nav.close}
-              className="site-header__mobile-close text-[10px] uppercase tracking-editorial text-bronze transition-colors duration-300 hover:text-bronze-soft"
-            >
-              {t.nav.close}
-            </button>
+            <div className="site-header__mobile-panel">
+              <div className="site-header__mobile-top">
+                <Link
+                  to="/"
+                  onClick={handleLogoClick}
+                  className="site-header__mobile-brand"
+                  aria-label={`Tarik Bamarouf ${t.nav.home}`}
+                >
+                  <img
+                    src={signature}
+                    alt="Tarik Bamarouf"
+                    decoding="async"
+                    className="site-header__mobile-brand-mark"
+                  />
+                </Link>
 
-            <nav className="flex flex-col gap-6 px-6 py-8">
-              {nav.map((item) =>
-                item.kind === "route" ? (
-                  <Link
-                    key={item.to}
-                    to={item.to}
-                    onClick={closeMobileMenu}
-                    className="site-header__nav-link text-sm uppercase tracking-editorial text-foreground/80 hover:text-bronze"
+                <div className="site-header__mobile-controls">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      closeMobileMenu();
+                      toggleLanguage();
+                    }}
+                    aria-label={t.nav.switchLabel}
+                    className="site-header__mobile-lang"
                   >
-                    {t.nav[item.key]}
-                  </Link>
-                ) : (
-                  <a
-                    key={item.to}
-                    href={item.to}
+                    {language === "ar" ? "EN" : "AR"}
+                  </button>
+                  <button
+                    type="button"
                     onClick={closeMobileMenu}
-                    className="site-header__nav-link text-sm uppercase tracking-editorial text-foreground/80 hover:text-bronze"
+                    aria-label={t.nav.close}
+                    className="site-header__mobile-close"
                   >
-                    {t.nav[item.key]}
-                  </a>
-                ),
-              )}
+                    {t.nav.close}
+                  </button>
+                </div>
+              </div>
+
+              <nav className="site-header__mobile-primary" aria-label={t.nav.menu}>
+                {mobileNav.map((item, index) =>
+                  item.kind === "route" ? (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      onClick={closeMobileMenu}
+                      className="site-header__mobile-nav-link"
+                    >
+                      <span className="site-header__mobile-nav-index">
+                        {formatLocalizedNumber(index + 1, language, { minimumIntegerDigits: 2 })}
+                      </span>
+                      <span>{mobileNavLabels[language][item.key]}</span>
+                    </Link>
+                  ) : (
+                    <a
+                      key={item.to}
+                      href={item.to}
+                      onClick={closeMobileMenu}
+                      className="site-header__mobile-nav-link"
+                    >
+                      <span className="site-header__mobile-nav-index">
+                        {formatLocalizedNumber(index + 1, language, { minimumIntegerDigits: 2 })}
+                      </span>
+                      <span>{mobileNavLabels[language][item.key]}</span>
+                    </a>
+                  ),
+                )}
+              </nav>
+
               <a
                 href={BAMAROUF_STUDIO_URL}
                 onClick={closeMobileMenu}
@@ -394,8 +464,11 @@ export function Header() {
                   className="site-header__mobile-studio-mark"
                 />
                 <span className="site-header__studio-name">{t.nav.studio}</span>
+                <span className="site-header__mobile-studio-label">{t.nav.studioLabel}</span>
               </a>
+
               <nav className="site-header__mobile-social" aria-label={t.footer.socialLabel}>
+                <span className="site-header__mobile-social-label">{t.footer.socialLabel}</span>
                 <a
                   href={INSTAGRAM_URL}
                   target="_blank"
@@ -415,18 +488,7 @@ export function Header() {
                   <TikTokIcon className="site-header__mobile-social-icon" />
                 </a>
               </nav>
-              <button
-                type="button"
-                onClick={() => {
-                  closeMobileMenu();
-                  toggleLanguage();
-                }}
-                aria-label={t.nav.switchLabel}
-                className="w-fit text-sm uppercase tracking-editorial text-bronze hover:text-bronze-soft"
-              >
-                {t.nav.switchTo}
-              </button>
-            </nav>
+            </div>
           </div>,
           document.body,
         )
