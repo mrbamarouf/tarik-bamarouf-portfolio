@@ -449,10 +449,11 @@ body[data-lang="ar"] .site-header__mobile-social {
     touch-action: none;
   }
 
-  .site-header[aria-hidden="false"],
-  .site-header[aria-hidden="false"] .site-header__logo,
-  .site-header[aria-hidden="false"] .site-header__logo img,
-  .site-header[aria-hidden="false"] button[aria-controls="mobile-navigation"] {
+  .site-header,
+  .site-header .site-header__logo,
+  .site-header .site-header__logo img,
+  .site-header button[aria-controls="mobile-navigation"] {
+    visibility: visible !important;
     opacity: 1 !important;
     filter: none !important;
     transform: translate3d(0, 0, 0) !important;
