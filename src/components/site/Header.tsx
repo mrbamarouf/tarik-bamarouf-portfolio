@@ -116,6 +116,8 @@ export function Header() {
   const t = siteCopy[language];
   const locationHref = useRouterState({ select: (state) => state.location.href });
   const lastScrollY = useRef(0);
+  const previousLocationHrefRef = useRef(locationHref);
+  const hasSyncedMobileRouteRef = useRef(false);
   const isMobileViewportRef = useRef(false);
   const atTopRef = useRef(true);
   const heroVisibleRef = useRef(true);
@@ -243,12 +245,18 @@ export function Header() {
       resizeFrame = window.requestAnimationFrame(updateForResize);
     };
 
-    const resetMobileChrome = () => {
+    const resetMobileChrome = (event: Event) => {
       if (!mobileQuery.matches) return;
 
       unlockMobileMenuScroll({ restorePosition: false });
       syncMobileChromeVisible();
-      setIsMobileMenuOpen(false);
+
+      const isRestoredPageShow =
+        event.type === "pageshow" && "persisted" in event && Boolean(event.persisted);
+
+      if (event.type === "popstate" || event.type === "hashchange" || isRestoredPageShow) {
+        setIsMobileMenuOpen(false);
+      }
     };
 
     window.addEventListener("resize", onResize);
@@ -271,18 +279,29 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    if (!window.matchMedia(MOBILE_MENU_MEDIA_QUERY).matches) return;
+    if (!window.matchMedia(MOBILE_MENU_MEDIA_QUERY).matches) {
+      previousLocationHrefRef.current = locationHref;
+      return undefined;
+    }
+
+    const locationChanged = previousLocationHrefRef.current !== locationHref;
+    previousLocationHrefRef.current = locationHref;
 
     unlockMobileMenuScroll({ restorePosition: false });
     syncMobileChromeVisible();
-    setIsMobileMenuOpen(false);
+
+    if (hasSyncedMobileRouteRef.current && locationChanged) {
+      setIsMobileMenuOpen(false);
+    } else {
+      hasSyncedMobileRouteRef.current = true;
+    }
 
     const syncFrame = window.requestAnimationFrame(() => {
       syncMobileChromeVisible();
     });
 
     return () => window.cancelAnimationFrame(syncFrame);
-  }, [language, locationHref]);
+  }, [locationHref]);
 
   useEffect(() => {
     const mobileQuery = window.matchMedia(MOBILE_MENU_MEDIA_QUERY);
@@ -340,16 +359,21 @@ export function Header() {
 
   const closeMobileMenu = () => {
     unlockMobileMenuScroll();
+    syncMobileChromeVisible();
     setIsMobileMenuOpen(false);
   };
 
   const toggleMobileMenu = () => {
-    if (isMobileMenuOpen) {
-      closeMobileMenu();
-      return;
-    }
+    setIsMobileMenuOpen((open) => {
+      if (open) {
+        unlockMobileMenuScroll();
+        syncMobileChromeVisible();
+        return false;
+      }
 
-    setIsMobileMenuOpen(true);
+      syncMobileChromeVisible();
+      return true;
+    });
   };
 
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
