@@ -88,7 +88,6 @@ export function Header() {
   const atTopRef = useRef(true);
   const heroVisibleRef = useRef(true);
   const showChromeRef = useRef(true);
-  const isMobileMenuOpenRef = useRef(false);
   const mobileMenuButtonRef = useRef<HTMLButtonElement | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
   const [isMobileViewport, setIsMobileViewport] = useState(false);
@@ -119,12 +118,6 @@ export function Header() {
     if (showChromeRef.current === next) return;
     showChromeRef.current = next;
     setShowChrome(next);
-  };
-
-  const updateMobileMenuOpen = (next: boolean) => {
-    if (isMobileMenuOpenRef.current === next) return;
-    isMobileMenuOpenRef.current = next;
-    setIsMobileMenuOpen(next);
   };
 
   const syncMobileChromeVisible = (scrollY = getWindowScrollY()) => {
@@ -160,13 +153,13 @@ export function Header() {
 
       if (!nextHeroVisible) {
         updateShowChrome(false);
-        updateMobileMenuOpen(false);
+        setIsMobileMenuOpen(false);
       } else if (nextAtTop) {
         updateShowChrome(true);
       } else if (Math.abs(delta) > 6) {
         const scrollingDown = delta > 0;
         updateShowChrome(!scrollingDown);
-        if (scrollingDown) updateMobileMenuOpen(false);
+        if (scrollingDown) setIsMobileMenuOpen(false);
       }
 
       lastScrollY.current = currentScrollY;
@@ -211,7 +204,7 @@ export function Header() {
         updateHeroVisible(nextHeroVisible);
         if (!nextHeroVisible) {
           updateShowChrome(false);
-          updateMobileMenuOpen(false);
+          setIsMobileMenuOpen(false);
         }
       }
     };
@@ -224,19 +217,15 @@ export function Header() {
     const resetMobileChrome = () => {
       if (!mobileQuery.matches) return;
 
-      if (isMobileMenuOpenRef.current) {
-        unlockMobileMenuScroll({ restorePosition: false });
-      }
-
+      unlockMobileMenuScroll({ restorePosition: false });
       syncMobileChromeVisible();
-      updateMobileMenuOpen(false);
+      setIsMobileMenuOpen(false);
     };
 
     window.addEventListener("resize", onResize);
     window.addEventListener("pageshow", resetMobileChrome);
     window.addEventListener("popstate", resetMobileChrome);
     window.addEventListener("hashchange", resetMobileChrome);
-    window.addEventListener("focus", resetMobileChrome);
     window.addEventListener("orientationchange", resetMobileChrome);
     mobileQuery.addEventListener("change", onResize);
     return () => {
@@ -247,7 +236,6 @@ export function Header() {
       window.removeEventListener("pageshow", resetMobileChrome);
       window.removeEventListener("popstate", resetMobileChrome);
       window.removeEventListener("hashchange", resetMobileChrome);
-      window.removeEventListener("focus", resetMobileChrome);
       window.removeEventListener("orientationchange", resetMobileChrome);
       mobileQuery.removeEventListener("change", onResize);
     };
@@ -258,7 +246,7 @@ export function Header() {
 
     unlockMobileMenuScroll({ restorePosition: false });
     syncMobileChromeVisible();
-    updateMobileMenuOpen(false);
+    setIsMobileMenuOpen(false);
 
     const syncFrame = window.requestAnimationFrame(() => {
       syncMobileChromeVisible();
@@ -288,7 +276,7 @@ export function Header() {
 
     const handleMediaChange = (event: MediaQueryListEvent) => {
       if (!event.matches) {
-        updateMobileMenuOpen(false);
+        setIsMobileMenuOpen(false);
       }
     };
 
@@ -311,7 +299,7 @@ export function Header() {
       event.preventDefault();
       const restoredScrollY = unlockMobileMenuScroll();
       syncMobileChromeVisible(restoredScrollY);
-      updateMobileMenuOpen(false);
+      setIsMobileMenuOpen(false);
       window.requestAnimationFrame(() => mobileMenuButtonRef.current?.focus());
     };
 
@@ -328,16 +316,16 @@ export function Header() {
       syncMobileChromeVisible(restoredScrollY);
       window.requestAnimationFrame(() => syncMobileChromeVisible());
     }
-    updateMobileMenuOpen(false);
+    setIsMobileMenuOpen(false);
   };
 
   const toggleMobileMenu = () => {
-    if (isMobileMenuOpenRef.current) {
+    if (isMobileMenuOpen) {
       closeMobileMenu();
       return;
     }
 
-    updateMobileMenuOpen(true);
+    setIsMobileMenuOpen(true);
   };
 
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -357,125 +345,52 @@ export function Header() {
     : heroVisible && (showChrome || atTop);
 
   return (
-    <header
-      className={`site-header ${isMobileMenuOpen ? "site-header--menu-open" : ""} fixed left-0 right-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter,padding,opacity,transform,filter] duration-700 ease-out ${
+    <>
+      <header
+        className={`site-header fixed left-0 right-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter,padding,opacity,transform,filter] duration-700 ease-out ${
         chromeVisible
           ? atTop
             ? "border-transparent bg-transparent py-5 md:py-7"
             : "border-bronze/10 bg-background/76 py-3 backdrop-blur-md"
           : "pointer-events-none -translate-y-4 border-transparent bg-transparent py-4 opacity-0 blur-[2px] backdrop-blur-0"
-      }`}
-      aria-hidden={!chromeVisible}
-    >
-      <div className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-6 px-6 md:px-10 lg:px-14">
-        <Link
-          to="/"
-          onClick={handleLogoClick}
-          className="site-header__logo group pointer-events-auto flex translate-y-0 items-center transition-transform duration-700 ease-out"
-          aria-label={`Tarik Bamarouf ${t.nav.home}`}
-        >
-          <img
-            src={signature}
-            alt="Tarik Bamarouf"
-            decoding="async"
-            className={`h-auto drop-shadow-[0_8px_24px_oklch(0.72_0.09_70/.14)] transition-all duration-700 ease-out group-hover:opacity-100 group-hover:brightness-125 ${
-              chromeVisible
-                ? "w-[142px] opacity-100 md:w-[178px]"
-                : "w-[132px] opacity-0 md:w-[162px]"
-            }`}
-          />
-        </Link>
-
-        <nav
-          className={`hidden items-center justify-center gap-10 transition-all duration-700 ease-out md:flex ${
-            chromeVisible
-              ? "pointer-events-auto translate-y-0 opacity-100 blur-0"
-              : "pointer-events-none -translate-y-3 opacity-0 blur-[2px]"
-          }`}
-          aria-hidden={!chromeVisible}
-        >
-          {nav.map((item) =>
-            item.kind === "route" ? (
-              <Link
-                key={item.to}
-                to={item.to}
-                className="site-header__nav-link text-[10px] uppercase tracking-editorial text-foreground/78 transition-colors duration-500 hover:text-bronze"
-                activeProps={{ className: "text-bronze" }}
-                activeOptions={{ exact: true }}
-              >
-                {t.nav[item.key]}
-              </Link>
-            ) : (
-              <a
-                key={item.to}
-                href={item.to}
-                className="site-header__nav-link text-[10px] uppercase tracking-editorial text-foreground/78 transition-colors duration-500 hover:text-bronze"
-              >
-                {t.nav[item.key]}
-              </a>
-            ),
-          )}
-        </nav>
-
-        <div
-          className={`site-header__actions hidden justify-self-end transition-all duration-700 ease-out md:flex ${
-            chromeVisible
-              ? "pointer-events-auto translate-y-0 opacity-100 blur-0"
-              : "pointer-events-none -translate-y-3 opacity-0 blur-[2px]"
-          }`}
-        >
-          <a
-            href={BAMAROUF_STUDIO_URL}
-            aria-label={t.nav.studioLabel}
-            className="site-header__studio-link"
+        }`}
+        aria-hidden={!chromeVisible}
+      >
+        <div className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-6 px-6 md:px-10 lg:px-14">
+          <Link
+            to="/"
+            onClick={handleLogoClick}
+            className="site-header__logo group pointer-events-auto flex translate-y-0 items-center transition-transform duration-700 ease-out"
+            aria-label={`Tarik Bamarouf ${t.nav.home}`}
           >
             <img
-              src={bamaroufStudioLogoMark}
-              alt=""
+              src={signature}
+              alt="Tarik Bamarouf"
               decoding="async"
-              className="site-header__studio-mark"
+              className={`h-auto drop-shadow-[0_8px_24px_oklch(0.72_0.09_70/.14)] transition-all duration-700 ease-out group-hover:opacity-100 group-hover:brightness-125 ${
+                chromeVisible
+                  ? "w-[142px] opacity-100 md:w-[178px]"
+                  : "w-[132px] opacity-0 md:w-[162px]"
+              }`}
             />
-          </a>
-          <button
-            type="button"
-            onClick={toggleLanguage}
-            aria-label={t.nav.switchLabel}
-            className="text-[10px] uppercase tracking-editorial text-bronze transition-colors duration-500 hover:text-bronze-soft"
+          </Link>
+
+          <nav
+            className={`hidden items-center justify-center gap-10 transition-all duration-700 ease-out md:flex ${
+              chromeVisible
+                ? "pointer-events-auto translate-y-0 opacity-100 blur-0"
+                : "pointer-events-none -translate-y-3 opacity-0 blur-[2px]"
+            }`}
+            aria-hidden={!chromeVisible}
           >
-            {t.nav.switchTo}
-          </button>
-        </div>
-
-        <button
-          ref={mobileMenuButtonRef}
-          className={`justify-self-end text-[10px] uppercase tracking-editorial text-bronze transition-all duration-700 ease-out md:hidden ${
-            chromeVisible
-              ? "pointer-events-auto translate-y-0 opacity-100 blur-0"
-              : "pointer-events-none -translate-y-3 opacity-0 blur-[2px]"
-          }`}
-          onClick={toggleMobileMenu}
-          aria-controls="mobile-navigation"
-          aria-expanded={isMobileMenuOpen}
-          aria-label={isMobileMenuOpen ? t.nav.close : t.nav.menu}
-        >
-          {isMobileMenuOpen ? t.nav.close : t.nav.menu}
-        </button>
-      </div>
-
-      {isMobileMenuOpen && (
-        <div
-          ref={mobileMenuRef}
-          id="mobile-navigation"
-          className="site-header__mobile-menu mt-5 border-t border-bronze/10 bg-background/95 backdrop-blur-md md:hidden"
-        >
-          <nav className="flex flex-col gap-6 px-6 py-8">
             {nav.map((item) =>
               item.kind === "route" ? (
                 <Link
                   key={item.to}
                   to={item.to}
-                  onClick={closeMobileMenu}
-                  className="site-header__nav-link text-sm uppercase tracking-editorial text-foreground/80 hover:text-bronze"
+                  className="site-header__nav-link text-[10px] uppercase tracking-editorial text-foreground/78 transition-colors duration-500 hover:text-bronze"
+                  activeProps={{ className: "text-bronze" }}
+                  activeOptions={{ exact: true }}
                 >
                   {t.nav[item.key]}
                 </Link>
@@ -483,63 +398,143 @@ export function Header() {
                 <a
                   key={item.to}
                   href={item.to}
-                  onClick={closeMobileMenu}
-                  className="site-header__nav-link text-sm uppercase tracking-editorial text-foreground/80 hover:text-bronze"
+                  className="site-header__nav-link text-[10px] uppercase tracking-editorial text-foreground/78 transition-colors duration-500 hover:text-bronze"
                 >
                   {t.nav[item.key]}
                 </a>
               ),
             )}
+          </nav>
+
+          <div
+            className={`site-header__actions hidden justify-self-end transition-all duration-700 ease-out md:flex ${
+              chromeVisible
+                ? "pointer-events-auto translate-y-0 opacity-100 blur-0"
+                : "pointer-events-none -translate-y-3 opacity-0 blur-[2px]"
+            }`}
+          >
             <a
               href={BAMAROUF_STUDIO_URL}
-              onClick={closeMobileMenu}
               aria-label={t.nav.studioLabel}
-              className="site-header__mobile-studio"
-              dir={language === "ar" ? "rtl" : "ltr"}
+              className="site-header__studio-link"
             >
               <img
                 src={bamaroufStudioLogoMark}
                 alt=""
-                loading="lazy"
                 decoding="async"
-                className="site-header__mobile-studio-mark"
+                className="site-header__studio-mark"
               />
-              <span className="site-header__studio-name">{t.nav.studio}</span>
             </a>
-            <nav className="site-header__mobile-social" aria-label={t.footer.socialLabel}>
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t.footer.instagramLabel}
-                className="site-header__mobile-social-link"
-              >
-                <InstagramIcon className="site-header__mobile-social-icon" />
-              </a>
-              <a
-                href={TIKTOK_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t.footer.tiktokLabel}
-                className="site-header__mobile-social-link"
-              >
-                <TikTokIcon className="site-header__mobile-social-icon" />
-              </a>
-            </nav>
             <button
               type="button"
-              onClick={() => {
-                toggleLanguage();
-                closeMobileMenu();
-              }}
+              onClick={toggleLanguage}
               aria-label={t.nav.switchLabel}
-              className="w-fit text-sm uppercase tracking-editorial text-bronze hover:text-bronze-soft"
+              className="text-[10px] uppercase tracking-editorial text-bronze transition-colors duration-500 hover:text-bronze-soft"
             >
               {t.nav.switchTo}
             </button>
-          </nav>
+          </div>
+
+          <button
+            ref={mobileMenuButtonRef}
+            className={`justify-self-end text-[10px] uppercase tracking-editorial text-bronze transition-all duration-700 ease-out md:hidden ${
+              chromeVisible
+                ? "pointer-events-auto translate-y-0 opacity-100 blur-0"
+                : "pointer-events-none -translate-y-3 opacity-0 blur-[2px]"
+            }`}
+            onClick={toggleMobileMenu}
+            aria-controls="mobile-navigation"
+            aria-expanded={isMobileMenuOpen}
+            aria-label={isMobileMenuOpen ? t.nav.close : t.nav.menu}
+          >
+            {isMobileMenuOpen ? t.nav.close : t.nav.menu}
+          </button>
+        </div>
+      </header>
+
+      {isMobileMenuOpen && (
+        <div className="site-header__mobile-overlay md:hidden" role="presentation">
+          <div
+            ref={mobileMenuRef}
+            id="mobile-navigation"
+            className="site-header__mobile-menu border-t border-bronze/10"
+            role="dialog"
+            aria-modal="true"
+            aria-label={t.nav.menu}
+          >
+            <nav className="flex flex-col gap-6 px-6 py-8">
+              {nav.map((item) =>
+                item.kind === "route" ? (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    onClick={closeMobileMenu}
+                    className="site-header__nav-link text-sm uppercase tracking-editorial text-foreground/80 hover:text-bronze"
+                  >
+                    {t.nav[item.key]}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.to}
+                    href={item.to}
+                    onClick={closeMobileMenu}
+                    className="site-header__nav-link text-sm uppercase tracking-editorial text-foreground/80 hover:text-bronze"
+                  >
+                    {t.nav[item.key]}
+                  </a>
+                ),
+              )}
+              <a
+                href={BAMAROUF_STUDIO_URL}
+                onClick={closeMobileMenu}
+                aria-label={t.nav.studioLabel}
+                className="site-header__mobile-studio"
+                dir={language === "ar" ? "rtl" : "ltr"}
+              >
+                <img
+                  src={bamaroufStudioLogoMark}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="site-header__mobile-studio-mark"
+                />
+                <span className="site-header__studio-name">{t.nav.studio}</span>
+              </a>
+              <nav className="site-header__mobile-social" aria-label={t.footer.socialLabel}>
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t.footer.instagramLabel}
+                  className="site-header__mobile-social-link"
+                >
+                  <InstagramIcon className="site-header__mobile-social-icon" />
+                </a>
+                <a
+                  href={TIKTOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t.footer.tiktokLabel}
+                  className="site-header__mobile-social-link"
+                >
+                  <TikTokIcon className="site-header__mobile-social-icon" />
+                </a>
+              </nav>
+              <button
+                type="button"
+                onClick={() => {
+                  toggleLanguage();
+                  closeMobileMenu();
+                }}
+                aria-label={t.nav.switchLabel}
+                className="w-fit text-sm uppercase tracking-editorial text-bronze hover:text-bronze-soft"
+              >
+                {t.nav.switchTo}
+              </button>
+            </nav>
+          </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

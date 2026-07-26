@@ -461,54 +461,48 @@ body[data-lang="ar"] .site-header__mobile-social {
     transition-duration: 0ms !important;
   }
 
-  .site-header.site-header--menu-open {
-    inset: 0 !important;
-    z-index: 2147483000;
+  .site-header {
+    z-index: 2147483000 !important;
+  }
+
+  .site-header__mobile-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2147482000;
     width: 100vw;
     height: 100vh;
     height: 100dvh;
     max-height: 100dvh;
-    padding-top: max(1.25rem, env(safe-area-inset-top)) !important;
-    padding-bottom: max(1.25rem, env(safe-area-inset-bottom)) !important;
     overflow: hidden;
-    border-color: oklch(0.72 0.09 70 / 0.14) !important;
     background:
       radial-gradient(ellipse at 50% 0%, oklch(0.72 0.09 70 / 0.14), transparent 44%),
       linear-gradient(180deg, oklch(0.018 0.004 62 / 0.99), oklch(0.026 0.005 62 / 0.99) 52%, oklch(0.01 0.002 62 / 1));
-    opacity: 1 !important;
-    filter: none !important;
-    transform: none !important;
-    pointer-events: auto !important;
-    backdrop-filter: none !important;
-  }
-
-  .site-header.site-header--menu-open > .grid {
-    position: relative;
-    z-index: 2;
+    pointer-events: auto;
   }
 
   .site-header__mobile-menu {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     display: flex;
-    height: calc(100dvh - 6.5rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-    min-height: 24rem;
-    margin-top: 1.15rem;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    padding-top: calc(max(1.25rem, env(safe-area-inset-top)) + 4.75rem);
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+    overflow: auto;
     border-color: oklch(0.72 0.09 70 / 0.16);
     background: transparent;
     backdrop-filter: none;
-  }
-
-  .site-header.site-header--menu-open .site-header__mobile-menu {
     visibility: visible !important;
     opacity: 1 !important;
     transform: translate3d(0, 0, 0) !important;
     pointer-events: auto !important;
+    -webkit-overflow-scrolling: touch;
   }
 
   .site-header__mobile-menu nav {
     width: 100%;
+    min-height: 100%;
     justify-content: center;
     padding-top: clamp(2.25rem, 8svh, 4rem);
     padding-bottom: max(2rem, env(safe-area-inset-bottom));
