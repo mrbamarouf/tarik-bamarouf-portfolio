@@ -34,8 +34,17 @@ const nav = [
   { to: "/contact", key: "contact", kind: "route" },
 ] as const;
 
+function getWindowScrollY() {
+  if (typeof window === "undefined") return 0;
+
+  return Math.max(
+    0,
+    window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0,
+  );
+}
+
 function unlockMobileMenuScroll({ restorePosition = true } = {}) {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined") return 0;
 
   const lockWasActive =
     document.documentElement.classList.contains(MOBILE_MENU_LOCK_CLASS) ||
@@ -43,9 +52,10 @@ function unlockMobileMenuScroll({ restorePosition = true } = {}) {
     Boolean(document.body.dataset.mobileMenuScrollY);
   const isMobileMenuViewport = window.matchMedia(MOBILE_MENU_MEDIA_QUERY).matches;
 
-  if (!lockWasActive && !isMobileMenuViewport) return;
+  if (!lockWasActive && !isMobileMenuViewport) return getWindowScrollY();
 
-  const scrollY = Number(document.body.dataset.mobileMenuScrollY ?? "0");
+  const storedScrollY = Number(document.body.dataset.mobileMenuScrollY);
+  const scrollY = Number.isFinite(storedScrollY) ? storedScrollY : getWindowScrollY();
   const clearMenuLockStyles = () => {
     MOBILE_MENU_INLINE_LOCK_STYLES.forEach((property) => {
       document.documentElement.style.removeProperty(property);
@@ -65,6 +75,8 @@ function unlockMobileMenuScroll({ restorePosition = true } = {}) {
 
   window.requestAnimationFrame(clearMenuLockStyles);
   window.setTimeout(clearMenuLockStyles, 80);
+
+  return restorePosition && Number.isFinite(scrollY) ? scrollY : getWindowScrollY();
 }
 
 export function Header() {
@@ -116,17 +128,23 @@ export function Header() {
     setOpen(next);
   };
 
+  const syncMobileChromeVisible = (scrollY = getWindowScrollY()) => {
+    lastScrollY.current = scrollY;
+    hasMobileScrollIntent.current = false;
+    updateAtTop(scrollY <= 8);
+    updateShowChrome(true);
+  };
+
   useEffect(() => {
     const mobileQuery = window.matchMedia(MOBILE_MENU_MEDIA_QUERY);
     let scrollFrame = 0;
     let resizeFrame = 0;
-    const getScrollY = () =>
-      Math.max(0, window.scrollY || document.documentElement.scrollTop || 0);
+    let lastTouchClientY: number | null = null;
 
     const getHeroVisibility = () => {
       const hero = document.querySelector<HTMLElement>(".home-hero");
 
-      if (!hero) return getScrollY() <= 96;
+      if (!hero) return getWindowScrollY() <= 96;
 
       const rect = hero.getBoundingClientRect();
       return rect.bottom > 96 && rect.top < window.innerHeight;
@@ -134,7 +152,7 @@ export function Header() {
 
     const updateForScrollPosition = () => {
       scrollFrame = 0;
-      const currentScrollY = getScrollY();
+      const currentScrollY = getWindowScrollY();
       const nextAtTop = currentScrollY <= 8;
       const delta = currentScrollY - lastScrollY.current;
       const isMobile = mobileQuery.matches;
@@ -173,7 +191,7 @@ export function Header() {
       scrollFrame = window.requestAnimationFrame(updateForScrollPosition);
     };
 
-    lastScrollY.current = getScrollY();
+    lastScrollY.current = getWindowScrollY();
     isMobileViewportRef.current = mobileQuery.matches;
     atTopRef.current = lastScrollY.current <= 8;
     setIsMobileViewport(mobileQuery.matches);
@@ -189,7 +207,7 @@ export function Header() {
 
     const updateForResize = () => {
       resizeFrame = 0;
-      const currentScrollY = getScrollY();
+      const currentScrollY = getWindowScrollY();
       const isMobile = mobileQuery.matches;
 
       updateIsMobileViewport(isMobile);
@@ -217,22 +235,60 @@ export function Header() {
     const resetMobileChrome = () => {
       if (!mobileQuery.matches) return;
 
-      const currentScrollY = getScrollY();
-      lastScrollY.current = currentScrollY;
-      updateAtTop(currentScrollY <= 8);
-      updateShowChrome(true);
+      syncMobileChromeVisible();
       updateOpen(false);
-      hasMobileScrollIntent.current = false;
     };
 
-    const markMobileScrollIntent = () => {
-      if (mobileQuery.matches) hasMobileScrollIntent.current = true;
+    const showMobileChromeFromInput = () => {
+      if (!mobileQuery.matches) return;
+
+      syncMobileChromeVisible();
+    };
+
+    const handleTouchStart = (event: TouchEvent) => {
+      if (!mobileQuery.matches) return;
+
+      lastTouchClientY = event.touches[0]?.clientY ?? null;
+    };
+
+    const handleTouchMove = (event: TouchEvent) => {
+      if (!mobileQuery.matches || lastTouchClientY === null) return;
+
+      const nextTouchClientY = event.touches[0]?.clientY;
+      if (typeof nextTouchClientY !== "number") return;
+
+      const fingerMovingDown = nextTouchClientY - lastTouchClientY > 3;
+      if (fingerMovingDown) showMobileChromeFromInput();
+
+      lastTouchClientY = nextTouchClientY;
+    };
+
+    const handleTouchEnd = () => {
+      lastTouchClientY = null;
+      if (mobileQuery.matches && getWindowScrollY() <= 8) showMobileChromeFromInput();
+    };
+
+    const handleWheel = (event: WheelEvent) => {
+      if (!mobileQuery.matches) return;
+
+      if (event.deltaY < -1) {
+        showMobileChromeFromInput();
+      } else {
+        hasMobileScrollIntent.current = true;
+      }
     };
 
     window.addEventListener("resize", onResize);
     window.addEventListener("pageshow", resetMobileChrome);
-    window.addEventListener("touchstart", markMobileScrollIntent, { passive: true });
-    window.addEventListener("wheel", markMobileScrollIntent, { passive: true });
+    window.addEventListener("popstate", resetMobileChrome);
+    window.addEventListener("hashchange", resetMobileChrome);
+    window.addEventListener("focus", resetMobileChrome);
+    window.addEventListener("orientationchange", resetMobileChrome);
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
+    window.addEventListener("touchcancel", handleTouchEnd, { passive: true });
+    window.addEventListener("wheel", handleWheel, { passive: true });
     mobileQuery.addEventListener("change", onResize);
     return () => {
       if (scrollFrame) window.cancelAnimationFrame(scrollFrame);
@@ -240,8 +296,15 @@ export function Header() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
       window.removeEventListener("pageshow", resetMobileChrome);
-      window.removeEventListener("touchstart", markMobileScrollIntent);
-      window.removeEventListener("wheel", markMobileScrollIntent);
+      window.removeEventListener("popstate", resetMobileChrome);
+      window.removeEventListener("hashchange", resetMobileChrome);
+      window.removeEventListener("focus", resetMobileChrome);
+      window.removeEventListener("orientationchange", resetMobileChrome);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
+      window.removeEventListener("touchcancel", handleTouchEnd);
+      window.removeEventListener("wheel", handleWheel);
       mobileQuery.removeEventListener("change", onResize);
     };
   }, []);
@@ -250,26 +313,30 @@ export function Header() {
     if (!window.matchMedia(MOBILE_MENU_MEDIA_QUERY).matches) return;
 
     unlockMobileMenuScroll({ restorePosition: false });
-    const currentScrollY = Math.max(
-      0,
-      window.scrollY || document.documentElement.scrollTop || 0,
-    );
-    lastScrollY.current = currentScrollY;
-    hasMobileScrollIntent.current = false;
-    updateAtTop(currentScrollY <= 8);
-    updateShowChrome(true);
+    syncMobileChromeVisible();
     updateOpen(false);
+
+    const syncFrame = window.requestAnimationFrame(() => {
+      syncMobileChromeVisible();
+    });
+
+    return () => window.cancelAnimationFrame(syncFrame);
   }, [language, locationHref]);
 
   useEffect(() => {
     const mobileQuery = window.matchMedia(MOBILE_MENU_MEDIA_QUERY);
 
     if (!open || !mobileQuery.matches) {
-      unlockMobileMenuScroll({ restorePosition: false });
-      return undefined;
+      const restoredScrollY = unlockMobileMenuScroll();
+      if (!mobileQuery.matches) return undefined;
+
+      syncMobileChromeVisible(restoredScrollY);
+      const syncFrame = window.requestAnimationFrame(() => syncMobileChromeVisible());
+      return () => window.cancelAnimationFrame(syncFrame);
     }
 
-    const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    const scrollY = getWindowScrollY();
+    syncMobileChromeVisible(scrollY);
     document.body.dataset.mobileMenuScrollY = String(scrollY);
     document.body.style.setProperty("--mobile-menu-scroll-y", `-${scrollY}px`);
     document.documentElement.classList.add(MOBILE_MENU_LOCK_CLASS);
@@ -298,7 +365,8 @@ export function Header() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "Escape") return;
       event.preventDefault();
-      unlockMobileMenuScroll();
+      const restoredScrollY = unlockMobileMenuScroll();
+      syncMobileChromeVisible(restoredScrollY);
       updateOpen(false);
       window.requestAnimationFrame(() => mobileMenuButtonRef.current?.focus());
     };
@@ -311,32 +379,24 @@ export function Header() {
   }, [open]);
 
   const closeMobileMenu = () => {
-    unlockMobileMenuScroll();
+    const restoredScrollY = unlockMobileMenuScroll();
     if (window.matchMedia(MOBILE_MENU_MEDIA_QUERY).matches) {
-      const currentScrollY = Math.max(
-        0,
-        window.scrollY || document.documentElement.scrollTop || 0,
-      );
-      lastScrollY.current = currentScrollY;
-      hasMobileScrollIntent.current = false;
-      updateAtTop(currentScrollY <= 8);
-      updateShowChrome(true);
+      syncMobileChromeVisible(restoredScrollY);
+      window.requestAnimationFrame(() => syncMobileChromeVisible());
     }
     updateOpen(false);
   };
 
   const toggleMobileMenu = () => {
     if (window.matchMedia(MOBILE_MENU_MEDIA_QUERY).matches) {
-      lastScrollY.current = Math.max(
-        0,
-        window.scrollY || document.documentElement.scrollTop || 0,
-      );
-      hasMobileScrollIntent.current = false;
-      updateShowChrome(true);
+      syncMobileChromeVisible();
     }
 
     const nextOpen = !openRef.current;
-    if (!nextOpen) unlockMobileMenuScroll();
+    if (!nextOpen) {
+      closeMobileMenu();
+      return;
+    }
     updateOpen(nextOpen);
   };
 
