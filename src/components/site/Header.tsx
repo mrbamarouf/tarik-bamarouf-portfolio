@@ -111,6 +111,16 @@ function unlockMobileMenuScroll({ restorePosition = true } = {}) {
   return restorePosition && Number.isFinite(scrollY) ? scrollY : getWindowScrollY();
 }
 
+function lockMobileMenuScroll() {
+  if (typeof window === "undefined") return;
+
+  const scrollY = getWindowScrollY();
+  document.body.dataset.mobileMenuScrollY = String(scrollY);
+  document.body.style.setProperty("--mobile-menu-scroll-y", `-${scrollY}px`);
+  document.documentElement.classList.add(MOBILE_MENU_LOCK_CLASS);
+  document.body.classList.add(MOBILE_MENU_LOCK_CLASS);
+}
+
 export function Header() {
   const { language, toggleLanguage } = useLanguage();
   const t = siteCopy[language];
@@ -248,15 +258,20 @@ export function Header() {
     const resetMobileChrome = (event: Event) => {
       if (!mobileQuery.matches) return;
 
-      unlockMobileMenuScroll({ restorePosition: false });
-      syncMobileChromeVisible();
-
       const isRestoredPageShow =
         event.type === "pageshow" && "persisted" in event && Boolean(event.persisted);
+      const shouldCloseMenu =
+        event.type === "popstate" ||
+        event.type === "hashchange" ||
+        event.type === "orientationchange" ||
+        isRestoredPageShow;
 
-      if (event.type === "popstate" || event.type === "hashchange" || isRestoredPageShow) {
+      if (shouldCloseMenu) {
+        unlockMobileMenuScroll({ restorePosition: false });
         setIsMobileMenuOpen(false);
       }
+
+      syncMobileChromeVisible();
     };
 
     window.addEventListener("resize", onResize);
@@ -287,10 +302,10 @@ export function Header() {
     const locationChanged = previousLocationHrefRef.current !== locationHref;
     previousLocationHrefRef.current = locationHref;
 
-    unlockMobileMenuScroll({ restorePosition: false });
     syncMobileChromeVisible();
 
     if (hasSyncedMobileRouteRef.current && locationChanged) {
+      unlockMobileMenuScroll({ restorePosition: false });
       setIsMobileMenuOpen(false);
     } else {
       hasSyncedMobileRouteRef.current = true;
@@ -315,11 +330,7 @@ export function Header() {
       return () => window.cancelAnimationFrame(syncFrame);
     }
 
-    const scrollY = getWindowScrollY();
-    document.body.dataset.mobileMenuScrollY = String(scrollY);
-    document.body.style.setProperty("--mobile-menu-scroll-y", `-${scrollY}px`);
-    document.documentElement.classList.add(MOBILE_MENU_LOCK_CLASS);
-    document.body.classList.add(MOBILE_MENU_LOCK_CLASS);
+    lockMobileMenuScroll();
 
     const handleMediaChange = (event: MediaQueryListEvent) => {
       if (!event.matches) {
@@ -371,6 +382,7 @@ export function Header() {
         return false;
       }
 
+      lockMobileMenuScroll();
       syncMobileChromeVisible();
       return true;
     });
