@@ -133,9 +133,9 @@ const serviceVisuals = [
 ] as const;
 
 const credentialDocuments = {
-  freelancingCertificate: "/documents/freelancing-practitioner-certificate.pdf",
-  freelanceIdCard: "/documents/freelance-id-card.pdf",
-  productiveFamiliesCertificate: "/documents/productive-families-certificate.pdf",
+  freelancingCertificate: "/documents/freelancing-practitioner-certificate-public.pdf",
+  freelanceIdCard: "/documents/freelance-id-card-public.pdf",
+  productiveFamiliesCertificate: "/documents/productive-families-certificate-public.pdf",
 } as const;
 
 const professionalCredentialsCopy = {
