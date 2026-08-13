@@ -62,83 +62,126 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="site-footer__nav md:col-span-3">
-            <p className="site-footer__label mb-6 text-[10px] uppercase tracking-luxury text-bronze">
-              {t.footer.navigate}
-            </p>
-            <ul className="site-footer__nav-list space-y-3 font-serif text-xl font-light">
-              <li>
-                <Link to="/" className="link-underline">
-                  {t.nav.home}
-                </Link>
-              </li>
-              <li>
-                <Link to="/work" className="link-underline">
-                  {t.nav.work}
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="link-underline">
-                  {t.nav.about}
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="link-underline">
-                  {t.nav.contact}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="site-footer__direct md:col-span-4">
-            <div className="site-footer__direct-content">
+          <div className="site-footer__left-group">
+            <div className="site-footer__nav md:col-span-3">
               <p className="site-footer__label mb-6 text-[10px] uppercase tracking-luxury text-bronze">
-                {t.footer.direct}
+                {t.footer.navigate}
               </p>
-              <ul className="site-footer__contact-list space-y-3 font-serif text-xl font-light">
+              <ul className="site-footer__nav-list space-y-3 font-serif text-xl font-light">
                 <li>
-                  <a
-                    href={emailHref}
-                    aria-label={`${t.footer.email}: ${CONTACT_EMAIL}`}
-                    className="footer-contact-row link-underline"
-                  >
-                    {CONTACT_EMAIL}
-                  </a>
+                  <Link to="/" className="link-underline">
+                    {t.nav.home}
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${t.footer.whatsapp}: ${WHATSAPP_DISPLAY}`}
-                    className="footer-contact-row footer-contact-row--whatsapp link-underline"
-                  >
-                    <MessageCircle className="footer-contact-row__icon" aria-hidden="true" />
-                    {WHATSAPP_DISPLAY}
-                  </a>
+                  <Link to="/work" className="link-underline">
+                    {t.nav.work}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" className="link-underline">
+                    {t.nav.about}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="link-underline">
+                    {t.nav.contact}
+                  </Link>
                 </li>
               </ul>
             </div>
-            <nav className="footer-social" aria-label={t.footer.socialLabel}>
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t.footer.instagramLabel}
-                className="footer-social__link"
-              >
-                <InstagramIcon className="footer-social__icon" />
-              </a>
-              <a
-                href={TIKTOK_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t.footer.tiktokLabel}
-                className="footer-social__link"
-              >
-                <TikTokIcon className="footer-social__icon" />
-              </a>
-            </nav>
+
+            <div className="site-footer__direct md:col-span-4">
+              <div className="site-footer__direct-content">
+                <p className="site-footer__label mb-6 text-[10px] uppercase tracking-luxury text-bronze">
+                  {t.footer.direct}
+                </p>
+                <ul className="site-footer__contact-list space-y-3 font-serif text-xl font-light">
+                  <li>
+                    <a
+                      href={emailHref}
+                      aria-label={`${t.footer.email}: ${CONTACT_EMAIL}`}
+                      className="footer-contact-row link-underline"
+                    >
+                      {CONTACT_EMAIL}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${t.footer.whatsapp}: ${WHATSAPP_DISPLAY}`}
+                      className="footer-contact-row footer-contact-row--whatsapp link-underline"
+                    >
+                      <MessageCircle className="footer-contact-row__icon" aria-hidden="true" />
+                      {WHATSAPP_DISPLAY}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <nav className="footer-social" aria-label={t.footer.socialLabel}>
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t.footer.instagramLabel}
+                  className="footer-social__link"
+                >
+                  <InstagramIcon className="footer-social__icon" />
+                </a>
+                <a
+                  href={TIKTOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t.footer.tiktokLabel}
+                  className="footer-social__link"
+                >
+                  <TikTokIcon className="footer-social__icon" />
+                </a>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <div className="site-footer__secondary-row" aria-label={t.footer.socialLabel}>
+          <nav className="footer-social footer-social--secondary" aria-label={t.footer.socialLabel}>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t.footer.instagramLabel}
+              className="footer-social__link"
+            >
+              <InstagramIcon className="footer-social__icon" />
+            </a>
+            <a
+              href={TIKTOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t.footer.tiktokLabel}
+              className="footer-social__link"
+            >
+              <TikTokIcon className="footer-social__icon" />
+            </a>
+          </nav>
+          <div className="site-footer__actions site-footer__actions--secondary">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${t.footer.whatsapp}: ${WHATSAPP_DISPLAY}`}
+              className="site-footer__action inline-flex items-center gap-3 bg-bronze px-6 py-3 text-[10px] uppercase tracking-editorial text-ink transition-colors duration-500 hover:bg-bronze-soft"
+            >
+              {t.footer.whatsapp}
+            </a>
+            <a
+              href={emailHref}
+              aria-label={`${t.footer.email}: ${CONTACT_EMAIL}`}
+              className="site-footer__action inline-flex items-center gap-3 border border-bronze/20 px-6 py-3 text-[10px] uppercase tracking-editorial text-foreground/90 transition-colors duration-500 hover:border-bronze/60 hover:text-bronze"
+            >
+              {t.footer.email}
+            </a>
           </div>
         </div>
 
