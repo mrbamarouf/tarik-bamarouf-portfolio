@@ -2093,11 +2093,11 @@ body[data-lang="ar"] .intro-overlay__skip {
     }
 
     body[data-lang="ar"] .site-footer__direct {
-      display: grid;
+      display: flex;
       grid-column: 3 / 5;
-      grid-template-columns: minmax(0, 1fr) auto;
       gap: clamp(1.15rem, 2.2vw, 2rem);
       align-items: start;
+      justify-content: flex-start;
       justify-self: stretch;
     }
 
@@ -2182,10 +2182,7 @@ body[data-lang="ar"] .intro-overlay__skip {
     }
 
     body[data-lang="ar"] .site-footer .footer-social {
-      grid-column: 2;
-      grid-row: 1;
       align-self: start;
-      justify-self: start;
       margin-top: 0.2rem;
       direction: rtl;
     }
