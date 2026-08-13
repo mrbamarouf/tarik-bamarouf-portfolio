@@ -21,11 +21,15 @@ export function Footer() {
   const whatsappUrl = getWhatsappHref(language);
 
   return (
-    <footer className="relative border-t border-bronze/10 bg-ink">
-      <div className="w-full px-6 py-16 md:px-10 md:py-20 lg:px-14">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
-          <div className="md:col-span-5">
-            <Link to="/" className="inline-flex" aria-label={`Tarik Bamarouf ${t.nav.home}`}>
+    <footer className="site-footer relative border-t border-bronze/10 bg-ink">
+      <div className="site-footer__inner w-full px-6 py-16 md:px-10 md:py-20 lg:px-14">
+        <div className="site-footer__grid grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
+          <div className="site-footer__brand md:col-span-5">
+            <Link
+              to="/"
+              className="site-footer__brand-logo inline-flex"
+              aria-label={`Tarik Bamarouf ${t.nav.home}`}
+            >
               <img
                 src={signature}
                 alt="Tarik Bamarouf"
@@ -34,35 +38,35 @@ export function Footer() {
                 className="h-auto w-[250px] drop-shadow-[0_14px_38px_oklch(0.72_0.09_70/.16)] md:w-[330px]"
               />
             </Link>
-            <p className="mt-8 max-w-md font-serif text-2xl font-light leading-snug text-foreground/90 md:text-3xl">
+            <p className="site-footer__headline mt-8 max-w-md font-serif text-2xl font-light leading-snug text-foreground/90 md:text-3xl">
               <BidiText>{t.footer.headline}</BidiText>
             </p>
 
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="site-footer__actions mt-9 flex flex-wrap gap-3">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${t.footer.whatsapp}: ${WHATSAPP_DISPLAY}`}
-                className="inline-flex items-center gap-3 bg-bronze px-6 py-3 text-[10px] uppercase tracking-editorial text-ink transition-colors duration-500 hover:bg-bronze-soft"
+                className="site-footer__action inline-flex items-center gap-3 bg-bronze px-6 py-3 text-[10px] uppercase tracking-editorial text-ink transition-colors duration-500 hover:bg-bronze-soft"
               >
                 {t.footer.whatsapp}
               </a>
               <a
                 href={emailHref}
                 aria-label={`${t.footer.email}: ${CONTACT_EMAIL}`}
-                className="inline-flex items-center gap-3 border border-bronze/20 px-6 py-3 text-[10px] uppercase tracking-editorial text-foreground/90 transition-colors duration-500 hover:border-bronze/60 hover:text-bronze"
+                className="site-footer__action inline-flex items-center gap-3 border border-bronze/20 px-6 py-3 text-[10px] uppercase tracking-editorial text-foreground/90 transition-colors duration-500 hover:border-bronze/60 hover:text-bronze"
               >
                 {t.footer.email}
               </a>
             </div>
           </div>
 
-          <div className="md:col-span-3">
-            <p className="mb-6 text-[10px] uppercase tracking-luxury text-bronze">
+          <div className="site-footer__nav md:col-span-3">
+            <p className="site-footer__label mb-6 text-[10px] uppercase tracking-luxury text-bronze">
               {t.footer.navigate}
             </p>
-            <ul className="space-y-3 font-serif text-xl font-light">
+            <ul className="site-footer__nav-list space-y-3 font-serif text-xl font-light">
               <li>
                 <Link to="/" className="link-underline">
                   {t.nav.home}
@@ -86,33 +90,35 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="md:col-span-4">
-            <p className="mb-6 text-[10px] uppercase tracking-luxury text-bronze">
-              {t.footer.direct}
-            </p>
-            <ul className="space-y-3 font-serif text-xl font-light">
-              <li>
-                <a
-                  href={emailHref}
-                  aria-label={`${t.footer.email}: ${CONTACT_EMAIL}`}
-                  className="footer-contact-row link-underline"
-                >
-                  {CONTACT_EMAIL}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${t.footer.whatsapp}: ${WHATSAPP_DISPLAY}`}
-                  className="footer-contact-row footer-contact-row--whatsapp link-underline"
-                >
-                  <MessageCircle className="footer-contact-row__icon" aria-hidden="true" />
-                  {WHATSAPP_DISPLAY}
-                </a>
-              </li>
-            </ul>
+          <div className="site-footer__direct md:col-span-4">
+            <div className="site-footer__direct-content">
+              <p className="site-footer__label mb-6 text-[10px] uppercase tracking-luxury text-bronze">
+                {t.footer.direct}
+              </p>
+              <ul className="site-footer__contact-list space-y-3 font-serif text-xl font-light">
+                <li>
+                  <a
+                    href={emailHref}
+                    aria-label={`${t.footer.email}: ${CONTACT_EMAIL}`}
+                    className="footer-contact-row link-underline"
+                  >
+                    {CONTACT_EMAIL}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${t.footer.whatsapp}: ${WHATSAPP_DISPLAY}`}
+                    className="footer-contact-row footer-contact-row--whatsapp link-underline"
+                  >
+                    <MessageCircle className="footer-contact-row__icon" aria-hidden="true" />
+                    {WHATSAPP_DISPLAY}
+                  </a>
+                </li>
+              </ul>
+            </div>
             <nav className="footer-social" aria-label={t.footer.socialLabel}>
               <a
                 href={INSTAGRAM_URL}
