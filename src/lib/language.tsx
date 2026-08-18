@@ -22,6 +22,8 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 const LANGUAGE_STORAGE_KEY = "tarik-bamarouf-language";
 const ARABIC_DIGITS = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"] as const;
 const ARABIC_TEXT_RE = /[\u0600-\u06FF]/;
+const LATIN_RUN_RE = /([\p{Script=Latin}\d][\p{Script=Latin}\d&+.'’/-]*(?:\s+[\p{Script=Latin}\d][\p{Script=Latin}\d&+.'’/-]*)*)/gu;
+const LATIN_RUN_ONLY_RE = /^[\p{Script=Latin}\d][\p{Script=Latin}\d&+.'’/-]*(?:\s+[\p{Script=Latin}\d][\p{Script=Latin}\d&+.'’/-]*)*$/u;
 const SECTION_INDEXES: Record<string, string> = {
   I: "01",
   II: "02",
@@ -117,16 +119,54 @@ function containsArabicText(node: ReactNode): boolean {
   return false;
 }
 
-export function BidiText({ children }: { children: ReactNode }) {
+function isolateLatinRuns(node: ReactNode): ReactNode {
+  if (typeof node === "string" || typeof node === "number") {
+    return String(node)
+      .split(LATIN_RUN_RE)
+      .map((part, index) =>
+        LATIN_RUN_ONLY_RE.test(part) ? (
+          <bdi className="latin-bidi-isolate" dir="ltr" key={`${part}-${index}`}>
+            {part}
+          </bdi>
+        ) : (
+          part
+        ),
+      );
+  }
+
+  if (Array.isArray(node)) {
+    return node.map((child) => isolateLatinRuns(child));
+  }
+
+  return node;
+}
+
+export function BidiText({
+  children,
+  isolateLatin = false,
+}: {
+  children: ReactNode;
+  isolateLatin?: boolean;
+}) {
   const { language } = useLanguage();
 
-  if (language !== "ar" || !containsArabicText(children)) {
+  if (language !== "ar") {
     return <>{children}</>;
+  }
+
+  if (!containsArabicText(children)) {
+    return isolateLatin ? (
+      <bdi className="latin-bidi-isolate" dir="ltr">
+        {children}
+      </bdi>
+    ) : (
+      <>{children}</>
+    );
   }
 
   return (
     <bdi className="arabic-bidi-isolate" dir="rtl">
-      {children}
+      {isolateLatin ? isolateLatinRuns(children) : children}
     </bdi>
   );
 }
@@ -134,9 +174,11 @@ export function BidiText({ children }: { children: ReactNode }) {
 export function EnglishLayoutSlot({
   master,
   children,
+  isolateLatin = false,
 }: {
   master: ReactNode;
   children: ReactNode;
+  isolateLatin?: boolean;
 }) {
   return (
     <span className="english-layout-slot">
@@ -144,7 +186,7 @@ export function EnglishLayoutSlot({
         {master}
       </span>
       <span className="english-layout-slot__local">
-        <BidiText>{children}</BidiText>
+        <BidiText isolateLatin={isolateLatin}>{children}</BidiText>
       </span>
     </span>
   );

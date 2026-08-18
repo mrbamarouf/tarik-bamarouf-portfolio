@@ -1997,34 +1997,40 @@ function ProjectDetail() {
     approach: "The design and development approach will be documented here.",
     outcome: "Final outcomes and reflections will be documented here.",
   };
-  const detailItems = [
-    {
-      key: labels.client,
-      value: project.details.client,
-      masterValue: masterProject.details.client,
-    },
-    {
-      key: labels.industry,
-      value: project.details.industry,
-      masterValue: masterProject.details.industry,
-    },
-    {
-      key: labels.service,
-      value: project.details.services,
-      masterValue: masterProject.details.services,
-      wide: true,
-    },
-    {
-      key: labels.year,
-      value: formatLocalizedNumber(project.details.year, language),
-      masterValue: masterProject.details.year,
-    },
-    {
-      key: labels.type,
-      value: project.details.platform,
-      masterValue: masterProject.details.platform,
-    },
-  ];
+  const clientDetail = {
+    key: labels.client,
+    value: project.details.client,
+    masterValue: masterProject.details.client,
+    wide: false,
+  };
+  const industryDetail = {
+    key: labels.industry,
+    value: project.details.industry,
+    masterValue: masterProject.details.industry,
+    wide: false,
+  };
+  const serviceDetail = {
+    key: labels.service,
+    value: project.details.services,
+    masterValue: masterProject.details.services,
+    wide: true,
+  };
+  const yearDetail = {
+    key: labels.year,
+    value: formatLocalizedNumber(project.details.year, language),
+    masterValue: masterProject.details.year,
+    wide: false,
+  };
+  const typeDetail = {
+    key: labels.type,
+    value: project.details.platform,
+    masterValue: masterProject.details.platform,
+    wide: false,
+  };
+  const detailItems =
+    language === "ar"
+      ? [industryDetail, clientDetail, serviceDetail, typeDetail, yearDetail]
+      : [clientDetail, industryDetail, serviceDetail, yearDetail, typeDetail];
   const reflection =
     project.reflection ??
     (language === "ar"
@@ -2056,12 +2062,16 @@ function ProjectDetail() {
             {siteCopy[language].common.backToWork}
           </Link>
           <div className="project-detail__copy">
-            <p className="text-[10px] tracking-luxury uppercase text-bronze">{project.category}</p>
+            <p className="text-[10px] tracking-luxury uppercase text-bronze">
+              <BidiText isolateLatin>{project.category}</BidiText>
+            </p>
             <h1 className="mt-4 font-serif text-3xl md:text-5xl lg:text-[3.6rem] leading-[1.08] italic font-light">
-              {project.name}
+              <BidiText isolateLatin>{project.name}</BidiText>
             </h1>
             <p className="mt-5 max-w-xl text-foreground/75 font-light">
-              <EnglishLayoutSlot master={masterProject.intro}>{project.intro}</EnglishLayoutSlot>
+              <EnglishLayoutSlot master={masterProject.intro} isolateLatin>
+                {project.intro}
+              </EnglishLayoutSlot>
             </p>
             {project.url && project.url !== "#" ? (
               <a
@@ -2082,8 +2092,8 @@ function ProjectDetail() {
       </section>
 
       {/* OVERVIEW */}
-      <section className="project-detail__section py-20 md:py-28">
-        <div className="grid w-full grid-cols-1 gap-10 px-6 md:grid-cols-12 md:px-12">
+      <section className="project-detail__section project-detail__overview py-20 md:py-28">
+        <div className="project-detail__section-grid grid w-full grid-cols-1 gap-10 px-6 md:grid-cols-12 md:px-12">
           <div className="md:col-span-4">
             <SectionLabel index="I" title={labels.overview} />
           </div>
@@ -2093,10 +2103,12 @@ function ProjectDetail() {
               { h: labels.approach, b: overview.approach, master: masterOverview.approach },
               { h: labels.outcome, b: overview.outcome, master: masterOverview.outcome },
             ].map((s) => (
-              <div key={s.h}>
+              <div className="project-detail__overview-item" key={s.h}>
                 <h3 className="text-[10px] tracking-luxury uppercase text-bronze">{s.h}</h3>
                 <p className="mt-3 font-serif text-xl md:text-2xl leading-[1.3] font-light text-foreground/85">
-                  <EnglishLayoutSlot master={s.master}>{s.b}</EnglishLayoutSlot>
+                  <EnglishLayoutSlot master={s.master} isolateLatin>
+                    {s.b}
+                  </EnglishLayoutSlot>
                 </p>
               </div>
             ))}
@@ -2107,7 +2119,7 @@ function ProjectDetail() {
       {/* PROJECT INFORMATION */}
       <section className="project-info-section">
         <div className="project-info-section__ambient" aria-hidden="true" />
-        <div className="relative z-10 grid w-full grid-cols-1 gap-8 px-6 md:grid-cols-12 md:gap-10 md:px-12">
+        <div className="project-info-section__grid relative z-10 grid w-full grid-cols-1 gap-8 px-6 md:grid-cols-12 md:gap-10 md:px-12">
           <div className="project-info-section__heading md:col-span-4">
             <SectionLabel index="II" title={labels.information} />
           </div>
@@ -2120,7 +2132,9 @@ function ProjectDetail() {
                 >
                   <dt className="project-spec-label">{item.key}</dt>
                   <dd className="project-spec-value">
-                    <EnglishLayoutSlot master={item.masterValue}>{item.value}</EnglishLayoutSlot>
+                    <EnglishLayoutSlot master={item.masterValue} isolateLatin>
+                      {item.value}
+                    </EnglishLayoutSlot>
                   </dd>
                 </div>
               ))}
@@ -2161,13 +2175,19 @@ function ProjectDetail() {
                           {formatLocalizedNumber(i + 1, language, { minimumIntegerDigits: 2 })}
                         </p>
                         <h3 className="mt-2 font-serif text-2xl md:text-3xl italic font-light">
-                          <EnglishLayoutSlot master={masterGalleryItem?.title ?? g.title}>
+                          <EnglishLayoutSlot
+                            master={masterGalleryItem?.title ?? g.title}
+                            isolateLatin
+                          >
                             {g.title}
                           </EnglishLayoutSlot>
                         </h3>
                       </div>
                       <p className="md:col-span-8 font-serif text-lg md:text-xl leading-[1.4] font-light text-foreground/80">
-                        <EnglishLayoutSlot master={masterGalleryItem?.caption ?? g.caption}>
+                        <EnglishLayoutSlot
+                          master={masterGalleryItem?.caption ?? g.caption}
+                          isolateLatin
+                        >
                           {g.caption}
                         </EnglishLayoutSlot>
                       </p>
@@ -2212,7 +2232,7 @@ function ProjectDetail() {
 
       {/* RESULTS / REFLECTION */}
       <section className="project-detail__section py-20 md:py-28">
-        <div className="grid w-full grid-cols-1 gap-10 px-6 md:grid-cols-12 md:px-12">
+        <div className="project-detail__section-grid project-detail__reflection-grid grid w-full grid-cols-1 gap-10 px-6 md:grid-cols-12 md:px-12">
           <div className="md:col-span-4">
             <SectionLabel
               index="IV"
@@ -2221,7 +2241,9 @@ function ProjectDetail() {
           </div>
           <div className="project-detail__reflection md:col-span-8">
             <p className="font-serif text-xl md:text-2xl leading-[1.35] font-light text-foreground/85">
-              <EnglishLayoutSlot master={masterReflection}>{reflection}</EnglishLayoutSlot>
+              <EnglishLayoutSlot master={masterReflection} isolateLatin>
+                {reflection}
+              </EnglishLayoutSlot>
             </p>
           </div>
         </div>
@@ -2247,10 +2269,10 @@ function ProjectDetail() {
             </div>
             <div className="project-detail__next-copy flex-1">
               <h3 className="font-serif text-2xl md:text-4xl italic font-light leading-[1.1] transition-transform duration-500 group-hover:translate-x-2 gradient-bronze-text">
-                {next.name}
+                <BidiText isolateLatin>{next.name}</BidiText>
               </h3>
               <p className="mt-2 text-[10px] tracking-luxury uppercase text-foreground/55">
-                {next.category}
+                <BidiText isolateLatin>{next.category}</BidiText>
               </p>
             </div>
             <span className="hidden md:inline-flex items-center gap-2 text-[10px] tracking-luxury uppercase text-bronze">
