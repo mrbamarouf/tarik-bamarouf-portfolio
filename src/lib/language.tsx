@@ -2872,6 +2872,138 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         "أصبح First Advance موقعًا هادئًا لعلامة خدمات، يجمع تصميم الشعار، التوجه البصري، تجربة وواجهة المستخدم، توجيه المحتوى، التصميم المتجاوب، وحرفة الواجهة.",
     },
   },
+  "giraffe-travel-tourism": {
+    en: {
+      category: "Travel & Tourism Website · UX/UI · Digital Experience",
+      disciplines: "Travel & Tourism Website · UX/UI · Digital Experience",
+      intro:
+        "A bilingual digital travel experience created for Giraffe Travel & Tourism, combining destination discovery, trip planning, travel services, Hajj & Umrah, honeymoon journeys, and curated travel experiences within one immersive platform.",
+      details: {
+        industry: "Travel & Tourism / Saudi Arabia",
+        services:
+          "Travel & Tourism Website, UX/UI Design, Digital Experience, Arabic and English Experience, Responsive Design",
+        platform: "Travel & Tourism Website · UX/UI · Digital Experience",
+      },
+      overview: {
+        challenge:
+          "A bilingual digital travel experience created for Giraffe Travel & Tourism, combining destination discovery, trip planning, travel services, Hajj & Umrah, honeymoon journeys, and curated travel experiences within one immersive platform.",
+        approach:
+          "The project was organized as a complete travel platform, moving from the main flight-led journey into trip types, Saudi destinations, international planning, packages, honeymoon journeys, services, flights and hotels, Hajj & Umrah, and Madinah content.",
+        outcome:
+          "The final experience gives travelers one clear bilingual path to explore destinations, understand services, and begin planning a journey across desktop and mobile.",
+      },
+      gallery: [
+        {
+          title: "Trip Types",
+          caption:
+            "A guided section helps visitors choose the travel style that fits their next journey.",
+        },
+        {
+          title: "Saudi Destinations",
+          caption:
+            "Saudi destinations are presented with immersive photography and direct planning paths.",
+        },
+        {
+          title: "International Destinations",
+          caption:
+            "Global destination planning expands the platform from Saudi travel into wider journeys.",
+        },
+        {
+          title: "Packages",
+          caption:
+            "Customizable packages bring flight, hotel, transport, and guidance into one inquiry flow.",
+        },
+        {
+          title: "Honeymoon / Maldives",
+          caption: "A honeymoon journey section frames Maldives travel as a curated start for two.",
+        },
+        {
+          title: "Travel Services",
+          caption:
+            "Travel services are organized around flights, hotels, packages, tourism, Hajj, and Umrah.",
+        },
+        {
+          title: "Flights and Hotels",
+          caption:
+            "The flights and hotels chapter connects aviation choices, calm resorts, and coordinated planning support.",
+        },
+        {
+          title: "Hajj & Umrah",
+          caption:
+            "The Hajj and Umrah section presents sacred travel support through a direct inquiry experience.",
+        },
+        {
+          title: "Madinah",
+          caption:
+            "The Madinah chapter introduces the city, its landmarks, and available visit planning content.",
+        },
+      ],
+      reflection:
+        "Giraffe Travel & Tourism became a bilingual travel platform that connects discovery, planning, services, religious journeys, honeymoon travel, and curated destination experiences in one responsive digital experience.",
+    },
+    ar: {
+      name: "جيراف للسفر والسياحة",
+      category: "موقع سفر وسياحة · تجربة وواجهة مستخدم · تجربة رقمية",
+      disciplines: "موقع سفر وسياحة · تجربة وواجهة مستخدم · تجربة رقمية",
+      intro:
+        "تجربة رقمية ثنائية اللغة صُممت لجيراف للسفر والسياحة، تجمع اكتشاف الوجهات، وتخطيط الرحلات، وخدمات السفر، والحج والعمرة، ورحلات شهر العسل، والتجارب المختارة ضمن منصة واحدة متكاملة.",
+      details: {
+        client: "جيراف للسفر والسياحة",
+        industry: "السفر والسياحة / السعودية",
+        services:
+          "موقع سفر وسياحة، تجربة وواجهة المستخدم، تجربة رقمية، تجربة عربية وإنجليزية، تصميم متجاوب",
+        platform: "موقع سفر وسياحة · تجربة وواجهة مستخدم · تجربة رقمية",
+      },
+      overview: {
+        challenge:
+          "تجربة رقمية ثنائية اللغة صُممت لجيراف للسفر والسياحة، تجمع اكتشاف الوجهات، وتخطيط الرحلات، وخدمات السفر، والحج والعمرة، ورحلات شهر العسل، والتجارب المختارة ضمن منصة واحدة متكاملة.",
+        approach:
+          "نُظمت التجربة كمنصة سفر متكاملة، تبدأ من الرحلة الرئيسية المرتبطة بالطيران، ثم تنتقل إلى أنماط الرحلات، والوجهات السعودية، والتخطيط العالمي، والباقات، ورحلات شهر العسل، والخدمات، والطيران والفنادق، والحج والعمرة، والمدينة المنورة.",
+        outcome:
+          "تمنح التجربة النهائية المسافر مسارًا ثنائي اللغة واضحًا لاكتشاف الوجهات، وفهم الخدمات، وبدء تخطيط الرحلة عبر سطح المكتب والجوال.",
+      },
+      gallery: [
+        {
+          title: "أي رحلة تناسبك؟",
+          caption: "يساعد هذا الفصل الزائر على اختيار نمط الرحلة الأقرب لخطته القادمة.",
+        },
+        {
+          title: "اكتشف السعودية",
+          caption: "تُعرض الوجهات السعودية بصور غامرة ومسارات مباشرة لتخطيط الرحلة.",
+        },
+        {
+          title: "وجهات عالمية للتخطيط",
+          caption: "يوسع هذا الفصل التخطيط من السفر داخل السعودية إلى رحلات عالمية مختارة.",
+        },
+        {
+          title: "باقات تلهم رحلتك القادمة",
+          caption: "تجمع الباقات القابلة للتخصيص الطيران والفندق والنقل والجولات ضمن مسار استفسار واحد.",
+        },
+        {
+          title: "رحلة تبدأ معًا",
+          caption: "يعرض فصل شهر العسل جزر المالديف كرحلة مختارة لبداية مشتركة.",
+        },
+        {
+          title: "كل رحلتك في مكان واحد",
+          caption: "تنظم خدمات السفر الطيران والفنادق والباقات والسياحة والحج والعمرة في تجربة واحدة.",
+        },
+        {
+          title: "الطيران والفنادق",
+          caption: "يربط هذا الفصل خيارات الطيران والإقامة الهادئة والدعم المنظم لتخطيط الرحلة.",
+        },
+        {
+          title: "الحج والعمرة",
+          caption: "يعرض فصل الحج والعمرة دعم الرحلات الدينية من خلال مسار استفسار مباشر.",
+        },
+        {
+          title: "المدينة المنورة",
+          caption: "يقدم فصل المدينة المنورة المدينة ومعالمها ومحتوى التخطيط المتاح للزيارة.",
+        },
+      ],
+      reflection:
+        "أصبح مشروع جيراف للسفر والسياحة منصة سفر ثنائية اللغة تربط الاكتشاف، والتخطيط، والخدمات، والرحلات الدينية، وشهر العسل، والتجارب المختارة ضمن تجربة رقمية متجاوبة واحدة.",
+    },
+  },
 };
 
 export function projectDisplay(slug: string, language: Language) {

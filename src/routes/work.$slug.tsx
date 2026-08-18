@@ -162,6 +162,16 @@ import doubleActUmbrella from "@/assets/projects/double-act/double-act-umbrella.
 import doubleActDoka from "@/assets/projects/double-act/double-act-doka.png";
 import doubleActBasalt from "@/assets/projects/double-act/double-act-basalt.png";
 import doubleActSalmina from "@/assets/projects/double-act/double-act-salmina.png";
+import giraffeTravelHero from "@/assets/projects/giraffe-travel-tourism/01-main-airplane-wing-hero.png";
+import giraffeTripTypes from "@/assets/projects/giraffe-travel-tourism/02-trip-types.png";
+import giraffeSaudiDestinations from "@/assets/projects/giraffe-travel-tourism/03-saudi-destinations.png";
+import giraffeInternationalDestinations from "@/assets/projects/giraffe-travel-tourism/04-international-destinations.png";
+import giraffePackages from "@/assets/projects/giraffe-travel-tourism/05-packages.png";
+import giraffeHoneymoon from "@/assets/projects/giraffe-travel-tourism/06-honeymoon-maldives.png";
+import giraffeTravelServices from "@/assets/projects/giraffe-travel-tourism/07-travel-services.png";
+import giraffeFlightsHotels from "@/assets/projects/giraffe-travel-tourism/08-flights-hotels.png";
+import giraffeHajjUmrah from "@/assets/projects/giraffe-travel-tourism/09-hajj-umrah.png";
+import giraffeMadinah from "@/assets/projects/giraffe-travel-tourism/10-madinah.png";
 
 type GalleryItem = { image: string; title: string; caption: string; fit?: "cover" | "contain" };
 
@@ -1164,6 +1174,93 @@ const PROJECTS: ProjectData[] = [
     ],
     reflection:
       "DOUBLE ACT became a corporate digital foundation for multiple specialized businesses, combining parent-company clarity with distinct brand worlds for DOKA, Basalt, and Salmina Gold Jewelry.",
+  },
+  {
+    slug: "giraffe-travel-tourism",
+    name: "GIRAFFE TRAVEL & TOURISM",
+    category: "Travel & Tourism Website · UX/UI · Digital Experience",
+    intro:
+      "A bilingual digital travel experience created for Giraffe Travel & Tourism, combining destination discovery, trip planning, travel services, Hajj & Umrah, honeymoon journeys, and curated travel experiences within one immersive platform.",
+    image: giraffeTravelHero,
+    heroFit: "contain",
+    details: {
+      client: "GIRAFFE TRAVEL & TOURISM",
+      industry: "Travel & Tourism / Saudi Arabia",
+      services:
+        "Travel & Tourism Website, UX/UI Design, Digital Experience, Arabic and English Experience, Responsive Design",
+      year: "2026",
+      platform: "Travel & Tourism Website · UX/UI · Digital Experience",
+    },
+    overview: {
+      challenge:
+        "A bilingual digital travel experience created for Giraffe Travel & Tourism, combining destination discovery, trip planning, travel services, Hajj & Umrah, honeymoon journeys, and curated travel experiences within one immersive platform.",
+      approach:
+        "The project was organized as a complete travel platform, moving from the main flight-led journey into trip types, Saudi destinations, international planning, packages, honeymoon journeys, services, flights and hotels, Hajj & Umrah, and Madinah content.",
+      outcome:
+        "The final experience gives travelers one clear bilingual path to explore destinations, understand services, and begin planning a journey across desktop and mobile.",
+    },
+    gallery: [
+      {
+        image: giraffeTripTypes,
+        title: "Trip Types",
+        caption: "A guided section helps visitors choose the travel style that fits their next journey.",
+        fit: "contain",
+      },
+      {
+        image: giraffeSaudiDestinations,
+        title: "Saudi Destinations",
+        caption: "Saudi destinations are presented with immersive photography and direct planning paths.",
+        fit: "contain",
+      },
+      {
+        image: giraffeInternationalDestinations,
+        title: "International Destinations",
+        caption: "Global destination planning expands the platform from Saudi travel into wider journeys.",
+        fit: "contain",
+      },
+      {
+        image: giraffePackages,
+        title: "Packages",
+        caption: "Customizable packages bring flight, hotel, transport, and guidance into one inquiry flow.",
+        fit: "contain",
+      },
+      {
+        image: giraffeHoneymoon,
+        title: "Honeymoon / Maldives",
+        caption: "A honeymoon journey section frames Maldives travel as a curated start for two.",
+        fit: "contain",
+      },
+      {
+        image: giraffeTravelServices,
+        title: "Travel Services",
+        caption:
+          "Travel services are organized around flights, hotels, packages, tourism, Hajj, and Umrah.",
+        fit: "contain",
+      },
+      {
+        image: giraffeFlightsHotels,
+        title: "Flights and Hotels",
+        caption:
+          "The flights and hotels chapter connects aviation choices, calm resorts, and coordinated planning support.",
+        fit: "contain",
+      },
+      {
+        image: giraffeHajjUmrah,
+        title: "Hajj & Umrah",
+        caption:
+          "The Hajj and Umrah section presents sacred travel support through a direct inquiry experience.",
+        fit: "contain",
+      },
+      {
+        image: giraffeMadinah,
+        title: "Madinah",
+        caption:
+          "The Madinah chapter introduces the city, its landmarks, and available visit planning content.",
+        fit: "contain",
+      },
+    ],
+    reflection:
+      "Giraffe Travel & Tourism became a bilingual travel platform that connects discovery, planning, services, religious journeys, honeymoon travel, and curated destination experiences in one responsive digital experience.",
   },
 ];
 

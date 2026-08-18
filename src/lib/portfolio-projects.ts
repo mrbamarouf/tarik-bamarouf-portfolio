@@ -16,6 +16,7 @@ import bamaroufStudioHero from "@/assets/projects/bamarouf-studio/01-three-doors
 import khalidBamaroufHero from "@/assets/projects/khalid-bamarouf/02-hero.jpg";
 import noorBamaroufHero from "@/assets/projects/noor-bamarouf/01-hero-matcha.jpg";
 import doubleActHero from "@/assets/projects/double-act/double-act-hero.png";
+import giraffeTravelHero from "@/assets/projects/giraffe-travel-tourism/01-main-airplane-wing-hero.png";
 
 export const portfolioProjects = [
   {
@@ -214,6 +215,17 @@ export const portfolioProjects = [
     year: "2026",
     disciplines:
       "Website Design · UX/UI Design · Responsive Experience · Front-End Development · Multi-Brand Digital Experience",
+    span: "wide",
+    ratio: "aspect-[16/10]",
+  },
+  {
+    n: "19",
+    t: "GIRAFFE TRAVEL & TOURISM",
+    slug: "giraffe-travel-tourism",
+    cat: "Travel & Tourism Website · UX/UI · Digital Experience",
+    img: giraffeTravelHero,
+    year: "2026",
+    disciplines: "Travel & Tourism Website · UX/UI · Digital Experience",
     span: "wide",
     ratio: "aspect-[16/10]",
   },
