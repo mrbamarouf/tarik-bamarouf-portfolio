@@ -5659,13 +5659,73 @@ body[data-lang="ar"] .credential-card__actions {
   }
 
   body[data-lang="ar"] .credentials-section__header {
+    width: min(100%, 46rem);
     max-width: 46rem;
+    margin-right: 0;
+    margin-left: auto;
     margin-bottom: clamp(2.35rem, 3.4vw, 3.5rem);
+    justify-items: stretch;
+    text-align: right;
+  }
+
+  body[data-lang="ar"] .credentials-section__label,
+  body[data-lang="ar"] .credentials-section__header h2 {
+    width: 100%;
+    text-align: right;
+  }
+
+  body[data-lang="ar"] .credentials-section__rule {
+    margin-right: 0;
+    margin-left: auto;
   }
 
   body[data-lang="ar"] .credentials-section__header h2 {
     font-size: clamp(3rem, 4.8vw, 5.35rem);
     line-height: 1.08;
+  }
+
+  body[data-lang="ar"] .credentials-grid {
+    direction: ltr;
+  }
+
+  body[data-lang="ar"] .credential-card {
+    direction: rtl;
+    text-align: right;
+  }
+
+  body[data-lang="ar"] .credential-card:nth-child(1) {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  body[data-lang="ar"] .credential-card:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  body[data-lang="ar"] .credential-card:nth-child(3) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  body[data-lang="ar"] .credential-card__detail {
+    direction: ltr;
+  }
+
+  body[data-lang="ar"] .credential-card__detail dt,
+  body[data-lang="ar"] .credential-card__detail dd {
+    direction: rtl;
+    text-align: right;
+  }
+
+  body[data-lang="ar"] .credential-card__detail dd[dir="ltr"] {
+    direction: ltr;
+    text-align: left;
+    unicode-bidi: isolate;
+  }
+
+  body[data-lang="ar"] .credential-card__actions {
+    justify-content: flex-start;
   }
 }
 
@@ -6656,6 +6716,31 @@ body[data-lang="ar"] .approach-stage__arrow {
 
   .approach-section__lead {
     padding-top: clamp(1.25rem, 3vw, 4rem);
+  }
+
+  body[data-lang="ar"] .approach-section__inner {
+    grid-template-columns: minmax(0, 0.64fr) minmax(24rem, 0.36fr);
+  }
+
+  body[data-lang="ar"] .approach-section__lead {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    justify-self: end;
+    direction: rtl;
+    text-align: right;
+  }
+
+  body[data-lang="ar"] .approach-section__experience {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  body[data-lang="ar"] .approach-section__headline,
+  body[data-lang="ar"] .approach-section__body {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right;
   }
 }
 

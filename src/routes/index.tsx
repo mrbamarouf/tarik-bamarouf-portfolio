@@ -1013,7 +1013,7 @@ function Index() {
                     <dt>
                       <BidiText>{credential.numberLabel}</BidiText>
                     </dt>
-                    <dd>{credential.number}</dd>
+                    <dd dir={language === "ar" ? "ltr" : undefined}>{credential.number}</dd>
                   </div>
                   <div className="credential-card__detail">
                     <dt>
@@ -1028,14 +1028,14 @@ function Index() {
                       <dt>
                         <BidiText>{credentials.issueLabel}</BidiText>
                       </dt>
-                      <dd>{credential.issue}</dd>
+                      <dd dir={language === "ar" ? "ltr" : undefined}>{credential.issue}</dd>
                     </div>
                   ) : null}
                   <div className="credential-card__detail">
                     <dt>
                       <BidiText>{credentials.expiryLabel}</BidiText>
                     </dt>
-                    <dd>{credential.expiry}</dd>
+                    <dd dir={language === "ar" ? "ltr" : undefined}>{credential.expiry}</dd>
                   </div>
                 </dl>
 
