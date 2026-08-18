@@ -2074,15 +2074,19 @@ body[data-lang="ar"] .intro-overlay__skip {
     body[data-lang="ar"] .site-footer__grid {
       direction: ltr;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(18rem, 22rem);
+      grid-template-columns:
+        minmax(4.8rem, auto)
+        minmax(14rem, 1.3fr)
+        minmax(8rem, 1fr)
+        minmax(18rem, 2fr);
+      grid-template-areas: "social direct navigation brand";
       gap: clamp(3rem, 5vw, 4.5rem);
       align-items: start;
       justify-content: center;
     }
 
     body[data-lang="ar"] .site-footer__brand {
-      grid-column: 2;
-      grid-row: 1;
+      grid-area: brand;
       direction: rtl;
       justify-self: end;
       max-width: 20rem;
@@ -2090,17 +2094,7 @@ body[data-lang="ar"] .intro-overlay__skip {
     }
 
     body[data-lang="ar"] .site-footer__left-group {
-      grid-column: 1;
-      grid-row: 1;
-      display: grid;
-      grid-template-columns: minmax(13rem, auto) minmax(8rem, auto);
-      gap: clamp(2rem, 4vw, 3.5rem);
-      align-items: start;
-      justify-content: start;
-      justify-self: start;
-      width: fit-content;
-      max-width: min(100%, 34rem);
-      direction: ltr;
+      display: contents;
     }
 
     body[data-lang="ar"] .site-footer__brand-logo,
@@ -2122,35 +2116,28 @@ body[data-lang="ar"] .intro-overlay__skip {
       text-align: right;
     }
 
-    body[data-lang="ar"] .site-footer__brand > .site-footer__actions {
-      display: none;
-    }
-
-    body[data-lang="ar"] .site-footer__nav,
-    body[data-lang="ar"] .site-footer__direct {
+    body[data-lang="ar"] .site-footer__nav {
       width: 100%;
       min-width: 0;
       text-align: right;
     }
 
     body[data-lang="ar"] .site-footer__nav {
-      grid-column: 2;
-      grid-row: 1;
+      grid-area: navigation;
       direction: rtl;
       max-width: 9rem;
     }
 
     body[data-lang="ar"] .site-footer__direct {
-      grid-column: 1;
-      grid-row: 1;
-      direction: rtl;
-      max-width: 15.5rem;
+      display: contents;
     }
 
     body[data-lang="ar"] .site-footer__direct-content {
+      grid-area: direct;
       direction: rtl;
+      width: 100%;
       min-width: 0;
-      max-width: 100%;
+      max-width: 15.5rem;
       text-align: right;
     }
 
@@ -2208,16 +2195,16 @@ body[data-lang="ar"] .intro-overlay__skip {
     }
 
     body[data-lang="ar"] .site-footer__direct > .footer-social {
-      display: none;
+      grid-area: social;
+      display: flex;
+      align-self: start;
+      justify-self: start;
+      margin-top: 0;
+      direction: rtl;
     }
 
     body[data-lang="ar"] .site-footer__secondary-row {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 0.9rem;
-      margin-top: 2.35rem;
-      direction: rtl;
+      display: none;
     }
 
     body[data-lang="ar"] .site-footer .footer-social--secondary {
@@ -2252,13 +2239,12 @@ body[data-lang="ar"] .intro-overlay__skip {
     }
 
     body[data-lang="ar"] .site-footer__grid {
-      grid-template-columns: minmax(0, 1fr) minmax(15.5rem, 18rem);
+      grid-template-columns:
+        minmax(4.4rem, auto)
+        minmax(12.5rem, 1.25fr)
+        minmax(7rem, 0.95fr)
+        minmax(16rem, 1.8fr);
       gap: clamp(2rem, 3vw, 3rem);
-    }
-
-    body[data-lang="ar"] .site-footer__left-group {
-      grid-template-columns: minmax(12rem, auto) minmax(7rem, auto);
-      gap: clamp(1.5rem, 2.4vw, 2.25rem);
     }
 
     body[data-lang="ar"] .site-footer__brand-logo img {
@@ -2275,9 +2261,6 @@ body[data-lang="ar"] .intro-overlay__skip {
       font-size: 1rem;
     }
 
-    body[data-lang="ar"] .site-footer__secondary-row {
-      margin-top: 2rem;
-    }
   }
 
   .contact-card:hover {
