@@ -15,6 +15,7 @@ import osamaLawHero from "@/assets/projects/osama-bin-mahfouz-law-firm/01-hero-h
 import bamaroufStudioHero from "@/assets/projects/bamarouf-studio/01-three-doors-main-concept.jpg";
 import khalidBamaroufHero from "@/assets/projects/khalid-bamarouf/02-hero.jpg";
 import noorBamaroufHero from "@/assets/projects/noor-bamarouf/01-hero-matcha.jpg";
+import doubleActHero from "@/assets/projects/double-act/double-act-hero.png";
 
 export const portfolioProjects = [
   {
@@ -201,6 +202,18 @@ export const portfolioProjects = [
     img: noorBamaroufHero,
     year: "2026",
     disciplines: "Portfolio Website Design & Development",
+    span: "wide",
+    ratio: "aspect-[16/10]",
+  },
+  {
+    n: "18",
+    t: "DOUBLE ACT",
+    slug: "double-act",
+    cat: "Corporate Website · Multi-Brand Experience",
+    img: doubleActHero,
+    year: "2026",
+    disciplines:
+      "Website Design · UX/UI Design · Responsive Experience · Front-End Development · Multi-Brand Digital Experience",
     span: "wide",
     ratio: "aspect-[16/10]",
   },

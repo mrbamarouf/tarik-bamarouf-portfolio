@@ -645,6 +645,102 @@ type ProjectCopy = {
 };
 
 export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
+  "double-act": {
+    en: {
+      name: "DOUBLE ACT",
+      category: "Corporate Website · Multi-Brand Experience",
+      disciplines:
+        "Website Design · UX/UI Design · Responsive Experience · Front-End Development · Multi-Brand Digital Experience",
+      intro:
+        "A corporate digital experience created for Double ACT Trading & Contracting Co. Ltd., bringing specialized businesses together under one clear digital foundation. The website establishes the parent company while giving DOKA, Basalt, and Salmina Gold Jewelry their own distinct visual environments within one coherent experience.",
+      details: {
+        client: "DOUBLE ACT",
+        industry: "Corporate Website / Multi-Brand Experience",
+        services:
+          "Website Design, UX/UI Design, Responsive Experience, Front-End Development, Multi-Brand Digital Experience",
+        platform: "Corporate Website · Multi-Brand Experience",
+      },
+      overview: {
+        challenge:
+          "A corporate digital experience created for Double ACT Trading & Contracting Co. Ltd., bringing specialized businesses together under one clear digital foundation. The website establishes the parent company while giving DOKA, Basalt, and Salmina Gold Jewelry their own distinct visual environments within one coherent experience.",
+        approach:
+          "The presentation moves from the DOUBLE ACT parent brand into the umbrella structure, then into separate DOKA, Basalt, and Salmina Gold Jewelry environments so each brand keeps its own visual identity.",
+        outcome:
+          "The final website reads as one coherent corporate experience while preserving the color, imagery, rhythm, and sector-specific presence of every brand under DOUBLE ACT.",
+      },
+      gallery: [
+        {
+          title: "Under Our Umbrella",
+          caption:
+            "The corporate structure introduces DOKA, Basalt, and Salmina Gold Jewelry as distinct entities connected through the DOUBLE ACT foundation.",
+        },
+        {
+          title: "DOKA",
+          caption:
+            "The DOKA chapter uses its yellow and blue construction language to present formwork solutions and local representation in Jeddah and Makkah.",
+        },
+        {
+          title: "Basalt",
+          caption:
+            "The Basalt chapter shifts into a dark green industrial environment for basalt reinforcement and advanced construction materials.",
+        },
+        {
+          title: "Salmina Gold Jewelry",
+          caption:
+            "The Salmina Gold Jewelry chapter moves into a black and gold luxury environment for the specialized gold and jewelry house.",
+        },
+      ],
+      reflection:
+        "DOUBLE ACT became a corporate digital foundation for multiple specialized businesses, combining parent-company clarity with distinct brand worlds for DOKA, Basalt, and Salmina Gold Jewelry.",
+    },
+    ar: {
+      name: "DOUBLE ACT",
+      category: "موقع مؤسسي · تجربة متعددة العلامات",
+      disciplines:
+        "تصميم المواقع · تصميم تجربة وواجهة المستخدم · تجربة متجاوبة · تطوير الواجهات الأمامية · تجربة رقمية متعددة العلامات",
+      intro:
+        "تجربة رقمية مؤسسية صُممت لشركة DOUBLE ACT، تجمع شركات وعلامات متخصصة ضمن أساس رقمي واحد وواضح، مع منح DOKA وBasalt وSalmina Gold Jewelry عوالم بصرية مستقلة ومميزة ضمن تجربة متكاملة ومتناسقة.",
+      details: {
+        client: "DOUBLE ACT",
+        industry: "موقع مؤسسي / تجربة متعددة العلامات",
+        services:
+          "تصميم المواقع، تصميم تجربة وواجهة المستخدم، تجربة متجاوبة، تطوير الواجهات الأمامية، تجربة رقمية متعددة العلامات",
+        platform: "موقع مؤسسي · تجربة متعددة العلامات",
+      },
+      overview: {
+        challenge:
+          "تجربة رقمية مؤسسية صُممت لشركة DOUBLE ACT، تجمع شركات وعلامات متخصصة ضمن أساس رقمي واحد وواضح، مع منح DOKA وBasalt وSalmina Gold Jewelry عوالم بصرية مستقلة ومميزة ضمن تجربة متكاملة ومتناسقة.",
+        approach:
+          "ينتقل العرض من هوية DOUBLE ACT الأم إلى بنية الشركات تحت المظلة، ثم إلى عوالم DOKA وBasalt وSalmina Gold Jewelry، مع الحفاظ على شخصية كل علامة وبيئتها البصرية.",
+        outcome:
+          "أصبح الموقع تجربة مؤسسية واحدة ومتماسكة، مع الحفاظ على ألوان وصور وإيقاع وحضور كل علامة ضمن منظومة DOUBLE ACT.",
+      },
+      gallery: [
+        {
+          title: "Under Our Umbrella",
+          caption:
+            "يعرض هذا الفصل بنية الشركات التي تجمع DOKA وBasalt وSalmina Gold Jewelry ضمن أساس DOUBLE ACT.",
+        },
+        {
+          title: "DOKA",
+          caption:
+            "يستخدم فصل DOKA لغته الصفراء والزرقاء لعرض حلول القوالب والتمثيل المحلي في جدة ومكة.",
+        },
+        {
+          title: "Basalt",
+          caption:
+            "ينتقل فصل Basalt إلى بيئة صناعية خضراء داكنة لمواد التسليح والبناء المتقدمة من حجر البازلت.",
+        },
+        {
+          title: "Salmina Gold Jewelry",
+          caption:
+            "ينتقل فصل Salmina Gold Jewelry إلى بيئة سوداء وذهبية فاخرة لدار الذهب والمجوهرات المتخصصة.",
+        },
+      ],
+      reflection:
+        "أصبح DOUBLE ACT أساسًا رقميًا مؤسسيًا يجمع عدة شركات متخصصة، مع وضوح الشركة الأم وعوالم مستقلة لكل من DOKA وBasalt وSalmina Gold Jewelry.",
+    },
+  },
   "bamarouf-studio": {
     en: {
       name: "BAMAROUF STUDIO",

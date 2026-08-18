@@ -157,6 +157,11 @@ import noorBamaroufWello from "@/assets/projects/noor-bamarouf/04-wello-featured
 import noorBamaroufServices from "@/assets/projects/noor-bamarouf/05-services.jpg";
 import noorBamaroufWemo from "@/assets/projects/noor-bamarouf/06-wemo-delights.jpg";
 import noorBamaroufMoreWork from "@/assets/projects/noor-bamarouf/07-more-work-contact.jpg";
+import doubleActHero from "@/assets/projects/double-act/double-act-hero.png";
+import doubleActUmbrella from "@/assets/projects/double-act/double-act-umbrella.png";
+import doubleActDoka from "@/assets/projects/double-act/double-act-doka.png";
+import doubleActBasalt from "@/assets/projects/double-act/double-act-basalt.png";
+import doubleActSalmina from "@/assets/projects/double-act/double-act-salmina.png";
 
 type GalleryItem = { image: string; title: string; caption: string; fit?: "cover" | "contain" };
 
@@ -166,6 +171,7 @@ type ProjectData = {
   category: string;
   intro: string;
   image: string;
+  heroFit?: "cover" | "contain";
   details: {
     client: string;
     industry: string;
@@ -1102,6 +1108,63 @@ const PROJECTS: ProjectData[] = [
     reflection:
       "The project became a soft editorial portfolio website, combining bilingual experience design, UX/UI, visual direction, responsive front-end development, and a refined presentation system for Noor Bamarouf's graphic design work.",
   },
+  {
+    slug: "double-act",
+    name: "DOUBLE ACT",
+    category: "Corporate Website · Multi-Brand Experience",
+    intro:
+      "A corporate digital experience created for Double ACT Trading & Contracting Co. Ltd., bringing specialized businesses together under one clear digital foundation. The website establishes the parent company while giving DOKA, Basalt, and Salmina Gold Jewelry their own distinct visual environments within one coherent experience.",
+    image: doubleActHero,
+    heroFit: "contain",
+    details: {
+      client: "DOUBLE ACT",
+      industry: "Corporate Website / Multi-Brand Experience",
+      services:
+        "Website Design, UX/UI Design, Responsive Experience, Front-End Development, Multi-Brand Digital Experience",
+      year: "2026",
+      platform: "Corporate Website · Multi-Brand Experience",
+    },
+    overview: {
+      challenge:
+        "A corporate digital experience created for Double ACT Trading & Contracting Co. Ltd., bringing specialized businesses together under one clear digital foundation. The website establishes the parent company while giving DOKA, Basalt, and Salmina Gold Jewelry their own distinct visual environments within one coherent experience.",
+      approach:
+        "The presentation moves from the DOUBLE ACT parent brand into the umbrella structure, then into separate DOKA, Basalt, and Salmina Gold Jewelry environments so each brand keeps its own visual identity.",
+      outcome:
+        "The final website reads as one coherent corporate experience while preserving the color, imagery, rhythm, and sector-specific presence of every brand under DOUBLE ACT.",
+    },
+    gallery: [
+      {
+        image: doubleActUmbrella,
+        title: "Under Our Umbrella",
+        caption:
+          "The corporate structure introduces DOKA, Basalt, and Salmina Gold Jewelry as distinct entities connected through the DOUBLE ACT foundation.",
+        fit: "contain",
+      },
+      {
+        image: doubleActDoka,
+        title: "DOKA",
+        caption:
+          "The DOKA chapter uses its yellow and blue construction language to present formwork solutions and local representation in Jeddah and Makkah.",
+        fit: "contain",
+      },
+      {
+        image: doubleActBasalt,
+        title: "Basalt",
+        caption:
+          "The Basalt chapter shifts into a dark green industrial environment for basalt reinforcement and advanced construction materials.",
+        fit: "contain",
+      },
+      {
+        image: doubleActSalmina,
+        title: "Salmina Gold Jewelry",
+        caption:
+          "The Salmina Gold Jewelry chapter moves into a black and gold luxury environment for the specialized gold and jewelry house.",
+        fit: "contain",
+      },
+    ],
+    reflection:
+      "DOUBLE ACT became a corporate digital foundation for multiple specialized businesses, combining parent-company clarity with distinct brand worlds for DOKA, Basalt, and Salmina Gold Jewelry.",
+  },
 ];
 
 const TARTA_DE_AMOR_PROJECT: ProjectData = {
@@ -1815,6 +1878,8 @@ function ProjectDetail() {
   const project = localizeProject<ProjectData>(rawProject, language);
   const masterProject = localizeProject<ProjectData>(rawProject, "en");
   const next = localizeProject<ProjectData>(getNextProject(rawProject.slug), language);
+  const heroFitClass =
+    rawProject.heroFit === "contain" ? "object-contain bg-ink" : "object-cover";
 
   const overview = project.overview ?? {
     challenge:
@@ -1882,7 +1947,7 @@ function ProjectDetail() {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover"
+          className={`absolute inset-0 w-full h-full ${heroFitClass}`}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background" />
         <div className="relative z-10 flex h-full w-full flex-col justify-between px-6 pt-28 pb-16 md:px-12">
