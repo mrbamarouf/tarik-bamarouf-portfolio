@@ -2,8 +2,8 @@
 export const CONTACT_EMAIL = "tarikbamarouf@gmail.com";
 
 // E.164 format without "+" or spaces (used by wa.me).
-export const WHATSAPP_NUMBER = "966573511132";
-export const WHATSAPP_DISPLAY = "0573511132";
+export const WHATSAPP_NUMBER = "966503938398";
+export const WHATSAPP_DISPLAY = "0503938398";
 
 export const INSTAGRAM_URL =
   "https://www.instagram.com/bamaroufstudio?igsh=MWs0dW0ybzZrMmE4Mw==";
