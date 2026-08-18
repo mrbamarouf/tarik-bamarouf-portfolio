@@ -12,8 +12,10 @@ import cinematicHero from "@/assets/cinematic-hero.webp";
 import aboutImg from "@/assets/about.webp";
 import finalCtaWall from "@/assets/final-cta-wall.webp";
 import circleSectionLogo from "@/assets/client-logos/circle-section-logo-transparent copy.png";
+import doubleActLogo from "@/assets/client-logos/double-act-official-logo.png";
 import exEventsLogo from "@/assets/client-logos/B4435926-8D00-4AA0-87A3-9EE7263C33CF copy.png";
 import firstAdvanceLogo from "@/assets/client-logos/70A09C39-DF9C-43EE-B0E1-5426C8B52AC7 copy.png";
+import giraffeTravelLogo from "@/assets/client-logos/giraffe-travel-tourism-official-logo.png";
 import jorofLogo from "@/assets/client-logos/logo copy.png";
 import lillyBreezeLogo from "@/assets/client-logos/4F5B7AB8-6366-4DAD-9FE5-B4AB29E405C0 copy.png";
 import mihnLogo from "@/assets/client-logos/38A4BC37-CF88-4D06-A9A9-CB2882387C49 copy.png";
@@ -80,6 +82,7 @@ const selectedWorkProjects = portfolioProjects;
 type ClientLogo = {
   name: string;
   image: string;
+  projectSlug?: string;
   size?: "medium" | "strong" | "soft";
 };
 
@@ -95,7 +98,14 @@ const clientLogos: ReadonlyArray<ClientLogo> = [
   { name: "First Advance", image: firstAdvanceLogo },
   { name: "Circle Section", image: circleSectionLogo },
   { name: "NOORIX", image: noorixLogo, size: "medium" },
+  { name: "DOUBLE ACT", image: doubleActLogo, projectSlug: "double-act", size: "soft" },
   { name: "SIP", image: sipLogo, size: "medium" },
+  {
+    name: "GIRAFFE TRAVEL & TOURISM",
+    image: giraffeTravelLogo,
+    projectSlug: "giraffe-travel-tourism",
+    size: "medium",
+  },
   { name: "Osama Bin Ahmed Bin Mahfouz Law Firm", image: osamaLawLogo, size: "medium" },
   { name: "BAMAROUF STUDIO", image: bamaroufStudioLogo, size: "medium" },
   { name: "KHALID BAMAROUF", image: khalidBamaroufLogo, size: "medium" },
@@ -599,21 +609,39 @@ function Index() {
             <div className="client-marquee__track">
               {[0, 1].map((rowIndex) => (
                 <div className="client-marquee__row" key={rowIndex} aria-hidden={rowIndex === 1}>
-                  {clientLogos.map((logo) => (
-                    <span
-                      className={`client-marquee__logo client-marquee__logo--${logo.size ?? "base"}${
-                        logo.name === "Pakman" ? " client-marquee__logo--pakman" : ""
-                      }`}
-                      key={`${rowIndex}-${logo.name}`}
-                    >
+                  {clientLogos.map((logo) => {
+                    const logoClassName = `client-marquee__logo client-marquee__logo--${logo.size ?? "base"}${
+                      logo.name === "Pakman" ? " client-marquee__logo--pakman" : ""
+                    }`;
+                    const logoImage = (
                       <img
                         src={logo.image}
                         alt={rowIndex === 0 ? `${logo.name} logo` : ""}
                         loading="lazy"
                         decoding="async"
                       />
-                    </span>
-                  ))}
+                    );
+
+                    if (logo.projectSlug) {
+                      return (
+                        <Link
+                          className={logoClassName}
+                          key={`${rowIndex}-${logo.name}`}
+                          params={{ slug: logo.projectSlug }}
+                          tabIndex={rowIndex === 1 ? -1 : undefined}
+                          to="/work/$slug"
+                        >
+                          {logoImage}
+                        </Link>
+                      );
+                    }
+
+                    return (
+                      <span className={logoClassName} key={`${rowIndex}-${logo.name}`}>
+                        {logoImage}
+                      </span>
+                    );
+                  })}
                 </div>
               ))}
             </div>
