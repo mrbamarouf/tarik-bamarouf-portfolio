@@ -2984,7 +2984,7 @@ export const projectCopy: Record<string, Record<Language, ProjectCopy>> = {
         "Giraffe Travel & Tourism became a bilingual travel platform that connects discovery, planning, services, religious journeys, honeymoon travel, and curated destination experiences in one responsive digital experience.",
     },
     ar: {
-      name: "جيراف للسفر والسياحة",
+      name: "GIRAFFE TRAVEL & TOURISM",
       category: "موقع سفر وسياحة · تجربة وواجهة مستخدم · تجربة رقمية",
       disciplines: "موقع سفر وسياحة · تجربة وواجهة مستخدم · تجربة رقمية",
       intro:
